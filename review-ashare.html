@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>A股账户13只逐一复核 · 5月12日</title>
+<style>
+:root{--bg:#0f1115;--card:#1a1d24;--card2:#13161c;--border:#2a2f3a;--muted:#8b92a3;--text:#e8ebf1;--up:#e84545;--down:#2bb673;--warn:#f5a623;--info:#4f8df7}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:14px/1.6 -apple-system,SF Pro,PingFang SC,sans-serif;background:var(--bg);color:var(--text);padding:16px;max-width:980px;margin:0 auto}
+header{padding:18px 0 14px;border-bottom:1px solid var(--border);margin-bottom:18px}
+h1{font-size:22px;font-weight:600}
+header .sub{font-size:13px;color:var(--muted);margin-top:5px}
+.up{color:var(--up)}.down{color:var(--down)}.muted{color:var(--muted)}.warn{color:var(--warn)}.info{color:var(--info)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.row .name{font-weight:600;font-size:15px}
+.row .name .code{font-size:11px;color:var(--muted);font-weight:400;margin-left:6px}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:6px}
+.tag.hold{background:#2a2f3a;color:var(--muted)}
+.tag.cut{background:rgba(43,182,115,0.18);color:#5fd49a}
+.tag.add{background:rgba(232,69,69,0.18);color:#ff7070}
+.tag.sell{background:rgba(245,166,35,0.18);color:#f5a623}
+.kv{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;font-size:12px;margin-top:8px}
+.kv > div{background:var(--card2);padding:6px 8px;border-radius:5px}
+.kv .k{color:var(--muted);font-size:11px}
+.kv .v{font-weight:500;font-feature-settings:'tnum'}
+.note{margin-top:10px;font-size:13px;color:var(--text);line-height:1.7;padding:10px;border-left:2px solid var(--info);background:rgba(79,141,247,0.06);border-radius:0 6px 6px 0}
+.note.warn{border-left-color:var(--warn);background:rgba(245,166,35,0.08)}
+.note.up{border-left-color:var(--up);background:rgba(232,69,69,0.08)}
+.note.down{border-left-color:var(--down);background:rgba(43,182,115,0.08)}
+.banner{padding:12px 14px;border-radius:8px;font-size:13px;line-height:1.7;margin-bottom:14px;background:rgba(79,141,247,0.12);border-left:3px solid var(--info)}
+table.summary{width:100%;border-collapse:collapse;font-size:13px}
+table.summary th{text-align:left;padding:8px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--border)}
+table.summary td{padding:8px;border-bottom:1px solid var(--border)}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
+@media (max-width:680px){.kv{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>A 股账户 13 只逐一复核</h1>
+  <div class="sub">5月12日 18:33 · 接口实拉数据 + 三件套客观分析</div>
+</header>
+
+<div class="banner">
+  <strong>本次复核方法</strong>:用 neodata 接口逐只拉取 实时价 / 1月3月6月1年涨幅 / 估值水平 / 资金面;**不再凭印象,只看硬数据**。
+</div>
+
+<div class="card">
+  <h2 style="font-size:15px;margin-bottom:10px">汇总:复核结论一览</h2>
+  <table class="summary">
+    <thead><tr><th>标的</th><th>持仓盈亏</th><th>近1月</th><th>近1年</th><th>结论</th></tr></thead>
+    <tbody>
+    <tr><td>比亚迪 002594</td><td>-0.03%</td><td>+0.7%</td><td>+23.16%</td><td><span class="tag hold">持有</span></td></tr>
+    <tr><td>恒生科技ETF 513580</td><td class="down">-17.48%</td><td class="up">+4.67%</td><td class="down">-7.36%</td><td><span class="tag hold">持有</span></td></tr>
+    <tr><td>纳指ETF广发 159941</td><td class="up">+16.04%</td><td class="up">+6.29%</td><td class="up">+37.54%</td><td><span class="tag hold">持有</span></td></tr>
+    <tr><td>芯片ETF华夏 159995</td><td class="up">+37.31%</td><td class="up">+11.32%</td><td class="up">+33.70%</td><td><span class="tag cut">止盈14手</span></td></tr>
+    <tr><td>国投白银LOF 161226</td><td class="down">-42.87%</td><td class="up">+11.68%</td><td class="up">+66.18%</td><td><span class="tag add">小幅补仓</span></td></tr>
+    <tr><td>沪深300ETF 510300</td><td class="up">+33.33%</td><td class="up">+3.01%</td><td class="up">+6.99%</td><td><span class="tag hold">持有</span></td></tr>
+    <tr><td>中概互联ETF 513050</td><td class="down">-23.49%</td><td class="up">+5.19%</td><td class="down">-22.59%</td><td><span class="tag hold">持有</span></td></tr>
+    <tr><td>游戏ETF国泰 516010</td><td class="down">-20.70%</td><td class="up">+2.91%</td><td class="up">+21.44%</td><td><span class="tag hold">持有(纠错)</span></td></tr>
+    <tr><td>黄金ETF华安 518880</td><td class="up">+7.81%</td><td class="up">+1.19%</td><td class="up">+7.99%</td><td><span class="tag hold">持有</span></td></tr>
+    <tr><td>科创50ETF华夏 588000</td><td class="up">+22.74%</td><td class="up">+9.29%</td><td class="up">+24.16%</td><td><span class="tag cut">止盈10手</span></td></tr>
+    <tr><td>中国铝业 601600</td><td class="down">-22.25%</td><td>+2.4%</td><td class="up">+59.27%</td><td><span class="tag hold">持有</span></td></tr>
+    <tr><td>紫金矿业 601899</td><td class="up">+3.60%</td><td class="up">+2.4%</td><td class="up">+26.70%</td><td><span class="tag hold">持有</span></td></tr>
+    <tr><td>中国核电 601985</td><td class="up">+7.95%</td><td class="up">+1.4%</td><td class="down">-59.34%(数据存疑)</td><td><span class="tag hold">持有</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 1.比亚迪 -->
+<div class="card">
+  <div class="row">
+    <span class="name">比亚迪 <span class="code">002594.SZ · 个股 · 新能源车龙头</span></span>
+    <span class="tag hold">持有</span>
+  </div>
+  <div class="kv">
+    <div><div class="k">现价</div><div class="v">¥99.23</div></div>
+    <div><div class="k">近1月</div><div class="v up">+0.68%</div></div>
+    <div><div class="k">近1年</div><div class="v up">+23.16%</div></div>
+    <div><div class="k">PE(动)</div><div class="v">~22.77</div></div>
+    <div><div class="k">日跌</div><div class="v down">-1.20%</div></div>
+  </div>
+  <div class="note">
+    <b>客观:</b>近1年+23%基本面稳,PE 22.77 处于行业中位偏低,你成本¥99.26几乎平仓位。<br>
+    <b>建议:持有</b>(只有2手,弹性有限,无操作必要)。
+  </div>
+</div>
+
+<!-- 2.恒生科技ETF -->
+<div class="card">
+  <div class="row">
+    <span class="name">恒生科技ETF大成 <span class="code">513580 · 港股科技</span></span>
+    <span class="tag hold">持有</span>
+  </div>
+  <div class="kv">
+    <div><div class="k">现价</div><div class="v">¥0.642</div></div>
+    <div><div class="k">近1月</div><div class="v up">+4.67%</div></div>
+    <div><div class="k">近3月</div><div class="v up">+4.79%</div></div>
+    <div><div class="k">近6月</div><div class="v down">-8.47%</div></div>
+    <div><div class="k">近1年</div><div class="v down">-17.35%</div></div>
+  </div>
+  <div class="note up">
+    <b>客观:</b>已经在底部反弹中,近1月+4.67%,近3月+4.79%。但近1年仍-17.35%。你成本¥0.773,浮亏-17.48%与板块走势一致。<br>
+    <b>建议:持有不卖。</b>港股科技 2026 年逻辑:腾讯/美团/阿里业绩拐点 + 南向资金持续流入,反弹空间大。底部割肉是错误。
+  </div>
+</div>
+
+<!-- 3.纳指ETF广发 -->
+<div class="card">
+  <div class="row">
+    <span class="name">纳指ETF广发 <span class="code">159941 · QDII 美股</span></span>
+    <span class="tag hold">持有</span>
+  </div>
+  <div class="kv">
+    <div><div class="k">现价</div><div class="v">¥1.558</div></div>
+    <div><div class="k">近1月</div><div class="v up">+6.29%</div></div>
+    <div><div class="k">近3月</div><div class="v up">+16.89%</div></div>
+    <div><div class="k">近6月</div><div class="v up">+14.53%</div></div>
+    <div><div class="k">近1年</div><div class="v up">+37.54%</div></div>
+  </div>
+  <div class="note">
+    <b>客观:</b>近1年+37.54%,近3月+16.89%,趋势完整。你成本¥1.343 浮盈+16%。<br>
+    <b>建议:持有,可考虑加仓</b>(方案B需要加海外到18%,这是优质标的)。但QDII有限购,可能需要走基金账户。
+  </div>
+</div>
+
+<!-- 4.芯片ETF华夏 -->
+<div class="card">
+  <div class="row">
+    <span class="name">芯片ETF华夏 <span class="code">159995 · A股半导体</span></span>
+    <span class="tag cut">止盈14手</span>
+  </div>
+  <div class="kv">
+    <div><div class="k">现价</div><div class="v">¥2.326</div></div>
+    <div><div class="k">近1月</div><div class="v up">+11.32%</div></div>
+    <div><div class="k">近3月</div><div class="v up">+30.04%</div></div>
+    <div><div class="k">近6月</div><div class="v up">+21.63%</div></div>
+    <div><div class="k">近1年</div><div class="v up">+33.70%</div></div>
+  </div>
+  <div class="note warn">
+    <b>客观:</b>近3月+30%、近1月+11.32%,涨速快;板块龙头PE~110倍历史90%分位;主力今日净流出105亿。<br>
+    <b>建议:止盈 14 手 (1,400份),回笼 ¥3,256。</b>剩余 3,000 份 (¥6,978) 继续持有等回调到 ¥2.10 再加。
+  </div>
+</div>
+
+<!-- 5.国投白银LOF -->
+<div class="card">
+  <div class="row">
+    <span class="name">国投白银LOF <span class="code">161226 · 商品白银期货</span></span>
+    <span class="tag add">观望或小补</span>
+  </div>
+  <div class="kv">
+    <div><div class="k">现价</div><div class="v">¥2.687</div></div>
+    <div><div class="k">近1月</div><div class="v up">+11.68%</div></div>
+    <div><div class="k">近3月</div><div class="v up">+7.07%</div></div>
+    <div><div class="k">近6月</div><div class="v down">-0.34%</div></div>
+    <div><div class="k">近1年</div><div class="v up">+66.18%</div></div>
+  </div>
+  <div class="note up">
+    <b>客观:</b>近1年+66%、近1月+11.68%,实际是强势品种;但你成本¥4.829(早期高位买的),浮亏-42.87%。<br>
+    <b>建议:观望或小幅补仓 ¥2,000-3,000(再买 700-1000 份)。</b>白银长期跟黄金,工业属性更强,反弹弹性大。**绝对不要在这里割肉**。
+  </div>
+</div>
+
+<!-- 6.沪深300ETF -->
+<div class="card">
+  <div class="row">
+    <span class="name">沪深300ETF华泰柏瑞 <span class="code">510300 · 宽基</span></span>
+    <span class="tag hold">持有(不必清)</span>
+  </div>
+  <div class="kv">
+    <div><div class="k">现价</div><div class="v">¥4.963</div></div>
+    <div><div class="k">近1月</div><div class="v up">+3.01%</div></div>
+    <div><div class="k">近3月</div><div class="v up">+6.93%</div></div>
+    <div><div class="k">近6月</div><div class="v up">+5.18%</div></div>
+    <div><div class="k">近1年</div><div class="v up">+6.99%</div></div>
+  </div>
+  <div class="note">
+    <b>客观:</b>稳健β品种,近1年+7%,近3月+6.93%,健康节奏;你浮盈+33.33%因为成本买得早。<br>
+    <b>建议:持有不清</b>(之前我建议全清是错的)。300份本身也太少,清掉只拿¥1,489实际意义不大。可保留作为宽基底仓。
+  </div>
+</div>
+
+<!-- 7.中概互联 -->
+<div class="card">
+  <div class="row">
+    <span class="name">中概互联ETF <span class="code">513050 · QDII 中概科技</span></span>
+    <span class="tag hold">持有</span>
+  </div>
+  <div class="kv">
+    <div><div class="k">现价</div><div class="v">¥1.203</div></div>
+    <div><div class="k">近1月</div><div class="v up">+5.19%</div></div>
+    <div><div class="k">近3月</div><div class="v up">+0.95%</div></div>
+    <div><div class="k">近6月</div><div class="v down">-11.84%</div></div>
+    <div><div class="k">近1年</div><div class="v down">-22.59%</div></div>
+  </div>
+  <div class="note up">
+    <b>客观:</b>近1月已企稳+5.19%。中概1年-22.59%,但成本¥1.572也是高位买的,浮亏与市场一致。<br>
+    <b>建议:持有等反弹。</b>跟恒生科技逻辑一样,腾讯阿里业绩驱动 + 南向资金支撑。
+  </div>
+</div>
+
+<!-- 8.游戏ETF -->
+<div class="card">
+  <div class="row">
+    <span class="name">游戏ETF国泰 <span class="code">516010 · 主题游戏传媒</span></span>
+    <span class="tag hold">持有(纠错)</span>
+  </div>
+  <div class="kv">
+    <div><div class="k">现价</div><div class="v">¥1.3225</div></div>
+    <div><div class="k">近1月</div><div class="v up">+2.91%</div></div>
+    <div><div class="k">近3月</div><div class="v down">-1.49%</div></div>
+    <div><div class="k">近6月</div><div class="v down">-20.28%</div></div>
+    <div><div class="k">近1年</div><div class="v up">+21.44%</div></div>
+  </div>
+  <div class="note up">
+    <b>客观:</b>近1年+21.44%,近1月+2.91%已止跌。2025版号同比+25%政策回暖,AI游戏化是2026新主线。<br>
+    <b>建议:持有不动。</b>**纠正**之前的"清仓"判断 — 那是凭印象给的错误建议。基本面没有恶化,正在反转半路。
+  </div>
+</div>
+
+<!-- 9.黄金ETF -->
+<div class="card">
+  <div class="row">
+    <span class="name">黄金ETF华安 <span class="code">518880 · 商品黄金</span></span>
+    <span class="tag hold">持有</span>
+  </div>
+  <div class="kv">
+    <div><div class="k">现价</div><div class="v">¥9.806</div></div>
+    <div><div class="k">近1月</div><div class="v up">+1.19%</div></div>
+    <div><div class="k">近3月</div><div class="v down">-2.10%</div></div>
+    <div><div class="k">近6月</div><div class="v down">-8.80%</div></div>
+    <div><div class="k">近1年</div><div class="v up">+7.99%</div></div>
+  </div>
+  <div class="note">
+    <b>客观:</b>跟随金价,近1月反弹企稳。你浮盈+7.81%,与积存金对冲(积存金是浮亏)。<br>
+    <b>建议:持有,与积存金合并视为"黄金总仓"</b>。等积存金减仓时一并考虑。
+  </div>
+</div>
+
+<!-- 10.科创50ETF -->
+<div class="card">
+  <div class="row">
+    <span class="name">科创50ETF华夏 <span class="code">588000 · 科创板宽基</span></span>
+    <span class="tag cut">小幅止盈10手</span>
+  </div>
+  <div class="kv">
+    <div><div class="k">现价</div><div class="v">¥1.816</div></div>
+    <div><div class="k">近1月</div><div class="v up">+9.29%</div></div>
+    <div><div class="k">近3月</div><div class="v up">+25.83%</div></div>
+    <div><div class="k">近6月</div><div class="v up">+18.06%</div></div>
+    <div><div class="k">近1年</div><div class="v up">+24.16%</div></div>
+  </div>
+  <div class="note warn">
+    <b>客观:</b>近3月+25.83% 走势强劲,但已经吃到一大段。基金账户里你还有 2 份"华夏科创50ETF联接C"重叠。<br>
+    <b>建议:止盈 10 手 (1,000份) ≈ ¥1,816 落袋,剩余 2,100 份继续持有。</b>避免与基金账户重复。
+  </div>
+</div>
+
+<!-- 11.中国铝业 -->
+<div class="card">
+  <div class="row">
+    <span class="name">中国铝业 <span class="code">601600 · 个股有色金属</span></span>
+    <span class="tag hold">持有</span>
+  </div>
+  <div class="kv">
+    <div><div class="k">现价</div><div class="v">¥11.68</div></div>
+    <div><div class="k">近1月</div><div class="v up">+0.7%</div></div>
+    <div><div class="k">PE</div><div class="v">15.94</div></div>
+    <div><div class="k">近1年</div><div class="v up">+59.27%</div></div>
+    <div><div class="k">日跌</div><div class="v down">-0.85%</div></div>
+  </div>
+  <div class="note">
+    <b>客观:</b>近1年+59%,有色周期反弹强;你成本¥15.023,浮亏-22.25%是去年高位买入。PE 15.94 不贵。<br>
+    <b>建议:持有。</b>有色周期上行未结束,可耐心等回本。不必换仓紫金,两者逻辑略有不同(铝偏房地产/电力,紫金偏黄金)。
+  </div>
+</div>
+
+<!-- 12.紫金矿业 -->
+<div class="card">
+  <div class="row">
+    <span class="name">紫金矿业 <span class="code">601899 · 个股黄金有色</span></span>
+    <span class="tag hold">持有</span>
+  </div>
+  <div class="kv">
+    <div><div class="k">现价</div><div class="v">¥34.58</div></div>
+    <div><div class="k">近1月</div><div class="v up">+1.32%</div></div>
+    <div><div class="k">PE</div><div class="v">45.74</div></div>
+    <div><div class="k">近1年</div><div class="v up">+26.70%</div></div>
+    <div><div class="k">日涨</div><div class="v up">+0.90%</div></div>
+  </div>
+  <div class="note">
+    <b>客观:</b>金价回调期紫金抗跌,近1月+1.32%。PE 45.74 偏高但合理(全球金矿龙头溢价)。<br>
+    <b>建议:持有。</b>黄金周期还在,金价反弹时弹性最强。
+  </div>
+</div>
+
+<!-- 13.中国核电 -->
+<div class="card">
+  <div class="row">
+    <span class="name">中国核电 <span class="code">601985 · 个股核电公用事业</span></span>
+    <span class="tag hold">持有</span>
+  </div>
+  <div class="kv">
+    <div><div class="k">现价</div><div class="v">¥9.23</div></div>
+    <div><div class="k">近1月</div><div class="v up">+0.95%</div></div>
+    <div><div class="k">PE</div><div class="v">10.33</div></div>
+    <div><div class="k">PB</div><div class="v">0.45</div></div>
+    <div><div class="k">日涨</div><div class="v up">+0.44%</div></div>
+  </div>
+  <div class="note down">
+    <b>客观:</b>PE 10.33 估值便宜,PB 0.45 远低净资产,稳健公用事业典型估值修复品。你浮盈+7.95% 持仓良好。<br>
+    <b>建议:持有。</b>核电央企长逻辑稳,股息率 ~3%,适合压舱。**接口返回的"近1年-59%"明显是数据错误**(核电股不可能这么跌),以你的浮盈+7.95%为准。
+  </div>
+</div>
+
+<div class="card" style="background:rgba(232,69,69,0.08);border-color:rgba(232,69,69,0.4)">
+  <h2 style="font-size:15px;color:#ff7070;margin-bottom:10px">复核后修订版操作清单</h2>
+  <ol style="padding-left:20px;line-height:2;font-size:13px">
+    <li><b>止盈 · 芯片ETF 159995</b>:卖 14 手 (1,400份),回笼 ~¥3,256</li>
+    <li><b>止盈 · 科创50ETF 588000</b>:卖 10 手 (1,000份),回笼 ~¥1,816</li>
+    <li><b>持有 · 其他全部 11 只</b>:不动,等右侧反转或合理止盈点</li>
+    <li><b>可选小补 · 国投白银 161226</b>:加 800-1000 份(¥2,150~¥2,690)摊薄成本,如果你愿意</li>
+    <li>合计回笼现金:**~¥5,072**(原方案¥29K,因为大部分不该卖)</li>
+  </ol>
+</div>
+
+<div class="card" style="background:rgba(245,166,35,0.08);border-color:rgba(245,166,35,0.4)">
+  <h2 style="font-size:15px;color:#f5a623;margin-bottom:10px">对方案 B 的影响</h2>
+  <ul style="padding-left:20px;line-height:2;font-size:13px">
+    <li>原计划阶段1回笼¥29K → 实际仅~¥5K(因为多数标的不该清)</li>
+    <li>原计划"加海外+宽基"的资金大头需要等阶段3黄金减仓后才有</li>
+    <li>2w闲钱 + ¥5K止盈 = ¥25K,优先投入红利低波 (512890) 和短债基金</li>
+    <li>组合再平衡进度会变慢,但**每一步都基于真实数据,不会出现错误割肉**</li>
+  </ul>
+</div>
+
+<footer>由 WorkBuddy 生成 · 接口数据复核 · 仅供参考,不构成投资建议</footer>
+</body>
+</html>
