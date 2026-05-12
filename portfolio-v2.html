@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>我的全持仓诊断 v2 · 5月12日</title>
+<style>
+:root{--bg:#0f1115;--card:#1a1d24;--card2:#13161c;--border:#2a2f3a;--muted:#8b92a3;--text:#e8ebf1;--up:#e84545;--down:#2bb673;--warn:#f5a623;--info:#4f8df7}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:14px/1.6 -apple-system,SF Pro,PingFang SC,sans-serif;background:var(--bg);color:var(--text);padding:16px;max-width:920px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid var(--border);margin-bottom:20px}
+h1{font-size:22px;font-weight:600}
+header .sub{font-size:13px;color:var(--muted);margin-top:6px}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.metric{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px}
+.metric .label{font-size:12px;color:var(--muted);margin-bottom:6px}
+.metric .value{font-size:22px;font-weight:600;font-feature-settings:'tnum'}
+.metric .extra{font-size:12px;margin-top:4px;font-feature-settings:'tnum'}
+.up{color:var(--up)}.down{color:var(--down)}.muted{color:var(--muted)}.warn{color:var(--warn)}.info{color:var(--info)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.card h2{font-size:15px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card h2::before{content:'';width:3px;height:16px;background:var(--info);border-radius:2px}
+.card h2 .total{margin-left:auto;font-size:13px;color:var(--muted);font-weight:400}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:8px;font-weight:500;color:var(--muted);font-size:12px;border-bottom:1px solid var(--border)}
+th.r,td.r{text-align:right;font-feature-settings:'tnum'}
+td{padding:10px 8px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+.banner{padding:12px 14px;border-radius:8px;font-size:13px;line-height:1.7;margin-bottom:14px}
+.banner.info{background:rgba(79,141,247,0.12);border-left:3px solid var(--info)}
+.banner.warn{background:rgba(245,166,35,0.1);border-left-color:var(--warn);border-left:3px solid var(--warn)}
+.banner.up{background:rgba(232,69,69,0.1);border-left:3px solid var(--up)}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;background:var(--card2);color:var(--muted);margin-left:6px}
+.tag.win{background:rgba(232,69,69,0.18);color:#ff7070}
+.tag.lose{background:rgba(43,182,115,0.18);color:#5fd49a}
+.bar{position:relative;height:18px;background:var(--card2);border-radius:9px;overflow:hidden;margin-top:4px}
+.bar > span{position:absolute;left:0;top:0;height:100%;display:flex;align-items:center;padding:0 8px;font-size:11px;color:#fff}
+ul.advice{list-style:none;padding:0}
+ul.advice li{padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+ul.advice li:last-child{border-bottom:none}
+ul.advice li b{color:var(--info)}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
+@media (max-width:680px){.summary{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>我的全持仓诊断 v2(含A股账户)</h1>
+  <div class="sub">5月12日 17:35 更新 · 新增平安证券 A 股账户 ¥128,877</div>
+</header>
+
+<div class="banner up">
+  <strong>v2 重大更新:</strong>用户已经持有完整的 A 股账户(平安证券)¥128,877,内含 <b>芯片ETF华夏(159995)¥10,234 浮盈+37.31%</b> 以及 8 只其他ETF/个股。这彻底改变之前关于"是否新增半导体"的判断。
+</div>
+
+<div class="summary">
+  <div class="metric">
+    <div class="label">A 股账户(平安证券)</div>
+    <div class="value">¥128,877</div>
+    <div class="extra down">总浮亏 -¥9,123</div>
+  </div>
+  <div class="metric">
+    <div class="label">基金 / 投顾</div>
+    <div class="value">¥256K</div>
+    <div class="extra up">浮盈 ~+¥37K</div>
+  </div>
+  <div class="metric">
+    <div class="label">黄金积存(2 账户)</div>
+    <div class="value">¥217,904</div>
+    <div class="extra down">浮亏 -¥12,002</div>
+  </div>
+  <div class="metric">
+    <div class="label">总市值</div>
+    <div class="value warn">~¥603K</div>
+    <div class="extra up">总浮盈 ~+¥16K (含A股浮亏)</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>1. 平安证券 A 股账户(新增) <span class="total">总市值 ¥128,877 · 浮亏 -¥9,123 · 仓位 99.9%</span></h2>
+  <table>
+    <thead><tr><th>标的</th><th class="r">市值</th><th class="r">持仓</th><th class="r">成本/现价</th><th class="r">盈亏</th><th class="r">收益率</th></tr></thead>
+    <tbody>
+    <tr><td><b>比亚迪</b><br><span class="muted" style="font-size:11px">002594</span></td><td class="r">19,846</td><td class="r">200 (2手)</td><td class="r">99.26 / 99.23</td><td class="r down">-6.20</td><td class="r"><span class="tag lose">-0.03%</span></td></tr>
+    <tr><td><b>恒生科技ETF大成</b><br><span class="muted" style="font-size:11px">513580</span></td><td class="r">20,735</td><td class="r">32,500</td><td class="r">0.773 / 0.638</td><td class="r down">-4,393.70</td><td class="r"><span class="tag lose">-17.48%</span></td></tr>
+    <tr><td><b>纳指ETF广发</b><br><span class="muted" style="font-size:11px">159941</span></td><td class="r">4,674</td><td class="r">3,000</td><td class="r">1.343 / 1.558</td><td class="r up">+646.00</td><td class="r"><span class="tag win">+16.04%</span></td></tr>
+    <tr><td><b>芯片ETF华夏</b><br><span class="muted" style="font-size:11px">sz159995</span></td><td class="r">10,234</td><td class="r">4,400</td><td class="r">1.694 / 2.326</td><td class="r up">+2,781.00</td><td class="r"><span class="tag win">+37.31%</span></td></tr>
+    <tr><td><b>国投白银LOF</b><br><span class="muted" style="font-size:11px">161226</span></td><td class="r">2,191</td><td class="r">794</td><td class="r">4.829 / 2.759</td><td class="r down">-1,643.65</td><td class="r"><span class="tag lose">-42.87%</span></td></tr>
+    <tr><td><b>沪深300ETF华泰柏瑞</b><br><span class="muted" style="font-size:11px">510300</span></td><td class="r">1,489</td><td class="r">300</td><td class="r">3.722 / 4.963</td><td class="r up">+372.20</td><td class="r"><span class="tag win">+33.33%</span></td></tr>
+    <tr><td><b>中概互联网ETF</b><br><span class="muted" style="font-size:11px">513050</span></td><td class="r">6,737</td><td class="r">5,600</td><td class="r">1.572 / 1.203</td><td class="r down">-2,068.60</td><td class="r"><span class="tag lose">-23.49%</span></td></tr>
+    <tr><td><b>游戏ETF国泰</b><br><span class="muted" style="font-size:11px">516010</span></td><td class="r">23,436</td><td class="r">18,000</td><td class="r">1.642 / 1.302</td><td class="r down">-6,117.60</td><td class="r"><span class="tag lose">-20.70%</span></td></tr>
+    <tr><td><b>黄金ETF华安</b><br><span class="muted" style="font-size:11px">518880</span></td><td class="r">10,787</td><td class="r">1,100</td><td class="r">9.095 / 9.806</td><td class="r up">+781.60</td><td class="r"><span class="tag win">+7.81%</span></td></tr>
+    <tr><td><b>科创50ETF华夏</b><br><span class="muted" style="font-size:11px">588000</span></td><td class="r">5,630</td><td class="r">3,100</td><td class="r">1.480 / 1.816</td><td class="r up">+1,043.00</td><td class="r"><span class="tag win">+22.74%</span></td></tr>
+    <tr><td><b>中国铝业</b><br><span class="muted" style="font-size:11px">601600</span></td><td class="r">4,672</td><td class="r">400 (4手)</td><td class="r">15.023 / 11.680</td><td class="r down">-1,337.06</td><td class="r"><span class="tag lose">-22.25%</span></td></tr>
+    <tr><td><b>紫金矿业</b><br><span class="muted" style="font-size:11px">601899</span></td><td class="r">13,832</td><td class="r">400 (4手)</td><td class="r">33.379 / 34.580</td><td class="r up">+480.31</td><td class="r"><span class="tag win">+3.60%</span></td></tr>
+    <tr><td><b>中国核电</b><br><span class="muted" style="font-size:11px">601985</span></td><td class="r">4,615</td><td class="r">500 (5手)</td><td class="r">8.550 / 9.230</td><td class="r up">+339.96</td><td class="r"><span class="tag win">+7.95%</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>2. A 股账户结构分析</h2>
+  <div style="margin-bottom:8px;font-size:13px">市值占比(占 ¥128,877)</div>
+  <div class="bar"><span style="width:18%;background:#4f8df7">游戏ETF 18% · ¥23,436(浮亏-20%)</span></div>
+  <div class="bar"><span style="width:16%;background:#e84545">恒生科技ETF 16% · ¥20,735(浮亏-17%)</span></div>
+  <div class="bar"><span style="width:15%;background:#7f77dd">比亚迪 15% · ¥19,846</span></div>
+  <div class="bar"><span style="width:11%;background:#2bb673">紫金矿业 11% · ¥13,832</span></div>
+  <div class="bar"><span style="width:8%;background:#f5a623">芯片ETF 8% · ¥10,234(浮盈+37%)</span></div>
+  <div class="bar"><span style="width:8%;background:#5dcaa5">黄金ETF 8% · ¥10,787(浮盈+7.8%)</span></div>
+  <div class="bar"><span style="width:24%;background:#888780">其他 24% · ¥30K(中概/科创50/纳指/沪深300/铝业/核电/白银)</span></div>
+</div>
+
+<div class="card">
+  <h2>3. v2 关键诊断(更新版)</h2>
+  <div class="banner up">
+    <b>错误纠正 1 · 你已经在 A 股账户重仓持有芯片ETF 159995!</b><br>
+    持有 4,400 份 · 成本 ¥1.694 · 现价 ¥2.326 · 浮盈 +37.31% (+¥2,781)。<br>
+    <strong>之前我让你"再买半导体"完全是错的</strong> —— 你已经吃到了一大波,2w 闲钱不应该再叠加同主题,而应该考虑<b>止盈一部分</b>。
+  </div>
+  <div class="banner warn">
+    <b>问题 2 · 大幅亏损集中在 3 只</b>:<br>
+    · 国投白银 LOF -42.87%(-¥1,644)— 单只最严重<br>
+    · 中概互联网 -23.49%(-¥2,069)— 港股科技长期低迷<br>
+    · 中国铝业 -22.25%(-¥1,337)— 周期股深度回调<br>
+    · 游戏ETF -20.70%(-¥6,118)— A股最大金额亏损
+  </div>
+  <div class="banner warn">
+    <b>问题 3 · 黄金 ETF 浮盈 +7.81%</b>:你的<b>黄金 ETF 华安</b>(518880)持仓 1,100 份,成本¥9.095,现价 ¥9.806,**已经浮盈了**。这跟黄金积存金 ¥1086 成本浮亏的情况完全不一样,因为 ETF 是按市价单独成本核算的。
+  </div>
+  <div class="banner info">
+    <b>组合特征(v2 全景)</b>:总持仓涵盖<b>科技(芯片/光模块/科创50/恒生科技/中概互联/纳指/标普)、新能源(电动车/电池/能源革命/比亚迪/核电)、有色金属(紫金矿业/中国铝业/有色矿业)、贵金属(黄金积存+黄金ETF+白银)、军工、医药</b>近乎全主题覆盖。
+  </div>
+</div>
+
+<div class="card">
+  <h2>4. 重新调整后的核心建议</h2>
+  <ul class="advice">
+    <li><b>立即重要 · 止盈芯片ETF华夏(159995)A股账户的 4,400 份 中的 1,400 份</b><br>
+      持有数已 +37%,板块估值 90% 分位,主力今日流出 105 亿。落袋约 ¥3,250 利润,保留剩余 3,000 份等回调再加。<br>
+      ⚠️ A股账户卖出按手:1,400 = 14 手,完全可执行。
+    </li>
+    <li><b>立即重要 · 止盈科创50ETF(588000)1,100 份</b>(浮盈+22.74%)<br>
+      与基金账户里的"华夏科创50ETF联接C ¥7,406 +18.88%" + "天弘科创创业50 ¥22,149 +25.76%" 严重重叠,适度落袋。
+    </li>
+    <li><b>立即重要 · 止盈沪深300ETF华泰柏瑞 100~200 份</b>(浮盈+33.33%)<br>
+      与基金账户的易方达沪深300ETF联接 C 也重叠。这个就 300 份,可以全清拿 ¥372 利润。
+    </li>
+    <li><b>需要决策 · 4 只大幅亏损股</b>:<br>
+      · <b>国投白银 LOF -42.87%</b>:位置低估值低,白银长期跟黄金,可观望不补不卖<br>
+      · <b>中概互联 -23.49%</b>:港股科技反弹时是弹性最大,可观望不卖<br>
+      · <b>中国铝业 -22.25%</b>:有色周期股,跌得多,可观望或者切换到紫金矿业<br>
+      · <b>游戏ETF -20.70%</b>:这个我倾向<b>果断卖掉换仓</b>。游戏行业政策反复,弹性输给AI/半导体,持有意义不大
+    </li>
+    <li><b>个股建议</b>:<br>
+      · 比亚迪 ¥99.23 浮亏 -0.03%(几乎平),持有<br>
+      · 紫金矿业 浮盈 +3.60%,继续持有(黄金行业逻辑还在)<br>
+      · 中国核电 浮盈 +7.95%,持有(核电主线长逻辑没问题)
+    </li>
+    <li><b>关于 2w 闲钱</b>:<br>
+      <b>立场彻底改变</b> —— 既然你已经在芯片ETF重仓 +37%、科创50 +22%,不能再加任何半导体相关。<br>
+      建议 2w 投向<b>组合中欠缺/低估值/低波动的方向</b>:<br>
+      · ¥10K 红利低波 ETF(512890,5.4%股息率)— 防御打底<br>
+      · ¥6K 短债基金(年化 2-3%)— 现金管理<br>
+      · ¥4K 留作机动子弹,等机会
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>5. 全资产再平衡建议</h2>
+  <div class="banner info">
+    现在你的总资产 ¥603K 里:<br>
+    · 权益(股票+科技基金+新能源基金):<b>~50%</b> ❗ 偏高<br>
+    · 海外 QDII:~16%<br>
+    · 债券固收:~13% (含投顾固收+) ❗ 偏低<br>
+    · 黄金(积存+ETF):~38% ❗ 集中度高,但你说想保留长持<br>
+    · 商品/有色:~5%<br>
+    <br>
+    <b>建议方向</b>:把"权益过度集中 + 债券偏低"调整一下。具体动作 = 卖出涨幅 &gt;30% 的明星基金/ETF 各 1/3,把回笼的 ~¥2-3 万投入债基或红利低波,降低组合波动。
+  </div>
+</div>
+
+<footer>由 WorkBuddy 自动生成 · v2 整合 A 股账户后的完整诊断 · 仅供参考,不构成投资建议</footer>
+</body>
+</html>
