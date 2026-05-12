@@ -3,25 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>金融监控 · 详情索引</title>
+<title>金融监控 · 历史索引</title>
 <style>
-:root{--bg:#0f1115;--card:#1a1d24;--border:#2a2f3a;--muted:#8b92a3;--text:#e8ebf1}
+:root{--bg:#f7f8fa;--card:#ffffff;--card2:#f0f2f5;--border:#e4e6eb;--muted:#6b7280;--text:#1f2937;--up:#e84545;--down:#2bb673;--warn:#d97706;--info:#2563eb}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font:14px/1.6 -apple-system,SF Pro,PingFang SC,sans-serif;background:var(--bg);color:var(--text);padding:16px;max-width:760px;margin:0 auto}
-header{padding:20px 0 16px;border-bottom:1px solid var(--border);margin-bottom:20px}
-h1{font-size:20px;font-weight:600}
-header .sub{font-size:13px;color:var(--muted);margin-top:4px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:10px}
-a{color:#4f8df7;text-decoration:none;display:block}
-a:hover{text-decoration:underline}
-.muted{color:var(--muted);font-size:12px;margin-top:4px}
+body{font:14px/1.6 -apple-system,SF Pro,PingFang SC,sans-serif;background:var(--bg);color:var(--text);padding:14px;max-width:920px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid var(--border);margin-bottom:18px}
+h1{font-size:22px;font-weight:600}
+header .sub{font-size:13px;color:var(--muted);margin-top:5px}
+.section{margin-bottom:20px}
+.section h2{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.section h2::before{content:'';width:3px;height:14px;background:var(--info);border-radius:2px}
+.list .item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:var(--text);transition:background 0.15s}
+.list .item:hover{background:var(--card2)}
+.list .item .left .title{font-weight:500;font-size:14px}
+.list .item .left .sub{font-size:12px;color:var(--muted);margin-top:3px}
+.list .item .right{font-size:11px;color:var(--info);padding:4px 10px;background:#eff6ff;border-radius:6px}
+.empty{padding:30px 14px;text-align:center;color:var(--muted);font-size:13px;background:var(--card);border:1px dashed var(--border);border-radius:10px}
+.tag{display:inline-block;font-size:10px;padding:1px 6px;border-radius:6px;background:#eff6ff;color:var(--info);border:1px solid #dbeafe;margin-left:6px}
+.tag.weekly{background:#fff7ed;color:var(--warn);border-color:#fed7aa}
+.tag.report{background:#f3e8ff;color:#7c3aed;border-color:#ddd6fe}
+.banner{padding:10px 12px;border-radius:8px;font-size:12px;line-height:1.6;margin-bottom:14px;background:#eff6ff;border-left:3px solid var(--info)}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
 </style>
 </head>
 <body>
+
 <header>
-  <h1>金融监控 · 详情索引</h1>
-  <div class="sub">企微卡片跳转目标页面集合</div>
+  <h1>金融监控 · 历史索引</h1>
+  <div class="sub">每日盘前/盘后/周报 自动归档,可随时回看</div>
 </header>
-<div class="card"><a href="reports/2026-05-12-pm.html">5月12日 盘后详情</a><div class="muted">大盘 + 黄金 + 半导体 + 持仓与目标</div></div>
+
+<div class="banner">
+  <strong>使用说明:</strong>每个交易日盘前 08:45、盘后 15:30 会自动生成新的详情页并存档到这里。你可以从企微卡片直接跳转最新一份,也可以从这里回看任意一天。
+</div>
+
+<div class="section">
+  <h2>核心报告</h2>
+  <div class="list">
+    <a class="item" href="portfolio.html">
+      <div class="left">
+        <div class="title">全持仓诊断 v3 <span class="tag report">最新</span></div>
+        <div class="sub">5月12日 · 整体配置 + 板块覆盖 + 操作建议</div>
+      </div>
+      <div class="right">查看 →</div>
+    </a>
+    <a class="item" href="allocation.html">
+      <div class="left">
+        <div class="title">15% 目标再平衡方案 <span class="tag report">方案B锁定</span></div>
+        <div class="sub">5月12日 · 三档对比 + 4 阶段落地步骤</div>
+      </div>
+      <div class="right">查看 →</div>
+    </a>
+    <a class="item" href="review-full.html">
+      <div class="left">
+        <div class="title">全持仓 52 只逐一接口复核 <span class="tag report">数据校准</span></div>
+        <div class="sub">5月12日 · 接口实拉数据 + 三件套客观分析</div>
+      </div>
+      <div class="right">查看 →</div>
+    </a>
+    <a class="item" href="review-ashare.html">
+      <div class="left">
+        <div class="title">A 股账户 13 只详细复核</div>
+        <div class="sub">5月12日 · 平安证券 13 只标的逐一分析</div>
+      </div>
+      <div class="right">查看 →</div>
+    </a>
+  </div>
+</div>
+
+<div class="section">
+  <h2>盘前 / 盘后存档</h2>
+  <div class="list">
+    <a class="item" href="reports/2026-05-12-pm.html">
+      <div class="left">
+        <div class="title">5月12日 盘后详情 <span class="tag">浅色版</span></div>
+        <div class="sub">板块新闻 + 持仓涨跌 · 6 大板块全景</div>
+      </div>
+      <div class="right">查看 →</div>
+    </a>
+  </div>
+  <div class="empty" style="margin-top:8px">
+    更多每日存档将自动生成于此(命名:reports/YYYY-MM-DD-am.html · YYYY-MM-DD-pm.html)
+  </div>
+</div>
+
+<div class="section">
+  <h2>周报存档</h2>
+  <div class="empty">
+    每周日 20:00 自动生成本周复盘 + 下周策略,存于 weekly/YYYY-WW.html
+  </div>
+</div>
+
+<footer>由 WorkBuddy 自动生成 · 仓库:maggieylye-alt/finance-monitor</footer>
 </body>
 </html>

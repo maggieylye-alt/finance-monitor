@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>组合再平衡方案 · 目标年化15%</title>
 <style>
-:root{--bg:#0f1115;--card:#1a1d24;--card2:#13161c;--border:#2a2f3a;--muted:#8b92a3;--text:#e8ebf1;--up:#e84545;--down:#2bb673;--warn:#f5a623;--info:#4f8df7}
+:root{--bg:#f7f8fa;--card:#ffffff;--card2:#f0f2f5;--border:#e4e6eb;--muted:#6b7280;--text:#1f2937;--up:#e84545;--down:#2bb673;--warn:#d97706;--info:#2563eb}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font:14px/1.6 -apple-system,SF Pro,PingFang SC,sans-serif;background:var(--bg);color:var(--text);padding:16px;max-width:980px;margin:0 auto}
 header{padding:20px 0 16px;border-bottom:1px solid var(--border);margin-bottom:20px}
@@ -30,20 +30,20 @@ tr:last-child td{border-bottom:none}
 .banner.warn{background:rgba(245,166,35,0.1);border-left-color:var(--warn);border-left:3px solid var(--warn)}
 .banner.up{background:rgba(232,69,69,0.1);border-left:3px solid var(--up)}
 .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px}
-.tag.add{background:rgba(232,69,69,0.18);color:#ff7070}
-.tag.cut{background:rgba(43,182,115,0.18);color:#5fd49a}
-.tag.keep{background:#2a2f3a;color:var(--muted)}
+.tag.add{background:rgba(232,69,69,0.18);color:#dc2626}
+.tag.cut{background:rgba(43,182,115,0.18);color:#16a34a}
+.tag.keep{background:#e4e6eb;color:var(--muted)}
 .bar{position:relative;height:24px;background:var(--card2);border-radius:6px;overflow:hidden;margin-top:4px;display:flex}
-.bar > span{display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;height:100%;border-right:1px solid #0f1115}
+.bar > span{display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;height:100%;border-right:1px solid #e4e6eb}
 .bar > span:last-child{border-right:none}
 .plan{border-radius:12px;padding:18px;margin-bottom:14px}
 .plan.a{background:rgba(43,182,115,0.08);border:1px solid rgba(43,182,115,0.3)}
 .plan.b{background:rgba(245,166,35,0.10);border:2px solid rgba(245,166,35,0.5)}
 .plan.c{background:rgba(232,69,69,0.10);border:1px solid rgba(232,69,69,0.4)}
 .plan h3{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;margin-bottom:10px}
-.plan h3 .badge{font-size:11px;padding:3px 10px;border-radius:10px;background:rgba(255,255,255,0.1);font-weight:400}
+.plan h3 .badge{font-size:11px;padding:3px 10px;border-radius:10px;background:rgba(0,0,0,0.05);font-weight:400}
 .plan .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
-.plan .grid > div{background:rgba(0,0,0,0.2);padding:10px;border-radius:8px;font-size:12px}
+.plan .grid > div{background:rgba(0,0,0,0.04);padding:10px;border-radius:8px;font-size:12px}
 .plan .grid > div .k{color:var(--muted);font-size:11px}
 .plan .grid > div .v{font-size:16px;font-weight:600;margin-top:2px}
 ul.acts{list-style:none;padding:0}
@@ -94,7 +94,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
     <span style="width:5.02%;background:#bf9700">周期 5%</span>
     <span style="width:4.86%;background:#97c459">宽基 4.9%</span>
     <span style="width:3.07%;background:#7f77dd">平衡 3.1%</span>
-    <span style="width:0.58%;background:#9c7a17">商品</span>
+    <span style="width:0.58%;background:#d97706">商品</span>
   </div>
 </div>
 
@@ -110,7 +110,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
       <div><div class="k">宽基+平衡</div><div class="v">23%</div></div>
       <div><div class="k">防御+稳健</div><div class="v">32%</div></div>
     </div>
-    <div style="margin-top:10px;padding:10px;background:rgba(0,0,0,0.2);border-radius:6px;font-size:13px">
+    <div style="margin-top:10px;padding:10px;background:rgba(0,0,0,0.04);border-radius:6px;font-size:13px">
       <b>预期年化 ~12%</b>,目标年化收益 <b>¥70K</b>;最大回撤估计 -5% ~ -8%
     </div>
   </div>
@@ -124,7 +124,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
       <div><div class="k">宽基+平衡</div><div class="v">18%</div></div>
       <div><div class="k">防御+稳健</div><div class="v">27%</div></div>
     </div>
-    <div style="margin-top:10px;padding:10px;background:rgba(0,0,0,0.2);border-radius:6px;font-size:13px">
+    <div style="margin-top:10px;padding:10px;background:rgba(0,0,0,0.04);border-radius:6px;font-size:13px">
       <b>预期年化 ~13.5% (保守口径)</b>,实际市场上行年大概率达到 15-17%;目标年化收益 <b>¥80K</b>;最大回撤估计 -8% ~ -12%
     </div>
   </div>
@@ -138,7 +138,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
       <div><div class="k">宽基+平衡</div><div class="v">15%</div></div>
       <div><div class="k">防御+稳健</div><div class="v">21%</div></div>
     </div>
-    <div style="margin-top:10px;padding:10px;background:rgba(0,0,0,0.2);border-radius:6px;font-size:13px">
+    <div style="margin-top:10px;padding:10px;background:rgba(0,0,0,0.04);border-radius:6px;font-size:13px">
       <b>预期年化 ~15-16%</b>,目标年化收益 <b>¥89K</b>;最大回撤估计 -12% ~ -18%
     </div>
   </div>
