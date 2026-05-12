@@ -1,0 +1,291 @@
+{
+  "generated_at": "2026-05-12 21:24",
+  "mainlines": [
+    {
+      "name": "AI/半导体/芯片",
+      "tag": "🔥 Edge强区",
+      "exposure": 206000,
+      "examples": [
+        "芯片ETF +37%",
+        "光模块 +36%",
+        "全球升级 +139%"
+      ],
+      "prices": [
+        {
+          "name": "芯片ETF华夏",
+          "code": "159995",
+          "price": 2.326,
+          "chg_pct": 0.6490696668109097,
+          "pe": null
+        },
+        {
+          "name": "科创50",
+          "code": "588000",
+          "price": 1723.78,
+          "chg_pct": 0.41,
+          "pe": 163.04
+        },
+        {
+          "name": "半导体产业指数",
+          "code": "931865",
+          "price": 7058.18,
+          "chg_pct": 2.05,
+          "pe": null
+        }
+      ],
+      "news": [
+        {
+          "title": "AI芯片全景图：“三大件”撑起万亿算力时代",
+          "date": "05-12",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026051218212594d48316"
+        },
+        {
+          "title": "AI芯片“三大件”驱动万亿算力时代",
+          "date": "05-12",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026051218563894d495e9"
+        },
+        {
+          "title": "全球AI芯片市场高涨：国产芯片迎发展拐点，2025年或实现盈利",
+          "date": "05-07",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026050702351794c6846f"
+        }
+      ],
+      "verdict": "✅ Edge 持续存在 · 继续持有,不加仓",
+      "score": 7,
+      "avg_chg": 1.04
+    },
+    {
+      "name": "新能源汽车/电池",
+      "tag": "💰 已兑现Edge",
+      "exposure": 75000,
+      "examples": [
+        "申万菱信新能源 +84%",
+        "智能驱动 +73%"
+      ],
+      "prices": [
+        {
+          "name": "比亚迪",
+          "code": "002594",
+          "price": 99.23,
+          "chg_pct": -1.2,
+          "pe": 32.84
+        },
+        {
+          "name": "电池主题ETF",
+          "code": "562880",
+          "price": 0.987,
+          "chg_pct": -1.5952143569292028,
+          "pe": null
+        },
+        {
+          "name": "新能源车ETF",
+          "code": "515030",
+          "price": 2.102,
+          "chg_pct": -1.7757009345794512,
+          "pe": null
+        }
+      ],
+      "news": [
+        {
+          "title": "动力与储能电池出口增长50.3%，行业竞争加剧需规范市场秩序",
+          "date": "05-07",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20260507134216a6f7276b"
+        },
+        {
+          "title": "亿纬锂能发布开源电池4.0，提升商用车电池经济效益与安全性",
+          "date": "05-12",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026051216285994d42004"
+        },
+        {
+          "title": "亿纬锂能发布AI电池战略，2025年商用车电池营收占比超40%",
+          "date": "05-12",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026051216285994d42004"
+        }
+      ],
+      "verdict": "⚠️ Edge 已兑现 · 触发+50%止盈纪律",
+      "score": 6,
+      "avg_chg": -1.52
+    },
+    {
+      "name": "海外科技/QDII",
+      "tag": "✅ 稳定β",
+      "exposure": 90000,
+      "examples": [
+        "嘉实美国成长 +39%",
+        "纳指广发 +13%"
+      ],
+      "prices": [
+        {
+          "name": "纳指ETF",
+          "code": "159941",
+          "price": 1.558,
+          "chg_pct": -1.2048192771084276,
+          "pe": null
+        },
+        {
+          "name": "标普500",
+          "code": "513500",
+          "price": 7412.84,
+          "chg_pct": 0.0,
+          "pe": null
+        }
+      ],
+      "news": [
+        {
+          "title": "其中，四只美国半导体ETF——Invesco半导体ETF、Invesco PHLX半导体ETF、iShares费城交易所半导体ETF、VanEck半导体ETF——合计占基金净值约 72.",
+          "date": "05-11",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026051121065294d0bc29"
+        },
+        {
+          "title": "人民币汇率强势助推QDII基金年内收益显著增长至85.16%",
+          "date": "05-12",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026051217445694d46ccc"
+        },
+        {
+          "title": "总结投资者选择海外科技QDII时，最应该关注的不是哪只基金涨得更快，而是问自己到底想买什么：是全球半导体行业β、AI算力链条扩散、亚洲科技供应链、还是买中韩半导体周期？",
+          "date": "05-11",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN202605111544039734930c"
+        }
+      ],
+      "verdict": "✅ 稳定β · 持有即可",
+      "score": 7,
+      "avg_chg": -0.6
+    },
+    {
+      "name": "黄金/贵金属",
+      "tag": "🛡️ 防御位",
+      "exposure": 217000,
+      "examples": [
+        "积存金211.59克 -¥12,002",
+        "黄金ETF +7.8%"
+      ],
+      "prices": [
+        {
+          "name": "黄金ETF华安",
+          "code": "518880",
+          "price": 9.806,
+          "chg_pct": 0.32739922242684705,
+          "pe": null
+        }
+      ],
+      "news": [
+        {
+          "title": "黄金市场波动加剧，全球ETF连续九个月资金流入，AUM达7010亿美元",
+          "date": "03-06",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20260306211642a6ab0f7c"
+        },
+        {
+          "title": "全球黄金ETF3月净流出120亿美元，投资者转向黄金避险资产",
+          "date": "04-17",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20260417070435a6ad501f"
+        },
+        {
+          "title": "全球黄金ETF3月净流出120亿美元，投资者转向黄金避险资产",
+          "date": "04-16",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20260416141129a453c637"
+        }
+      ],
+      "verdict": "🟡 防御位过重(36%) · 建议触发线分批减",
+      "score": 5,
+      "avg_chg": 0.33
+    },
+    {
+      "name": "军工/周期/有色",
+      "tag": "⚡ 卫星博弈",
+      "exposure": 15000,
+      "examples": [
+        "紫金矿业 +3.6%",
+        "博时军工 +32%"
+      ],
+      "prices": [
+        {
+          "name": "紫金矿业",
+          "code": "601899",
+          "price": 34.58,
+          "chg_pct": 0.9,
+          "pe": 14.91
+        },
+        {
+          "name": "军工ETF",
+          "code": "512660",
+          "price": 4742.12,
+          "chg_pct": -0.79,
+          "pe": 84.91
+        }
+      ],
+      "news": [
+        {
+          "title": "5月8日A股市场主力资金流向分析：国防军工、汽车行业净流入居前",
+          "date": "05-08",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026050819211394c7fee1"
+        },
+        {
+          "title": "5月8日A股震荡反弹，军工装备等板块领涨，成交额超4374亿元",
+          "date": "05-08",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20260508155117a6fbacf2"
+        },
+        {
+          "title": "5月8日A股主力资金流向分析：国防军工、汽车行业净流入居前",
+          "date": "05-08",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20260508192859a6fc6e69"
+        }
+      ],
+      "verdict": "🟢 卫星小仓 · 不扩大",
+      "score": 6,
+      "avg_chg": 0.05
+    },
+    {
+      "name": "港股/恒生科技/中概",
+      "tag": "🆘 最大亏损区",
+      "exposure": 40000,
+      "examples": [
+        "恒生科技 -17%",
+        "中概互联 -23%",
+        "港股创新药 -17%"
+      ],
+      "prices": [
+        {
+          "name": "恒生科技ETF大成",
+          "code": "513580",
+          "price": 0.642,
+          "chg_pct": -0.9259259259259267,
+          "pe": null
+        },
+        {
+          "name": "中概互联ETF",
+          "code": "513050",
+          "price": 1.203,
+          "chg_pct": -0.906095551894555,
+          "pe": null
+        },
+        {
+          "name": "恒生指数",
+          "code": "HSI",
+          "price": 26347.91,
+          "chg_pct": -0.22,
+          "pe": 0.0
+        }
+      ],
+      "news": [
+        {
+          "title": "港股5月资金流向分析：南下净流出35.4亿，外资加仓半导体与黄金",
+          "date": "05-09",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20260509174835972e2509"
+        },
+        {
+          "title": "恒生科技ETF天弘近60日累计“吸金”超40亿元，机构称港股IPO项目从消费、医药转向AI、高端装备等科技制造板块",
+          "date": "05-11",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026051110102494ce6309"
+        },
+        {
+          "title": "恒生科技指数上涨2.39%，AI需求推动资本支出预估上调至8300亿美元",
+          "date": "05-07",
+          "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20260507102759a49fc546"
+        }
+      ],
+      "verdict": "🔴 Edge 不成立 · 建议按-20%止损线清理",
+      "score": 3,
+      "avg_chg": -0.68
+    }
+  ]
+}
