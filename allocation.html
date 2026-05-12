@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>组合再平衡方案 · 目标年化15%</title>
+<style>
+:root{--bg:#0f1115;--card:#1a1d24;--card2:#13161c;--border:#2a2f3a;--muted:#8b92a3;--text:#e8ebf1;--up:#e84545;--down:#2bb673;--warn:#f5a623;--info:#4f8df7}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:14px/1.6 -apple-system,SF Pro,PingFang SC,sans-serif;background:var(--bg);color:var(--text);padding:16px;max-width:980px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid var(--border);margin-bottom:20px}
+h1{font-size:22px;font-weight:600}
+header .sub{font-size:13px;color:var(--muted);margin-top:6px}
+.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.metric{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px}
+.metric .label{font-size:12px;color:var(--muted);margin-bottom:6px}
+.metric .value{font-size:22px;font-weight:600;font-feature-settings:'tnum'}
+.metric .extra{font-size:12px;margin-top:4px;font-feature-settings:'tnum'}
+.up{color:var(--up)}.down{color:var(--down)}.muted{color:var(--muted)}.warn{color:var(--warn)}.info{color:var(--info)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.card h2{font-size:15px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card h2::before{content:'';width:3px;height:16px;background:var(--info);border-radius:2px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:8px;font-weight:500;color:var(--muted);font-size:12px;border-bottom:1px solid var(--border)}
+th.r,td.r{text-align:right;font-feature-settings:'tnum'}
+td{padding:10px 8px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+.banner{padding:12px 14px;border-radius:8px;font-size:13px;line-height:1.7;margin-bottom:14px}
+.banner.info{background:rgba(79,141,247,0.12);border-left:3px solid var(--info)}
+.banner.warn{background:rgba(245,166,35,0.1);border-left-color:var(--warn);border-left:3px solid var(--warn)}
+.banner.up{background:rgba(232,69,69,0.1);border-left:3px solid var(--up)}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px}
+.tag.add{background:rgba(232,69,69,0.18);color:#ff7070}
+.tag.cut{background:rgba(43,182,115,0.18);color:#5fd49a}
+.tag.keep{background:#2a2f3a;color:var(--muted)}
+.bar{position:relative;height:24px;background:var(--card2);border-radius:6px;overflow:hidden;margin-top:4px;display:flex}
+.bar > span{display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;height:100%;border-right:1px solid #0f1115}
+.bar > span:last-child{border-right:none}
+.plan{border-radius:12px;padding:18px;margin-bottom:14px}
+.plan.a{background:rgba(43,182,115,0.08);border:1px solid rgba(43,182,115,0.3)}
+.plan.b{background:rgba(245,166,35,0.10);border:2px solid rgba(245,166,35,0.5)}
+.plan.c{background:rgba(232,69,69,0.10);border:1px solid rgba(232,69,69,0.4)}
+.plan h3{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;margin-bottom:10px}
+.plan h3 .badge{font-size:11px;padding:3px 10px;border-radius:10px;background:rgba(255,255,255,0.1);font-weight:400}
+.plan .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+.plan .grid > div{background:rgba(0,0,0,0.2);padding:10px;border-radius:8px;font-size:12px}
+.plan .grid > div .k{color:var(--muted);font-size:11px}
+.plan .grid > div .v{font-size:16px;font-weight:600;margin-top:2px}
+ul.acts{list-style:none;padding:0}
+ul.acts li{padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+ul.acts li:last-child{border-bottom:none}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
+@media (max-width:680px){.metric-row,.plan .grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>组合再平衡方案 · 目标年化 15%</h1>
+  <div class="sub">5月12日 17:53 · 总市值 ¥588,445 · 总浮盈 ¥9,082(+1.54%)</div>
+</header>
+
+<div class="banner warn">
+  <strong>核心结论:</strong>当前组合预期年化约 <b>12.0%</b>,距离你的 15% 目标差 <b>3 个百分点</b>。要达成需要<b>提高进攻仓位 + 降低黄金占比</b>。下面给出三档方案,我推荐<b>方案 B 平衡型</b>(预期 13.5% + 适度风险),最有可能稳定达成 15%(因为模型用的是保守预期收益,实际市场上行年通常超出)。
+</div>
+
+<div class="metric-row">
+  <div class="metric"><div class="label">总市值</div><div class="value">¥588,445</div><div class="extra muted">基金+A股+投顾+黄金</div></div>
+  <div class="metric"><div class="label">当前预期年化</div><div class="value warn">~12.0%</div><div class="extra down">距 15% 差 3pp</div></div>
+  <div class="metric"><div class="label">目标年化金额</div><div class="value up">~¥88K</div><div class="extra muted">15% × ¥588K</div></div>
+  <div class="metric"><div class="label">需调整资金量</div><div class="value">~¥120K</div><div class="extra muted">主要从黄金搬到进攻+海外</div></div>
+</div>
+
+<div class="card">
+  <h2>当前 8 大类配置</h2>
+  <table>
+    <thead><tr><th>类别</th><th class="r">市值</th><th class="r">占比</th><th class="r">浮盈</th><th>包含什么</th></tr></thead>
+    <tbody>
+    <tr><td><span style="color:#e84545">●</span> 进攻(科技/新能源/AI)</td><td class="r">¥170,238</td><td class="r">28.93%</td><td class="r up">+¥6,866</td><td class="muted" style="font-size:12px">芯片ETF、科创50、半导体基金、新能源基金、光模块、智能驱动等 ~30 只</td></tr>
+    <tr><td><span style="color:#f0997b">●</span> 海外 QDII</td><td class="r">¥44,147</td><td class="r">7.50%</td><td class="r up">+¥7,453</td><td class="muted" style="font-size:12px">纳指 5 只、标普500、亚洲机会、新兴市场、美国成长等</td></tr>
+    <tr><td><span style="color:#bf9700">●</span> 周期(有色/资源)</td><td class="r">¥29,534</td><td class="r">5.02%</td><td class="r down">-¥879</td><td class="muted" style="font-size:12px">紫金、铝业、有色矿业、中国铝业等</td></tr>
+    <tr><td><span style="color:#bf9700">●</span> 商品(原油/白银)</td><td class="r">¥3,409</td><td class="r">0.58%</td><td class="r down">-¥1,338</td><td class="muted" style="font-size:12px">国投白银 LOF、南方原油、白银期货</td></tr>
+    <tr><td><span style="color:#97c459">●</span> 宽基</td><td class="r">¥28,609</td><td class="r">4.86%</td><td class="r up">+¥3,936</td><td class="muted" style="font-size:12px">易方达中证500ETF、沪深300ETF</td></tr>
+    <tr><td><span style="color:#97c459">●</span> 平衡(主动混合)</td><td class="r">¥18,093</td><td class="r">3.07%</td><td class="r up">+¥1,102</td><td class="muted" style="font-size:12px">兴全合宜、华泰富利、前海嘉鑫、工业革命4.0、博时军工</td></tr>
+    <tr><td><span style="color:#4f8df7">●</span> 防御(黄金)</td><td class="r">¥229,017</td><td class="r">38.92%</td><td class="r down">-¥11,226</td><td class="muted" style="font-size:12px">民生积存+浙商积存+黄金ETF华安+上海金联接+博时黄金</td></tr>
+    <tr><td><span style="color:#5dcaa5">●</span> 稳健(债+公用)</td><td class="r">¥65,398</td><td class="r">11.11%</td><td class="r up">+¥3,168</td><td class="muted" style="font-size:12px">天弘金融债、中加纯债、华夏全球固收+、工银稳健、中国核电</td></tr>
+    </tbody>
+  </table>
+  <div class="bar" style="margin-top:14px">
+    <span style="width:38.92%;background:#4f8df7">黄金 38.92%</span>
+    <span style="width:28.93%;background:#e84545">进攻 28.93%</span>
+    <span style="width:11.11%;background:#5dcaa5">稳健 11.11%</span>
+    <span style="width:7.50%;background:#f0997b">海外 7.5%</span>
+    <span style="width:5.02%;background:#bf9700">周期 5%</span>
+    <span style="width:4.86%;background:#97c459">宽基 4.9%</span>
+    <span style="width:3.07%;background:#7f77dd">平衡 3.1%</span>
+    <span style="width:0.58%;background:#9c7a17">商品</span>
+  </div>
+</div>
+
+<div class="card">
+  <h2>三档目标配置方案对比</h2>
+
+  <div class="plan a">
+    <h3>稳健均衡型 A <span class="badge">目标 12% · 可承受 -5% 浮亏</span></h3>
+    <div style="font-size:13px;color:var(--muted)">适合你想"不亏 + 稳赚",降低权益敞口,提高黄金/债券防御</div>
+    <div class="grid">
+      <div><div class="k">进攻</div><div class="v">22%</div></div>
+      <div><div class="k">海外</div><div class="v">16%</div></div>
+      <div><div class="k">宽基+平衡</div><div class="v">23%</div></div>
+      <div><div class="k">防御+稳健</div><div class="v">32%</div></div>
+    </div>
+    <div style="margin-top:10px;padding:10px;background:rgba(0,0,0,0.2);border-radius:6px;font-size:13px">
+      <b>预期年化 ~12%</b>,目标年化收益 <b>¥70K</b>;最大回撤估计 -5% ~ -8%
+    </div>
+  </div>
+
+  <div class="plan b">
+    <h3>平衡型 B <span class="badge">目标 14-15% · 可承受 -10% 浮亏 · ★ 推荐</span></h3>
+    <div style="font-size:13px;color:var(--muted)">在"已有重仓黄金"前提下最契合 15% 目标,降低黄金到 18%,把回笼资金加到进攻+海外</div>
+    <div class="grid">
+      <div><div class="k">进攻</div><div class="v">30%</div></div>
+      <div><div class="k">海外</div><div class="v">18%</div></div>
+      <div><div class="k">宽基+平衡</div><div class="v">18%</div></div>
+      <div><div class="k">防御+稳健</div><div class="v">27%</div></div>
+    </div>
+    <div style="margin-top:10px;padding:10px;background:rgba(0,0,0,0.2);border-radius:6px;font-size:13px">
+      <b>预期年化 ~13.5% (保守口径)</b>,实际市场上行年大概率达到 15-17%;目标年化收益 <b>¥80K</b>;最大回撤估计 -8% ~ -12%
+    </div>
+  </div>
+
+  <div class="plan c">
+    <h3>进攻型 C <span class="badge">目标 17-18% · 可承受 -15% 浮亏</span></h3>
+    <div style="font-size:13px;color:var(--muted)">追求超额收益,加大科技+海外,黄金压到 15%</div>
+    <div class="grid">
+      <div><div class="k">进攻</div><div class="v">38%</div></div>
+      <div><div class="k">海外</div><div class="v">20%</div></div>
+      <div><div class="k">宽基+平衡</div><div class="v">15%</div></div>
+      <div><div class="k">防御+稳健</div><div class="v">21%</div></div>
+    </div>
+    <div style="margin-top:10px;padding:10px;background:rgba(0,0,0,0.2);border-radius:6px;font-size:13px">
+      <b>预期年化 ~15-16%</b>,目标年化收益 <b>¥89K</b>;最大回撤估计 -12% ~ -18%
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>方案 B(推荐)的具体调整动作</h2>
+  <table>
+    <thead><tr><th>类别</th><th class="r">当前</th><th class="r">目标</th><th class="r">差额</th><th>动作</th></tr></thead>
+    <tbody>
+    <tr><td>🔴 进攻</td><td class="r">¥170,238</td><td class="r">¥176,534</td><td class="r">+¥6,296</td><td><span class="tag keep">保持</span> 不再增量,但内部结构优化</td></tr>
+    <tr><td>🟠 海外</td><td class="r">¥44,147</td><td class="r">¥105,920</td><td class="r up">+¥61,773</td><td><span class="tag add">大幅加仓</span> 主要加纳指/标普指数</td></tr>
+    <tr><td>🟢 宽基</td><td class="r">¥28,609</td><td class="r">¥76,498</td><td class="r up">+¥47,889</td><td><span class="tag add">加仓</span> 加沪深300/中证500/红利低波</td></tr>
+    <tr><td>🟢 平衡</td><td class="r">¥18,093</td><td class="r">¥29,422</td><td class="r up">+¥11,329</td><td><span class="tag add">小幅加仓</span></td></tr>
+    <tr><td>🟡 周期</td><td class="r">¥29,534</td><td class="r">¥29,422</td><td class="r">≈ 0</td><td><span class="tag keep">保持</span></td></tr>
+    <tr><td>🟡 商品</td><td class="r">¥3,409</td><td class="r">¥11,769</td><td class="r up">+¥8,360</td><td><span class="tag add">小幅加仓</span> 白银/原油</td></tr>
+    <tr><td>🔵 防御(黄金)</td><td class="r">¥229,017</td><td class="r">¥105,920</td><td class="r down">-¥123,097</td><td><span class="tag cut">大幅减仓</span> 等触发线分批减</td></tr>
+    <tr><td>🔵 稳健</td><td class="r">¥65,398</td><td class="r">¥52,960</td><td class="r down">-¥12,438</td><td><span class="tag cut">小幅减仓</span> 减投顾</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>方案 B 落地步骤(分阶段执行)</h2>
+  <ul class="acts">
+    <li><b>阶段 1 · 立刻(本周可做)</b>
+      <br>1) <b>清仓游戏 ETF 国泰 516010</b>:卖出 18,000 份,回笼约 ¥23K,行业逻辑弱不再持有
+      <br>2) <b>止盈高浮盈品种 1/3</b>:申万新能源汽车(+83%)/ 申万智能驱动(+73%)/ 前海工业革命4.0(+77%)/ 嘉实全球产业升级(+139%)各赎回 1/3,回笼约 ¥3K
+      <br>3) <b>止盈 A 股账户半导体 14 手</b>:芯片ETF华夏 159995 卖 1,400 份,回笼约 ¥3.3K
+      <br>合计回笼约 <b>¥29K</b>
+    </li>
+    <li><b>阶段 2 · 1-2 周内</b>
+      <br>1) 用回笼的 ¥29K + 闲钱 ¥20K = <b>¥49K 现金</b>
+      <br>2) 加仓海外指数:博时标普500ETF联接 ¥10K + 嘉实纳指100联接 ¥10K(QDII 申购有限制,可分批)
+      <br>3) 加仓宽基 / 红利:易方达沪深300ETF联接 ¥10K + <b>红利低波 ETF 512890 ¥10K</b>(高股息防御)
+      <br>4) 加仓商品:国投白银 LOF ¥4K(已有少量持仓,继续摊薄成本)
+      <br>5) 留 ¥5K 短债基金做现金管理
+    </li>
+    <li><b>阶段 3 · 黄金分批减仓(等触发线)</b>
+      <br>· Au9999 ≥ ¥1,086(回本)→ 减 1/3 ≈ <b>¥73K</b> 落袋
+      <br>· Au9999 ≥ ¥1,140(浮盈+5%)→ 再减 1/3 ≈ <b>¥73K</b>
+      <br>· Au9999 ≥ ¥1,200 → 全部清仓
+      <br>· 减仓所得资金按目标比例补到 海外/宽基/平衡 仓位
+    </li>
+    <li><b>阶段 4 · 内部结构优化(无需新增资金)</b>
+      <br>· 同主题基金合并:纳指相关 5 只 → 留 2 只,其他赎回的钱再投到留下的两只
+      <br>· 华夏科创50ETF联接 C 你持了 2 份,合并到 1 份
+      <br>· 创新药 ETF 浮亏 -16.58%:不补不卖,等右侧反转
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>各档位预期收益拆解(方案 B)</h2>
+  <table>
+    <thead><tr><th>类别</th><th class="r">配置占比</th><th class="r">预期年化</th><th class="r">收益贡献</th><th class="r">金额贡献</th></tr></thead>
+    <tbody>
+    <tr><td>🔴 进攻 (科技/新能源/AI)</td><td class="r">30%</td><td class="r">25%</td><td class="r up">7.50%</td><td class="r">¥44,134</td></tr>
+    <tr><td>🟠 海外 (纳指/标普/新兴)</td><td class="r">18%</td><td class="r">13%</td><td class="r up">2.34%</td><td class="r">¥13,770</td></tr>
+    <tr><td>🟢 宽基 (沪深300/中证500/红利)</td><td class="r">13%</td><td class="r">10%</td><td class="r up">1.30%</td><td class="r">¥7,650</td></tr>
+    <tr><td>🟢 平衡 (主动混合)</td><td class="r">5%</td><td class="r">8%</td><td class="r up">0.40%</td><td class="r">¥2,354</td></tr>
+    <tr><td>🟡 周期 (有色/资源)</td><td class="r">5%</td><td class="r">8%</td><td class="r up">0.40%</td><td class="r">¥2,354</td></tr>
+    <tr><td>🟡 商品 (原油/白银)</td><td class="r">2%</td><td class="r">5%</td><td class="r up">0.10%</td><td class="r">¥588</td></tr>
+    <tr><td>🔵 防御 (黄金)</td><td class="r">18%</td><td class="r">6%</td><td class="r up">1.08%</td><td class="r">¥6,355</td></tr>
+    <tr><td>🔵 稳健 (债+公用)</td><td class="r">9%</td><td class="r">4.5%</td><td class="r up">0.40%</td><td class="r">¥2,383</td></tr>
+    <tr style="background:rgba(245,166,35,0.1)"><td><b>合计</b></td><td class="r"><b>100%</b></td><td class="r">—</td><td class="r up"><b>~13.5%</b></td><td class="r up"><b>~¥79,587</b></td></tr>
+    </tbody>
+  </table>
+  <div class="banner info" style="margin-top:14px">
+    <b>注:13.5% 是保守预期</b>。模型用了"权益年化25%、海外13%、宽基10%、债4.5%"等中性假设。实际过去 1 年你的组合已经赚了 +9.6%,且科技/新能源处于上行周期,达到 15% 的概率较高。配合<b>纪律性止盈 + 红利低波防御</b>,可以做到"上行年抓住、下行年抗跌"。
+  </div>
+</div>
+
+<div class="card">
+  <h2>关键风险提示</h2>
+  <ul class="acts">
+    <li><b>风险 1 · 黄金继续下跌</b>:你持有 ¥217K 积存金,若 Au9999 跌破 ¥980,触发补仓预警,届时黄金占比可能更高。需要严格按触发线执行。</li>
+    <li><b>风险 2 · AI/半导体板块回调</b>:进攻仓位 30% 集中在科技,如果板块回调 -20%,组合可能跌 -6%。可通过留 5-10% 现金应对。</li>
+    <li><b>风险 3 · 美元/QDII 限购</b>:海外 QDII 加仓时常遇到限购,需要分批 1-2 周完成。</li>
+    <li><b>风险 4 · 14% vs 15% 的差距</b>:方案 B 保守预期 13.5%,要稳定达 15% 需要市场配合。如果你坚持 15%,可以选方案 C(进攻型,但回撤风险高)。</li>
+  </ul>
+</div>
+
+<footer>由 WorkBuddy 生成 · 数据基于用户截图同步 · 仅供参考,不构成投资建议</footer>
+</body>
+</html>
