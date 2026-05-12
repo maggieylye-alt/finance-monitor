@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>5月12日 晚间日结 · 全账户当日盈亏</title>
+<style>
+:root{--bg:#f7f8fa;--card:#ffffff;--card2:#f0f2f5;--border:#e4e6eb;--muted:#6b7280;--text:#1f2937;--up:#e84545;--down:#2bb673;--warn:#d97706;--info:#2563eb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:14px/1.6 -apple-system,SF Pro,PingFang SC,sans-serif;background:var(--bg);color:var(--text);padding:14px;max-width:920px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid var(--border);margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+h1{font-size:22px;font-weight:600}
+.header-right{font-size:13px;color:var(--muted)}
+.main-number{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;text-align:center;margin-bottom:16px}
+.main-number .label{font-size:13px;color:var(--muted);margin-bottom:8px}
+.main-number .value{font-size:42px;font-weight:700;letter-spacing:-1px}
+.main-number .sub{font-size:13px;color:var(--muted);margin-top:6px}
+.split-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+.split-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center}
+.split-card .lbl{font-size:12px;color:var(--muted);margin-bottom:4px}
+.split-card .val{font-size:20px;font-weight:600}
+.section{margin-bottom:20px}
+.section h2{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.section h2::before{content:'';width:3px;height:14px;background:var(--info);border-radius:2px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead tr{background:#f8f9fa;border-bottom:1px solid var(--border)}
+th{padding:8px 10px;text-align:left;font-weight:500;color:var(--muted);font-size:11px;letter-spacing:0.5px}
+td{padding:9px 10px;border-bottom:1px solid #f0f0f0}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+.tr{color:var(--up)}
+.td{color:var(--down)}
+.tz{color:var(--muted)}
+.group-header td{background:#fafbfc;font-weight:600;font-size:12px;color:var(--text);padding:6px 10px}
+.footer-archive{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 14px;margin-top:20px;font-size:12px;color:var(--warn);line-height:1.7}
+.footer-archive strong{font-weight:600}
+.trend{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+.trend .day{background:#fff;border:1px solid var(--border);border-radius:8px;padding:8px 12px;text-align:center;min-width:70px}
+.trend .day .d{font-size:11px;color:var(--muted)}
+.trend .day .v{font-size:15px;font-weight:600;margin-top:2px}
+.banner{padding:10px 12px;border-radius:8px;font-size:12px;line-height:1.6;margin-bottom:14px;background:#eff6ff;border-left:3px solid var(--info)}
+.data-note{font-size:11px;color:var(--muted);padding:8px 12px;background:#f9fafb;border-radius:8px;margin-top:16px;line-height:1.6}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
+.back-link{display:inline-block;font-size:13px;color:var(--info);text-decoration:none;padding:6px 0}
+.back-link:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>5月12日 晚间日结</h1>
+  <div class="header-right">22:00 · 全账户当日盈亏</div>
+</header>
+
+<a class="back-link" href="index.html">← 历史索引</a>
+
+<div class="banner">
+  <strong>数据说明：</strong>A股13只 + 基金34只(T日已披露22只，QDII等12只T-1未更新暂不计入) + 黄金积存金。<strong>卡片不展示总金额。</strong>
+</div>
+
+<div class="main-number">
+  <div class="label">当日总盈亏</div>
+  <div class="value" style="color:var(--up)">+¥1,812</div>
+  <div class="sub">今日赚了 · 科技板块带动整体</div>
+</div>
+
+<div class="split-row">
+  <div class="split-card">
+    <div class="lbl">A股账户</div>
+    <div class="val tr">+¥183</div>
+  </div>
+  <div class="split-card">
+    <div class="lbl">基金账户</div>
+    <div class="val tr">+¥1,648</div>
+  </div>
+  <div class="split-card">
+    <div class="lbl">黄金积存</div>
+    <div class="val tz">-¥19</div>
+  </div>
+</div>
+
+<!-- A股 13只 -->
+<div class="section">
+  <h2>A股账户 13只明细</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>标的</th>
+        <th class="num">持仓</th>
+        <th class="num">持仓金额</th>
+        <th class="num">当日涨跌</th>
+        <th class="num">当日盈亏</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>芯片ETF 159995</td><td class="num tz">4400份 @2.326</td><td class="num">¥10,234</td><td class="num tr">+0.65%</td><td class="num tr">+¥67</td></tr>
+      <tr><td>科创50ETF 588000</td><td class="num tz">3100份 @1.816</td><td class="num">¥5,630</td><td class="num tr">+0.28%</td><td class="num tr">+¥16</td></tr>
+      <tr><td>沪深300ETF 510300</td><td class="num tz">300份 @4.963</td><td class="num">¥1,489</td><td class="num td">-0.06%</td><td class="num td">-¥1</td></tr>
+      <tr><td>黄金ETF 518880</td><td class="num tz">1100份 @9.806</td><td class="num">¥10,787</td><td class="num tr">+0.33%</td><td class="num tr">+¥36</td></tr>
+      <tr><td>纳指ETF 159941</td><td class="num tz">3000份 @1.558</td><td class="num">¥4,674</td><td class="num td">-1.20%</td><td class="num td">-¥56</td></tr>
+      <tr><td>白银LOF 161226</td><td class="num tz">794份 @2.759</td><td class="num">¥2,191</td><td class="num tr">+2.68%</td><td class="num tr">+¥59</td></tr>
+      <tr><td>恒生科技 513580</td><td class="num tz">32500份 @0.642</td><td class="num">¥20,865</td><td class="num td">-0.93%</td><td class="num td">-¥194</td></tr>
+      <tr><td>中概互联 513050</td><td class="num tz">5600份 @1.203</td><td class="num">¥6,737</td><td class="num td">-0.91%</td><td class="num td">-¥61</td></tr>
+      <tr><td>游戏ETF 516010</td><td class="num tz">18000份 @1.302</td><td class="num">¥23,436</td><td class="num td">-1.81%</td><td class="num td">-¥424</td></tr>
+      <tr><td>比亚迪 002594</td><td class="num tz">200股 @99.23</td><td class="num">¥19,846</td><td class="num td">-1.20%</td><td class="num td">-¥238</td></tr>
+      <tr><td>紫金矿业 601899</td><td class="num tz">400股 @34.58</td><td class="num">¥13,832</td><td class="num tr">+0.88%</td><td class="num tr">+¥122</td></tr>
+      <tr><td>中国铝业 601600</td><td class="num tz">400股 @11.68</td><td class="num">¥4,672</td><td class="num td">-0.85%</td><td class="num td">-¥40</td></tr>
+      <tr><td>中国核电 601985</td><td class="num tz">500股 @9.23</td><td class="num">¥4,615</td><td class="num tr">+0.74%</td><td class="num tr">+¥34</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 基金 6大主题 -->
+<div class="section">
+  <h2>基金账户 34只 (6大主题)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>基金名称</th>
+        <th class="num">持仓估算</th>
+        <th class="num">净值日期</th>
+        <th class="num">当日涨跌</th>
+        <th class="num">当日盈亏</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 科技/半导体 -->
+      <tr class="group-header"><td colspan="5">🖥️ 科技/半导体（8只）</td></tr>
+      <tr><td>富国上证科创板芯片ETF联接C 008281</td><td class="num tz">~¥12,000</td><td class="num">05-11</td><td class="num tr">+0.38%</td><td class="num tr">+¥46</td></tr>
+      <tr><td>华夏科创50ETF联接C 011613</td><td class="num tz">~¥7,000</td><td class="num">05-11</td><td class="num tr">+4.40%</td><td class="num tr">+¥308</td></tr>
+      <tr><td>华夏国证半导体芯片ETF联接C 008888</td><td class="num tz">~¥6,000</td><td class="num">05-11</td><td class="num tr">+5.94%</td><td class="num tr">+¥357</td></tr>
+      <tr><td>永赢半导体产业智选混合发起C 017644</td><td class="num tz">~¥5,000</td><td class="num">05-11</td><td class="num tr">+1.68%</td><td class="num tr">+¥84</td></tr>
+      <tr><td>永赢科技智选混合发起C 017679</td><td class="num tz">~¥5,000</td><td class="num">05-11</td><td class="num tz">—</td><td class="num tz">—</td></tr>
+      <tr><td>华泰柏瑞中韩半导体ETF联接 164906</td><td class="num tz">~¥5,000</td><td class="num">05-11</td><td class="num tz">—</td><td class="num tz">—</td></tr>
+      <tr><td>天弘中证科创创业50ETF联接C 012894</td><td class="num tz">~¥8,000</td><td class="num">05-11</td><td class="num tr">+4.11%</td><td class="num tr">+¥329</td></tr>
+      <tr><td>易方达中证科创创业50ETF联接A 007116</td><td class="num tz">~¥4,000</td><td class="num">05-11</td><td class="num tr">+0.72%</td><td class="num tr">+¥29</td></tr>
+
+      <!-- 新能源/电动车 -->
+      <tr class="group-header"><td colspan="5">🚗 新能源/电动车（10只）</td></tr>
+      <tr><td>申万菱信新能源汽车混合A 001156</td><td class="num tz">~¥6,000</td><td class="num">05-11</td><td class="num tz">—</td><td class="num tz">—</td></tr>
+      <tr><td>申万菱信智能驱动股票A 002937</td><td class="num tz">~¥7,000</td><td class="num">05-11</td><td class="num tr">+0.38%</td><td class="num tr">+¥27</td></tr>
+      <tr><td>富国新能源汽车LOFA 161028</td><td class="num tz">~¥5,000</td><td class="num">05-11</td><td class="num tr">+0.38%</td><td class="num tr">+¥19</td></tr>
+      <tr><td>嘉实新能源新材料股票A 003984</td><td class="num tz">~¥5,000</td><td class="num">05-11</td><td class="num tz">—</td><td class="num tz">—</td></tr>
+      <tr><td>南方中证电池主题ETF联接A 012812</td><td class="num tz">~¥6,000</td><td class="num">05-11</td><td class="num tr">+0.05%</td><td class="num tr">+¥3</td></tr>
+      <tr><td>嘉实智能汽车股票 002168</td><td class="num tz">~¥6,000</td><td class="num">05-11</td><td class="num tz">—</td><td class="num tz">—</td></tr>
+      <tr><td>农银新能源混合A 002190</td><td class="num tz">~¥5,000</td><td class="num">05-11</td><td class="num tz">—</td><td class="num tz">—</td></tr>
+      <tr><td>华夏能源革新股票A 003834</td><td class="num tz">~¥6,000</td><td class="num">05-11</td><td class="num tz">—</td><td class="num tz">—</td></tr>
+      <tr><td>国泰国证新能源汽车LOFA 160225</td><td class="num tz">~¥5,000</td><td class="num">05-11</td><td class="num tr">+0.72%</td><td class="num tr">+¥36</td></tr>
+      <tr><td>汇丰晋信智造先锋股票C 002934</td><td class="num tz">~¥4,000</td><td class="num">05-11</td><td class="num tz">—</td><td class="num tz">—</td></tr>
+
+      <!-- 海外QDII -->
+      <tr class="group-header"><td colspan="5">🌏 海外QDII（13只）<span style="color:var(--warn);font-weight:400">⚠ 净值T-1未更新</span></td></tr>
+      <tr><td>嘉实纳指100 000834</td><td class="num tz">~¥6,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>国富亚洲机会QDIIC 017145</td><td class="num tz">~¥5,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>建信新兴市场优选QDII 002230</td><td class="num tz">~¥5,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>博时标普500ETF联接 050025</td><td class="num tz">~¥8,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>华宝纳斯达克精选 001877</td><td class="num tz">~¥7,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>嘉实美国成长 000043</td><td class="num tz">~¥5,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>景顺长城纳斯达克科技ETF联接 011329</td><td class="num tz">~¥8,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>广发纳指100QDIIA 270042</td><td class="num tz">~¥6,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>南方原油QDII-FOFC 501018</td><td class="num tz">~¥5,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>国富沪港深成长精选股票A 018043</td><td class="num tz">~¥5,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>天弘纳指100QDIIA 070012</td><td class="num tz">~¥5,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>汇添富全球移动互联QDIIC 501312</td><td class="num tz">~¥5,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>嘉实全球产业升级股票QDIIC 501309</td><td class="num tz">~¥4,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+
+      <!-- 宽基/混合 -->
+      <tr class="group-header"><td colspan="5">📊 宽基/混合（8只）</td></tr>
+      <tr><td>易方达中证500ETF联接C 007028</td><td class="num tz">~¥10,000</td><td class="num">05-11</td><td class="num tr">+1.61%</td><td class="num tr">+¥161</td></tr>
+      <tr><td>易方达沪深300ETF联接C 007339</td><td class="num tz">~¥10,000</td><td class="num">05-11</td><td class="num tr">+1.56%</td><td class="num tr">+¥156</td></tr>
+      <tr><td>兴全合宜混合C 163417</td><td class="num tz">~¥10,000</td><td class="num">05-11</td><td class="num tr">+1.92%</td><td class="num tr">+¥192</td></tr>
+      <tr><td>中金中证500增强C 012948</td><td class="num tz">~¥5,000</td><td class="num">05-11</td><td class="num tr">+0.07%</td><td class="num tr">+¥4</td></tr>
+      <tr><td>华泰柏瑞富利灵活配置混合A 460005</td><td class="num tz">~¥5,000</td><td class="num">05-11</td><td class="num tr">+0.92%</td><td class="num tr">+¥46</td></tr>
+      <tr><td>前海开源嘉鑫灵活配置混合C 001270</td><td class="num tz">~¥5,000</td><td class="num">05-11</td><td class="num tz">—</td><td class="num tz">—</td></tr>
+      <tr><td>前海开源工业革命4.0混合 001102</td><td class="num tz">~¥6,000</td><td class="num">05-11</td><td class="num tz">—</td><td class="num tz">—</td></tr>
+      <tr><td>博时军工主题股票A 004698</td><td class="num tz">~¥4,000</td><td class="num">05-11</td><td class="num tz">—</td><td class="num tz">—</td></tr>
+
+      <!-- 有色/商品 -->
+      <tr class="group-header"><td colspan="5">⛏️ 有色/商品（4只）</td></tr>
+      <tr><td>国泰国证有色金属指数C 160221</td><td class="num tz">~¥4,000</td><td class="num">05-11</td><td class="num tr">+0.72%</td><td class="num tr">+¥29</td></tr>
+      <tr><td>国泰有色矿业ETF联接C 012846</td><td class="num tz">~¥4,000</td><td class="num">05-11</td><td class="num tr">+2.58%</td><td class="num tr">+¥103</td></tr>
+      <tr><td>博时黄金ETF联接C 012710</td><td class="num tz">~¥4,000</td><td class="num">05-11</td><td class="num tz">—</td><td class="num tz">—</td></tr>
+      <tr><td>国投瑞银白银期货LOFA 161226</td><td class="num tz">~¥4,000</td><td class="num">05-11</td><td class="num tz">—</td><td class="num tz">—</td></tr>
+
+      <!-- 债/固收/投顾 -->
+      <tr class="group-header"><td colspan="5">💰 债/固收/投顾（4只）</td></tr>
+      <tr><td>天弘中债3-5年政策性金融债指数 002569</td><td class="num tz">~¥8,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>中加纯债债券 001984</td><td class="num tz">~¥6,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>华夏全球固收+（投顾）</td><td class="num tz">~¥33,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+      <tr><td>工银稳健成长（投顾）</td><td class="num tz">~¥10,000</td><td class="num tz">—</td><td class="num tz">—</td><td class="num tz">暂未更新</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 黄金 -->
+<div class="section">
+  <h2>黄金积存（211.59克）</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>账户</th>
+        <th class="num">持仓</th>
+        <th class="num">成本均价</th>
+        <th class="num">Au9999收盘</th>
+        <th class="num">当日涨跌</th>
+        <th class="num">当日盈亏</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>民生积存金</td><td class="num">160.14克</td><td class="num">¥1,074</td><td class="num">¥1,030.00</td><td class="num tz">-0.01%</td><td class="num td">-¥16</td></tr>
+      <tr><td>浙商积存金</td><td class="num">51.45克</td><td class="num">¥1,126</td><td class="num">¥1,030.00</td><td class="num tz">-0.01%</td><td class="num td">-¥3</td></tr>
+      <tr><td><strong>合计</strong></td><td class="num"><strong>211.59克</strong></td><td class="num">¥1,086.55</td><td class="num">¥1,030.00</td><td class="num tz">≈0</td><td class="num td">-¥19</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 底部存档区 -->
+<div class="footer-archive">
+  <strong>📋 当日总市值存档（不公开展示，仅供复盘）</strong><br>
+  日期：2026-05-12 &nbsp;|&nbsp; A股 ¥128,877 &nbsp;|&nbsp; 基金 ~¥213,000 &nbsp;|&nbsp; 投顾 ¥43,379 &nbsp;|&nbsp; 黄金积存 ¥217,904<br>
+  <strong>总市值约 ¥603,280</strong> &nbsp;|&nbsp; 当日总盈亏 +¥1,812（已实现部分未计入）
+</div>
+
+<!-- 历史7日趋势 -->
+<div class="section" style="margin-top:16px">
+  <h2>近7日趋势</h2>
+  <div class="trend">
+    <div class="day">
+      <div class="d">05-06</div>
+      <div class="v tz">—</div>
+    </div>
+    <div class="day">
+      <div class="d">05-07</div>
+      <div class="v tz">—</div>
+    </div>
+    <div class="day">
+      <div class="d">05-08</div>
+      <div class="v tz">—</div>
+    </div>
+    <div class="day">
+      <div class="d">05-09</div>
+      <div class="v tz">—</div>
+    </div>
+    <div class="day">
+      <div class="d">05-11</div>
+      <div class="v tz">—</div>
+    </div>
+    <div class="day">
+      <div class="d">05-12</div>
+      <div class="v tr">+1.8k</div>
+    </div>
+  </div>
+  <div style="font-size:12px;color:var(--muted);margin-top:8px">历史数据将随每日归档逐步丰富</div>
+</div>
+
+<div class="data-note">
+  <strong>数据来源：</strong>NeoData金融数据服务（接口实拉）。A股13只为实时行情，基金净值来自基金公司披露，QDII等海外基金净值T-1日暂未更新。黄金积存参考Au9999沪金现货。<br>
+  <strong>免责声明：</strong>本页面仅供个人投资复盘参考，不构成任何投资建议。数据可能存在延迟或误差，务必以实际交易为准。
+</div>
+
+<footer>由 WorkBuddy 自动生成 · 2026-05-12 22:00</footer>
+</body>
+</html>

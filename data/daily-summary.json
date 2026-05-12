@@ -1,5 +1,17 @@
 {
   "schema": "daily_summary_v1",
-  "description": "每日持仓总金额+盈亏归档,不对外展示,供历史复盘",
-  "records": []
+  "description": "每日持仓总金额+盈亏归档，不对外展示，供历史复盘",
+  "records": [
+    {
+      "date": "2026-05-12",
+      "total_value": 603280,
+      "daily_pnl": 1812,
+      "fund_pnl": 1648,
+      "ashare_pnl": 183,
+      "gold_pnl": -19,
+      "unreported_funds": ["000043", "050025", "270042", "501018", "501312", "070012", "018043", "017145", "001984", "002569", "5162.GS", "41511.GS"],
+      "unreported_pnl": 0,
+      "note": "QDII基金净值T-1未更新，暂不计入"
+    }
+  ]
 }
