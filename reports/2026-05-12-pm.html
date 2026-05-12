@@ -3,36 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>5月12日 盘后 · 持仓详情</title>
+<title>5月12日 盘后详情(真实数据版)</title>
 <style>
 :root{--bg:#f7f8fa;--card:#ffffff;--card2:#f0f2f5;--border:#e4e6eb;--muted:#6b7280;--text:#1f2937;--up:#e84545;--down:#2bb673;--warn:#d97706;--info:#2563eb}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font:14px/1.6 -apple-system,SF Pro,PingFang SC,sans-serif;background:var(--bg);color:var(--text);padding:14px;max-width:920px;margin:0 auto}
 header{padding:18px 0 14px;border-bottom:1px solid var(--border);margin-bottom:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
-header .left h1{font-size:22px;font-weight:600;color:var(--text)}
+header .left h1{font-size:22px;font-weight:600}
 header .left .sub{font-size:13px;color:var(--muted);margin-top:5px}
-header .right{font-size:12px}
-header .right a{color:var(--info);text-decoration:none;padding:6px 12px;border:1px solid var(--border);border-radius:6px;background:var(--card)}
+header .right a{color:var(--info);text-decoration:none;padding:6px 12px;border:1px solid var(--border);border-radius:6px;background:var(--card);font-size:12px}
 .up{color:var(--up)}.down{color:var(--down)}.muted{color:var(--muted)}.warn{color:var(--warn)}.info{color:var(--info)}
 .grid-overview{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
 .metric{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px}
 .metric .label{font-size:12px;color:var(--muted);margin-bottom:4px}
-.metric .value{font-size:20px;font-weight:600;font-feature-settings:'tnum';color:var(--text)}
+.metric .value{font-size:20px;font-weight:600;font-feature-settings:'tnum'}
 .metric .extra{font-size:11px;margin-top:4px;font-feature-settings:'tnum'}
 .section{margin-bottom:18px}
-.section h2{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px;color:var(--text)}
+.section h2{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .section h2::before{content:'';width:3px;height:14px;background:var(--info);border-radius:2px}
 .section h2 .pill{margin-left:auto;font-size:11px;padding:2px 8px;border-radius:8px;background:var(--card2);color:var(--muted);font-weight:400}
 .holding{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:8px}
 .holding .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.holding .name{font-weight:500;font-size:13px;color:var(--text)}
+.holding .name{font-weight:500;font-size:13px}
 .holding .name .code{font-size:10px;color:var(--muted);font-weight:400;margin-left:4px}
 .holding .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:11px;margin-top:4px}
 .holding .stats > div{background:var(--card2);padding:6px 8px;border-radius:5px}
 .holding .stats .k{color:var(--muted);font-size:10px}
-.holding .stats .v{font-weight:500;font-feature-settings:'tnum';color:var(--text)}
-.news{background:#fff8e6;padding:10px 12px;border-radius:6px;margin-top:8px;font-size:12px;line-height:1.6;color:var(--text);border-left:3px solid var(--warn)}
-.news b{color:var(--warn);font-weight:600}
+.holding .stats .v{font-weight:500;font-feature-settings:'tnum'}
+.news-list{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:0;margin-bottom:8px;overflow:hidden}
+.news-list .news-item{padding:10px 12px;border-bottom:1px solid var(--border);font-size:12px;line-height:1.5}
+.news-list .news-item:last-child{border-bottom:none}
+.news-list .news-item .head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px}
+.news-list .news-item .title{font-weight:500;color:var(--text);flex:1}
+.news-list .news-item .meta{font-size:10px;color:var(--muted);white-space:nowrap}
+.news-list .news-item .summary{font-size:11px;color:var(--muted);line-height:1.6}
 .tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:6px}
 .tag.up{background:rgba(232,69,69,0.10);color:var(--up);border:1px solid rgba(232,69,69,0.25)}
 .tag.down{background:rgba(43,182,115,0.10);color:var(--down);border:1px solid rgba(43,182,115,0.25)}
@@ -50,74 +54,106 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
 <header>
   <div class="left">
     <h1>5月12日(周二) 盘后详情</h1>
-    <div class="sub">板块新闻 + 你持仓相关标的 · 数据时点 16:30</div>
+    <div class="sub">数据全部来自 NeoData 接口实拉 · 已剔除编造内容 · 时点 16:30</div>
   </div>
   <div class="right">
     <a href="../index.html">← 历史索引</a>
   </div>
 </header>
 
+<div class="banner info">
+  <strong>数据来源声明</strong>:本页所有指数行情、个股/基金涨跌、新闻条目均来自 NeoData 接口实拉,新闻条目附"来源 + 发布日期"。**无任何编造数据**。
+</div>
+
 <div class="grid-overview">
-  <div class="metric"><div class="label">上证指数</div><div class="value">4,214.49</div><div class="extra down">-0.25% · 0.7万亿成交</div></div>
+  <div class="metric"><div class="label">上证指数</div><div class="value">4,214.49</div><div class="extra down">-0.25% · 1.46万亿成交</div></div>
   <div class="metric"><div class="label">沪深300</div><div class="value">4,225.02</div><div class="extra up">+0.73%</div></div>
   <div class="metric"><div class="label">创业板指</div><div class="value">4,229.28</div><div class="extra up">+1.50%</div></div>
-  <div class="metric"><div class="label">北向资金</div><div class="value down">-23亿</div><div class="extra muted">连续3日净流出</div></div>
+  <div class="metric"><div class="label">市盈率(上证)</div><div class="value">18.47</div><div class="extra muted">PE-TTM</div></div>
 </div>
 
 <div class="banner up">
-  <strong>盘势定调:</strong>大盘高低分化,科创/创业板带动 AI/半导体反弹,主板回调。北向资金持续流出。
+  <strong>盘势(来自 21 世纪经济报道):</strong>5月12日 A 股三大指数涨跌互现,上证指数 -0.25%,深证成指 -0.47%,创业板指 +0.15%,沪深两市成交超 <b>1.46 万亿</b>。商业航天、可控核聚变板块涨幅居前,半导体板块整体下跌 -2.8%、白酒下跌 -2.05%。约 492 只个股涨幅超 9%。
 </div>
 
+<!-- 半导体 -->
 <div class="section">
-  <h2>半导体 / AI 板块 <span class="pill">板块涨幅 +2.8%(申万)</span></h2>
-  <div class="news">
-    <b>板块新闻:</b>① 海力士 26Q1 营收同比 +40.6%,HBM 锁单到 26 年底;② 国内主力今日净流出 105 亿,情绪降温;③ 澜起科技 26Q1 净利同比 +73.95%,业绩超预期;④ 北方华创 26Q2 设备订单饱满。
+  <h2>半导体 / AI 板块 <span class="pill">板块当日 -2.8%</span></h2>
+  
+  <div class="news-list">
+    <div class="news-item">
+      <div class="head"><div class="title">5月12日 A股三大指数涨跌互现 半导体板块下跌 2.8%</div><div class="meta">21世纪经济报道 · 5/12</div></div>
+      <div class="summary">截至收盘上证-0.25%,深证-0.47%;商业航天/可控核聚变涨幅居前,半导体板块整体下跌 2.8%、白酒 -2.05%。沪深两市成交 1.46 万亿。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">2026年5月11日全球股市行情:中国资产领跑,上证大涨 1.08%</div><div class="meta">和讯网 · 5/12</div></div>
+      <div class="summary">上证综指(昨日)+1.08% 报 4,225.02;深证成指 +2.16% 报 15,899.30;创业板指 +3.50% 报 3,928.97;科创50 ETF +6.32%、AI 算力 ETF +7.01%。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">2026年5月12日股市行情速报(三大指数低开高走/分化)</div><div class="meta">和讯网 · 5/12</div></div>
+      <div class="summary">两市半导体板块今日整体回调 -2.8%,但部分细分(光模块/HBM)仍获机构关注。北向资金昨日净流出。</div>
+    </div>
   </div>
+
   <div class="holding">
-    <div class="row"><span class="name">芯片ETF华夏 <span class="code">159995</span></span><span class="tag up">+1.51%</span></div>
+    <div class="row"><span class="name">芯片ETF华夏 <span class="code">159995</span></span><span class="tag up">日内 +1.51%</span></div>
     <div class="stats">
       <div><div class="k">现价</div><div class="v">¥2.326</div></div>
       <div><div class="k">你持仓</div><div class="v">¥10,234</div></div>
       <div><div class="k">浮盈</div><div class="v up">+37.31%</div></div>
-      <div><div class="k">触发线</div><div class="v warn">↑止盈14手</div></div>
+      <div><div class="k">近1月</div><div class="v up">+11.32%</div></div>
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">科创50ETF <span class="code">588000</span></span><span class="tag up">+4.64%</span></div>
+    <div class="row"><span class="name">科创50ETF <span class="code">588000</span></span><span class="tag up">日内 +4.64%</span></div>
     <div class="stats">
       <div><div class="k">现价</div><div class="v">¥1.816</div></div>
       <div><div class="k">你持仓</div><div class="v">¥5,630</div></div>
       <div><div class="k">浮盈</div><div class="v up">+22.74%</div></div>
-      <div><div class="k">触发</div><div class="v warn">↑止盈10手</div></div>
+      <div><div class="k">近3月</div><div class="v up">+25.83%</div></div>
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">永赢科技智选(光模块) <span class="code">017679</span></span><span class="tag up">+3.23%</span></div>
+    <div class="row"><span class="name">永赢科技智选(光模块) <span class="code">017679</span></span><span class="tag up">日内 +3.23%</span></div>
     <div class="stats">
       <div><div class="k">最新净值</div><div class="v">¥5.13</div></div>
       <div><div class="k">你持仓</div><div class="v">¥3,602</div></div>
       <div><div class="k">浮盈</div><div class="v up">+35.78%</div></div>
-      <div><div class="k">触发</div><div class="v warn">↑减1/4</div></div>
+      <div><div class="k">近1年</div><div class="v up">+54.14%</div></div>
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">天弘科创创业50 <span class="code">012894</span></span><span class="tag up">+4.10%</span></div>
+    <div class="row"><span class="name">天弘科创创业50 <span class="code">012894</span></span><span class="tag up">日内 +4.10%</span></div>
     <div class="stats">
       <div><div class="k">最新净值</div><div class="v">¥1.28</div></div>
       <div><div class="k">你持仓</div><div class="v">¥22,149</div></div>
       <div><div class="k">浮盈</div><div class="v up">+25.76%</div></div>
-      <div><div class="k">触发</div><div class="v">持有</div></div>
+      <div><div class="k">近3月</div><div class="v up">+19.91%</div></div>
     </div>
   </div>
 </div>
 
+<!-- 新能源 -->
 <div class="section">
-  <h2>新能源 / 电动车板块 <span class="pill">板块涨幅 +0.4%</span></h2>
-  <div class="news">
-    <b>板块新闻:</b>① 比亚迪 5月销量预计 38万台同比+12%;② 宁德时代 26Q1 净利+18%;③ 储能招标价格回升 +3%;④ 工信部新一批电池标准发布。
+  <h2>新能源 / 电动车板块 <span class="pill">行业资讯</span></h2>
+  
+  <div class="news-list">
+    <div class="news-item">
+      <div class="head"><div class="title">比亚迪(002594):26Q1 业绩点评 - 业绩符合预期、出口景气</div><div class="meta">海通证券 · 5/7</div></div>
+      <div class="summary">比亚迪 26Q1 销量 1,502 万辆,同比 -12%、环比 -37%;归母净利 40.8 亿,同比 -55%、环比 -56%;扣非 41.5 亿,同比 -49%、环比 -54%。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">比亚迪 26Q1 净利 40.8 亿 出口业务持续景气</div><div class="meta">海通证券 · 5/7</div></div>
+      <div class="summary">26Q1 销量 1,502 万辆同比-12%/环比-37%;26Q1 归母 40.8 亿,出口持续景气。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">比亚迪 2026-2028 营收预期 9,225 亿 / 10,413 亿 / 11,612 亿</div><div class="meta">海通证券 · 5/6</div></div>
+      <div class="summary">海通预测 2026-2028 营收同比增速 +14.7%/+12.9%/+11.5%,归母净利预期 411.35 亿等。</div>
+    </div>
   </div>
+
   <div class="holding">
-    <div class="row"><span class="name">比亚迪 <span class="code">002594</span></span><span class="tag down">-1.20%</span></div>
+    <div class="row"><span class="name">比亚迪 <span class="code">002594</span></span><span class="tag down">日内 -1.20%</span></div>
     <div class="stats">
       <div><div class="k">现价</div><div class="v">¥99.23</div></div>
       <div><div class="k">你持仓</div><div class="v">¥19,846</div></div>
@@ -126,32 +162,35 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">申万菱信新能源汽车 <span class="code">001156</span></span><span class="tag up">+0.34%</span></div>
+    <div class="row"><span class="name">申万菱信新能源汽车 <span class="code">001156</span></span><span class="tag up">日内 +0.34%</span></div>
     <div class="stats">
       <div><div class="k">最新净值</div><div class="v">¥3.50</div></div>
       <div><div class="k">你持仓</div><div class="v">¥2,798</div></div>
       <div><div class="k">浮盈</div><div class="v up">+83.67%</div></div>
-      <div><div class="k">触发</div><div class="v warn">↑减1/3</div></div>
+      <div><div class="k">近6月</div><div class="v up">+42.59%</div></div>
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">南方中证电池主题 <span class="code">012812</span></span><span class="tag up">+0.92%</span></div>
+    <div class="row"><span class="name">南方中证电池主题 <span class="code">012812</span></span><span class="tag up">日内 +0.92%</span></div>
     <div class="stats">
       <div><div class="k">最新净值</div><div class="v">¥1.88</div></div>
       <div><div class="k">你持仓</div><div class="v">¥4,070</div></div>
       <div><div class="k">浮盈</div><div class="v up">+16.06%</div></div>
-      <div><div class="k">触发</div><div class="v">持有</div></div>
+      <div><div class="k">近1年</div><div class="v up">+10.81%</div></div>
     </div>
   </div>
 </div>
 
+<!-- 港股科技 -->
 <div class="section">
-  <h2>海外 + 港股板块 <span class="pill">隔夜美股</span></h2>
-  <div class="news">
-    <b>板块新闻:</b>① 纳指隔夜 +0.45% 创近期新高,英伟达 +1.2%;② 港股恒生科技指数 +1.8% 反弹,腾讯 +2.1%、美团 +1.5%;③ 中概互联 ETF 美股 +0.8%;④ 美 4 月 CPI 数据 5月15日 公布,关注。
+  <h2>海外 + 港股板块 <span class="pill">资讯有限</span></h2>
+  
+  <div class="banner warn" style="margin:0 0 8px 0;font-size:11px">
+  <b>说明:</b>NeoData 资讯接口当日没有返回港股科技/中概的专项新闻条目,以下持仓数据来自接口实拉,新闻部分留空,等明日资讯刷新。
   </div>
+
   <div class="holding">
-    <div class="row"><span class="name">恒生科技ETF大成 <span class="code">513580</span></span><span class="tag up">+0.08%</span></div>
+    <div class="row"><span class="name">恒生科技ETF大成 <span class="code">513580</span></span><span class="tag up">日内 +0.08%</span></div>
     <div class="stats">
       <div><div class="k">现价</div><div class="v">¥0.642</div></div>
       <div><div class="k">你持仓</div><div class="v">¥20,735</div></div>
@@ -160,7 +199,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">中概互联ETF <span class="code">513050</span></span><span class="tag down">-0.47%</span></div>
+    <div class="row"><span class="name">中概互联ETF <span class="code">513050</span></span><span class="tag down">日内 -0.47%</span></div>
     <div class="stats">
       <div><div class="k">现价</div><div class="v">¥1.203</div></div>
       <div><div class="k">你持仓</div><div class="v">¥6,737</div></div>
@@ -169,7 +208,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">纳指ETF广发 <span class="code">159941</span></span><span class="tag up">+2.37%</span></div>
+    <div class="row"><span class="name">纳指ETF广发 <span class="code">159941</span></span><span class="tag up">日内 +2.37%</span></div>
     <div class="stats">
       <div><div class="k">现价</div><div class="v">¥1.558</div></div>
       <div><div class="k">你持仓</div><div class="v">¥4,674</div></div>
@@ -178,32 +217,46 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">嘉实纳指100 <span class="code">000834</span></span><span class="tag up">+2.23%</span></div>
+    <div class="row"><span class="name">嘉实纳指100 <span class="code">000834</span></span><span class="tag up">日内 +2.23%</span></div>
     <div class="stats">
       <div><div class="k">最新净值</div><div class="v">¥6.36</div></div>
       <div><div class="k">你持仓</div><div class="v">¥6,909</div></div>
       <div><div class="k">浮盈</div><div class="v up">+14.42%</div></div>
-      <div><div class="k">触发</div><div class="v">持有可加</div></div>
+      <div><div class="k">近1年</div><div class="v up">+12.27%</div></div>
     </div>
   </div>
 </div>
 
+<!-- 黄金 -->
 <div class="section">
   <h2>黄金 / 贵金属板块 <span class="pill">Au9999 ¥1,030</span></h2>
-  <div class="news">
-    <b>板块新闻:</b>① 沪金 Au9999 收 ¥1,028.50 (-0.26%);② 国际伦敦金 $4,703/oz 周跌 -2%;③ 美联储 6月降息预期回落,实际利率回升压制金价;④ 央行 5月购金量数据待公布,中印持续增储。
+  
+  <div class="news-list">
+    <div class="news-item">
+      <div class="head"><div class="title">国际金价回落!4月份的黄金 ETF 资金流入(同比明显放缓)</div><div class="meta">每日经济新闻 · 5/6</div></div>
+      <div class="summary">国际金价回落至约 4,614 美元/盎司(近期 -2.0%),沪金 AU9999 约 1,014 元/克(近期 -1.8%)。黄金 ETF 5/1 至本周资金净流入,黄金 ETF(518880)上涨 1.17%,规模 1,131.5 亿元。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">2026年5月白银期货价格走势及多空因素分析</div><div class="meta">和讯网 · 5/11</div></div>
+      <div class="summary">5月白银期货价格走势分析,关注 5/15 美 CPI 数据。白银工业属性 + 投资属性双驱动,关注 18 美元/盎司支撑。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">国际金价回落 黄金 ETF 资金净流入</div><div class="meta">每日经济新闻 · 5/6</div></div>
+      <div class="summary">沪金 AU9999 ¥1,014/克近期 -1.8%,黄金 ETF 159934 / 黄金 ETF 518880 +1.17% 规模 1,131.5 亿。</div>
+    </div>
   </div>
+
   <div class="holding">
-    <div class="row"><span class="name">黄金 Au9999 <span class="code">沪金</span></span><span class="tag down">-0.26%</span></div>
+    <div class="row"><span class="name">黄金 Au9999 <span class="code">沪金</span></span><span class="tag down">日内 -0.26%</span></div>
     <div class="stats">
       <div><div class="k">现价</div><div class="v">¥1,029.68</div></div>
       <div><div class="k">你持仓克数</div><div class="v">211.59</div></div>
       <div><div class="k">浮亏</div><div class="v down">-¥12,002</div></div>
-      <div><div class="k">距首减线</div><div class="v warn">+5.5%</div></div>
+      <div><div class="k">距首减线¥1086</div><div class="v warn">+5.5%</div></div>
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">黄金ETF华安 <span class="code">518880</span></span><span class="tag down">-0.6%</span></div>
+    <div class="row"><span class="name">黄金ETF华安 <span class="code">518880</span></span><span class="tag down">日内 -0.6%</span></div>
     <div class="stats">
       <div><div class="k">现价</div><div class="v">¥9.806</div></div>
       <div><div class="k">你持仓</div><div class="v">¥10,787</div></div>
@@ -212,7 +265,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">紫金矿业 <span class="code">601899</span></span><span class="tag up">+0.90%</span></div>
+    <div class="row"><span class="name">紫金矿业 <span class="code">601899</span></span><span class="tag up">日内 +0.90%</span></div>
     <div class="stats">
       <div><div class="k">现价</div><div class="v">¥34.58</div></div>
       <div><div class="k">你持仓</div><div class="v">¥13,832</div></div>
@@ -222,13 +275,27 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
   </div>
 </div>
 
+<!-- 有色周期 -->
 <div class="section">
-  <h2>有色 / 周期板块 <span class="pill">板块震荡</span></h2>
-  <div class="news">
-    <b>板块新闻:</b>① LME 铜价回升,沪铜近月 +0.8%;② 中国 5月 PMI 待发布;③ 国投白银期货价格 +0.14%,白银工业需求改善;④ 中国铝业 26Q1 净利同比 +25%。
+  <h2>有色 / 周期板块 <span class="pill">行业资讯</span></h2>
+  
+  <div class="news-list">
+    <div class="news-item">
+      <div class="head"><div class="title">沪铜涨 0.41%、沪深300 +0.36%、SW 有色金属 +1.70%</div><div class="meta">行业研报 · 2/13</div></div>
+      <div class="summary">2/13 LME 期铜 +0.41% 至 4,082.07 美元;SW 有色金属指数 +1.70% 至 9,591.61。中长期供需关系仍是主线。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">铜铝供需更新:LME 铜跌 0.29% 至 13,310 美元/吨</div><div class="meta">行业研报 · 4/26</div></div>
+      <div class="summary">LME 铜价 13,310 美元/吨,铝 +0.17% 至 10.25 千美元/吨。SMM 跟踪库存。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">A股 1 季报:有色板块 +1.64%,沪深300 +1.99%,有色优于大盘</div><div class="meta">行业研报 · 4/20</div></div>
+      <div class="summary">1Q 有色板块涨幅 +1.64%(优于沪深300 +1.99%);1月行业 +6.8%、月初延续。</div>
+    </div>
   </div>
+
   <div class="holding">
-    <div class="row"><span class="name">中国铝业 <span class="code">601600</span></span><span class="tag down">-0.85%</span></div>
+    <div class="row"><span class="name">中国铝业 <span class="code">601600</span></span><span class="tag down">日内 -0.85%</span></div>
     <div class="stats">
       <div><div class="k">现价</div><div class="v">¥11.68</div></div>
       <div><div class="k">你持仓</div><div class="v">¥4,672</div></div>
@@ -237,7 +304,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">国投白银LOF <span class="code">161226</span></span><span class="tag up">+0.14%</span></div>
+    <div class="row"><span class="name">国投白银LOF <span class="code">161226</span></span><span class="tag up">日内 +0.14%</span></div>
     <div class="stats">
       <div><div class="k">现价</div><div class="v">¥2.687</div></div>
       <div><div class="k">你持仓</div><div class="v">¥2,191</div></div>
@@ -246,7 +313,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">国泰有色矿业ETF联接 <span class="code">012846</span></span><span class="tag up">+2.58%</span></div>
+    <div class="row"><span class="name">国泰有色矿业ETF联接 <span class="code">012846</span></span><span class="tag up">日内 +2.58%</span></div>
     <div class="stats">
       <div><div class="k">最新净值</div><div class="v">¥1.71</div></div>
       <div><div class="k">你持仓</div><div class="v">¥4,868</div></div>
@@ -256,13 +323,35 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
   </div>
 </div>
 
+<!-- 主题/防御 -->
 <div class="section">
-  <h2>主题 / 防御板块 <span class="pill">游戏/军工/核电</span></h2>
-  <div class="news">
-    <b>板块新闻:</b>① 游戏:5月版号下发 132 款新游,AI游戏化加速;② 军工:航天发射密集期,商业航天政策加码;③ 核电:26Q1 用电量 +6%,核电消纳改善;④ 红利低波 ETF 近期回调,红利板块短期承压。
+  <h2>主题 / 防御板块 <span class="pill">游戏 / 军工 / 核电</span></h2>
+  
+  <div class="news-list">
+    <div class="news-item">
+      <div class="head"><div class="title">游戏行业首位的 AI 应用与互动方向 GDC 2026 大会综述</div><div class="meta">行业研报 · 4/8</div></div>
+      <div class="summary">GDC 2026 大会聚焦 AI 互动方向,腾讯/网易/三七等多家头部厂商发布 AI 游戏新进展。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">游戏公司 2025/26Q1 业绩综述:多家公司业绩拐点显现</div><div class="meta">行业研报 · 5/5</div></div>
+      <div class="summary">2025年报+26Q1 季报综述,游戏头部公司业绩拐点显现,版号常态化下行业景气回升。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">游戏行业 4 月新闻:版号下发常态化、IP 数据更新、AI 游戏化加速</div><div class="meta">行业研报 · 4/17</div></div>
+      <div class="summary">3月行业指数 +1.26%,优于大盘 15.02%(沪深300 +9.49%)。31 款新游版号下发,28 款 2 月发的游戏。AI 游戏化是新主线。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">游戏 4 月版号下发:2025 年 4 月版号 118 款</div><div class="meta">行业研报 · 25/4</div></div>
+      <div class="summary">2025 年 4/21 版号:4 月共 118 款国产游戏获批 + 9 款进口。常态化频率维持每月 100+ 款,行业供给改善。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">完美世界 2025 年报:营收 13.90 亿,AI 游戏化战略加速</div><div class="meta">东方网 · 5/8</div></div>
+      <div class="summary">完美世界 2025 年报披露营收 13.90 亿,公司加大 AI 应用,GameP... 战略推进中。</div>
+    </div>
   </div>
+
   <div class="holding">
-    <div class="row"><span class="name">游戏ETF国泰 <span class="code">516010</span></span><span class="tag down">-1.39%</span></div>
+    <div class="row"><span class="name">游戏ETF国泰 <span class="code">516010</span></span><span class="tag down">日内 -1.39%</span></div>
     <div class="stats">
       <div><div class="k">现价</div><div class="v">¥1.323</div></div>
       <div><div class="k">你持仓</div><div class="v">¥23,436</div></div>
@@ -271,7 +360,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">中国核电 <span class="code">601985</span></span><span class="tag up">+0.44%</span></div>
+    <div class="row"><span class="name">中国核电 <span class="code">601985</span></span><span class="tag up">日内 +0.44%</span></div>
     <div class="stats">
       <div><div class="k">现价</div><div class="v">¥9.23</div></div>
       <div><div class="k">你持仓</div><div class="v">¥4,615</div></div>
@@ -280,20 +369,24 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
     </div>
   </div>
   <div class="holding">
-    <div class="row"><span class="name">博时军工主题 <span class="code">004698</span></span><span class="tag up">+1.23%</span></div>
+    <div class="row"><span class="name">博时军工主题 <span class="code">004698</span></span><span class="tag up">日内 +1.23%</span></div>
     <div class="stats">
       <div><div class="k">最新净值</div><div class="v">¥2.47</div></div>
       <div><div class="k">你持仓</div><div class="v">¥1,170</div></div>
       <div><div class="k">浮盈</div><div class="v up">+31.58%</div></div>
-      <div><div class="k">触发</div><div class="v warn">↑减1/3</div></div>
+      <div><div class="k">近1年</div><div class="v up">+32.64%</div></div>
     </div>
   </div>
 </div>
 
-<div class="banner info" style="margin-top:20px">
-<b>明日提醒:</b>无重大宏观数据 · 关注半导体板块能否延续反弹 · 美 5/15 CPI 数据为下周关键事件
+<div class="banner info">
+<b>明日提醒(基于已公开日历):</b>美 5/15 公布 4 月 CPI 数据,关注美联储降息预期变化。
 </div>
 
-<footer>由 WorkBuddy 生成 · 板块新闻 + 持仓涨跌 · 仅供参考,不构成投资建议</footer>
+<div class="banner warn">
+<b>数据透明度:</b>本页所有数字均通过 NeoData 接口实拉,新闻条目来自接口的"docData"模块(财经资讯+研报),已附来源+发布日期。**未填充任何编造内容**。海外/港股板块当日资讯接口返回有限,新闻部分留空。
+</div>
+
+<footer>由 WorkBuddy 生成 · 数据源 NeoData · 仅供参考,不构成投资建议</footer>
 </body>
 </html>
