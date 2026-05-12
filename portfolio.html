@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>我的全持仓诊断 · 5月12日</title>
+<style>
+:root{--bg:#0f1115;--card:#1a1d24;--card2:#13161c;--border:#2a2f3a;--muted:#8b92a3;--text:#e8ebf1;--up:#e84545;--down:#2bb673;--warn:#f5a623;--info:#4f8df7}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:14px/1.6 -apple-system,SF Pro,PingFang SC,sans-serif;background:var(--bg);color:var(--text);padding:16px;max-width:920px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid var(--border);margin-bottom:20px}
+h1{font-size:22px;font-weight:600}
+header .sub{font-size:13px;color:var(--muted);margin-top:6px}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.metric{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px}
+.metric .label{font-size:12px;color:var(--muted);margin-bottom:6px}
+.metric .value{font-size:22px;font-weight:600;font-feature-settings:'tnum'}
+.metric .extra{font-size:12px;margin-top:4px;font-feature-settings:'tnum'}
+.up{color:var(--up)}.down{color:var(--down)}.muted{color:var(--muted)}.warn{color:var(--warn)}.info{color:var(--info)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.card h2{font-size:15px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card h2::before{content:'';width:3px;height:16px;background:var(--info);border-radius:2px}
+.card h2 .total{margin-left:auto;font-size:13px;color:var(--muted);font-weight:400}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:8px;font-weight:500;color:var(--muted);font-size:12px;border-bottom:1px solid var(--border)}
+th.r,td.r{text-align:right;font-feature-settings:'tnum'}
+td{padding:10px 8px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+.banner{padding:12px 14px;border-radius:8px;font-size:13px;line-height:1.7;margin-bottom:14px}
+.banner.info{background:rgba(79,141,247,0.12);border-left:3px solid var(--info)}
+.banner.warn{background:rgba(245,166,35,0.1);border-left-color:var(--warn);border-left:3px solid var(--warn)}
+.banner.up{background:rgba(232,69,69,0.1);border-left:3px solid var(--up)}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;background:var(--card2);color:var(--muted);margin-left:6px}
+.tag.win{background:rgba(232,69,69,0.18);color:#ff7070}
+.tag.lose{background:rgba(43,182,115,0.18);color:#5fd49a}
+.bar{position:relative;height:18px;background:var(--card2);border-radius:9px;overflow:hidden;margin-top:4px}
+.bar > span{position:absolute;left:0;top:0;height:100%;display:flex;align-items:center;padding:0 8px;font-size:11px;color:#fff}
+ul.advice{list-style:none;padding:0}
+ul.advice li{padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+ul.advice li:last-child{border-bottom:none}
+ul.advice li b{color:var(--info)}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
+@media (max-width:680px){.summary{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>我的全持仓诊断</h1>
+  <div class="sub">5月12日 17:33 截止 · 数据来源:用户手动同步</div>
+</header>
+
+<div class="banner info">
+  <strong>第一印象:</strong>典型的"科技+成长+海外+黄金"四主线组合,共持有约 <b>34 只基金 + 黄金积存金</b>,总市值约 <b>¥38.8 万</b>,累计收益 <b>+¥3.4 万 (~9.6%)</b>。
+  <br>组合<strong>方向正确但过度分散</strong>,半导体/AI 主线已经赚得很多,黄金 -1.2 万拖累被新能源/科技收益完全覆盖。
+</div>
+
+<div class="summary">
+  <div class="metric">
+    <div class="label">总市值估算</div>
+    <div class="value">¥388K</div>
+    <div class="extra muted">基金 ¥170K + 投顾 ¥43K + 黄金 ¥218K (含浙商/民生)</div>
+  </div>
+  <div class="metric">
+    <div class="label">累计收益估算</div>
+    <div class="value up">+¥34K</div>
+    <div class="extra up">≈ +9.6%(浮盈,大部分未落袋)</div>
+  </div>
+  <div class="metric">
+    <div class="label">黄金真实成本</div>
+    <div class="value">¥1,086.55/克</div>
+    <div class="extra down">浮亏 -¥12,002 / 累计已实现 +¥1,075</div>
+  </div>
+  <div class="metric">
+    <div class="label">主线集中度</div>
+    <div class="value warn">偏高</div>
+    <div class="extra muted">科技+新能源+QDII 占比 ~80%</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>1. 黄金持仓(校准后) <span class="total">总 211.59 克 / 市值 ¥217,904 / 浮亏 -¥12,002</span></h2>
+  <table>
+    <thead><tr><th>账户</th><th class="r">克数</th><th class="r">成本均价</th><th class="r">实时</th><th class="r">市值</th><th class="r">持仓盈亏</th><th class="r">累计已实现</th></tr></thead>
+    <tbody>
+    <tr><td>民生积存金</td><td class="r">160.14</td><td class="r">¥1,074.00</td><td class="r">¥1,029.68</td><td class="r">¥164,894</td><td class="r down">-¥7,099</td><td class="r up">+¥832</td></tr>
+    <tr><td>浙商积存金</td><td class="r">51.45</td><td class="r">¥1,125.61</td><td class="r">¥1,030.31</td><td class="r">¥53,011</td><td class="r down">-¥4,903</td><td class="r up">+¥244</td></tr>
+    <tr><td><b>合计</b></td><td class="r"><b>211.59</b></td><td class="r"><b>¥1,086.55</b></td><td class="r">¥1,029.68</td><td class="r"><b>¥217,904</b></td><td class="r down"><b>-¥12,002</b></td><td class="r up"><b>+¥1,075</b></td></tr>
+    </tbody>
+  </table>
+  <div class="banner warn" style="margin-top:14px">
+    <b>校准点位</b>:实际成本是 <b>¥1,086.55/克</b>,不是之前用的 ¥1,113。重设减仓/补仓线:
+    <br>· 第一减仓 ¥1,086(回本)→ 减 1/3 落袋
+    <br>· 第二减仓 ¥1,140(浮盈 +5%)→ 再减 1/3
+    <br>· 全部清仓 ¥1,200
+    <br>· 第一补仓 ¥980(浮亏 -10%)→ 4 万
+    <br>· 第二补仓 ¥940(浮亏 -13%)→ 再 4 万
+  </div>
+</div>
+
+<div class="card">
+  <h2>2. 基金持仓总览(34 只)<span class="total">合计市值约 ¥213K · 浮盈约 +¥35K</span></h2>
+
+  <div style="margin-bottom:14px;font-size:13px;color:var(--muted)">按主题分组,标签代表当前持仓收益率</div>
+
+  <h3 style="font-size:13px;font-weight:500;margin:16px 0 8px;color:var(--info)">▎A 股 - 科技/半导体主线 (~¥31K)</h3>
+  <table>
+  <thead><tr><th>基金</th><th class="r">市值</th><th class="r">持仓收益</th><th class="r">收益率</th></tr></thead>
+  <tbody>
+  <tr><td>富国上证科创板芯片ETF联接C</td><td class="r">6,175</td><td class="r up">+1,592</td><td class="r"><span class="tag win">+34.73%</span></td></tr>
+  <tr><td>华夏科创50ETF联接C</td><td class="r">7,406</td><td class="r up">+1,176</td><td class="r"><span class="tag win">+18.88%</span></td></tr>
+  <tr><td>华夏国证半导体芯片ETF联接C</td><td class="r">965</td><td class="r up">+215</td><td class="r"><span class="tag win">+28.65%</span></td></tr>
+  <tr><td>永赢半导体产业智选混合发起C</td><td class="r">929</td><td class="r up">+179</td><td class="r"><span class="tag win">+23.88%</span></td></tr>
+  <tr><td>永赢科技智选混合发起C(光模块No.1)</td><td class="r">3,602</td><td class="r up">+949</td><td class="r"><span class="tag win">+35.78%</span></td></tr>
+  <tr><td>华夏科创50ETF联接C(浙商)</td><td class="r">7,170</td><td class="r up">+1,113</td><td class="r"><span class="tag win">+18.37%</span></td></tr>
+  <tr><td>华泰柏瑞中证韩交所中韩半导体ETF联接</td><td class="r">42</td><td class="r up">+12</td><td class="r"><span class="tag win">+39.01%</span></td></tr>
+  <tr><td>天弘中证科创创业50ETF联接C</td><td class="r">22,149</td><td class="r up">+4,537</td><td class="r"><span class="tag win">+25.76%</span></td></tr>
+  </tbody>
+  </table>
+
+  <h3 style="font-size:13px;font-weight:500;margin:16px 0 8px;color:var(--info)">▎A 股 - 新能源/电动车主线 (~¥22K)</h3>
+  <table>
+  <thead><tr><th>基金</th><th class="r">市值</th><th class="r">持仓收益</th><th class="r">收益率</th></tr></thead>
+  <tbody>
+  <tr><td>申万菱信新能源汽车主题灵活配置混合A</td><td class="r">2,798</td><td class="r up">+1,372</td><td class="r"><span class="tag win">+83.67%</span></td></tr>
+  <tr><td>申万菱信智能驱动股票A</td><td class="r">2,495</td><td class="r up">+1,071</td><td class="r"><span class="tag win">+73.20%</span></td></tr>
+  <tr><td>富国中证新能源汽车指数(LOF)A</td><td class="r">6,691</td><td class="r up">+928</td><td class="r"><span class="tag win">+16.10%</span></td></tr>
+  <tr><td>嘉实新能源新材料股票A</td><td class="r">2,342</td><td class="r up">+644</td><td class="r"><span class="tag win">+37.96%</span></td></tr>
+  <tr><td>南方中证电池主题ETF联接A</td><td class="r">4,070</td><td class="r up">+563</td><td class="r"><span class="tag win">+16.06%</span></td></tr>
+  <tr><td>嘉实智能汽车股票</td><td class="r">2,786</td><td class="r up">+532</td><td class="r"><span class="tag win">+23.62%</span></td></tr>
+  <tr><td>农银新能源混合A</td><td class="r">3,368</td><td class="r up">+646</td><td class="r"><span class="tag win">+23.75%</span></td></tr>
+  <tr><td>华夏能源革新股票A</td><td class="r">1,694</td><td class="r up">+328</td><td class="r"><span class="tag win">+24.04%</span></td></tr>
+  <tr><td>国泰国证新能源汽车(LOF)A</td><td class="r">833</td><td class="r up">+155</td><td class="r"><span class="tag win">+18.61%</span></td></tr>
+  <tr><td>汇丰晋信智造先锋股票C</td><td class="r">3,497</td><td class="r up">+69</td><td class="r"><span class="tag win">+2.02%</span></td></tr>
+  </tbody>
+  </table>
+
+  <h3 style="font-size:13px;font-weight:500;margin:16px 0 8px;color:var(--info)">▎海外 QDII (~¥30K)</h3>
+  <table>
+  <thead><tr><th>基金</th><th class="r">市值</th><th class="r">持仓收益</th><th class="r">收益率</th></tr></thead>
+  <tbody>
+  <tr><td>嘉实纳斯达克100ETF联接(QDII)C</td><td class="r">6,909</td><td class="r up">+871</td><td class="r"><span class="tag win">+14.42%</span></td></tr>
+  <tr><td>国富亚洲机会股票(QDII)C</td><td class="r">6,427</td><td class="r up">+1,517</td><td class="r"><span class="tag win">+33.63%</span></td></tr>
+  <tr><td>建信新兴市场优选混合(QDII)A+C</td><td class="r">5,608</td><td class="r up">+1,468</td><td class="r"><span class="tag win">+35.64%</span></td></tr>
+  <tr><td>博时标普500ETF联接(QDII)A+C</td><td class="r">5,580</td><td class="r up">+810</td><td class="r"><span class="tag win">+19.4%</span></td></tr>
+  <tr><td>华宝纳斯达克精选股票(QDII)C+发起式A</td><td class="r">6,493</td><td class="r up">+633</td><td class="r"><span class="tag win">+10.7%</span></td></tr>
+  <tr><td>嘉实美国成长股票(QDII)-人民币</td><td class="r">620</td><td class="r up">+173</td><td class="r"><span class="tag win">+38.83%</span></td></tr>
+  <tr><td>景顺长城纳斯达克科技ETF联接</td><td class="r">2,291</td><td class="r up">+436</td><td class="r"><span class="tag win">+23.50%</span></td></tr>
+  <tr><td>广发纳指100ETF联接(QDII)A</td><td class="r">1,073</td><td class="r up">+123</td><td class="r"><span class="tag win">+12.92%</span></td></tr>
+  <tr><td>南方原油(QDII-FOF)C</td><td class="r">639</td><td class="r up">+229</td><td class="r"><span class="tag win">+55.99%</span></td></tr>
+  <tr><td>国富沪港深成长精选股票A</td><td class="r">1,928</td><td class="r up">+463</td><td class="r"><span class="tag win">+31.57%</span></td></tr>
+  <tr><td>天弘纳斯达克100指数(QDII)A</td><td class="r">2,229</td><td class="r up">+179</td><td class="r"><span class="tag win">+9.20%</span></td></tr>
+  <tr><td>汇添富全球移动互联灵活配置混合(QDII)C</td><td class="r">12</td><td class="r up">+2</td><td class="r"><span class="tag win">+20.69%</span></td></tr>
+  <tr><td>嘉实全球产业升级股票(QDII)C</td><td class="r">190</td><td class="r up">+111</td><td class="r"><span class="tag win">+139.47%</span></td></tr>
+  <tr><td>华宝海外科技股票(QDII-LOF)C</td><td class="r">113</td><td class="r up">+21</td><td class="r"><span class="tag win">+22.10%</span></td></tr>
+  <tr><td>广发中证香港创新药ETF联接(创新药No.6)</td><td class="r">3,879</td><td class="r down">-771</td><td class="r"><span class="tag lose">-16.58%</span></td></tr>
+  </tbody>
+  </table>
+
+  <h3 style="font-size:13px;font-weight:500;margin:16px 0 8px;color:var(--info)">▎宽基/红利/混合 (~¥35K)</h3>
+  <table>
+  <thead><tr><th>基金</th><th class="r">市值</th><th class="r">持仓收益</th><th class="r">收益率</th></tr></thead>
+  <tbody>
+  <tr><td>易方达中证500ETF联接C</td><td class="r">22,179</td><td class="r up">+3,022</td><td class="r"><span class="tag win">+15.78%</span></td></tr>
+  <tr><td>易方达沪深300ETF联接C</td><td class="r">4,834</td><td class="r up">+535</td><td class="r"><span class="tag win">+12.4%</span></td></tr>
+  <tr><td>兴全合宜混合C</td><td class="r">1,305</td><td class="r up">+353</td><td class="r"><span class="tag win">+37.03%</span></td></tr>
+  <tr><td>中金中证500指数增强C</td><td class="r">107</td><td class="r up">+7</td><td class="r"><span class="tag win">+7.46%</span></td></tr>
+  <tr><td>华泰柏瑞富利灵活配置混合A</td><td class="r">153</td><td class="r up">+3</td><td class="r"><span class="tag win">+2.10%</span></td></tr>
+  <tr><td>前海开源嘉鑫灵活配置混合C</td><td class="r">5,345</td><td class="r up">+345</td><td class="r"><span class="tag win">+6.89%</span></td></tr>
+  <tr><td>前海开源工业革命4.0混合</td><td class="r">729</td><td class="r up">+318</td><td class="r"><span class="tag win">+77.29%</span></td></tr>
+  <tr><td>博时军工主题股票A</td><td class="r">1,170</td><td class="r up">+281</td><td class="r"><span class="tag win">+31.58%</span></td></tr>
+  </tbody>
+  </table>
+
+  <h3 style="font-size:13px;font-weight:500;margin:16px 0 8px;color:var(--info)">▎商品/有色/贵金属 (~¥12K)</h3>
+  <table>
+  <thead><tr><th>基金</th><th class="r">市值</th><th class="r">持仓收益</th><th class="r">收益率</th></tr></thead>
+  <tbody>
+  <tr><td>国泰国证有色金属行业指数C</td><td class="r">6,162</td><td class="r down">-32</td><td class="r"><span class="tag lose">-0.51%</span></td></tr>
+  <tr><td>国泰有色矿业ETF联接C</td><td class="r">4,868</td><td class="r up">+10</td><td class="r"><span class="tag win">+0.20%</span></td></tr>
+  <tr><td>天弘上海金ETF发起联接C</td><td class="r">324</td><td class="r down">-6</td><td class="r"><span class="tag lose">-1.92%</span></td></tr>
+  <tr><td>博时黄金ETF联接C</td><td class="r">1.26</td><td class="r up">+0.03</td><td class="r"><span class="tag win">+2.44%</span></td></tr>
+  <tr><td>国投瑞银白银期货(LOF)A+C</td><td class="r">579</td><td class="r up">+77</td><td class="r"><span class="tag win">+15%</span></td></tr>
+  </tbody>
+  </table>
+
+  <h3 style="font-size:13px;font-weight:500;margin:16px 0 8px;color:var(--info)">▎债券/固收 (~¥27K)</h3>
+  <table>
+  <thead><tr><th>基金</th><th class="r">市值</th><th class="r">持仓收益</th><th class="r">收益率</th></tr></thead>
+  <tbody>
+  <tr><td>天弘中债3-5年政策性金融债指数</td><td class="r">14,681</td><td class="r up">+758</td><td class="r"><span class="tag win">+5.45%</span></td></tr>
+  <tr><td>中加纯债债券</td><td class="r">12,842</td><td class="r up">+662</td><td class="r"><span class="tag win">+5.43%</span></td></tr>
+  </tbody>
+  </table>
+
+  <h3 style="font-size:13px;font-weight:500;margin:16px 0 8px;color:var(--info)">▎投顾组合 (¥43,379)</h3>
+  <table>
+  <thead><tr><th>组合</th><th class="r">市值</th><th class="r">累计收益</th><th class="r">收益率</th></tr></thead>
+  <tbody>
+  <tr><td>华夏全球固收+</td><td class="r">33,260</td><td class="r up">+1,408</td><td class="r"><span class="tag win">+4.42%</span></td></tr>
+  <tr><td>工银稳健成长</td><td class="r">10,120</td><td class="r up">+120</td><td class="r"><span class="tag win">+1.20%</span></td></tr>
+  </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>3. 资产配置全景</h2>
+  <div style="margin-bottom:8px;font-size:13px">按大类资产分布(基于市值估算)</div>
+  <div class="bar"><span style="width:56%;background:#4f8df7">权益类(科技+新能源+宽基) 56% · 约 ¥218K</span></div>
+  <div class="bar"><span style="width:24%;background:#f5a623">海外 QDII 24% · 约 ¥93K</span></div>
+  <div class="bar"><span style="width:13%;background:#2bb673">债券固收 13% · 约 ¥50K</span></div>
+  <div class="bar"><span style="width:7%;background:#e84545">商品/贵金属(基金部分) 7% · 约 ¥27K</span></div>
+  <div style="margin-top:14px;font-size:13px;color:var(--muted)">※ 黄金积存金 ¥218K 单独占大类配置约 36%,与基金合计后总资产约 ¥605K 量级</div>
+</div>
+
+<div class="card">
+  <h2>4. 关键诊断</h2>
+  <div class="banner warn">
+    <b>问题 1 · 严重过度分散</b>:34 只基金里有大量重叠(纳指 100 / 标普 500 / 半导体 / 新能源各持 3-5 只),管理成本和摩擦费用高,但实质上跟 5-6 只 ETF 相比并没有更好的分散效果。
+  </div>
+  <div class="banner warn">
+    <b>问题 2 · 主线高度集中在科技 + 新能源 + AI</b>:这两个主线在过去 1 年涨幅巨大(部分 +70-80%),已经处于高位,**回撤风险显著高于均值**。看似分散,实际是"假分散真集中"。
+  </div>
+  <div class="banner up">
+    <b>问题 3 · 创新药 ETF 浮亏 -16.58%</b>:广发中证香港创新药 ETF 是组合里最大的浮亏基金(-¥771)。需要判断是补仓摊薄还是止损。
+  </div>
+  <div class="banner up">
+    <b>问题 4 · 黄金成本被错记</b>:之前用了 ¥1,113,实际是 ¥1,086.55,亏损也只有 ¥1.2 万 (不是 ¥1.85 万)。所有触发线已经在本页底部校准。
+  </div>
+  <div class="banner info">
+    <b>亮点 · 整体收益结构健康</b>:大部分基金都是浮盈,新能源 / 半导体 / 工业革命 4.0 / 嘉实全球产业升级 等多只 +30%~+139%。组合方向对了,只是缺乏纪律性减仓。
+  </div>
+</div>
+
+<div class="card">
+  <h2>5. 操作建议(基于"收益最大化 + 风险可控")</h2>
+  <ul class="advice">
+    <li><b>立即可做(本周内)</b>:对涨幅 &gt;50% 的"明星基金"分批止盈 1/3,锁定利润。建议清单:
+      <br>· 申万菱信新能源汽车 +83.67% → 减仓 1/3
+      <br>· 申万菱信智能驱动 +73.20% → 减仓 1/3
+      <br>· 前海开源工业革命4.0 +77.29% → 减仓 1/3
+      <br>· 嘉实全球产业升级 +139.47% → 减仓 1/2(单项盘子小,可一次清掉)
+      <br>· 永赢科技智选(光模块) +35.78% → 减仓 1/4 观察
+    </li>
+    <li><b>需要决策</b>:广发香港创新药 ETF -16.58% 浮亏。我倾向<b>持有不补仓</b>,创新药板块今年逻辑被削弱(医保谈判+集采压力),不建议为了摊薄成本继续投入。等右侧反转信号(连续 3 日放量上涨)再考虑。</li>
+    <li><b>结构优化</b>:同主题下保留 1-2 只龙头,其他赎回。例如纳指相关你持有 4 只(嘉实纳指100 / 天弘纳指100 / 广发纳指100 / 华宝纳斯达克精选 / 景顺长城纳指科技),建议<b>合并为 1-2 只</b>(留嘉实纳指100ETF联接 + 景顺长城纳指科技 ETF 联接,其他赎回)。</li>
+    <li><b>黄金</b>:位置不动,等触发线。新校准的减仓线 ¥1,086(回本)更接近,继续观察。</li>
+    <li><b>新增 2w 闲钱</b>:继续保持<b>不买半导体板块</b>,等芯片 ETF 159995 跌至 ¥2.10 触发档再分批入场。短期 2w 可放短债基金或者货基。</li>
+  </ul>
+</div>
+
+<footer>由 WorkBuddy 自动生成 · 数据基于用户截图 · 仅供参考,不构成投资建议</footer>
+
+</body>
+</html>
