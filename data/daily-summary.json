@@ -1,0 +1,5 @@
+{
+  "schema": "daily_summary_v1",
+  "description": "每日持仓总金额+盈亏归档,不对外展示,供历史复盘",
+  "records": []
+}
