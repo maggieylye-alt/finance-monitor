@@ -1,0 +1,183 @@
+{
+  "version": "v4-real",
+  "updated_at": "2026-05-13T15:55:00+08:00",
+  "user": {
+    "name": "maggie",
+    "year_target": 0.15,
+    "year_start_value": 540000,
+    "tax_year": 2026
+  },
+  "rules": {
+    "stop_profit_levels": [0.50, 1.00],
+    "stop_loss_level": -0.20,
+    "gold_sell_triggers": [1086, 1140, 1200],
+    "gold_buy_triggers": [980, 940],
+    "rebalance_threshold": 0.05,
+    "monthly_dca": 3000,
+    "min_position_pct_of_total": 0.02
+  },
+  "accounts": {
+    "ashare_pingan": {
+      "name": "平安证券3066",
+      "type": "A股",
+      "value_today": 126816
+    },
+    "fund_ant": {
+      "name": "蚂蚁财富",
+      "type": "公募基金",
+      "fund_count": 33,
+      "value_today": 160899
+    },
+    "fund_platform2": {
+      "name": "第二平台(天天/招商)",
+      "type": "公募基金",
+      "fund_count": 21,
+      "value_today": 60535
+    },
+    "advisor": {
+      "name": "蚂蚁投顾",
+      "type": "投顾组合",
+      "value_today": 43379,
+      "components": [
+        {"name": "华夏全球固收+", "value": 33260},
+        {"name": "工银稳健成长", "value": 10119}
+      ]
+    },
+    "gold_minsheng": {
+      "name": "民生积存金",
+      "type": "黄金积存",
+      "grams": 160.14,
+      "cost_per_gram": 1074.0,
+      "current_price_per_gram": 1029.74
+    },
+    "gold_zheshang": {
+      "name": "浙商积存金",
+      "type": "黄金积存",
+      "grams": 51.45,
+      "cost_per_gram": 1125.61,
+      "current_price_per_gram": 1029.30
+    }
+  },
+  "sectors": {
+    "semiconductor": {
+      "label": "半导体/AI",
+      "tag": "Edge强区·持有",
+      "target_pct": 0.18,
+      "current_pct_estimate": 0.106,
+      "deviation": -0.074,
+      "status": "underweight",
+      "advice": "回调-3%以上加仓¥1万到永赢光模块022365或华夏科创50"
+    },
+    "overseas": {
+      "label": "海外科技/QDII",
+      "tag": "β稳定·持有",
+      "target_pct": 0.10,
+      "current_pct_estimate": 0.063,
+      "deviation": -0.037,
+      "status": "neutral",
+      "advice": "保持·5只纳指系列重叠考虑合并"
+    },
+    "new_energy": {
+      "label": "新能源/电池",
+      "tag": "已兑现·止盈",
+      "target_pct": 0.08,
+      "current_pct_estimate": 0.043,
+      "deviation": -0.037,
+      "status": "neutral",
+      "advice": "申万菱信新能源/智能驱动止盈1/3"
+    },
+    "gold": {
+      "label": "黄金/贵金属",
+      "tag": "防御·减仓中",
+      "target_pct": 0.18,
+      "current_pct_estimate": 0.357,
+      "deviation": 0.177,
+      "status": "overweight",
+      "advice": "等Au9999¥1086触发减仓30g(¥32K)"
+    },
+    "bond": {
+      "label": "债基/固收",
+      "tag": "防御·持有",
+      "target_pct": 0.08,
+      "current_pct_estimate": 0.045,
+      "deviation": -0.035,
+      "status": "neutral",
+      "advice": "已有天弘金融债+中加纯债,保持"
+    },
+    "broad_index": {
+      "label": "宽基指数",
+      "tag": "核心·持有",
+      "target_pct": 0.10,
+      "current_pct_estimate": 0.038,
+      "deviation": -0.062,
+      "status": "underweight",
+      "advice": "考虑加红利低波512890补足"
+    },
+    "metals": {
+      "label": "有色/周期",
+      "tag": "卫星·持有",
+      "target_pct": 0.05,
+      "current_pct_estimate": 0.044,
+      "deviation": -0.006,
+      "status": "neutral",
+      "advice": "保持·不加仓"
+    },
+    "advisory": {
+      "label": "投顾组合",
+      "tag": "稳健·长持",
+      "target_pct": 0.07,
+      "current_pct_estimate": 0.071,
+      "deviation": 0.001,
+      "status": "neutral",
+      "advice": "保持"
+    },
+    "anti_edge_a_share": {
+      "label": "A股反Edge·清仓中",
+      "tag": "反Edge·清理",
+      "target_pct": 0.0,
+      "current_pct_estimate": 0.062,
+      "deviation": 0.062,
+      "status": "must_clear",
+      "components": [
+        {"code": "161226", "name": "国投白银LOF", "value": 2180, "pnl_pct": -0.43},
+        {"code": "601600", "name": "中国铝业", "value": 4672, "pnl_pct": -0.22},
+        {"code": "513050", "name": "中概互联ETF", "value": 6759, "pnl_pct": -0.23},
+        {"code": "516010", "name": "游戏ETF", "value": 23436, "pnl_pct": -0.21}
+      ],
+      "advice": "本周尾盘清仓4只,合计回笼¥37,047"
+    },
+    "hk_other": {
+      "label": "港股其他·观望",
+      "tag": "观望",
+      "target_pct": 0.0,
+      "current_pct_estimate": 0.011,
+      "components": [
+        {"name": "广发港股创新药ETF联接", "value": 3868, "pnl_pct": -0.168, "platform": "平台2"},
+        {"name": "前海开源沪港深价值", "value": 2744, "pnl_pct": -0.087, "platform": "蚂蚁"}
+      ],
+      "advice": "接近-20%止损,跌至-20%清"
+    }
+  },
+  "key_actions": [
+    {"priority": "高", "category": "立即", "action": "清仓A股4只反Edge", "amount": 37047, "trigger": "已触发-20%止损"},
+    {"priority": "中", "category": "本周", "action": "申万菱信新能源+82%止盈1/3", "amount": 460, "trigger": "已触发+50%止盈"},
+    {"priority": "中", "category": "本周", "action": "申万菱信智能驱动+81%止盈1/3", "amount": 396, "trigger": "已触发+50%止盈"},
+    {"priority": "中", "category": "等触发", "action": "黄金减仓30g", "amount": 32580, "trigger": "Au9999≥¥1086"},
+    {"priority": "低", "category": "本月", "action": "半导体回调加仓¥1万", "amount": 10000, "trigger": "板块单日-3%以上"},
+    {"priority": "低", "category": "本月", "action": "5组重复基金合并到一个平台", "amount": 0, "trigger": "纪律性"},
+    {"priority": "低", "category": "本月", "action": "月初定投¥3000", "amount": 3000, "trigger": "每月1号"}
+  ],
+  "year_progress": {
+    "year_start_value": 540000,
+    "current_value": 609534,
+    "absolute_pnl": 26200,
+    "annualized_pct": 0.078,
+    "target_pct": 0.15,
+    "progress_to_target": 0.520,
+    "gap_attribution": {
+      "gold_overweight": -0.032,
+      "anti_edge_drag": -0.018,
+      "semiconductor_underweight": -0.022
+    }
+  }
+}

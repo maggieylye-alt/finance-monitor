@@ -1,0 +1,252 @@
+{
+  "date": "2026-05-13 16:05",
+  "version": "v4-real",
+  "total_capital": 980000,
+  "invest_value": 612566.34,
+  "cash": 367434,
+  "today_pnl": 931.31,
+  "total_pnl_estimate": 7582.0,
+  "sectors_meta": {
+    "semiconductor": {
+      "label": "半导体/AI",
+      "tag": "Edge强区·持有",
+      "target_pct": 0.18,
+      "current_pct_estimate": 0.106,
+      "deviation": -0.074,
+      "status": "underweight",
+      "advice": "回调-3%以上加仓¥1万到永赢光模块022365或华夏科创50"
+    },
+    "overseas": {
+      "label": "海外科技/QDII",
+      "tag": "β稳定·持有",
+      "target_pct": 0.1,
+      "current_pct_estimate": 0.063,
+      "deviation": -0.037,
+      "status": "neutral",
+      "advice": "保持·5只纳指系列重叠考虑合并"
+    },
+    "new_energy": {
+      "label": "新能源/电池",
+      "tag": "已兑现·止盈",
+      "target_pct": 0.08,
+      "current_pct_estimate": 0.043,
+      "deviation": -0.037,
+      "status": "neutral",
+      "advice": "申万菱信新能源/智能驱动止盈1/3"
+    },
+    "gold": {
+      "label": "黄金/贵金属",
+      "tag": "防御·减仓中",
+      "target_pct": 0.18,
+      "current_pct_estimate": 0.357,
+      "deviation": 0.177,
+      "status": "overweight",
+      "advice": "等Au9999¥1086触发减仓30g(¥32K)"
+    },
+    "bond": {
+      "label": "债基/固收",
+      "tag": "防御·持有",
+      "target_pct": 0.08,
+      "current_pct_estimate": 0.045,
+      "deviation": -0.035,
+      "status": "neutral",
+      "advice": "已有天弘金融债+中加纯债,保持"
+    },
+    "broad_index": {
+      "label": "宽基指数",
+      "tag": "核心·持有",
+      "target_pct": 0.1,
+      "current_pct_estimate": 0.038,
+      "deviation": -0.062,
+      "status": "underweight",
+      "advice": "考虑加红利低波512890补足"
+    },
+    "metals": {
+      "label": "有色/周期",
+      "tag": "卫星·持有",
+      "target_pct": 0.05,
+      "current_pct_estimate": 0.044,
+      "deviation": -0.006,
+      "status": "neutral",
+      "advice": "保持·不加仓"
+    },
+    "advisory": {
+      "label": "投顾组合",
+      "tag": "稳健·长持",
+      "target_pct": 0.07,
+      "current_pct_estimate": 0.071,
+      "deviation": 0.001,
+      "status": "neutral",
+      "advice": "保持"
+    },
+    "anti_edge_a_share": {
+      "label": "A股反Edge·清仓中",
+      "tag": "反Edge·清理",
+      "target_pct": 0.0,
+      "current_pct_estimate": 0.062,
+      "deviation": 0.062,
+      "status": "must_clear",
+      "components": [
+        {
+          "code": "161226",
+          "name": "国投白银LOF",
+          "value": 2180,
+          "pnl_pct": -0.43
+        },
+        {
+          "code": "601600",
+          "name": "中国铝业",
+          "value": 4672,
+          "pnl_pct": -0.22
+        },
+        {
+          "code": "513050",
+          "name": "中概互联ETF",
+          "value": 6759,
+          "pnl_pct": -0.23
+        },
+        {
+          "code": "516010",
+          "name": "游戏ETF",
+          "value": 23436,
+          "pnl_pct": -0.21
+        }
+      ],
+      "advice": "本周尾盘清仓4只,合计回笼¥37,047"
+    },
+    "hk_other": {
+      "label": "港股其他·观望",
+      "tag": "观望",
+      "target_pct": 0.0,
+      "current_pct_estimate": 0.011,
+      "components": [
+        {
+          "name": "广发港股创新药ETF联接",
+          "value": 3868,
+          "pnl_pct": -0.168,
+          "platform": "平台2"
+        },
+        {
+          "name": "前海开源沪港深价值",
+          "value": 2744,
+          "pnl_pct": -0.087,
+          "platform": "蚂蚁"
+        }
+      ],
+      "advice": "接近-20%止损,跌至-20%清"
+    }
+  },
+  "year_progress": {
+    "year_start_value": 540000,
+    "current_value": 609534,
+    "absolute_pnl": 26200,
+    "annualized_pct": 0.078,
+    "target_pct": 0.15,
+    "progress_to_target": 0.52,
+    "gap_attribution": {
+      "gold_overweight": -0.032,
+      "anti_edge_drag": -0.018,
+      "semiconductor_underweight": -0.022
+    }
+  },
+  "key_actions": [
+    {
+      "priority": "高",
+      "category": "立即",
+      "action": "清仓A股4只反Edge",
+      "amount": 37047,
+      "trigger": "已触发-20%止损"
+    },
+    {
+      "priority": "中",
+      "category": "本周",
+      "action": "申万菱信新能源+82%止盈1/3",
+      "amount": 460,
+      "trigger": "已触发+50%止盈"
+    },
+    {
+      "priority": "中",
+      "category": "本周",
+      "action": "申万菱信智能驱动+81%止盈1/3",
+      "amount": 396,
+      "trigger": "已触发+50%止盈"
+    },
+    {
+      "priority": "中",
+      "category": "等触发",
+      "action": "黄金减仓30g",
+      "amount": 32580,
+      "trigger": "Au9999≥¥1086"
+    },
+    {
+      "priority": "低",
+      "category": "本月",
+      "action": "半导体回调加仓¥1万",
+      "amount": 10000,
+      "trigger": "板块单日-3%以上"
+    },
+    {
+      "priority": "低",
+      "category": "本月",
+      "action": "5组重复基金合并到一个平台",
+      "amount": 0,
+      "trigger": "纪律性"
+    },
+    {
+      "priority": "低",
+      "category": "本月",
+      "action": "月初定投¥3000",
+      "amount": 3000,
+      "trigger": "每月1号"
+    }
+  ],
+  "triggered_signals": [
+    {
+      "category": "stop_loss",
+      "priority": "high",
+      "message": "中概互联ETF 513050 浮亏-23.22%, 触发-20%止损线, 建议清仓 ¥6759"
+    },
+    {
+      "category": "stop_loss",
+      "priority": "high",
+      "message": "国投白银LOF 161226 浮亏-43.09%, 触发-20%止损线, 建议清仓 ¥2182"
+    },
+    {
+      "category": "stop_loss",
+      "priority": "high",
+      "message": "中国铝业 601600 浮亏-20.99%, 触发-20%止损线, 建议清仓 ¥4748"
+    },
+    {
+      "category": "take_profit_1",
+      "priority": "mid",
+      "message": "申万菱信智能驱动股票A 浮盈81.3%, 触发+50%一级止盈, 建议止盈1/3 ¥871"
+    },
+    {
+      "category": "take_profit_1",
+      "priority": "mid",
+      "message": "南方原油QDII-FOFC 浮盈60.6%, 触发+50%一级止盈, 建议止盈1/3 ¥219"
+    },
+    {
+      "category": "take_profit_1",
+      "priority": "mid",
+      "message": "申万菱信新能源汽车混合A 浮盈82.3%, 触发+50%一级止盈, 建议止盈1/3 ¥925"
+    },
+    {
+      "category": "take_profit_1",
+      "priority": "mid",
+      "message": "前海开源工业革命4.0混合 浮盈79.6%, 触发+50%一级止盈, 建议止盈1/3 ¥246"
+    },
+    {
+      "category": "take_profit_2",
+      "priority": "mid",
+      "message": "嘉实全球产业升级股票发起式(QDII)C 浮盈146.3%, 触发+100%二级止盈, 建议止盈1/3 ¥65"
+    }
+  ],
+  "data_health": {
+    "ashare_real": 13,
+    "ashare_total": 13,
+    "funds_real": 0,
+    "funds_total": 54,
+    "gold_real": true
+  }
+}

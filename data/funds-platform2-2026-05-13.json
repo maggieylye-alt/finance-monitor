@@ -1,0 +1,23 @@
+[
+  {"code":"景顺纳指科技","name":"景顺长城纳斯达克科技ETF联接","amount":2300.52,"yesterday":9.68,"total_pnl":445.52,"pct":24.02,"sector":"海外QDII"},
+  {"code":"广发纳指100","name":"广发纳指100ETF联接(QDII)A","amount":1075.33,"yesterday":2.59,"total_pnl":125.33,"pct":13.19,"sector":"海外QDII"},
+  {"code":"华宝纳指精选","name":"华宝纳斯达克精选股票发起式(QDII)A","amount":3475.68,"yesterday":-16.44,"total_pnl":375.68,"pct":12.12,"sector":"海外QDII"},
+  {"code":"嘉实美国成长","name":"嘉实美国成长股票(QDII)-人民币","amount":623.89,"yesterday":4.12,"total_pnl":177.47,"pct":39.75,"sector":"海外QDII"},
+  {"code":"022365","name":"永赢科技智选混合发起C(光模块)","amount":3629.91,"yesterday":27.52,"total_pnl":976.83,"pct":36.82,"sector":"半导体"},
+  {"code":"易方达沪深300","name":"易方达沪深300ETF联接C","amount":3848.78,"yesterday":-2.75,"total_pnl":348.63,"pct":9.96,"sector":"宽基"},
+  {"code":"天弘上海金","name":"天弘上海金ETF发起联接C","amount":324.98,"yesterday":1.12,"total_pnl":-5.21,"pct":-1.58,"sector":"黄金基金"},
+  {"code":"国投白银A","name":"国投瑞银白银期货(LOF)A","amount":96.09,"yesterday":5.41,"total_pnl":-5.90,"pct":-5.79,"sector":"商品"},
+  {"code":"国投白银C","name":"国投瑞银白银期货(LOF)C","amount":517.62,"yesterday":29.16,"total_pnl":117.62,"pct":29.40,"sector":"商品"},
+  {"code":"博时黄金联接C","name":"博时黄金ETF联接C","amount":1.26,"yesterday":0.00,"total_pnl":0.03,"pct":2.44,"sector":"黄金基金"},
+  {"code":"博时军工","name":"博时军工主题股票A","amount":1181.51,"yesterday":11.83,"total_pnl":292.54,"pct":32.91,"sector":"军工"},
+  {"code":"广发港股创新药","name":"广发中证香港创新药ETF发起式联接","amount":3867.73,"yesterday":-11.70,"total_pnl":-782.96,"pct":-16.84,"sector":"港股创新药"},
+  {"code":"008888","name":"华夏国证半导体芯片ETF联接C","amount":970.87,"yesterday":6.04,"total_pnl":220.88,"pct":29.45,"sector":"半导体"},
+  {"code":"华夏科创50C-平台2","name":"华夏科创50ETF联接C","amount":7196.87,"yesterday":26.67,"total_pnl":1139.42,"pct":18.81,"sector":"半导体"},
+  {"code":"018124","name":"永赢半导体产业智选混合发起C","amount":924.03,"yesterday":-5.11,"total_pnl":174.02,"pct":23.20,"sector":"半导体"},
+  {"code":"博时标普500-平台2","name":"博时标普500ETF联接C","amount":1918.91,"yesterday":2.47,"total_pnl":399.89,"pct":26.33,"sector":"海外QDII"},
+  {"code":"前海开源工业革命","name":"前海开源工业革命4.0混合","amount":738.40,"yesterday":9.46,"total_pnl":327.26,"pct":79.60,"sector":"平衡"},
+  {"code":"天弘金融债","name":"天弘中债3-5年政策性金融债指数发","amount":14685.54,"yesterday":4.25,"total_pnl":762.57,"pct":5.48,"sector":"债基"},
+  {"code":"中加纯债","name":"中加纯债债券","amount":12847.12,"yesterday":4.91,"total_pnl":666.59,"pct":5.47,"sector":"债基"},
+  {"code":"华宝海外科技","name":"华宝海外科技股票(QDII-LOF)C","amount":114.15,"yesterday":0.73,"total_pnl":21.26,"pct":22.89,"sector":"海外QDII"},
+  {"code":"001972","name":"嘉实全球产业升级股票发起式(QDII)C","amount":195.94,"yesterday":5.46,"total_pnl":116.40,"pct":146.33,"sector":"海外QDII"}
+]

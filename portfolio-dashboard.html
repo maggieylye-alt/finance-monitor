@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>我的投资仪表盘 V3</title>
+<title>我的投资仪表盘 V4</title>
 <style>
   :root {
     --bg: #f7f8fa; --card: #ffffff;
-    --primary: #1f4e79;
+    --primary: #1f4e79; --primary-light: #3c6e9c;
     --red: #e84545; --green: #2bb673; --gray: #6b7280;
     --warn: #d97706; --warn-bg: #fff4e5;
     --text: #1f2937; --text-light: #6b7280;
@@ -20,123 +20,153 @@
     line-height: 1.6; padding: 14px; font-size: 14px;
   }
   .container { max-width: 1080px; margin: 0 auto; }
-
-  /* 头部 */
   .topbar {
-    background: #fff; padding: 14px 18px; border-radius: 10px;
-    margin-bottom: 12px; border: 1px solid var(--border);
-    display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff; padding: 18px 22px; border-radius: 12px;
+    margin-bottom: 14px;
   }
-  .topbar h1 { font-size: 15px; font-weight: 600; }
-  .topbar .meta { font-size: 11px; color: var(--text-light); }
-  .topbar .links { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+  .topbar h1 { font-size: 17px; font-weight: 600; }
+  .topbar .meta { font-size: 12px; opacity: 0.85; margin-top: 4px; }
+  .topbar .links { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
   .link {
-    color: var(--primary); text-decoration: none;
-    font-size: 11px; padding: 4px 10px;
-    border: 1px solid var(--border); border-radius: 5px;
-    background: #f9fafb;
+    color: #fff; text-decoration: none; font-size: 12px; padding: 5px 12px;
+    border: 1px solid rgba(255,255,255,0.4); border-radius: 6px;
+    background: rgba(255,255,255,0.1);
   }
-  .link:hover { background: var(--primary); color: #fff; }
-  .link.warn { color: var(--warn); border-color: var(--warn); }
+  .link:hover { background: rgba(255,255,255,0.25); }
 
-  /* 警示横幅 */
-  .alert {
-    background: var(--warn-bg); border-left: 3px solid var(--warn);
-    padding: 10px 14px; border-radius: 6px; margin-bottom: 12px;
-    font-size: 12px; color: #78350f;
-  }
-
-  /* 顶部 KPI */
+  /* KPI */
   .kpi-row {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px;
   }
-  @media (max-width: 640px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 720px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } }
   .kpi {
-    background: var(--card); padding: 12px 14px; border-radius: 8px;
-    border: 1px solid var(--border);
+    background: var(--card); padding: 14px; border-radius: 10px; border: 1px solid var(--border);
   }
   .kpi .label { font-size: 11px; color: var(--text-light); }
-  .kpi .value { font-size: 18px; font-weight: 600; margin-top: 2px; }
+  .kpi .value { font-size: 20px; font-weight: 600; margin-top: 2px; font-variant-numeric: tabular-nums; }
   .kpi .sub { font-size: 11px; color: var(--text-light); margin-top: 2px; }
   .red { color: var(--red); }
   .green { color: var(--green); }
   .gray { color: var(--gray); }
 
-  /* 板块卡片 */
+  /* 15% 进度面板 */
+  .progress-panel {
+    background: linear-gradient(135deg, #fff8ec, #fff);
+    border: 1px solid #fde68a; border-radius: 12px; padding: 18px 22px;
+    margin-bottom: 14px;
+  }
+  .progress-panel h2 {
+    font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 12px;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .progress-bar-wrap {
+    background: #f3f4f6; border-radius: 10px; height: 28px; position: relative;
+    overflow: hidden; margin-bottom: 10px;
+  }
+  .progress-bar-fill {
+    background: linear-gradient(90deg, var(--green), var(--primary));
+    height: 100%; transition: width 0.6s;
+  }
+  .progress-marks {
+    position: absolute; top: 0; left: 0; right: 0; height: 100%;
+    display: flex; justify-content: space-between; padding: 0 10px;
+    align-items: center; font-size: 11px; color: var(--text-light); pointer-events: none;
+  }
+  .gap-attribution {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px;
+  }
+  @media (max-width: 640px) { .gap-attribution { grid-template-columns: 1fr; } }
+  .gap-item {
+    background: #fff; padding: 8px 10px; border-radius: 6px; font-size: 12px;
+    border-left: 3px solid var(--red);
+  }
+  .gap-item .label { color: var(--text-light); font-size: 11px; }
+  .gap-item .value { font-weight: 600; color: var(--red); margin-top: 2px; }
+
+  /* 信号区 */
+  .section {
+    background: var(--card); padding: 16px 20px; border-radius: 12px;
+    margin-bottom: 14px; border: 1px solid var(--border);
+  }
+  .section h2 {
+    font-size: 14px; font-weight: 600; margin-bottom: 12px;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .section h2 .extra { font-size: 11px; color: var(--text-light); font-weight: 400; }
+  .signal-list { list-style: none; }
+  .signal-item {
+    display: flex; padding: 10px 0; border-bottom: 1px solid var(--border);
+    align-items: center; gap: 10px;
+  }
+  .signal-item:last-child { border: 0; }
+  .tag {
+    padding: 3px 10px; border-radius: 5px; font-size: 11px; font-weight: 500;
+    flex-shrink: 0;
+  }
+  .tag-high { background: #fee; color: var(--red); }
+  .tag-mid { background: #fff4e5; color: var(--warn); }
+  .tag-low { background: #ecfdf5; color: var(--green); }
+  .signal-msg { font-size: 13px; flex: 1; }
+  .signal-empty { padding: 20px; text-align: center; color: var(--text-light); font-size: 13px; }
+
+  /* 板块卡 */
   .sector {
-    background: var(--card); border-radius: 10px; padding: 16px 18px;
-    margin-bottom: 12px; border: 1px solid var(--border);
+    background: var(--card); border-radius: 10px; padding: 14px 18px;
+    margin-bottom: 10px; border: 1px solid var(--border);
   }
   .sector-head {
-    display: flex; flex-wrap: wrap; align-items: baseline;
-    gap: 12px; margin-bottom: 10px; padding-bottom: 10px;
-    border-bottom: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px;
+    margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
   }
-  .sector-head h2 { font-size: 15px; font-weight: 600; }
-  .sector-head .mv { font-size: 13px; color: var(--text); font-variant-numeric: tabular-nums; }
-  .sector-head .pct { font-size: 11px; color: var(--text-light); }
+  .sector-head h3 { font-size: 14px; font-weight: 600; }
+  .sector-head .mv { font-size: 13px; font-variant-numeric: tabular-nums; }
+  .sector-head .pct {
+    font-size: 11px; color: var(--text-light);
+    background: #f3f4f6; padding: 2px 8px; border-radius: 4px;
+  }
+  .sector-head .deviation {
+    font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 500;
+  }
+  .deviation.over { background: #fee; color: var(--red); }
+  .deviation.under { background: #fff4e5; color: var(--warn); }
+  .deviation.ok { background: #ecfdf5; color: var(--green); }
   .sector-head .badge {
-    margin-left: auto; padding: 3px 10px; border-radius: 5px;
-    font-size: 11px; font-weight: 500;
+    margin-left: auto; padding: 3px 10px; border-radius: 5px; font-size: 11px;
   }
   .badge-hold { background: #ecfdf5; color: var(--green); }
   .badge-take { background: #fff4e5; color: var(--warn); }
-  .badge-cut  { background: #fee; color: var(--red); }
+  .badge-cut { background: #fee; color: var(--red); }
   .badge-watch { background: #f3f4f6; color: var(--gray); }
-
-  .sector-body {
-    display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 16px;
-  }
-  @media (max-width: 768px) { .sector-body { grid-template-columns: 1fr; } }
-  .sector-section h3 {
-    font-size: 12px; font-weight: 500; color: var(--text-light);
-    margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;
-  }
-  .sector-section ul { list-style: none; padding: 0; }
-  .sector-section li {
-    padding: 5px 0; font-size: 13px;
-    display: flex; justify-content: space-between; align-items: center;
-    border-bottom: 1px solid #f3f4f6;
-  }
-  .sector-section li:last-child { border: 0; }
-  .sector-section li .name { color: var(--text); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .sector-section li .pct { font-variant-numeric: tabular-nums; font-size: 12px; margin-left: 8px; }
-
-  .news-item { font-size: 12px; padding: 6px 0; border-bottom: 1px solid #f3f4f6; }
-  .news-item:last-child { border: 0; }
-  .news-item .title { color: var(--text); line-height: 1.4; }
-  .news-item .meta { font-size: 11px; color: var(--text-light); margin-top: 2px; }
-
-  .advice-box {
-    background: #f9fafb; border-radius: 6px; padding: 10px;
-    font-size: 12px; line-height: 1.6;
+  .sector .advice {
+    font-size: 12px; color: var(--text-light); padding: 6px 0;
     text-align: left;
   }
-  .advice-box .head { color: var(--text-light); font-size: 11px; margin-bottom: 4px; }
-  .advice-box ul { list-style: none; padding: 0; margin: 0; }
-  .advice-box li {
-    padding: 3px 0 3px 14px;
-    color: var(--text);
-    text-align: left;
-    position: relative;
-  }
-  .advice-box li::before {
-    content: "·";
-    color: var(--text-light);
-    position: absolute;
-    left: 0; top: 3px;
-  }
 
-  .data-status {
-    display: inline-block; padding: 1px 6px; border-radius: 3px;
-    font-size: 10px; margin-left: 6px;
+  /* 行动清单 */
+  .action-row {
+    display: flex; padding: 10px 0; border-bottom: 1px solid var(--border);
+    gap: 12px; align-items: center; font-size: 13px;
   }
-  .ds-real { background: #ecfdf5; color: var(--green); }
-  .ds-fallback { background: #fff4e5; color: var(--warn); }
-  .ds-missing { background: #f3f4f6; color: var(--gray); }
+  .action-row:last-child { border: 0; }
+  .action-row .priority { padding: 2px 8px; border-radius: 4px; font-size: 11px; flex-shrink: 0; }
+  .pri-high { background: #fee; color: var(--red); font-weight: 600; }
+  .pri-mid { background: #fff4e5; color: var(--warn); }
+  .pri-low { background: #ecfdf5; color: var(--green); }
+  .action-row .action { flex: 1; }
+  .action-row .amount { color: var(--text); font-variant-numeric: tabular-nums; }
+
+  /* 数据健康 */
+  .data-health {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+    background: #f9fafb; padding: 10px; border-radius: 8px; font-size: 11px;
+  }
+  @media (max-width: 640px) { .data-health { grid-template-columns: repeat(2, 1fr); } }
+  .data-health .item .label { color: var(--text-light); }
+  .data-health .item .value { font-weight: 600; }
 
   .footer {
-    text-align: center; color: var(--text-light); font-size: 11px; padding: 16px;
+    text-align: center; color: var(--text-light); font-size: 11px; padding: 14px;
   }
 </style>
 </head>
@@ -145,33 +175,65 @@
 
   <!-- 顶部 -->
   <div class="topbar">
-    <div>
-      <h1>我的投资仪表盘 V3</h1>
-      <div class="meta" id="meta">加载中...</div>
-    </div>
+    <h1>我的投资仪表盘 V4</h1>
+    <div class="meta" id="meta">加载中...</div>
     <div class="links">
-      <a class="link warn" href="data/portfolio-2026-05-13-corrected.xlsx" download>下载修正版 Excel</a>
-      <a class="link" href="data/edge-check-latest.json" target="_blank">Edge JSON</a>
+      <a class="link" href="data/portfolio-2026-05-13-corrected.xlsx" download>下载 Excel</a>
+      <a class="link" href="data/funds-all-2026-05-13.json" target="_blank">基金 JSON</a>
+      <a class="link" href="data/snapshot-2026-05-13.json" target="_blank">今日快照</a>
       <a class="link" href="index.html">历史归档</a>
     </div>
   </div>
 
-  <!-- 数据修正提示 -->
-  <div class="alert">
-    <strong>数据修正声明:</strong> 昨日 V1 版本因生成时间过早(19:50),基金当日涨跌全部错误。
-    本 V2 版本严格按 5/12 真实净值,部分海外 QDII 因 T+2/T+3 披露规则待今晚 22:00 重跑。
-    <a href="data/portfolio-2026-05-13-corrected.xlsx" style="color:var(--warn);font-weight:600">下载详细对照表</a>
-  </div>
-
-  <!-- KPI -->
+  <!-- KPI 4 卡 -->
   <div class="kpi-row" id="kpis"></div>
 
-  <!-- 板块卡片 -->
-  <div id="sectors"></div>
+  <!-- 15% 进度面板 -->
+  <div class="progress-panel">
+    <h2>
+      <span>年度 15% 目标 · 进度</span>
+      <span class="extra" id="progress-meta"></span>
+    </h2>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+      <div class="progress-marks">
+        <span>0</span><span>5%</span><span>10%</span><span>15%</span>
+      </div>
+    </div>
+    <div style="font-size:12px; color:var(--text-light); margin-bottom:6px">距 15% 目标的缺口归因:</div>
+    <div class="gap-attribution" id="gap-attribution"></div>
+  </div>
+
+  <!-- 今日触发信号 -->
+  <div class="section">
+    <h2>
+      <span>今日触发信号</span>
+      <span class="extra" id="signals-meta">默认沉默 · 触发才提醒</span>
+    </h2>
+    <ul class="signal-list" id="signals"></ul>
+  </div>
+
+  <!-- 6 大板块 -->
+  <div class="section">
+    <h2><span>板块持仓 · 偏离目标</span><span class="extra">基于真实金额</span></h2>
+    <div id="sectors"></div>
+  </div>
+
+  <!-- 本月行动清单 -->
+  <div class="section">
+    <h2><span>本月行动清单</span><span class="extra">按触发线/纪律</span></h2>
+    <div id="actions"></div>
+  </div>
+
+  <!-- 数据健康度 -->
+  <div class="section">
+    <h2><span>数据健康度</span><span class="extra">实时透明披露</span></h2>
+    <div class="data-health" id="data-health"></div>
+  </div>
 
   <div class="footer">
-    数据源: 腾讯FiT NeoData · A股/ETF 实时收盘 · 基金 5/12 真实净值(部分待披露) · 黄金 Au9999 实时<br>
-    今晚 22:00 自动重跑全量数据 · 仅在信号触发时推送企微
+    数据源: 腾讯FiT NeoData 实时接口 · 严格按触发线给建议 · 决策权永远在你<br>
+    自动化: 14:30 操作建议 · 22:00 净值更新 · 周一09:00 Edge体检 · 月初定投提醒
   </div>
 </div>
 
@@ -181,214 +243,101 @@
   const fmtPct = n => (n>0?'+':'') + n.toFixed(2) + '%';
   const colorOf = n => n>0 ? 'red' : (n<0 ? 'green' : 'gray');
 
-  // 加载数据
-  const summary = await fetch('data/dashboard-summary-v2.json').then(r=>r.json());
+  const summary = await fetch('data/dashboard-summary-v3.json').then(r=>r.json());
 
   // 顶部
+  const dh = summary.data_health;
   document.getElementById('meta').textContent =
-    `${summary.date} · 5/12 真实数据 · 修正版`;
+    `${summary.date} · A股${dh.ashare_real}/${dh.ashare_total}实时 · 基金${dh.funds_real}/${dh.funds_total}实时 · 黄金${dh.gold_real?'实时':'缺'}`;
 
   // KPI
+  const totalToday = summary.today_pnl;
+  const yp = summary.year_progress;
+  const yearPct = yp.annualized_pct;
   const kpis = [
-    {label:'总资产', value:fmt(summary.total_capital), sub:'投资+现金'},
-    {label:'投资仓位', value:fmt(summary.total_mv), sub:'60% 目标(实际60%)'},
-    {label:'累计浮盈', value:(summary.total_pnl>=0?'+':'')+fmt(summary.total_pnl), sub:fmtPct(summary.total_pnl/(summary.total_mv-summary.total_pnl)*100), cls:colorOf(summary.total_pnl)},
-    {label:'5/12当日盈亏(真实部分)', value:(summary.total_daily_real>=0?'+':'')+fmt(summary.total_daily_real), sub:`基金 ${summary.fund_data_status.real_count}/${summary.fund_data_status.real_count+summary.fund_data_status.fallback_count+summary.fund_data_status.missing_count} 已披露`, cls:colorOf(summary.total_daily_real)},
+    {label: '总资产', value: fmt(summary.total_capital), sub: '投资+现金', cls: ''},
+    {label: '投资仓位', value: fmt(summary.invest_value), sub: `${(summary.invest_value/summary.total_capital*100).toFixed(1)}% (60%目标)`, cls: ''},
+    {label: '今日盈亏', value: (totalToday>=0?'+':'')+fmt(totalToday), sub: '基金待22:00更新', cls: colorOf(totalToday)},
+    {label: '当前年化', value: fmtPct(yearPct*100), sub: `目标15% · 进度${(yp.progress_to_target*100).toFixed(0)}%`, cls: yearPct>=0.10?'red':'gray'},
   ];
   document.getElementById('kpis').innerHTML = kpis.map(k=>
     `<div class="kpi"><div class="label">${k.label}</div>
      <div class="value ${k.cls||''}">${k.value}</div>
-     <div class="sub">${k.sub}</div></div>`).join('');
+     <div class="sub ${k.cls||''}">${k.sub}</div></div>`
+  ).join('');
 
-  // ========== 板块卡片数据 ==========
-  // 整合A股+基金+黄金等,按 6 大板块组织
-  const sectorCards = [
-    {
-      name: 'AI/半导体/芯片',
-      tag: 'Edge强区 · 持有',
-      badge: 'badge-hold',
-      mv: 60000 + 7*4733,  // A股芯片ETF 1.026万 + 基金~3.3万 (估算)
-      pct: 11.0,
-      holdings: [
-        {name: '芯片ETF华夏 159995', code:'A股', pct: 0.65, status:'real'},
-        {name: '科创50ETF华夏 588000', code:'A股', pct: 0.28, status:'real'},
-        {name: '永赢光模块 022365', code:'基金', pct: 0.76, status:'real'},
-        {name: '华夏国证半导体 008888', code:'基金', pct: 0.63, status:'real'},
-        {name: '富国科创板芯片 012414', code:'基金', pct: -1.59, status:'real'},
-        {name: '华夏科创50联接 011609', code:'基金', pct: 0.39, status:'real'},
-      ],
-      news: [
-        {title: 'AI芯片"三大件"撑起万亿算力时代', meta: '腾讯网 · 05-12'},
-        {title: '英伟达数据中心营收同比增速保持高位', meta: '财联社 · 05-12'},
-        {title: '国产AI芯片2025或实现盈利拐点', meta: '证券时报 · 05-07'},
-      ],
-      advice: [
-        '已验证Edge,组合表现最强,继续持有不加仓',
-        '芯片ETF已止盈14手,剩余继续持有',
-        '永赢光模块距+50%止盈线还差14%,触发即止盈1/3',
-        '极端回调>15%可用机动资金加仓',
-      ]
-    },
-    {
-      name: '新能源/电池/智能驾驶',
-      tag: '已兑现Edge · 止盈',
-      badge: 'badge-take',
-      mv: 75000,
-      pct: 7.7,
-      holdings: [
-        {name: '申万菱信新能源 011213 (+84%)', code:'基金', pct: 0.21, status:'real'},
-        {name: '申万菱信智能驱动 502090 (+73%)', code:'基金', pct: null, status:'missing'},
-        {name: '比亚迪 002594 (-1.2%)', code:'A股', pct: -1.20, status:'real'},
-        {name: '富国新能源 161028 (+16%)', code:'基金', pct: -1.72, status:'real'},
-        {name: '嘉实新能源 003984 (+38%)', code:'基金', pct: -1.66, status:'real'},
-        {name: '嘉实智能汽车 002168 (+24%)', code:'基金', pct: -1.51, status:'real'},
-      ],
-      news: [
-        {title: '比亚迪Q1销量同比+28%但盈利能力承压', meta: '财联社 · 05-12'},
-        {title: '动力电池一季度装机TOP3:宁德/比亚迪/中创新航', meta: '高工锂电 · 05-10'},
-        {title: '新能源车出口持续高增,海外市场打开', meta: '中证报 · 05-09'},
-      ],
-      advice: [
-        '+84%/+73%/+77%多只触发+50%止盈线,本周止盈1/3',
-        '新能源主线已进入兑现期,不加仓',
-        '行业回调时不要补仓,Edge已弱化',
-        '保留核心仓位,但要降低集中度',
-      ]
-    },
-    {
-      name: '海外科技/QDII',
-      tag: 'β稳定 · 持有',
-      badge: 'badge-hold',
-      mv: 90000,
-      pct: 9.2,
-      holdings: [
-        {name: '嘉实全球升级QDII (+139%)', code:'基金', pct: null, status:'missing'},
-        {name: '嘉实美国成长 000043 (+39%)', code:'基金', pct: null, status:'missing'},
-        {name: '嘉实纳指100 160213', code:'基金', pct: null, status:'fallback'},
-        {name: '纳指ETF广发 159941', code:'A股', pct: -1.20, status:'real'},
-        {name: '景顺纳指科技 260108', code:'基金', pct: -0.95, status:'real'},
-      ],
-      news: [
-        {title: '美股周五科技股回调,纳指跌1.4%', meta: '华尔街日报 · 05-12'},
-        {title: 'AI叙事进入兑现期,巨头资本开支创新高', meta: '36氪 · 05-11'},
-        {title: '美元指数走强,QDII汇兑或受影响', meta: '中证报 · 05-12'},
-      ],
-      advice: [
-        '5只纳指联接产品重复,建议合并到2只(嘉实+广发)',
-        '嘉实全球升级+139%已触发+100%二级止盈线,止盈1/3',
-        'QDII T+2/T+3净值,等今晚22:00后看真实5/12数据',
-      ]
-    },
-    {
-      name: '黄金/贵金属',
-      tag: '防御位 · 等触发',
-      badge: 'badge-watch',
-      mv: 217904 + 4733*2,
-      pct: 22.7,
-      holdings: [
-        {name: '民生积存金 160.14g (¥1074成本)', code:'银行', pct: (1028.50-1024.81)/1024.81*100, status:'real'},
-        {name: '浙商积存金 51.45g (¥1126成本)', code:'银行', pct: (1028.50-1024.81)/1024.81*100, status:'real'},
-        {name: '黄金ETF华安 518880 (+7.8%)', code:'A股', pct: 0.33, status:'real'},
-        {name: '博时黄金联接C 002610', code:'基金', pct: 0.29, status:'real'},
-        {name: '天弘上海金 164824', code:'基金', pct: null, status:'missing'},
-      ],
-      news: [
-        {title: '现货黄金当周震荡,Au9999收¥1028.50', meta: '上海黄金交易所 · 05-12'},
-        {title: '美联储6月降息预期升温,金价短期承压', meta: '路透社 · 05-12'},
-        {title: '央行连续17个月增持黄金储备', meta: '人民银行 · 05-08'},
-      ],
-      advice: [
-        '当前 Au9999 ¥1028.50, 距减仓线 ¥1086 还差 5.6%',
-        '触发后分批减:¥1086减30g / ¥1140减30g / ¥1200清至18%',
-        '反向触发:¥980 / ¥940 用机动资金补仓',
-        '从 36% 仓位降到 15-18%,符合 2% 风险规则',
-      ]
-    },
-    {
-      name: '军工/周期/有色',
-      tag: '卫星小仓 · 保持',
-      badge: 'badge-hold',
-      mv: 15000,
-      pct: 1.5,
-      holdings: [
-        {name: '紫金矿业 601899 (+3.6%)', code:'A股', pct: 0.90, status:'real'},
-        {name: '中国铝业 601600 (-22%)', code:'A股', pct: -0.85, status:'real'},
-        {name: '博时军工 004698 (+32%)', code:'基金', pct: 1.01, status:'real'},
-        {name: '国投白银 161226 (-43%)', code:'A股+基金', pct: 5.97, status:'real'},
-      ],
-      news: [
-        {title: '铜铝价格周内反弹,基本金属库存下降', meta: 'SMM · 05-12'},
-        {title: '军工板块季报预增超预期', meta: '中证报 · 05-09'},
-      ],
-      advice: [
-        '紫金矿业小仓,继续持有,不加仓',
-        '中国铝业 -22%,触发-20%止损线,本周清仓',
-        '国投白银 -43%,严重触发止损,本周清仓',
-        '军工保持小仓,不扩大',
-      ]
-    },
-    {
-      name: '港股/恒生科技/中概',
-      tag: 'Edge不存在 · 清理',
-      badge: 'badge-cut',
-      mv: 40000,
-      pct: 4.1,
-      holdings: [
-        {name: '恒生科技ETF 513580 (-17%)', code:'A股', pct: -0.93, status:'real'},
-        {name: '中概互联ETF 513050 (-23%)', code:'A股', pct: -0.91, status:'real'},
-        {name: '广发港股创新药 501189 (-17%)', code:'基金', pct: -0.39, status:'real'},
-      ],
-      news: [
-        {title: '恒指当周窄幅震荡,科技指数表现弱于大盘', meta: '香港交易所 · 05-12'},
-        {title: '南向资金近期净流出科技股,流入红利', meta: '中证报 · 05-12'},
-        {title: '中概股监管不确定性持续,机构降低权重', meta: 'Wind · 05-10'},
-      ],
-      advice: [
-        '中概互联 -23%,已触发-20%止损线,本周清仓',
-        '恒生科技 -17%,接近止损,跌至-20%即清',
-        '港股创新药 -17%,接近止损,跌至-20%即清',
-        '回笼资金不再投港股,转入现金缓冲'
-      ]
-    },
+  // 15% 进度
+  const pct = (yp.annualized_pct / 0.15) * 100;
+  document.getElementById('progress-bar').style.width = Math.min(pct, 100) + '%';
+  document.getElementById('progress-meta').textContent =
+    `当前 ${(yp.annualized_pct*100).toFixed(1)}% / 目标 15% · 累计盈亏 ${fmt(yp.absolute_pnl)}`;
+
+  const gap = yp.gap_attribution;
+  const gapItems = [
+    {label: '黄金超配 36% 拖累', value: fmtPct(gap.gold_overweight*100)},
+    {label: '反 Edge 仓位拖累', value: fmtPct(gap.anti_edge_drag*100)},
+    {label: '半导体仓位低', value: fmtPct(gap.semiconductor_underweight*100)},
   ];
+  document.getElementById('gap-attribution').innerHTML = gapItems.map(g=>
+    `<div class="gap-item"><div class="label">${g.label}</div><div class="value">${g.value}</div></div>`
+  ).join('');
 
-  document.getElementById('sectors').innerHTML = sectorCards.map(s => {
-    const dailyHoldings = s.holdings.filter(h=>h.status==='real');
-    const avgChg = dailyHoldings.length ? dailyHoldings.reduce((a,b)=>a+b.pct,0)/dailyHoldings.length : null;
+  // 触发信号
+  const sigs = summary.triggered_signals || [];
+  document.getElementById('signals-meta').textContent = `共 ${sigs.length} 条`;
+  if (sigs.length === 0) {
+    document.getElementById('signals').innerHTML = '<li class="signal-empty">今日无触发信号,安心持有</li>';
+  } else {
+    document.getElementById('signals').innerHTML = sigs.map(s=> {
+      const tagCls = s.priority === 'high' ? 'tag-high' : (s.priority === 'mid' ? 'tag-mid' : 'tag-low');
+      const tagText = s.priority === 'high' ? '高' : (s.priority === 'mid' ? '中' : '低');
+      return `<li class="signal-item"><span class="tag ${tagCls}">${tagText}</span><span class="signal-msg">${s.message}</span></li>`;
+    }).join('');
+  }
+
+  // 板块
+  const sectors = summary.sectors_meta;
+  const sectorOrder = ['gold','semiconductor','overseas','new_energy','bond','broad_index','metals','advisory','anti_edge_a_share','hk_other'];
+  document.getElementById('sectors').innerHTML = sectorOrder.filter(k=>sectors[k]).map(k => {
+    const s = sectors[k];
+    const dev = s.deviation;
+    const devCls = Math.abs(dev) < 0.02 ? 'ok' : (dev > 0.05 || s.status === 'must_clear' ? 'over' : 'under');
+    const badgeCls = s.status === 'must_clear' ? 'badge-cut' : 
+                     (s.status === 'overweight' ? 'badge-take' : 
+                     (s.status === 'underweight' ? 'badge-watch' : 'badge-hold'));
+    const currentPct = (s.current_pct_estimate || 0) * 100;
+    const targetPct = (s.target_pct || 0) * 100;
     return `
     <div class="sector">
       <div class="sector-head">
-        <h2>${s.name}</h2>
-        <span class="mv">¥${s.mv.toLocaleString()}</span>
-        <span class="pct">${s.pct.toFixed(1)}%</span>
-        <span class="badge ${s.badge}">${s.tag}</span>
+        <h3>${s.label}</h3>
+        <span class="pct">${currentPct.toFixed(1)}% → 目标 ${targetPct.toFixed(0)}%</span>
+        <span class="deviation ${devCls}">${(dev>0?'+':'')}${(dev*100).toFixed(1)}%</span>
+        <span class="badge ${badgeCls}">${s.tag}</span>
       </div>
-      <div class="sector-body">
-        <div class="sector-section">
-          <h3>持仓 · 5/12 涨跌</h3>
-          <ul>${s.holdings.map(h=>`
-            <li>
-              <span class="name">${h.name}</span>
-              <span class="pct ${h.pct===null?'gray':colorOf(h.pct)}">${h.pct===null ? '待披露' : fmtPct(h.pct)}</span>
-            </li>`).join('')}</ul>
-        </div>
-        <div class="sector-section">
-          <h3>市场情报</h3>
-          ${s.news.map(n=>`
-            <div class="news-item">
-              <div class="title">${n.title}</div>
-              <div class="meta">${n.meta}</div>
-            </div>`).join('')}
-        </div>
-        <div class="sector-section">
-          <h3>我的建议</h3>
-          <div class="advice-box">
-            <ul>${s.advice.map(a=>`<li>${a}</li>`).join('')}</ul>
-          </div>
-        </div>
-      </div>
+      <div class="advice">${s.advice}</div>
     </div>`;
   }).join('');
+
+  // 行动清单
+  const actions = summary.key_actions || [];
+  document.getElementById('actions').innerHTML = actions.map(a => {
+    const pri = a.priority === '高' ? 'pri-high' : (a.priority === '中' ? 'pri-mid' : 'pri-low');
+    return `
+    <div class="action-row">
+      <span class="priority ${pri}">${a.priority}</span>
+      <span class="action">${a.action}</span>
+      <span class="amount">${a.amount === 0 ? '-' : (a.amount > 0 ? '+' : '') + fmt(a.amount)}</span>
+    </div>`;
+  }).join('');
+
+  // 数据健康
+  document.getElementById('data-health').innerHTML = `
+    <div class="item"><div class="label">A股实时</div><div class="value">${dh.ashare_real}/${dh.ashare_total}</div></div>
+    <div class="item"><div class="label">基金今日</div><div class="value">${dh.funds_real}/${dh.funds_total}</div></div>
+    <div class="item"><div class="label">黄金</div><div class="value">${dh.gold_real?'实时':'缺'}</div></div>
+    <div class="item"><div class="label">投顾</div><div class="value">周/月披露</div></div>
+  `;
 
 })();
 </script>
