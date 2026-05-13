@@ -77,33 +77,55 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 .tip{background:#fff7ed;border:1px solid #fdba74;border-radius:6px;padding:10px 14px;margin-bottom:18px;font-size:13px;color:#7c2d12}
 .tip b{color:#7c2d12}
 
-/* === Dashboard 区 === */
-.dashboard{background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 50%,#3b82f6 100%);border-radius:12px;padding:22px;margin-bottom:18px;color:#fff;box-shadow:0 4px 14px rgba(37,99,235,0.18)}
-.dash-title{font-size:13px;opacity:0.85;margin-bottom:12px;letter-spacing:1px;font-weight:500;display:flex;justify-content:space-between;align-items:center}
-.dash-title .ts{font-size:11px;opacity:0.7}
-.dash-main{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:18px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.15)}
-.dash-cell{padding:0}
-.dash-cell .lbl{font-size:11px;opacity:0.75;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px}
-.dash-cell .v{font-size:26px;font-weight:700;line-height:1.1}
-.dash-cell .v.big{font-size:32px}
-.dash-cell .v.up{color:#fca5a5}
-.dash-cell .v.down{color:#86efac}
-.dash-cell .sub3{font-size:11px;opacity:0.75;margin-top:3px}
-.progress-bar{margin-top:6px;height:5px;background:rgba(255,255,255,0.2);border-radius:3px;overflow:hidden}
-.progress-bar .fill{height:100%;background:linear-gradient(90deg,#fcd34d,#f59e0b);border-radius:3px}
+/* === Dashboard 区 (淡色高级风) === */
+.dashboard{background:#ffffff;border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.dash-title{font-size:13px;color:var(--muted);margin-bottom:18px;font-weight:500;display:flex;justify-content:space-between;align-items:center;text-transform:uppercase;letter-spacing:1.2px}
+.dash-title .ts{font-size:11px;color:var(--muted);text-transform:none;letter-spacing:0}
 
-.sector-bars{padding:4px 0 0}
-.sb-title{font-size:12px;opacity:0.85;margin-bottom:8px;font-weight:600}
-.sb-row{display:grid;grid-template-columns:130px 1fr 60px 80px;gap:10px;align-items:center;padding:5px 0;border-bottom:1px dashed rgba(255,255,255,0.12);font-size:12px}
-.sb-row:last-child{border-bottom:none}
-.sb-name{font-weight:500}
-.sb-name .e{margin-right:4px}
-.sb-bar{height:7px;background:rgba(255,255,255,0.15);border-radius:4px;overflow:hidden;position:relative}
-.sb-bar .bar{height:100%;border-radius:4px;background:linear-gradient(90deg,#fbbf24,#fb923c);transition:width 0.3s}
-.sb-amt{text-align:right;opacity:0.9}
-.sb-pnl{text-align:right;font-weight:600}
-.sb-pnl.up{color:#fca5a5}
-.sb-pnl.down{color:#86efac}
+/* 顶部 4 KPI */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid #f3f4f6}
+.kpi-card{padding:14px 16px;background:linear-gradient(180deg,#fafbff 0%,#fff 100%);border:1px solid #f0f3f8;border-radius:10px}
+.kpi-card .lbl{font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:500;letter-spacing:0.3px}
+.kpi-card .v{font-size:26px;font-weight:700;color:#0f172a;line-height:1.1}
+.kpi-card .v.up{color:var(--red)}
+.kpi-card .v.down{color:var(--green)}
+.kpi-card .sub3{font-size:11px;color:var(--muted);margin-top:5px}
+.kpi-card .progress-bar{margin-top:6px;height:5px;background:#e5e7eb;border-radius:3px;overflow:hidden}
+.kpi-card .progress-bar .fill{height:100%;background:linear-gradient(90deg,#3b82f6,#06b6d4);border-radius:3px}
+
+/* 双图表布局 */
+.charts-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:start}
+.chart-block{padding:0}
+.chart-title{font-size:13px;font-weight:600;color:#111827;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.chart-title .badge{font-size:10px;background:#eff6ff;color:#1e40af;padding:2px 7px;border-radius:10px;font-weight:500}
+
+/* 饼图 + 图例 */
+.pie-wrap{display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center}
+.pie-svg{width:200px;height:200px}
+.pie-svg circle{transition:all .3s}
+.pie-svg .pie-center{font-size:18px;font-weight:700;fill:#0f172a;text-anchor:middle;dominant-baseline:central}
+.pie-svg .pie-sub{font-size:10px;fill:var(--muted);text-anchor:middle;dominant-baseline:central}
+
+.pie-legend{display:flex;flex-direction:column;gap:7px;font-size:12px}
+.pie-legend .lg-row{display:grid;grid-template-columns:14px 1fr 50px 50px;gap:8px;align-items:center;padding:3px 0}
+.pie-legend .dot{width:10px;height:10px;border-radius:2px}
+.pie-legend .lg-name{color:#111827;font-weight:500}
+.pie-legend .lg-pct{text-align:right;color:var(--muted);font-size:11px}
+.pie-legend .lg-amt{text-align:right;color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
+
+/* 板块盈亏分歧条(对称) */
+.diverging{display:flex;flex-direction:column;gap:9px}
+.dv-row{display:grid;grid-template-columns:120px 1fr 70px;gap:10px;align-items:center;font-size:12px}
+.dv-name{color:#111827;font-weight:500}
+.dv-name .e{margin-right:4px}
+.dv-bar-wrap{position:relative;height:22px;background:#f9fafb;border-radius:4px;overflow:hidden}
+.dv-bar-wrap::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:#cbd5e1}
+.dv-bar{position:absolute;top:3px;bottom:3px;border-radius:3px;display:flex;align-items:center;padding:0 6px;font-size:10px;font-weight:600;color:#fff}
+.dv-bar.pos{left:50%;background:linear-gradient(90deg,#fca5a5,#dc2626);justify-content:flex-start}
+.dv-bar.neg{right:50%;background:linear-gradient(90deg,#16a34a,#86efac);justify-content:flex-end}
+.dv-amt{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.dv-amt.up{color:var(--red)}
+.dv-amt.down{color:var(--green)}
 
 /* === 板块目录 === */
 .toc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,.04);position:sticky;top:8px;z-index:10}
@@ -117,9 +139,11 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 .toc-item.action{background:linear-gradient(135deg,#ecfdf5,#dbeafe);border:1px solid #93c5fd;color:#1e40af;font-weight:600}
 
 @media (max-width:760px){
-  .dash-main{grid-template-columns:1fr 1fr;gap:14px}
+  .kpi-row{grid-template-columns:1fr 1fr;gap:10px}
+  .charts-grid{grid-template-columns:1fr;gap:24px}
+  .pie-wrap{grid-template-columns:1fr;gap:14px;justify-items:center}
   .toc-grid{grid-template-columns:repeat(2,1fr)}
-  .sb-row{grid-template-columns:100px 1fr 60px 70px;font-size:11px}
+  .dv-row{grid-template-columns:90px 1fr 60px;font-size:11px}
   .toc{position:static}
 }
 </style>
@@ -152,88 +176,117 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 <span class="ts">数据时间: 2026-05-13 18:20</span>
 </div>
 
-<div class="dash-main">
-<div class="dash-cell">
+<!-- 4 KPI 卡 -->
+<div class="kpi-row">
+<div class="kpi-card">
 <div class="lbl">总市值</div>
-<div class="v big">¥609,278</div>
-<div class="sub3">A股 ¥128.9K · 基金 ¥221.4K · 黄金 ¥217.9K · 投顾 ¥43.4K</div>
+<div class="v">¥609,278</div>
+<div class="sub3">A股¥128.9K · 基金¥221.4K · 黄金¥217.9K</div>
 </div>
-<div class="dash-cell">
+<div class="kpi-card">
 <div class="lbl">综合浮盈</div>
 <div class="v up">+¥16,213</div>
 <div class="sub3">+2.74% · 年化 ~7.8%</div>
 </div>
-<div class="dash-cell">
+<div class="kpi-card">
 <div class="lbl">15% 目标进度</div>
 <div class="v">52%</div>
 <div class="progress-bar"><div class="fill" style="width:52%"></div></div>
 <div class="sub3">差额 ~¥44K/年</div>
 </div>
-<div class="dash-cell">
+<div class="kpi-card">
 <div class="lbl">标的数 / 板块</div>
 <div class="v">67 / 8</div>
 <div class="sub3">基金 54 · A股 13 · 黄金积存</div>
 </div>
 </div>
 
-<!-- 板块占比 + 当前盈亏 条形图 -->
-<div class="sector-bars">
-<div class="sb-title">📊 8 大板块占比 & 累计盈亏</div>
+<!-- 双图区: 饼图 + 盈亏分歧条 -->
+<div class="charts-grid">
 
-<div class="sb-row">
-<div class="sb-name"><span class="e">🤖</span>AI / 半导体</div>
-<div class="sb-bar"><div class="bar" style="width:55%"></div></div>
-<div class="sb-amt">¥75K · 12%</div>
-<div class="sb-pnl up">+¥10.5K</div>
+<!-- 左: 板块占比 环形饼图 -->
+<div class="chart-block">
+<div class="chart-title">📊 板块持仓占比 <span class="badge">环形饼图</span></div>
+<div class="pie-wrap">
+<svg class="pie-svg" viewBox="0 0 200 200">
+<circle cx="100" cy="100" r="70" fill="none" stroke="#3b82f6" stroke-width="24" stroke-dasharray="62.24 377.58" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+<circle cx="100" cy="100" r="70" fill="none" stroke="#06b6d4" stroke-width="24" stroke-dasharray="31.53 408.29" stroke-dashoffset="-62.24" transform="rotate(-90 100 100)"/>
+<circle cx="100" cy="100" r="70" fill="none" stroke="#f59e0b" stroke-width="24" stroke-dasharray="204.14 235.68" stroke-dashoffset="-93.77" transform="rotate(-90 100 100)"/>
+<circle cx="100" cy="100" r="70" fill="none" stroke="#8b5cf6" stroke-width="24" stroke-dasharray="42.32 397.50" stroke-dashoffset="-297.92" transform="rotate(-90 100 100)"/>
+<circle cx="100" cy="100" r="70" fill="none" stroke="#64748b" stroke-width="24" stroke-dasharray="22.41 417.42" stroke-dashoffset="-340.24" transform="rotate(-90 100 100)"/>
+<circle cx="100" cy="100" r="70" fill="none" stroke="#10b981" stroke-width="24" stroke-dasharray="31.53 408.29" stroke-dashoffset="-362.65" transform="rotate(-90 100 100)"/>
+<circle cx="100" cy="100" r="70" fill="none" stroke="#ec4899" stroke-width="24" stroke-dasharray="23.24 416.59" stroke-dashoffset="-394.18" transform="rotate(-90 100 100)"/>
+<circle cx="100" cy="100" r="70" fill="none" stroke="#14b8a6" stroke-width="24" stroke-dasharray="22.41 417.42" stroke-dashoffset="-417.42" transform="rotate(-90 100 100)"/>
+<text class="pie-center" x="100" y="92">¥530K</text>
+<text class="pie-sub" x="100" y="112">8板块持仓</text>
+</svg>
+<div class="pie-legend">
+<div class="lg-row"><div class="dot" style="background:#3b82f6"></div><div class="lg-name">🤖 AI/半导体</div><div class="lg-pct">14.2%</div><div class="lg-amt">¥75K</div></div>
+<div class="lg-row"><div class="dot" style="background:#06b6d4"></div><div class="lg-name">🌎 海外QDII</div><div class="lg-pct">7.2%</div><div class="lg-amt">¥38K</div></div>
+<div class="lg-row"><div class="dot" style="background:#f59e0b"></div><div class="lg-name">💰 黄金/商品</div><div class="lg-pct">46.4%</div><div class="lg-amt">¥246K</div></div>
+<div class="lg-row"><div class="dot" style="background:#8b5cf6"></div><div class="lg-name">🇭🇰 港股/宽基</div><div class="lg-pct">9.6%</div><div class="lg-amt">¥51K</div></div>
+<div class="lg-row"><div class="dot" style="background:#64748b"></div><div class="lg-name">🏭 周期/平衡</div><div class="lg-pct">5.1%</div><div class="lg-amt">¥27K</div></div>
+<div class="lg-row"><div class="dot" style="background:#10b981"></div><div class="lg-name">🚗 新能源车</div><div class="lg-pct">7.2%</div><div class="lg-amt">¥38K</div></div>
+<div class="lg-row"><div class="dot" style="background:#ec4899"></div><div class="lg-name">🎮 游戏/纳指</div><div class="lg-pct">5.3%</div><div class="lg-amt">¥28K</div></div>
+<div class="lg-row"><div class="dot" style="background:#14b8a6"></div><div class="lg-name">🛡️ 债券固收</div><div class="lg-pct">5.1%</div><div class="lg-amt">¥27K</div></div>
+</div>
+</div>
 </div>
 
-<div class="sb-row">
-<div class="sb-name"><span class="e">🌎</span>海外 QDII</div>
-<div class="sb-bar"><div class="bar" style="width:28%"></div></div>
-<div class="sb-amt">¥38K · 6.3%</div>
-<div class="sb-pnl up">+¥5.4K</div>
+<!-- 右: 板块累计盈亏 分歧条形图 -->
+<div class="chart-block">
+<div class="chart-title">💹 板块累计盈亏对比 <span class="badge">分歧条形图</span></div>
+<div class="diverging">
+
+<div class="dv-row">
+<div class="dv-name"><span class="e">🤖</span>AI/半导体</div>
+<div class="dv-bar-wrap"><div class="dv-bar pos" style="width:42%">+10.5K</div></div>
+<div class="dv-amt up">+¥10.5K</div>
 </div>
 
-<div class="sb-row">
-<div class="sb-name"><span class="e">💰</span>黄金 / 商品</div>
-<div class="sb-bar"><div class="bar" style="width:100%;background:linear-gradient(90deg,#f87171,#dc2626)"></div></div>
-<div class="sb-amt">¥246K · 40%</div>
-<div class="sb-pnl down">-¥12.4K</div>
+<div class="dv-row">
+<div class="dv-name"><span class="e">🌎</span>海外QDII</div>
+<div class="dv-bar-wrap"><div class="dv-bar pos" style="width:22%">+5.4K</div></div>
+<div class="dv-amt up">+¥5.4K</div>
 </div>
 
-<div class="sb-row">
-<div class="sb-name"><span class="e">🇭🇰</span>港股 / 宽基</div>
-<div class="sb-bar"><div class="bar" style="width:38%"></div></div>
-<div class="sb-amt">¥51K · 8.4%</div>
-<div class="sb-pnl down">-¥2.1K</div>
+<div class="dv-row">
+<div class="dv-name"><span class="e">🚗</span>新能源车</div>
+<div class="dv-bar-wrap"><div class="dv-bar pos" style="width:7%">+1.6K</div></div>
+<div class="dv-amt up">+¥1.6K</div>
 </div>
 
-<div class="sb-row">
-<div class="sb-name"><span class="e">🏭</span>周期 / 平衡</div>
-<div class="sb-bar"><div class="bar" style="width:20%"></div></div>
-<div class="sb-amt">¥27K · 4.4%</div>
-<div class="sb-pnl down">-¥0.9K</div>
+<div class="dv-row">
+<div class="dv-name"><span class="e">🛡️</span>债券固收</div>
+<div class="dv-bar-wrap"><div class="dv-bar pos" style="width:6%">+1.4K</div></div>
+<div class="dv-amt up">+¥1.4K</div>
 </div>
 
-<div class="sb-row">
-<div class="sb-name"><span class="e">🚗</span>新能源车</div>
-<div class="sb-bar"><div class="bar" style="width:28%"></div></div>
-<div class="sb-amt">¥38K · 6.3%</div>
-<div class="sb-pnl up">+¥1.6K</div>
+<div class="dv-row">
+<div class="dv-name"><span class="e">🏭</span>周期/平衡</div>
+<div class="dv-bar-wrap"><div class="dv-bar neg" style="width:4%">-0.9K</div></div>
+<div class="dv-amt down">-¥0.9K</div>
 </div>
 
-<div class="sb-row">
-<div class="sb-name"><span class="e">🎮</span>游戏 / 纳指场内</div>
-<div class="sb-bar"><div class="bar" style="width:21%"></div></div>
-<div class="sb-amt">¥28K · 4.6%</div>
-<div class="sb-pnl down">-¥5.2K</div>
+<div class="dv-row">
+<div class="dv-name"><span class="e">🇭🇰</span>港股/宽基</div>
+<div class="dv-bar-wrap"><div class="dv-bar neg" style="width:9%">-2.1K</div></div>
+<div class="dv-amt down">-¥2.1K</div>
 </div>
 
-<div class="sb-row">
-<div class="sb-name"><span class="e">🛡️</span>债券 (压舱)</div>
-<div class="sb-bar"><div class="bar" style="width:20%"></div></div>
-<div class="sb-amt">¥27K · 4.5%</div>
-<div class="sb-pnl up">+¥1.4K</div>
+<div class="dv-row">
+<div class="dv-name"><span class="e">🎮</span>游戏/纳指</div>
+<div class="dv-bar-wrap"><div class="dv-bar neg" style="width:21%">-5.2K</div></div>
+<div class="dv-amt down">-¥5.2K</div>
+</div>
+
+<div class="dv-row">
+<div class="dv-name"><span class="e">💰</span>黄金/商品</div>
+<div class="dv-bar-wrap"><div class="dv-bar neg" style="width:50%">-12.4K</div></div>
+<div class="dv-amt down">-¥12.4K</div>
+</div>
+
+</div>
 </div>
 
 </div>
