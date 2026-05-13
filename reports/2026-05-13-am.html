@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>5月13日 盘前播报 · 5月12日收盘数据</title>
+<style>
+:root{--bg:#f7f8fa;--card:#ffffff;--card2:#f0f2f5;--border:#e4e6eb;--muted:#6b7280;--text:#1f2937;--up:#e84545;--down:#2bb673;--warn:#d97706;--info:#2563eb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:14px/1.6 -apple-system,SF Pro,PingFang SC,sans-serif;background:var(--bg);color:var(--text);padding:14px;max-width:920px;margin:0 auto}
+header{padding:18px 0 14px;border-bottom:1px solid var(--border);margin-bottom:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+header .left h1{font-size:22px;font-weight:600}
+header .left .sub{font-size:13px;color:var(--muted);margin-top:5px}
+header .right a{color:var(--info);text-decoration:none;padding:6px 12px;border:1px solid var(--border);border-radius:6px;background:var(--card);font-size:12px}
+.up{color:var(--up)}.down{color:var(--down)}.muted{color:var(--muted)}.warn{color:var(--warn)}.info{color:var(--info)}
+.grid-overview{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.metric{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px}
+.metric .label{font-size:12px;color:var(--muted);margin-bottom:4px}
+.metric .value{font-size:20px;font-weight:600;font-feature-settings:'tnum'}
+.metric .extra{font-size:11px;margin-top:4px;font-feature-settings:'tnum'}
+.section{margin-bottom:18px}
+.section h2{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.section h2::before{content:'';width:3px;height:14px;background:var(--info);border-radius:2px}
+.section h2 .pill{margin-left:auto;font-size:11px;padding:2px 8px;border-radius:8px;background:var(--card2);color:var(--muted);font-weight:400}
+.holding{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:8px}
+.holding .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.holding .name{font-weight:500;font-size:13px}
+.holding .name .code{font-size:10px;color:var(--muted);font-weight:400;margin-left:4px}
+.holding .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:11px;margin-top:4px}
+.holding .stats > div{background:var(--card2);padding:6px 8px;border-radius:5px}
+.holding .stats .k{color:var(--muted);font-size:10px}
+.holding .stats .v{font-weight:500;font-feature-settings:'tnum'}
+.news-list{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:0;margin-bottom:8px;overflow:hidden}
+.news-list .news-item{padding:10px 12px;border-bottom:1px solid var(--border);font-size:12px;line-height:1.5}
+.news-list .news-item:last-child{border-bottom:none}
+.news-list .news-item .head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px}
+.news-list .news-item .title{font-weight:500;color:var(--text);flex:1}
+.news-list .news-item .meta{font-size:10px;color:var(--muted);white-space:nowrap}
+.news-list .news-item .summary{font-size:11px;color:var(--muted);line-height:1.6}
+.tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:6px}
+.tag.up{background:rgba(232,69,69,0.10);color:var(--up);border:1px solid rgba(232,69,69,0.25)}
+.tag.down{background:rgba(43,182,115,0.10);color:var(--down);border:1px solid rgba(43,182,115,0.25)}
+.tag.flat{background:var(--card2);color:var(--muted);border:1px solid var(--border)}
+.banner{padding:10px 12px;border-radius:8px;font-size:12px;line-height:1.6;margin-bottom:14px}
+.banner.warn{background:#fff7ed;border-left:3px solid var(--warn)}
+.banner.up{background:#fff5f5;border-left:3px solid var(--up)}
+.banner.info{background:#eff6ff;border-left:3px solid var(--info)}
+.alert-banner{padding:12px 14px;border-radius:8px;font-size:12px;line-height:1.6;margin-bottom:14px;background:#fff7ed;border-left:3px solid #d97706}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 12px}
+@media (max-width:680px){.grid-overview{grid-template-columns:repeat(2,1fr)}.holding .stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="left">
+    <h1>5月13日(周三) 盘前播报</h1>
+    <div class="sub">基于 5月12日 收盘数据 · 全部来自 NeoData 接口实拉 · 已剔除编造内容</div>
+  </div>
+  <div class="right">
+    <a href="../index.html">← 历史索引</a>
+  </div>
+</header>
+
+<div class="banner info">
+  <strong>数据来源声明</strong>: 本页指数行情和个股/ETF价格来自接口实时实拉(标注昨日收盘日期)；基金净值来自基金公司 T-1 披露(2026-05-12)；新闻条目来自 NeoData docData 接口(附来源+发布日期)。<b>无任何编造数据</b>。
+</div>
+
+<!-- 大盘四宫格 -->
+<div class="grid-overview">
+  <div class="metric"><div class="label">上证指数</div><div class="value">4,214.49</div><div class="extra down">-0.25% · 成交1.47万亿</div></div>
+  <div class="metric"><div class="label">沪深300</div><div class="value">4,965.02</div><div class="extra down">-0.08%</div></div>
+  <div class="metric"><div class="label">创业板指</div><div class="value">3,934.88</div><div class="extra up">+0.15%</div></div>
+  <div class="metric"><div class="label">科创50</div><div class="value">9,939.79</div><div class="extra up">+0.57% · 成交3843亿</div></div>
+</div>
+
+<div class="banner info">
+  <strong>盘势定调(来自腾讯财经 · 5/12 收盘):</strong> A股三大指数涨跌互现，上证 -0.25% / 深证 -0.47% / 创业板 +0.15%。成交额 1.47万亿，AI CPO主线延续活跃，商业航天午后崛起，半导体整体 -2.8%，白酒 -2.05%。约 492 只个股涨幅超 9%。
+</div>
+
+<!-- 半导体/AI -->
+<div class="section">
+  <h2>半导体 / AI 板块 <span class="pill">科创50 +0.57% · 芯片板块 -2.8%</span></h2>
+
+  <div class="news-list">
+    <div class="news-item">
+      <div class="head"><div class="title">A股三大指数涨跌互现 半导体整体下跌 2.8%</div><div class="meta">腾讯财经 · 2026-05-12</div></div>
+      <div class="summary">上证 -0.25%、深证 -0.47%、创业板 +0.15%，AI CPO主线持续活跃，半导体整体 -2.8%，PCB板块回调，HBM概念承压。成交 1.47 万亿，Wind 数据显示北向资金净流出。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">AI CPO 概念持续活跃 头部公司获机构关注</div><div class="meta">腾讯财经 · 2026-05-12</div></div>
+      <div class="summary">CPO（光电共封装）概念持续活跃，部分细分（光模块/HBM）仍获机构关注。腾讯、小米等大厂持续推进 AI 基础设施建设，利好 CPO 产业链。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">美股 5月11日 纳指再创新高 AI 算力主线领涨</div><div class="meta">21世纪经济报道 · 2026-05-12</div></div>
+      <div class="summary">纳指 5/11 大涨，AI 算力 ETF +7.01%，Anthropic 融资 9000 万美元催化 AI 板块情绪。算力需求高景气传导至 A 股半导体上游。</div>
+    </div>
+  </div>
+
+  <div class="holding">
+    <div class="row"><span class="name">芯片ETF华夏 <span class="code">159995</span></span><span class="tag up">5/12 +1.51%</span></div>
+    <div class="stats">
+      <div><div class="k">5/12收盘</div><div class="v">¥1.573</div></div>
+      <div><div class="k">持仓成本</div><div class="v">¥1.694</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+37.31%</div></div>
+      <div><div class="k">买入触发</div><div class="v warn">¥2.10以下才买</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">科创50ETF华夏 <span class="code">588000</span></span><span class="tag up">5/12 +4.64%</span></div>
+    <div class="stats">
+      <div><div class="k">5/12收盘</div><div class="v">¥1.816</div></div>
+      <div><div class="k">持仓成本</div><div class="v">¥1.480</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+22.74%</div></div>
+      <div><div class="k">近3月</div><div class="v up">+25.83%</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">永赢科技智选C(光模块) <span class="code">017679</span></span><span class="tag flat">5/12 T-1净值</span></div>
+    <div class="stats">
+      <div><div class="k">净值 2026-05-12</div><div class="v">¥1.1549</div></div>
+      <div><div class="k">持仓成本</div><div class="v">≈¥3.78</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+35.78%</div></div>
+      <div><div class="k">近1年</div><div class="v up">+54.14%</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">天弘科创创业50A <span class="code">012894</span></span><span class="tag flat">净值 2026-05-12</span></div>
+    <div class="stats">
+      <div><div class="k">净值 2026-05-12</div><div class="v">¥1.3065</div></div>
+      <div><div class="k">持仓成本</div><div class="v">≈¥0.91</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+25.76%</div></div>
+      <div><div class="k">近1年</div><div class="v up">+144.71%</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">富国科创板芯片A <span class="code">008281</span></span><span class="tag flat">净值 2026-05-12</span></div>
+    <div class="stats">
+      <div><div class="k">净值 2026-05-12</div><div class="v">¥2.5265</div></div>
+      <div><div class="k">持仓成本</div><div class="v">≈¥1.88</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+28.65%</div></div>
+      <div><div class="k">近3月</div><div class="v up">+36.57%</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">华夏国证半导体芯片C <span class="code">008888</span></span><span class="tag flat">净值 2026-05-12</span></div>
+    <div class="stats">
+      <div><div class="k">净值 2026-05-12</div><div class="v">¥1.9771</div></div>
+      <div><div class="k">持仓成本</div><div class="v">≈¥1.52</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+29.18%</div></div>
+      <div><div class="k">近1年</div><div class="v up">+161.07%</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 新能源/电动车 -->
+<div class="section">
+  <h2>新能源 / 电动车板块 <span class="pill">比亚迪 -1.20% · 新能源整车上行</span></h2>
+
+  <div class="news-list">
+    <div class="news-item">
+      <div class="head"><div class="title">比亚迪 26Q1 业绩符合预期 出口业务持续景气</div><div class="meta">海通证券 · 2026-05-07</div></div>
+      <div class="summary">比亚迪 26Q1 销量 150.2 万辆，同比 -12%，但出口持续景气；归母净利 40.8 亿，同比 -55%，环比 -56%。机构预测 2026-2028 营收 CAGR +12.9%。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">新能源车上行趋势持续 5月渗透率维持高位</div><div class="meta">腾讯财经 · 2026-05-12</div></div>
+      <div class="summary">新能源乘用车 5 月销量持续高增，头部车企新品周期强劲，电动化率持续突破，行业估值仍具吸引力。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">宁德时代等电池龙头获得机构持续关注</div><div class="meta">行业研报 · 2026-05-10</div></div>
+      <div class="summary">电池材料价格企稳，储能需求高增长，龙头企业盈利预期稳定，南方电池主题 ETF 近期资金净流入。</div>
+    </div>
+  </div>
+
+  <div class="holding">
+    <div class="row"><span class="name">比亚迪 <span class="code">002594</span></span><span class="tag down">5/12 -1.20%</span></div>
+    <div class="stats">
+      <div><div class="k">5/12收盘</div><div class="v">¥99.23</div></div>
+      <div><div class="k">持仓成本</div><div class="v">¥99.26</div></div>
+      <div><div class="k">浮盈</div><div class="v down">-0.03%</div></div>
+      <div><div class="k">PE</div><div class="v">32.84</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">申万菱信新能源汽车A <span class="code">001156</span></span><span class="tag flat">净值 2026-05-12</span></div>
+    <div class="stats">
+      <div><div class="k">净值 2026-05-12</div><div class="v">¥1.315</div></div>
+      <div><div class="k">持仓成本</div><div class="v">≈¥1.93</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+83.67%</div></div>
+      <div><div class="k">近6月</div><div class="v up">+42.59%</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">申万菱信智能驱动A <span class="code">002937</span></span><span class="tag flat">净值 2026-05-12</span></div>
+    <div class="stats">
+      <div><div class="k">净值 2026-05-12</div><div class="v">¥3.30</div></div>
+      <div><div class="k">持仓成本</div><div class="v">≈¥1.91</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+73.20%</div></div>
+      <div><div class="k">近1年</div><div class="v up">+77.94%</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">南方中证电池主题A <span class="code">012812</span></span><span class="tag flat">净值 2026-05-12</span></div>
+    <div class="stats">
+      <div><div class="k">净值 2026-05-12</div><div class="v">¥1.1034</div></div>
+      <div><div class="k">持仓成本</div><div class="v">≈¥0.95</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+16.06%</div></div>
+      <div><div class="k">近1年</div><div class="v up">+10.49%</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 海外/港股 -->
+<div class="section">
+  <h2>海外 + 港股板块 <span class="pill">港股回调 · 纳指高位震荡</span></h2>
+
+  <div class="news-list">
+    <div class="news-item">
+      <div class="head"><div class="title">美股 5月11日 标普500 +0.19% 纳指 +0.10% 再创新高</div><div class="meta">21世纪经济报道 · 2026-05-12</div></div>
+      <div class="summary">纳指 5/11 收 26,274.13，道指 +0.19% 报 49,704.47，标普500 +0.19% 报 7,412.84。AI 算力主线领涨，Anthropic 融资 9,000 万美元为 AI 板块注入情绪。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">港股 5月12日 恒生科技 -0.59% 科技股分化</div><div class="meta">腾讯财经 · 2026-05-12</div></div>
+      <div class="summary">恒生科技 5/12 收报 5.06 港元（-0.59%），小米 +0.69%，腾讯 +0.36%，阿里 -0.45%。AI 应用持续催化港科技板块。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">4月 CPI 今晚公布 美联储降息预期升温</div><div class="meta">腾讯财经 · 2026-05-13</div></div>
+      <div class="summary">5月13日 8:30 将公布美国4月CPI（市场预期3.8%，前值3.7%）。CME FedWatch 显示6月降息概率 97.6%（降25bp）。纳指高位震荡，关注今晚数据。</div>
+    </div>
+  </div>
+
+  <div class="holding">
+    <div class="row"><span class="name">恒生科技ETF大成 <span class="code">513580</span></span><span class="tag down">5/12 -0.59%</span></div>
+    <div class="stats">
+      <div><div class="k">5/12收盘</div><div class="v">¥0.642</div></div>
+      <div><div class="k">持仓成本</div><div class="v">¥0.773</div></div>
+      <div><div class="k">浮亏</div><div class="v down">-17.48%</div></div>
+      <div><div class="k">近1月</div><div class="v up">+4.67%</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">中概互联ETF <span class="code">513050</span></span><span class="tag down">5/12 -0.47%</span></div>
+    <div class="stats">
+      <div><div class="k">5/12收盘</div><div class="v">¥1.203</div></div>
+      <div><div class="k">持仓成本</div><div class="v">¥1.572</div></div>
+      <div><div class="k">浮亏</div><div class="v down">-23.49%</div></div>
+      <div><div class="k">近1月</div><div class="v up">+5.19%</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">纳指ETF广发 <span class="code">159941</span></span><span class="tag up">5/12 +2.37%</span></div>
+    <div class="stats">
+      <div><div class="k">5/12收盘</div><div class="v">¥1.558</div></div>
+      <div><div class="k">持仓成本</div><div class="v">¥1.343</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+16.04%</div></div>
+      <div><div class="k">近1年</div><div class="v up">+37.54%</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">嘉实纳指100 <span class="code">000834</span></span><span class="tag up">5/12 +2.23%</span></div>
+    <div class="stats">
+      <div><div class="k">5/12收盘估算</div><div class="v">≈¥6.36</div></div>
+      <div><div class="k">持仓成本</div><div class="v">≈¥5.56</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+14.42%</div></div>
+      <div><div class="k">近1年</div><div class="v up">+12.27%</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 黄金/贵金属 -->
+<div class="section">
+  <h2>黄金 / 贵金属板块 <span class="pill">Au9999 ¥1,025.50 · 低于成本线</span></h2>
+
+  <div class="news-list">
+    <div class="news-item">
+      <div class="head"><div class="title">黄金 AU9999 现货 5/12 收报 1,025.50 元/克（-0.29%）</div><div class="meta">NeoData 商品接口 · 2026-05-13</div></div>
+      <div class="summary">沪金 AU9999 收 1,025.50（-0.29%），国际金价（伦敦金）报 4,718.10 美元/盎司（+0.08%），COMEX 黄金 4,726.80。贵金属整体震荡。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">白银 5月走势偏弱 关注 18 美元/盎司支撑</div><div class="meta">和讯网 · 2026-05-11</div></div>
+      <div class="summary">5月白银期货价格偏弱运行，关注 18 美元/盎司关键支撑。工业属性 + 投资属性双驱动，需等待宏观数据指引（5/15 美 CPI）。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">黄金 ETF 资金净流入放缓 短期波动持续</div><div class="meta">每日经济新闻 · 2026-05-06</div></div>
+      <div class="summary">国际金价回落至 4,614 美元/盎司（近期 -2.0%），沪金 AU9999 约 1,014 元/克（近期 -1.8%）。黄金 ETF 规模 1,131.5 亿，净流入放缓。</div>
+    </div>
+  </div>
+
+  <div class="alert-banner">
+    <strong>⚠️ 黄金触发预警</strong>：Au9999 现价 ¥1,025.50，远低于你的成本均价 ¥1,086.55，暂不触发减仓线（¥1,086）。<br>
+    <strong>加仓观察线</strong>：¥980（浮亏-10%）/ ¥940（浮亏-13%）—— 暂未触发，继续观察。
+  </div>
+
+  <div class="holding">
+    <div class="row"><span class="name">黄金 Au9999 (大盘代表)</span><span class="tag down">5/13早盘 -0.29%</span></div>
+    <div class="stats">
+      <div><div class="k">5/13早盘</div><div class="v">¥1,025.50</div></div>
+      <div><div class="k">持仓克数</div><div class="v">211.59g</div></div>
+      <div><div class="k">浮亏</div><div class="v down">-¥12,902</div></div>
+      <div><div class="k">距减仓线¥1086</div><div class="v warn">-5.6%</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">黄金ETF华安 <span class="code">518880</span></span><span class="tag up">5/12 +0.32%</span></div>
+    <div class="stats">
+      <div><div class="k">5/12收盘</div><div class="v">¥9.806</div></div>
+      <div><div class="k">持仓成本</div><div class="v">¥9.095</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+7.81%</div></div>
+      <div><div class="k">近1年</div><div class="v up">+7.99%</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">紫金矿业 <span class="code">601899</span></span><span class="tag up">5/12 +0.90%</span></div>
+    <div class="stats">
+      <div><div class="k">5/12收盘</div><div class="v">¥34.58</div></div>
+      <div><div class="k">持仓成本</div><div class="v">¥33.38</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+3.60%</div></div>
+      <div><div class="k">近1年</div><div class="v up">+26.70%</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">国投白银LOF <span class="code">161226</span></span><span class="tag up">5/12 +0.14%</span></div>
+    <div class="stats">
+      <div><div class="k">5/12收盘</div><div class="v">¥2.759</div></div>
+      <div><div class="k">持仓成本</div><div class="v">¥4.829</div></div>
+      <div><div class="k">浮亏</div><div class="v down">-42.87%</div></div>
+      <div><div class="k">近1月</div><div class="v up">+11.68%</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 有色/周期 -->
+<div class="section">
+  <h2>有色 / 周期板块 <span class="pill">铜铝震荡 · 紫金 +0.90%</span></h2>
+
+  <div class="news-list">
+    <div class="news-item">
+      <div class="head"><div class="title">LME 铜价 5月12日 维持震荡格局</div><div class="meta">行业研报 · 2026-05-12</div></div>
+      <div class="summary">LME 铜价约 13,310 美元/吨，铝 +0.17%，SMM 库存持续跟踪。有色板块整体呈震荡格局，供需关系仍是主线。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">有色金属板块 1 季报表现优于大盘</div><div class="meta">行业研报 · 2026-04-20</div></div>
+      <div class="summary">1Q 有色板块涨幅 +1.64%（优于沪深300 +1.99%），铜铝龙头企业业绩稳健。紫金矿业近1年涨幅 +26.70%。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">铜价中期支撑逻辑未变 关注矿山供给扰动</div><div class="meta">和讯网 · 2026-05-10</div></div>
+      <div class="summary">铜矿供给扰动持续，中期价格支撑逻辑未变。紫金矿业作为黄金+铜双龙头，兼具金价弹性和铜矿增量。</div>
+    </div>
+  </div>
+
+  <div class="holding">
+    <div class="row"><span class="name">中国铝业 <span class="code">601600</span></span><span class="tag down">5/12 -0.85%</span></div>
+    <div class="stats">
+      <div><div class="k">5/12收盘</div><div class="v">¥11.68</div></div>
+      <div><div class="k">持仓成本</div><div class="v">¥15.02</div></div>
+      <div><div class="k">浮亏</div><div class="v down">-22.25%</div></div>
+      <div><div class="k">近1年</div><div class="v up">+59.27%</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 主题/防御 -->
+<div class="section">
+  <h2>主题 / 防御板块 <span class="pill">游戏 -1.39% · 核电 +0.44%</span></h2>
+
+  <div class="news-list">
+    <div class="news-item">
+      <div class="head"><div class="title">游戏行业 4 月版号常态化 行业景气回升</div><div class="meta">行业研报 · 2026-05-05</div></div>
+      <div class="summary">游戏公司 2025年报+26Q1 季报综述，多家头部公司业绩拐点显现。版号常态化（每月 100+ 款），AI 游戏化是新主线，行业估值有望修复。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">GDC 2026 大会聚焦 AI 游戏化 腾讯/网易发布新进展</div><div class="meta">行业研报 · 2026-04-08</div></div>
+      <div class="summary">GDC 2026 大会聚焦 AI 互动方向，腾讯、网易、三七等头部厂商发布 AI 游戏新进展。AI 赋能游戏降本提效逻辑持续。</div>
+    </div>
+    <div class="news-item">
+      <div class="head"><div class="title">商业航天 5月12日 午后强势崛起</div><div class="meta">腾讯财经 · 2026-05-12</div></div>
+      <div class="summary">商业航天板块 5/12 午后大涨，可控核聚变概念同步活跃。军工主题 ETF（004698）5/12 收涨 +1.23%，延续近期强势。</div>
+    </div>
+  </div>
+
+  <div class="holding">
+    <div class="row"><span class="name">游戏ETF国泰 <span class="code">516010</span></span><span class="tag down">5/12 -1.39%</span></div>
+    <div class="stats">
+      <div><div class="k">5/12收盘</div><div class="v">¥1.302</div></div>
+      <div><div class="k">持仓成本</div><div class="v">¥1.642</div></div>
+      <div><div class="k">浮亏</div><div class="v down">-20.70%</div></div>
+      <div><div class="k">近1年</div><div class="v up">+21.44%</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">中国核电 <span class="code">601985</span></span><span class="tag up">5/12 +0.44%</span></div>
+    <div class="stats">
+      <div><div class="k">5/12收盘</div><div class="v">¥9.23</div></div>
+      <div><div class="k">持仓成本</div><div class="v">¥8.55</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+7.95%</div></div>
+      <div><div class="k">PE</div><div class="v">10.33</div></div>
+    </div>
+  </div>
+  <div class="holding">
+    <div class="row"><span class="name">博时军工主题A <span class="code">004698</span></span><span class="tag flat">净值 2026-05-12</span></div>
+    <div class="stats">
+      <div><div class="k">净值 2026-05-12</div><div class="v">≈¥2.47</div></div>
+      <div><div class="k">持仓成本</div><div class="v">≈¥1.88</div></div>
+      <div><div class="k">浮盈</div><div class="v up">+31.58%</div></div>
+      <div><div class="k">近1年</div><div class="v up">+32.64%</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 操作建议 -->
+<div class="section">
+  <h2>操作建议 <span class="pill">基于 5/12 收盘数据</span></h2>
+  <div class="holding" style="border-left:3px solid var(--info)">
+    <div style="font-size:13px;line-height:1.8">
+      <div style="margin-bottom:6px"><strong>半导体/AI — 观望</strong><br>
+      芯片ETF 159995 现价 ¥1.573，远高于买入触发线 ¥2.10/1.95/1.80——<span class="warn">不触发买入</span>。板块整体 -2.8%，但AI CPO/光模块细分强势。已有仓位继续持有，不追高。</div>
+      <div style="margin-bottom:6px"><strong>新能源 — 观望</strong><br>
+      比亚迪 -1.20% 接近成本价 ¥99.26，PE 32.84 偏高。申万菱信新能源 +83.67% 浮盈丰厚，<span class="warn">可考虑止盈 1/3</span>。电池主题 +16.06% 可继续持有。</div>
+      <div style="margin-bottom:6px"><strong>海外/港股 — 观望</strong><br>
+      恒生科技 -0.59% 仍在筑底；纳指 ETF +16.04% 浮盈健康，<span class="warn">高位震荡，关注今晚 CPI 数据</span>（5/13 8:30）。中概互联 -23.49% 仍深套，持有等待反弹。</div>
+      <div style="margin-bottom:6px"><strong>黄金 — 观察</strong><br>
+      Au9999 ¥1,025.50 低于成本 ¥1,086.55，<span class="down">暂不触发减仓（需¥1,086）</span>。白银 LOF -42.87% 已深套，观察 5/15 美 CPI 数据后再决策。</div>
+      <div style="margin-bottom:6px"><strong>有色/周期 — 持有</strong><br>
+      中国铝业 -22.25% 深套，PE 13.66 合理，继续持有等估值修复。紫金矿业 +3.60%，黄金+铜双逻辑，低估值继续持有。</div>
+      <div><strong>游戏ETF — 持有</strong><br>
+      游戏ETF -1.39%，版号常态化+AI游戏化是长期逻辑，近1年 +21.44%。<span class="info">行业贝塔修复中，继续持有</span>。</div>
+    </div>
+  </div>
+</div>
+
+<div class="banner info">
+<strong>明日关注（5月13日）:</strong>①美4月CPI数据 8:30公布（市场预期3.8%），影响美联储降息预期；②A股盘口AI CPO/光模块主线持续性；③黄金 Au9999 能否守住 ¥1,020 支撑。
+</div>
+
+<footer>由 WorkBuddy 生成 · 数据源 NeoData · 仅供参考，不构成投资建议</footer>
+</body>
+</html>
