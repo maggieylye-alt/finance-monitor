@@ -110,11 +110,22 @@
   .advice-box {
     background: #f9fafb; border-radius: 6px; padding: 10px;
     font-size: 12px; line-height: 1.6;
+    text-align: left;
   }
   .advice-box .head { color: var(--text-light); font-size: 11px; margin-bottom: 4px; }
-  .advice-box ul { list-style: none; padding: 0; }
-  .advice-box li { padding: 3px 0; color: var(--text); }
-  .advice-box li::before { content: "·"; margin-right: 6px; color: var(--text-light); }
+  .advice-box ul { list-style: none; padding: 0; margin: 0; }
+  .advice-box li {
+    padding: 3px 0 3px 14px;
+    color: var(--text);
+    text-align: left;
+    position: relative;
+  }
+  .advice-box li::before {
+    content: "·";
+    color: var(--text-light);
+    position: absolute;
+    left: 0; top: 3px;
+  }
 
   .data-status {
     display: inline-block; padding: 1px 6px; border-radius: 3px;
