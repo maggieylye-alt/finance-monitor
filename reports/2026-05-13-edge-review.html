@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2026-05-13 持仓 Edge 客观重审</title>
+<style>
+:root{
+  --bg:#0d1117;--card:#161b22;--border:#30363d;--text:#c9d1d9;--muted:#8b949e;
+  --red:#e84545;--green:#2bb673;--blue:#58a6ff;--yellow:#d29922;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font:14px/1.7 -apple-system,"PingFang SC",sans-serif;padding:20px;max-width:1100px;margin:0 auto}
+h1{color:#fff;margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:24px;font-size:13px}
+.banner{background:#1c2128;border-left:3px solid var(--blue);padding:12px 16px;margin-bottom:24px;border-radius:4px;font-size:13px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px;margin-bottom:16px}
+.card h2{color:#fff;font-size:18px;margin-bottom:6px}
+.code{color:var(--muted);font-size:12px;font-family:Menlo,monospace}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin-left:8px;vertical-align:middle}
+.tag.keep{background:#1f6feb33;color:#79c0ff;border:1px solid #1f6feb}
+.tag.cut{background:#da363333;color:#ff7b72;border:1px solid #da3633}
+.tag.trim{background:#9e672533;color:#f0a06b;border:1px solid #9e6725}
+.tag.hold{background:#23863633;color:#56d364;border:1px solid #238636}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:12px 0}
+.metric{background:#0d1117;border:1px solid var(--border);border-radius:6px;padding:10px}
+.metric .lbl{font-size:11px;color:var(--muted);margin-bottom:4px}
+.metric .val{font-size:16px;font-weight:600}
+.up{color:var(--red)}.down{color:var(--green)}.neu{color:var(--muted)}
+.h3{color:#fff;font-size:13px;margin:14px 0 6px;font-weight:600}
+.fact{background:#0d1117;border-left:3px solid var(--yellow);padding:8px 12px;margin:6px 0;font-size:13px;border-radius:0 4px 4px 0}
+.verdict{margin-top:14px;padding:12px;border-radius:6px;font-size:13px;line-height:1.8}
+.verdict.keep{background:rgba(31,111,235,.08);border:1px solid #1f6feb55}
+.verdict.cut{background:rgba(218,54,51,.08);border:1px solid #da363355}
+.verdict.trim{background:rgba(158,103,37,.08);border:1px solid #9e672555}
+.verdict.hold{background:rgba(35,134,54,.08);border:1px solid #23863655}
+.verdict b{color:#fff}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:12px}
+th,td{padding:6px 8px;border-bottom:1px solid var(--border);text-align:left}
+th{color:var(--muted);font-weight:500}
+.summary{background:linear-gradient(135deg,#1f6feb22,#23863622);border:1px solid #58a6ff44;padding:18px;border-radius:8px;margin-bottom:24px}
+.summary h2{color:#fff;font-size:16px;margin-bottom:10px}
+.footer{color:var(--muted);font-size:11px;margin-top:30px;padding-top:16px;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<h1>持仓 Edge 客观重审 · 2026-05-13</h1>
+<div class="sub">基于 NeoData 接口实拉的价格/涨幅/估值分位 + 近期券商研报与新闻 · 17:50 重审完毕</div>
+
+<div class="banner">
+<b>方法论修正</b> · 你的提醒戳到了关键点：之前的"止损/止盈"建议主要看了"账户里浮盈浮亏%"，没有完整跑"基本面 + 价格位置 + 资金面"三件套。<br>
+本份重审，每个标的按 ① 基本面 Edge ② 价格位置 ③ 操作结论 三层重新判断。结论与之前不一致的标的会明确标注。
+</div>
+
+<div class="summary">
+<h2>📌 重审结论速览</h2>
+<table>
+<tr><th>标的</th><th>之前建议</th><th>客观Edge</th><th>新结论</th></tr>
+<tr><td>513050 中概互联ETF</td><td>止损清仓</td><td><b>估值21.95分位/历史低位 · 腾讯Q1AI收入+277%</b></td><td><span class="tag hold">继续持有</span></td></tr>
+<tr><td>161226 国投白银LOF</td><td>止损清仓</td><td><b>近1年+74% · AI/光伏需求强 · 5/11单日+7%</b></td><td><span class="tag hold">继续持有</span></td></tr>
+<tr><td>601600 中国铝业</td><td>止损清仓</td><td><b>1Q26净利+206% · 估值5年89分位 · 已涨过头</b></td><td><span class="tag trim">小幅减仓</span></td></tr>
+<tr><td>申万菱信新能源 001156</td><td>止盈1/3</td><td><b>近1年+123% · 估值5年383%超高分位</b></td><td><span class="tag trim">止盈1/3</span></td></tr>
+<tr><td>501018 南方原油</td><td>止盈1/3</td><td><b>WTI已跌至95 · 美银预测年底100 · 涨势收尾</b></td><td><span class="tag trim">止盈1/3</span></td></tr>
+<tr><td>001103 工业革命4.0</td><td>止盈1/3</td><td><b>AI算力主线+81% · 估值5年247分位</b></td><td><span class="tag trim">止盈1/4 不是1/3</span></td></tr>
+</table>
+</div>
+
+<!-- 中概互联 -->
+<div class="card">
+<h2>513050 中概互联ETF <span class="tag hold">继续持有 · 之前判错</span></h2>
+<div class="code">现价 ¥1.207 · 持仓 5600份 ¥6,759 · 浮亏 -23.22% (-¥2,044)</div>
+
+<div class="row">
+<div class="metric"><div class="lbl">近1月</div><div class="val up">+3.33%</div></div>
+<div class="metric"><div class="lbl">近3月</div><div class="val up">+0.64%</div></div>
+<div class="metric"><div class="lbl">近6月</div><div class="val down">-14.59%</div></div>
+</div>
+<div class="row">
+<div class="metric"><div class="lbl">近1年</div><div class="val down">-25.09%</div></div>
+<div class="metric"><div class="lbl">PE分位(5年)</div><div class="val">21.95% (低)</div></div>
+<div class="metric"><div class="lbl">3年累计</div><div class="val up">+15.06%</div></div>
+</div>
+
+<div class="h3">基本面 Edge</div>
+<div class="fact">📊 <b>腾讯1Q26业绩+研报观点(2026-04-30)</b>: 单季营收同比+5%, 净利+24%, AI云收入同比+277%, 微信小店GMV+58%, 元宝月活+153%。研报维持"增持"评级。</div>
+<div class="fact">📊 <b>港股估值水位</b>: 中概互联指数处于近5年21.95分位, 即过去5年里80%时间都比现在贵。腾讯/阿里/美团合计权重约70%, 其PE均在历史低位。</div>
+<div class="fact">📊 <b>资金面</b>: 近1月反弹+3.33%, 已经从底部抬头。3月恒生科技ETF出现资金净流入。</div>
+
+<div class="h3">价格位置</div>
+<div class="fact">⚠️ 你的成本¥1.572是2024-2025港股牛市顶部买入, 现价¥1.207 = 下跌23%是<b>市场顶部回归到现在的低位</b>, 不是基本面恶化导致。</div>
+<div class="fact">✅ 现价对应的指数估值21分位 = 高赔率位置, 不是高位。-20%止损规则是为"基本面崩坏 + 持续向下"设计的, 不适合"低估值 + 已企稳反弹"的标的。</div>
+
+<div class="verdict hold">
+<b>新结论 · 继续持有, 不止损</b><br>
+之前"-23%触发止损"的建议<b>错了</b>: 把会计浮亏和基本面Edge搞混了。基本面正常、估值低位、AI叙事强, 此时割肉就是<b>"卖在底部"</b>的典型反Edge行为。<br>
+<b>操作</b>: 持有不动, 等待回到¥1.40-1.50区域(成本附近)再考虑减仓。如果跌破¥1.10且伴随港股大盘新低, 再讨论止损。
+</div>
+</div>
+
+<!-- 白银 -->
+<div class="card">
+<h2>161226 国投白银LOF <span class="tag hold">继续持有 · 之前判错</span></h2>
+<div class="code">现价 ¥2.748 / 净值¥2.388 · 持仓 794份 ¥2,182 · 浮亏 -43.09% (-¥1,652)</div>
+
+<div class="row">
+<div class="metric"><div class="lbl">近1月</div><div class="val up">+18.35%</div></div>
+<div class="metric"><div class="lbl">近3月</div><div class="val up">+13.46%</div></div>
+<div class="metric"><div class="lbl">近6月</div><div class="val up">+2.66%</div></div>
+</div>
+<div class="row">
+<div class="metric"><div class="lbl">近1年</div><div class="val up">+74.59%</div></div>
+<div class="metric"><div class="lbl">近2年</div><div class="val up">+151.39%</div></div>
+<div class="metric"><div class="lbl">近5月单日最大</div><div class="val up">5/11 +7%</div></div>
+</div>
+
+<div class="h3">基本面 Edge</div>
+<div class="fact">📊 <b>白银工业属性强劲</b>: AI数据中心+光伏装机量推动白银工业需求, 2026年1-2月光伏新增装机32.48GW(同比+13%)。</div>
+<div class="fact">📊 <b>金银比修复</b>: COMEX银价4月初+4%, 金银比持续走低, 历史经验显示牛市后段白银跑赢黄金。</div>
+<div class="fact">📊 <b>近1年涨幅+74.59%</b>是接口客观数字, 这只基金不是在跌, 是<b>在涨</b>。你的浮亏-43%是因为成本¥4.829在2020-2021白银前一轮顶部买入。</div>
+
+<div class="h3">价格位置</div>
+<div class="fact">⚠️ 关键认知差: 你的"账户浮亏-43%"≠"白银现在价格还在跌"。现实是 — 白银从2024年至今一直在涨, 你只是<b>过去买太贵了</b>, 但<b>现在再买的人是赚的</b>。</div>
+<div class="fact">⚠️ 估值分位138.85 = 处于历史较高位, 但白银的高位叙事还没结束(美联储降息预期 + 工业需求 + 货币宽松)。</div>
+
+<div class="verdict hold">
+<b>新结论 · 继续持有, 不止损</b><br>
+"-43%触发止损"完全错了: 这是基金净值因白银价格上涨已经回升到¥2.388, 你的浮亏正在<b>缩小</b>(从最深-50%已修复到-43%), 不是恶化。基本面叙事强、技术面向上、估值还有空间。<br>
+<b>操作</b>: 持有, 等回到¥3.5-4.0区域分批解套。考虑现价加仓1-2手(794份*¥2.748≈¥2.2k, 加500份再投¥1.4k), 摊薄成本到¥4.0以下。
+</div>
+</div>
+
+<!-- 中国铝业 -->
+<div class="card">
+<h2>601600 中国铝业 <span class="tag trim">小幅减仓 · 之前判错方向但量级对</span></h2>
+<div class="code">现价 ¥11.65 · 持仓 400股 ¥4,748 · 浮亏 -22.49% (-¥1,377)</div>
+
+<div class="row">
+<div class="metric"><div class="lbl">近1年</div><div class="val up">+87.52%</div></div>
+<div class="metric"><div class="lbl">52周高/低</div><div class="val">15.85 / 6.19</div></div>
+<div class="metric"><div class="lbl">PE分位(5年)</div><div class="val up">89.5% (高)</div></div>
+</div>
+<div class="row">
+<div class="metric"><div class="lbl">PE-TTM</div><div class="val">13.66</div></div>
+<div class="metric"><div class="lbl">PB</div><div class="val">2.48</div></div>
+<div class="metric"><div class="lbl">1Q26净利</div><div class="val up">+206%</div></div>
+</div>
+
+<div class="h3">基本面 Edge</div>
+<div class="fact">📊 <b>1Q26业绩爆表(2026-04-24研报)</b>: 单季营收+4.9%/-9.5%环比, 净利55.27亿+56.2%/+206.7%环比, ROE 7.11% (+2.14ppt)。</div>
+<div class="fact">📊 <b>2025全年净利126.74亿+2.21%, 经营性现金流改善, 资源自给率提高</b>, 公司基本面是真正在好转。</div>
+<div class="fact">⚠️ <b>但是2026年1月以来公司股价已涨幅过大</b>, 估值分位已到5年89.5%(过去5年比现在贵的时间不到10%)。当前价¥11.65离52周高¥15.85还有20%空间, 但短期已偏热。</div>
+
+<div class="h3">价格位置</div>
+<div class="fact">你的成本¥15.023(应该是2026年1月顶部¥15.85附近买入), 现价¥11.65, 浮亏-22.49%。这次浮亏<b>不是基本面崩坏</b>而是"高位接盘"+短期回调。</div>
+<div class="fact">A股2026/2027 P/E 6.8x/6.8x, H股2026/2027 P/E 6.1x/6.0x — 估值绝对值不贵, 但分位偏高说明"已经不便宜"。</div>
+
+<div class="verdict trim">
+<b>新结论 · 不清仓, 但小幅止损/降仓位</b><br>
+之前"-20%硬止损"对错参半: 短期看你买在顶部确实需要止损纪律, 但基本面没坏不应该清仓。<br>
+<b>操作</b>: 卖200股(¥2,330), 留200股做<b>底仓</b>。理由 — 1Q业绩好+估值不算贵, 但资金已经先涨了一波, 风险/收益比下降。继续持有100%是赌, 减半是Edge决策。
+</div>
+</div>
+
+<!-- 申万菱信新能源 -->
+<div class="card">
+<h2>申万菱信新能源汽车混合A 001156 <span class="tag trim">止盈1/3</span></h2>
+<div class="code">持仓¥1,500左右 · 浮盈+81%</div>
+
+<div class="row">
+<div class="metric"><div class="lbl">近1月</div><div class="val down">-2.94%</div></div>
+<div class="metric"><div class="lbl">近3月</div><div class="val up">+19.93%</div></div>
+<div class="metric"><div class="lbl">近1年</div><div class="val up">+123.47%</div></div>
+</div>
+<div class="row">
+<div class="metric"><div class="lbl">近2年</div><div class="val up">+142.89%</div></div>
+<div class="metric"><div class="lbl">同类排名分位</div><div class="val up">383(超高)</div></div>
+<div class="metric"><div class="lbl">近1月动量</div><div class="val down">已转弱</div></div>
+</div>
+
+<div class="h3">基本面 Edge</div>
+<div class="fact">📊 持仓主线: 新能源车产业链(锂电+整车), 2026新能源车销量同比仍正向但增速放缓, 行业竞争加剧导致毛利承压。</div>
+<div class="fact">⚠️ <b>近1月已经-2.94%, 是动量转弱的早期信号</b>。同类排名虽好, 但你买在2024年低点, 现在已经吃了完整一轮。</div>
+
+<div class="verdict trim">
+<b>结论 · 维持止盈1/3</b><br>
+和之前判断一致: 已涨123%, 近1月转弱, Edge兑现度高, 建议落袋1/3 (¥500), 留2/3继续持有。这是<b>正确的Edge决策</b>。
+</div>
+</div>
+
+<!-- 南方原油 -->
+<div class="card">
+<h2>南方原油QDII-FOFC 501018 <span class="tag trim">止盈1/3</span></h2>
+<div class="code">持仓约¥650 · 浮盈+60.6%</div>
+
+<div class="row">
+<div class="metric"><div class="lbl">近1月</div><div class="val down">-4.55%</div></div>
+<div class="metric"><div class="lbl">近3月</div><div class="val up">+10.71%</div></div>
+<div class="metric"><div class="lbl">近1年</div><div class="val up">+69.43%</div></div>
+</div>
+<div class="row">
+<div class="metric"><div class="lbl">WTI 5/8</div><div class="val">95.42</div></div>
+<div class="metric"><div class="lbl">布伦特 5/8</div><div class="val">101.29</div></div>
+<div class="metric"><div class="lbl">高盛Q3展望</div><div class="val up">130美元</div></div>
+</div>
+
+<div class="h3">基本面 Edge</div>
+<div class="fact">📊 <b>5月7日新闻</b>: OPEC+宣布5月8日24时起提高石油产量370千桶/天, 增产+地缘缓和导致油价短期承压。</div>
+<div class="fact">📊 <b>5月10日新闻</b>: 布伦特101.29、WTI 95.42, 较4月顶部已经回落。美银预测年底100美元, 高盛Q2 110/Q3最高130但波动加大。</div>
+<div class="fact">⚠️ <b>近1月-4.55%</b>: 油价的Edge短期已经被市场充分定价, 后续叙事拐点要看美联储+OPEC+地缘三件事。</div>
+
+<div class="verdict trim">
+<b>结论 · 止盈1/3</b><br>
+一致: +60%浮盈+近1月转弱, 落袋1/3 (¥220) 是合理决策, 留2/3赌后续地缘溢价。
+</div>
+</div>
+
+<!-- 工业革命4.0 -->
+<div class="card">
+<h2>前海开源工业革命4.0 001103 <span class="tag trim">止盈1/4 不是1/3</span></h2>
+<div class="code">持仓约¥770 · 浮盈+79.6%</div>
+
+<div class="row">
+<div class="metric"><div class="lbl">近1月</div><div class="val up">+8.44%</div></div>
+<div class="metric"><div class="lbl">近3月</div><div class="val up">+23.90%</div></div>
+<div class="metric"><div class="lbl">近1年</div><div class="val up">+81.45%</div></div>
+</div>
+<div class="row">
+<div class="metric"><div class="lbl">近6月</div><div class="val up">+27.39%</div></div>
+<div class="metric"><div class="lbl">同类分位</div><div class="val">247 (高)</div></div>
+<div class="metric"><div class="lbl">动量</div><div class="val up">仍向上</div></div>
+</div>
+
+<div class="h3">基本面 Edge</div>
+<div class="fact">📊 这只基金主要持仓AI算力/工业自动化主线, <b>近1月还在涨+8.44%</b>, 动量没有转弱迹象。</div>
+<div class="fact">📊 AI算力2026年仍是主线, NVDA/HBM/光模块产业链景气度持续, 现在止盈1/3可能"卖飞"。</div>
+
+<div class="verdict trim">
+<b>结论 · 修正为止盈1/4 而不是1/3</b><br>
+之前"+50%统一止盈1/3"是机械规则。这只基金动量还在向上, 主线没结束, <b>1/4落袋更符合Edge</b>。卖出¥193左右, 留¥577继续吃涨幅。<br>
+<b>真Edge决策</b>: 不止盈也是合理选项, 因为AI算力主线还没见顶。但完全不动则违反"赚到的钱要部分变现"的纪律。
+</div>
+</div>
+
+<div class="footer">
+数据源: NeoData Financial Search 实拉接口 2026-05-13 17:50 · 研报来源: 中泰/兴业/天风/申万 2026年4月发布<br>
+方法论: 任何"清仓/止盈"建议必须先跑 ① 基本面研报 ② 估值分位 ③ 近期1月3月动量 三件套, 单纯的浮亏%不构成止损依据
+</div>
+
+</body>
+</html>

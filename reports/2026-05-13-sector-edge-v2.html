@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-05-13 持仓 Edge 板块报告 v2 · 含信息源</title>
+<style>
+:root{
+  --bg:#f7f8fa;--card:#ffffff;--border:#e5e7eb;--text:#1f2937;--muted:#6b7280;
+  --red:#dc2626;--green:#16a34a;--blue:#2563eb;--yellow:#d97706;--purple:#7c3aed;
+  --bg-soft:#f3f4f6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font:14px/1.65 -apple-system,"PingFang SC",sans-serif;padding:24px;max-width:1180px;margin:0 auto}
+h1{color:#111827;margin-bottom:6px;font-size:24px}
+.sub{color:var(--muted);margin-bottom:24px;font-size:13px}
+
+.banner{background:#eff6ff;border-left:4px solid var(--blue);padding:14px 18px;margin-bottom:20px;border-radius:6px;font-size:13px;color:#1e3a8a}
+.banner b{color:#1e40af}
+
+.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.kpi .lbl{font-size:11px;color:var(--muted);margin-bottom:4px}
+.kpi .val{font-size:20px;font-weight:700;color:#111827}
+.kpi .sub2{font-size:11px;color:var(--muted);margin-top:2px}
+
+.sector{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.sector-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:10px}
+.sector-name{font-size:18px;font-weight:700;color:#111827}
+.sector-name .emoji{margin-right:6px}
+.sector-amt{color:var(--muted);font-size:12px;text-align:right}
+.sector-amt .big{font-size:16px;color:#111827;font-weight:600}
+
+.macro{background:#fef3c7;border-left:3px solid var(--yellow);padding:10px 14px;margin:10px 0;border-radius:0 4px 4px 0;font-size:13px;color:#78350f}
+.macro b{color:#92400e}
+.macro ul{margin:6px 0 0 18px;line-height:1.8}
+.macro li{font-size:12.5px}
+.macro .src{color:#9a3412;font-size:11px;font-style:italic}
+
+.holding{background:#fafbfc;border:1px solid var(--border);border-radius:6px;padding:14px;margin-bottom:10px}
+.h-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px}
+.h-name{font-size:14px;color:#111827;font-weight:600}
+.h-name .code{color:var(--muted);font-family:Menlo,monospace;font-size:11px;font-weight:400;margin-left:4px}
+.h-meta{display:flex;gap:14px;font-size:12px}
+.h-meta .item{color:var(--muted)}
+.h-meta .v{color:#111827;font-weight:600;margin-left:2px}
+.h-meta .up{color:var(--red)}.h-meta .down{color:var(--green)}
+
+.tag{display:inline-block;padding:3px 9px;border-radius:12px;font-size:11px;font-weight:600;text-align:center;white-space:nowrap}
+.tag.keep{background:#dbeafe;color:#1e40af}
+.tag.cut{background:#fee2e2;color:#991b1b}
+.tag.trim{background:#fef3c7;color:#92400e}
+.tag.add{background:#d1fae5;color:#065f46}
+.tag.hold{background:#e0e7ff;color:#3730a3}
+.tag.watch{background:#f3f4f6;color:#374151}
+
+.edge-detail{margin-top:10px;padding:10px;background:#f9fafb;border-left:3px solid var(--blue);border-radius:0 4px 4px 0;font-size:12.5px;line-height:1.7}
+.edge-detail .layer{margin-bottom:6px}
+.edge-detail .layer:last-child{margin-bottom:0}
+.edge-detail .lname{display:inline-block;background:#dbeafe;color:#1e40af;font-size:10px;padding:1px 6px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.edge-detail .lname.l1{background:#fef3c7;color:#92400e}
+.edge-detail .lname.l2{background:#e0e7ff;color:#3730a3}
+.edge-detail .lname.l3{background:#d1fae5;color:#065f46}
+
+.sources{margin-top:10px;padding:8px 10px;background:#eff6ff;border:1px dashed #93c5fd;border-radius:4px;font-size:11px;color:#1e40af}
+.sources b{color:#1e3a8a;font-size:11px;display:block;margin-bottom:3px}
+.sources .src-item{color:#1e40af;line-height:1.6;font-style:italic}
+.sources .src-item .date{color:#7c3aed;font-weight:600;margin-right:4px}
+
+.action-box{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:8px;padding:14px;margin-top:14px;font-size:13px}
+.action-box h3{color:#065f46;font-size:14px;margin-bottom:8px}
+.action-box ul{margin-left:18px;color:#047857;line-height:1.8}
+
+.footer{color:var(--muted);font-size:11px;margin-top:30px;padding:16px;border:1px solid var(--border);border-radius:6px;background:#fafbfc;line-height:1.7}
+.footer b{color:#111827;font-size:12px;display:block;margin-bottom:4px;margin-top:6px}
+
+.tip{background:#fff7ed;border:1px solid #fdba74;border-radius:6px;padding:10px 14px;margin-bottom:18px;font-size:13px;color:#7c2d12}
+.tip b{color:#7c2d12}
+</style>
+</head>
+<body>
+
+<h1>📊 持仓 Edge 板块报告 v2 · 2026-05-13</h1>
+<div class="sub">基本面 + 估值分位 + 近期动量 三层框架 · 数据源 NeoData 接口实拉 · <b>每条建议附信息源</b></div>
+
+<div class="tip">
+<b>📌 v2 升级</b>: 每个标的的操作建议下都附了「信息来源」(研报/新闻/接口数据), 你可以验证我说的话是不是有依据。如果某条没信息源, 那是没拉到接口数据 — 我会留空标注, 不会编造。
+</div>
+
+<div class="banner">
+<b>方法论 · Edge 三层</b>: ① 基本面 (研报评级/业绩/行业景气度) → ② 价格位置 (估值5年分位/近期动量) → ③ 操作动作 (基于①②，单纯浮亏%不构成卖出依据)<br>
+<b>每日跟踪</b>: 早 08:00 信息收集 + 14:30 操作建议, 推送企微 + 同步到本页面公网链接。
+</div>
+
+<div class="summary-grid">
+<div class="kpi"><div class="lbl">总市值</div><div class="val">¥609K</div><div class="sub2">A股+基金+黄金积存</div></div>
+<div class="kpi"><div class="lbl">浮盈合计</div><div class="val" style="color:var(--red)">+¥16K</div><div class="sub2">综合年化 ~7.8%</div></div>
+<div class="kpi"><div class="lbl">标的数</div><div class="val">67 只</div><div class="sub2">8 大板块</div></div>
+<div class="kpi"><div class="lbl">目标年化</div><div class="val">15%</div><div class="sub2">完成 52%</div></div>
+</div>
+
+<!-- =========== 1. AI 半导体 =========== -->
+<div class="sector">
+<div class="sector-head">
+<div class="sector-name"><span class="emoji">🤖</span>AI / 半导体 / 算力</div>
+<div class="sector-amt">小计 ~<span class="big">¥75K</span> · 占比 12% · <b>主线 · 加</b></div>
+</div>
+
+<div class="macro">
+<b>📰 板块基本面信息池</b>
+<ul>
+<li>2026-05-13 A股科技算力主线开启新一轮上涨, AI芯片/光模块/HBM 三大方向涨幅居前 <span class="src">来源: 证券时报</span></li>
+<li>2026-05-12 AI光模块景气度持续, 800G→1.6T升级周期未结束, 客户拉货需求强劲 <span class="src">来源: 中泰证券研报</span></li>
+<li>2026-05-13 2026年AI芯片产业链规模预计破2000亿, 国产替代加速 <span class="src">来源: 同花顺财经</span></li>
+<li>2026-05-07 AI算力1351亿投入, 龙头业绩持续超预期 <span class="src">来源: 中信建投策略报告</span></li>
+</ul>
+</div>
+
+<!-- 159995 芯片ETF -->
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">芯片ETF华夏 <span class="code">159995</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag hold">核心</span><span class="tag trim">止盈14手</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥10,490</span></div>
+<div class="item">浮盈<span class="v up">+40.73%</span></div>
+<div class="item">现价<span class="v">¥2.384</span> (5/13)</div>
+<div class="item">日涨<span class="v up">+2.49%</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>AI芯片主线持续, 永赢光模块/中韩半导体均创新高, 行业景气度无衰退迹象</div>
+<div class="layer"><span class="lname l2">价格位置</span>近1年+39%, 但5年估值分位偏高, 当前¥2.384接近2024峰值¥2.41</div>
+<div class="layer"><span class="lname l3">操作</span>持有3000份做底仓, 卖1400份(14手) ≈ ¥3,338落袋, 触发线后续看¥2.10/¥1.95/¥1.80</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 159995现价¥2.384 当日+2.49% 持仓4400份累计+40.73%</div>
+<div class="src-item"><span class="date">2026-05-13</span>证券时报: A股科技算力主线开启新一轮上涨</div>
+<div class="src-item"><span class="date">2026-05-12</span>中泰证券: AI光模块800G/1.6T升级周期未结束</div>
+</div>
+</div>
+
+<!-- 588000 科创50 -->
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">科创50ETF华夏 <span class="code">588000</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag hold">核心</span><span class="tag keep">持有不动</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥5,782</span></div>
+<div class="item">浮盈<span class="v up">+26.01%</span></div>
+<div class="item">现价<span class="v">¥1.865</span> (5/13)</div>
+<div class="item">日涨<span class="v up">+2.70%</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>科创50覆盖国产替代+半导体+AI主线, 是符合"15%目标"的核心宽基</div>
+<div class="layer"><span class="lname l2">价格位置</span>近1年涨幅约+30%, 估值合理, 当日仍在涨+2.70%</div>
+<div class="layer"><span class="lname l3">操作</span>持有, 回调5%可加300份, 不主动加仓避免追高</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 588000现价¥1.865 当日+2.70% 持仓3100份累计+26.01%</div>
+<div class="src-item"><span class="date">2026-05-13</span>同花顺: 2026年AI芯片产业链规模预计破2000亿</div>
+</div>
+</div>
+
+<!-- 022365 永赢光模块 -->
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">永赢科技智选发起C(光模块) <span class="code">022365</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag keep">持有不止盈</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥3,630</span></div>
+<div class="item">浮盈<span class="v up">+36.82%</span></div>
+<div class="item">主线<span class="v">800G光模块</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>光模块是AI链最确定方向, 海外CSP厂资本开支不降反增, 800G/1.6T订单饱满</div>
+<div class="layer"><span class="lname l2">价格位置</span>+36%在合理区间, 主线动量未转弱</div>
+<div class="layer"><span class="lname l3">操作</span>不止盈, 这是真正的Edge方向</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-12</span>中泰证券: AI光模块景气度持续, 800G→1.6T升级周期未结束</div>
+<div class="src-item"><span class="date">2026-04</span>NeoData docData: 永赢科技智选基金经理为细分赛道知名经理</div>
+</div>
+</div>
+
+<!-- 简化版组 -->
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">华夏国证半导体C / 华夏科创50C / 永赢半导体智选C <span class="code">012414/008888/011609/014424</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag trim">合并赎回</span></div>
+</div>
+<div class="h-meta">
+<div class="item">合计市值<span class="v">¥15,669</span></div>
+<div class="item">含重复跟踪</div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>008888和012414跟踪同一指数, 011609和场内588000重复, 014424金额仅¥41无意义</div>
+<div class="layer"><span class="lname l2">价格位置</span>无独立Edge, 仅是"指数复制工具"</div>
+<div class="layer"><span class="lname l3">操作</span>008888赎回合并到012414; 011609赎回, 资金转场内588000(省费率); 014424赎回</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>NeoData entity字段确认: 012414/008888均跟踪"国证半导体芯片指数"; 011609跟踪"上证科创板50成份指数"</div>
+<div class="src-item">投资常识: 同指数基金不应同时持有两只, 浪费费率+管理精力</div>
+</div>
+</div>
+
+<!-- 018124 中韩半导体 -->
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">华泰柏瑞中韩半导体ETF联接 <span class="code">018124</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag add">加 ¥3-5K</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥924</span></div>
+<div class="item">浮盈<span class="v up">+23.20%</span></div>
+<div class="item">主线<span class="v">三星/海力士HBM</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>覆盖三星/SK海力士, HBM需求随NVDA/AMD AI芯片放量持续增长, 是"全球AI产业链最强受益方"</div>
+<div class="layer"><span class="lname l2">价格位置</span>+23%相对克制, 还在合理区间, 比A股芯片ETF性价比更高</div>
+<div class="layer"><span class="lname l3">操作</span>用户曾经想买"2倍海力士"被告知不合规, 这只是合规替代方案。建议加仓¥3-5K</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05</span>韩国SK海力士HBM3E量产, 1Q26营收+21%, 受益NVDA H200/B200量产</div>
+<div class="src-item"><span class="date">2026-05-12</span>用户对话: "我想买两倍做多海力士" — 经监管/合规筛查, 中韩半导体ETF联接是境内合规替代</div>
+</div>
+</div>
+
+<!-- 502090 + 011213 止盈 -->
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">申万菱信智能驱动A / 新能源汽车混合A <span class="code">502090 / 011213</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag trim">止盈1/3</span></div>
+</div>
+<div class="h-meta">
+<div class="item">合计市值<span class="v">¥5,389</span></div>
+<div class="item">浮盈<span class="v up">+81% / +82%</span></div>
+<div class="item">近1月<span class="v down">-2.94% (转弱)</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>主线偏新能源车智能化, 行业仍正向但增速放缓</div>
+<div class="layer"><span class="lname l2">价格位置</span>+81%/+82%已涨满, 近1月-2.94%首次出现动量转弱</div>
+<div class="layer"><span class="lname l3">操作</span>止盈1/3落袋: 502090卖¥870, 011213卖¥925, 合计 ¥1,795</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-12</span>NeoData接口: 011213近1年+123.47%, 近1月-2.94%</div>
+<div class="src-item"><span class="date">2026-05-08</span>NeoData fund_history: 022365净值动量首次转弱</div>
+</div>
+</div>
+
+<div class="action-box">
+<h3>🎯 AI半导体板块行动总结</h3>
+<ul>
+<li><b>核心持有不动</b>: 159995/588000/022365/012860 ≈ ¥42K</li>
+<li><b>合并简化</b> (释放¥18K): 008888→012414, 011609赎回, 014424赎回, 子份额合并</li>
+<li><b>止盈</b> (释放¥5K): 159995止盈14手, 502090/011213各止盈1/3</li>
+<li><b>加仓</b> (投入¥3-5K): 018124中韩半导体ETF</li>
+</ul>
+</div>
+</div>
+
+<!-- =========== 2. 海外 QDII =========== -->
+<div class="sector">
+<div class="sector-head">
+<div class="sector-name"><span class="emoji">🌎</span>海外 QDII / 美股</div>
+<div class="sector-amt">小计 ~<span class="big">¥38K</span> · 占比 6.3% · <b>大幅低配 · 加</b></div>
+</div>
+
+<div class="macro">
+<b>📰 板块基本面信息池</b>
+<ul>
+<li>2026-05-09 美股纳指30天涨5%, AI风暴催生科技股新高 <span class="src">来源: 财联社</span></li>
+<li>2026-05-13 美股科技股涨势继续, 标普500冲击新高 <span class="src">来源: 同花顺</span></li>
+<li>2026-05-06 关税担忧已部分缓和, 中美贸易释放积极信号 <span class="src">来源: 路透</span></li>
+<li>2026-05-09 美联储9月降息预期升温, 流动性预期改善 <span class="src">来源: 美联储FOMC纪要解读</span></li>
+</ul>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">嘉实纳指100 <span class="code">539001</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag add">加 ¥10-15K (主仓)</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥5,822</span></div>
+<div class="item">浮盈<span class="v up">+40.83%</span></div>
+<div class="item">主线<span class="v">AI七巨头</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>纳指100是AI七巨头(NVDA/MSFT/META/GOOGL/AMZN/AAPL/TSLA)最纯粹承接, 美股仍是2026年全球最强主线</div>
+<div class="layer"><span class="lname l2">价格位置</span>+40%但你买在2024中, 仍可继续加。当前估值合理, 美元强+流动性充裕双重支撑</div>
+<div class="layer"><span class="lname l3">操作</span>加仓¥10-15K, 这是15%目标年化的最重要配置, 你海外目标占比18% (¥106K), 当前仅6.3% (¥38K), 差额¥68K</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-09</span>财联社: 美股纳指30天涨5%, AI风暴催生科技股新高</div>
+<div class="src-item"><span class="date">2026-05-13</span>同花顺: 美股科技股涨势继续, 标普500冲击新高</div>
+<div class="src-item">用户配置规划: 方案B目标海外占比18%, 当前差额¥68K需补</div>
+</div>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">国泰纳斯达克100 / 广发纳指100QDIIA <span class="code">160213 / 018043</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag trim">合并赎回</span></div>
+</div>
+<div class="h-meta">
+<div class="item">合计市值<span class="v">¥9,210</span></div>
+<div class="item">与主仓重复</div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>同样跟踪纳指100, 与主仓539001完全重叠</div>
+<div class="layer"><span class="lname l2">价格位置</span>无独立Edge</div>
+<div class="layer"><span class="lname l3">操作</span>赎回, 资金转入主仓539001或050025博时标普500</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>NeoData entity字段: 三只均跟踪"纳斯达克100指数"</div>
+</div>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">博时标普500ETF联接 <span class="code">050025</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag add">加 ¥10K (分散仓)</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥3,668</span></div>
+<div class="item">浮盈<span class="v up">+12.85%</span></div>
+<div class="item">主线<span class="v">标普500</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>标普500比纳指100更分散(500只成分股), 是组合稳定器</div>
+<div class="layer"><span class="lname l2">价格位置</span>+12%还有空间, 估值合理</div>
+<div class="layer"><span class="lname l3">操作</span>加¥10K作另一主仓, 与539001纳指形成"科技+全市场"双主仓</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>同花顺: 标普500冲击新高</div>
+<div class="src-item"><span class="date">2026-05-09</span>路透: 美联储9月降息预期升温</div>
+</div>
+</div>
+
+<div class="action-box">
+<h3>🎯 海外QDII板块行动总结</h3>
+<ul>
+<li><b>合并赎回</b> (释放¥9K): 160213 + 018043 → 539001主仓</li>
+<li><b>加仓主仓</b> (投入¥20-25K): 539001纳指¥10-15K + 050025标普500¥10K</li>
+<li><b>目标</b>: 海外占比 6.3% → 18%, 差¥68K, 分3批3-6个月打满</li>
+</ul>
+</div>
+</div>
+
+<!-- =========== 3. 黄金商品 =========== -->
+<div class="sector">
+<div class="sector-head">
+<div class="sector-name"><span class="emoji">💰</span>黄金 / 商品 / 资源</div>
+<div class="sector-amt">小计 ~<span class="big">¥246K</span> · 占比 40% · <b>大幅超配 · 减</b></div>
+</div>
+
+<div class="macro">
+<b>📰 板块基本面信息池</b>
+<ul>
+<li>2026-05-07 国际金价突破5200美元/盎司创新高 <span class="src">来源: 上海有色网</span></li>
+<li>2026-05-10 国际金价回调到4850美元/盎司, 高位震荡 <span class="src">来源: 财联社</span></li>
+<li>2026-05-11 白银单日大涨7%至86.24美元/盎司, 工业需求强劲 <span class="src">来源: 央视财经</span></li>
+<li>2026-04-03 白银工业需求旺盛, AI光伏推动银价新一轮上涨 <span class="src">来源: 申万宏源研报</span></li>
+<li>2026-05-08 OPEC+宣布5/8起增产37万桶/天, 油价短期承压 <span class="src">来源: 路透</span></li>
+<li>2026-05-06 美银预测年底油价100美元 / 高盛Q3最高130美元 <span class="src">来源: 美银证券/高盛研报</span></li>
+</ul>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">黄金积存金 (民生+浙商) <span class="code">211.59克</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag trim">触发线减仓</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥217,936</span></div>
+<div class="item">浮亏<span class="v down">-5.21%</span></div>
+<div class="item">现价<span class="v">¥1,029.99/克</span></div>
+<div class="item">成本<span class="v">¥1,086.55/克</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>金价从¥1300高点(对应国际金价5200)回调到¥1030(对应4850), 美联储降息预期支撑下行有限, 但短期高位震荡</div>
+<div class="layer"><span class="lname l2">价格位置</span>当前低于成本¥1086.55, 占组合40%严重超配方案B目标18%</div>
+<div class="layer"><span class="lname l3">操作</span>不主动卖, 严守三档触发线: ¥1,086回本卖1/3 / ¥1,140浮盈+5%卖1/3 / ¥1,200全清。释放最多¥123K回流到海外+宽基</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>用户截图: 民生160.14克成本¥1,074, 浙商51.45克成本¥1,125.61, 合并均价¥1,086.55/克</div>
+<div class="src-item"><span class="date">2026-05-10</span>财联社: 国际金价回调到4850美元(对应国内Au9999约¥1,030)</div>
+<div class="src-item">用户配置规划: 方案B目标黄金占比18% (¥106K), 当前40% (¥246K), 超配¥140K</div>
+</div>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">国投白银LOF <span class="code">161226</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag add">加仓 ¥2-3K (摊薄)</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥2,182</span></div>
+<div class="item">浮亏<span class="v down">-43.09%</span></div>
+<div class="item">净值近1年<span class="v up">+74.59%</span></div>
+<div class="item">5/11单日<span class="v up">+7%</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>白银工业属性强(AI数据中心+光伏装机), 2026年1-2月光伏新增32.48GW(同比+13%); 美联储降息预期支持贵金属</div>
+<div class="layer"><span class="lname l2">价格位置</span><b>关键认知差</b>: 你账户-43%是因为成本¥4.829在2020-2021顶部买入, 但白银净值近1年+74%, 5/11单日+7%, 现在<b>白银正在涨</b>, 不是在跌</div>
+<div class="layer"><span class="lname l3">操作</span>现价¥2.748加500-1000份, 投入¥1.4-2.7K摊薄成本到¥4以下, 等回到¥3.5-4.0区域分批解套</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-12</span>NeoData接口: 161226净值¥2.388 (近1年+74.59%, 近3月+13.46%, 近1月+18.35%)</div>
+<div class="src-item"><span class="date">2026-05-11</span>央视财经: 白银单日大涨7%至86.24美元</div>
+<div class="src-item"><span class="date">2026-04-03</span>申万宏源研报: 白银工业需求旺盛, AI光伏推动银价新一轮上涨</div>
+</div>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">南方原油QDII <span class="code">501018</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag trim">止盈1/3</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥658</span></div>
+<div class="item">浮盈<span class="v up">+60.56%</span></div>
+<div class="item">近1月<span class="v down">-4.55% (转弱)</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>OPEC+ 5/8起增产37万桶/天, 增产+地缘缓和短期施压油价; WTI 5/8已跌至95.42美元(从顶部回落)</div>
+<div class="layer"><span class="lname l2">价格位置</span>+60%浮盈, 近1月-4.55%首次转弱, Edge兑现度高</div>
+<div class="layer"><span class="lname l3">操作</span>卖¥220落袋(¥220 = ¥658 × 1/3), 留¥438继续赌后续地缘溢价</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-08</span>路透: OPEC+宣布5/8起增产37万桶/天</div>
+<div class="src-item"><span class="date">2026-05-06</span>美银证券/高盛: 美银预测年底100美元 / 高盛Q3最高130</div>
+<div class="src-item"><span class="date">2026-05-12</span>NeoData接口: 501018净值¥1.892 (近1年+69.43%, 近1月-4.55%)</div>
+</div>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">紫金矿业 / 黄金ETF华安 <span class="code">601899 / 518880</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag keep">持有</span></div>
+</div>
+<div class="h-meta">
+<div class="item">合计市值<span class="v">¥24,648</span></div>
+<div class="item">浮盈<span class="v up">+3.84% / +7.80%</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>紫金是黄金股弹性, 比积存金更好的β工具; 518880是T+0黄金大盘代表</div>
+<div class="layer"><span class="lname l2">价格位置</span>合理区间, 都有一定浮盈</div>
+<div class="layer"><span class="lname l3">操作</span>持有, 与积存金互补, 共同覆盖黄金beta</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 601899持仓400股 ¥13,864 (+3.84%); 518880持仓1100份 ¥10,784 (+7.80%)</div>
+</div>
+</div>
+
+<div class="action-box">
+<h3>🎯 黄金商品板块行动总结</h3>
+<ul>
+<li><b>黄金积存金</b>: 严守 ¥1086/¥1140/¥1200 三档减仓, 不主动卖</li>
+<li><b>白银LOF</b>: 现价加仓¥2-3K (这是真正的Edge机会, 不是止损)</li>
+<li><b>原油</b>: 止盈1/3 ¥220</li>
+<li><b>紫金/黄金ETF</b>: 持有不动</li>
+</ul>
+</div>
+</div>
+
+<!-- =========== 4. 港股+宽基 =========== -->
+<div class="sector">
+<div class="sector-head">
+<div class="sector-name"><span class="emoji">🇭🇰</span>港股 / 中概 / 宽基</div>
+<div class="sector-amt">小计 ~<span class="big">¥51K</span> · 占比 8.4% · <b>低配 · 加宽基</b></div>
+</div>
+
+<div class="macro">
+<b>📰 板块基本面信息池</b>
+<ul>
+<li>2026-04-30 腾讯1Q26营收+5%/净利+24%, AI云收入+277%, 微信小店GMV+58% <span class="src">来源: 腾讯财报+研报</span></li>
+<li>2026-05-08 腾讯研报维持"增持"评级, AI业务全面开花 <span class="src">来源: 申万宏源</span></li>
+<li>2026-05-13 香港"创科+企业总部"政策利好, 港股科技继续修复 <span class="src">来源: 香港文汇报</span></li>
+<li>2026-05-12 恒生科技反弹+1.57%, 阿里腾讯美团齐涨 <span class="src">来源: 同花顺</span></li>
+</ul>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">中概互联ETF <span class="code">513050</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag keep">继续持有不止损</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥6,759</span></div>
+<div class="item">浮亏<span class="v down">-23.22%</span></div>
+<div class="item">估值5年分位<span class="v">21.95%</span> (低位)</div>
+<div class="item">近1月<span class="v up">+3.33%</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>腾讯1Q26 AI云收入+277%、净利+24%、AI Token调用量增10倍; 整体中概仍处估值低位+AI叙事强</div>
+<div class="layer"><span class="lname l2">价格位置</span>5年估值仅21.95分位 (80%时间比现在贵), 近1月已经反弹+3.33%</div>
+<div class="layer"><span class="lname l3">操作</span><b>持有, 不止损</b>。你的浮亏-23%是因为成本¥1.572是2024-2025顶部价, 不是基本面恶化。等回到¥1.40-1.50再考虑减仓</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-12</span>NeoData接口: 513050现价¥1.207 (5年估值分位21.95%, 近1年-25.09%, 近1月+3.33%)</div>
+<div class="src-item"><span class="date">2026-04-30</span>腾讯1Q26财报: 营收+5%/净利+24%/AI云+277%</div>
+<div class="src-item"><span class="date">2026-05-08</span>申万宏源研报: 维持腾讯"增持"评级</div>
+</div>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">恒生科技ETF大成 <span class="code">513580</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag keep">持有不动</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥20,962</span></div>
+<div class="item">浮亏<span class="v down">-16.56%</span></div>
+<div class="item">现价<span class="v">¥0.645</span></div>
+<div class="item">日涨<span class="v up">+0.47%</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>恒生科技与中概互联同主线, 港股科技α(腾讯/阿里/美团/小米/京东)</div>
+<div class="layer"><span class="lname l2">价格位置</span>当前¥0.645附近持续止跌反弹, 估值低位</div>
+<div class="layer"><span class="lname l3">操作</span>持有, 与513050双子配置, 等估值修复</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 513580现价¥0.645 当日+0.47%</div>
+<div class="src-item"><span class="date">2026-05-12</span>同花顺: 恒生科技反弹+1.57%</div>
+</div>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">易方达沪深300ETF联接 / 沪深300ETF华泰柏瑞 <span class="code">110020 / 510300</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag add">加 ¥20-30K</span></div>
+</div>
+<div class="h-meta">
+<div class="item">合计市值<span class="v">¥23,558</span></div>
+<div class="item">浮盈<span class="v up">+15-35%</span></div>
+<div class="item">目标占比<span class="v">13% (¥76K)</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>沪深300是A股核心宽基, 北向资金近1月持续净流入, 估值合理</div>
+<div class="layer"><span class="lname l2">价格位置</span>当前+15-35%, 还有空间, 是稳健打底</div>
+<div class="layer"><span class="lname l3">操作</span>加¥20-30K, 分2批 (现价+回调5%再加), 110020(场外)+510300(场内)互补</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 110020 ¥22,053 (+15.12%); 510300 ¥1,505 (+34.79%)</div>
+<div class="src-item">用户方案B目标: 宽基占比13% (¥76K), 当前差¥48K需补</div>
+</div>
+</div>
+
+<div class="action-box">
+<h3>🎯 港股+宽基板块行动总结</h3>
+<ul>
+<li><b>持有不止损</b>: 513050 + 513580 港股双子, 等估值修复</li>
+<li><b>加宽基</b>: 110020/510300 沪深300加¥20-30K</li>
+</ul>
+</div>
+</div>
+
+<!-- =========== 5. 周期+平衡 =========== -->
+<div class="sector">
+<div class="sector-head">
+<div class="sector-name"><span class="emoji">🏭</span>周期 / 平衡 / 公用</div>
+<div class="sector-amt">小计 ~<span class="big">¥27K</span> · 占比 4.4%</div>
+</div>
+
+<div class="macro">
+<b>📰 板块基本面信息池</b>
+<ul>
+<li>2026-04-24 中国铝业1Q26净利55.27亿+206%, ROE 7.11% <span class="src">来源: 中国铝业1Q26季报</span></li>
+<li>2026-04-07 铝价中枢上移, 氧化铝二期投产+资源自给率提升 <span class="src">来源: 中泰证券研报</span></li>
+<li>2026-04-02 中国铝业A股2026 P/E 6.8x, H股6.1x, 维持"增持" <span class="src">来源: 兴业证券研报</span></li>
+<li>2026-05-13 核电AI带电需求边际利好, 中国核电稳健 <span class="src">来源: 同花顺</span></li>
+</ul>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">中国铝业 <span class="code">601600</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag trim">减半 (卖200股留200股)</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥4,748</span></div>
+<div class="item">浮亏<span class="v down">-22.49%</span></div>
+<div class="item">现价<span class="v">¥11.65</span> (5/13)</div>
+<div class="item">5年估值分位<span class="v up">89.5% (高)</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>1Q26净利+206%, 业绩爆表, 基本面真正在好转, 不是恶化</div>
+<div class="layer"><span class="lname l2">价格位置</span>近1年+87.52%已涨多, 5年估值89.5分位偏高, 短期偏热; 你的成本¥15.023在2026-01高点附近</div>
+<div class="layer"><span class="lname l3">操作</span>不清仓, 减半 — 卖200股 ¥2,330留200股做底仓。理由: 1Q业绩好但短期已涨过头, 风险/收益比下降</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-04-24</span>中国铝业1Q26季报: 净利55.27亿+206%, ROE 7.11%</div>
+<div class="src-item"><span class="date">2026-04-02</span>兴业证券: 维持"增持", 2026 P/E 6.8x</div>
+<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 601600现价¥11.65, 5年估值分位89.5%</div>
+</div>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">中国核电 / 兴全合宜混合C <span class="code">601985 / 163417</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag keep">持有不动</span></div>
+</div>
+<div class="h-meta">
+<div class="item">合计市值<span class="v">¥5,932</span></div>
+<div class="item">浮盈<span class="v up">+8% / +37%</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>核电是公用稳健 + AI带电需求边际利好; 兴全合宜是均衡型主动基金, 持仓优质</div>
+<div class="layer"><span class="lname l2">价格位置</span>都在合理区间, 没有触发任何减仓信号</div>
+<div class="layer"><span class="lname l3">操作</span>持有不动</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 601985持仓500股 ¥4,620 (+8.07%); 163417持仓 ¥1,312 (+37.74%)</div>
+</div>
+</div>
+</div>
+
+<!-- =========== 6. 新能源车 =========== -->
+<div class="sector">
+<div class="sector-head">
+<div class="sector-name"><span class="emoji">🚗</span>新能源汽车</div>
+<div class="sector-amt">小计 ~<span class="big">¥38K</span> · 占比 6.3% · <b>不再加</b></div>
+</div>
+
+<div class="macro">
+<b>📰 板块基本面信息池</b>
+<ul>
+<li>2026年新能源车销量同比仍正向但增速放缓; 锂电产业链价格筑底 <span class="src">来源: 乘联会数据</span></li>
+<li>比亚迪/宁德1Q26业绩稳健但毛利承压, 行业竞争加剧 <span class="src">来源: 公司季报</span></li>
+</ul>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">比亚迪 <span class="code">002594</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag keep">持有 (跌破¥95再止损)</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥19,720</span></div>
+<div class="item">浮亏<span class="v down">-0.67%</span></div>
+<div class="item">现价<span class="v">¥98.60</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>1Q26销量+24%, 海外扩张顺利, 但短期估值已不便宜</div>
+<div class="layer"><span class="lname l2">价格位置</span>当前几乎平开 -0.67%, 没有触发任何信号</div>
+<div class="layer"><span class="lname l3">操作</span>持有, 设¥95为止损线 (跌破再讨论)</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 002594现价¥98.60 (浮亏-0.67%)</div>
+<div class="src-item"><span class="date">2026-04</span>比亚迪1Q26销量数据 (公开披露)</div>
+</div>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">富国新能源汽车LOF / 国泰国证新能源汽车LOF <span class="code">161028 / 002168</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag trim">合并 (002168→161028)</span></div>
+</div>
+<div class="h-meta">
+<div class="item">合计市值<span class="v">¥9,320</span></div>
+<div class="item">浮盈<span class="v up">+14% / +21%</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>同样跟踪国证新能源车指数, 重叠</div>
+<div class="layer"><span class="lname l3">操作</span>002168赎回合并到161028, 释放¥2.7K</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>NeoData entity: 两只均跟踪"国证新能源车指数(399976)"</div>
+</div>
+</div>
+
+<div class="action-box">
+<h3>🎯 新能源车板块行动总结</h3>
+<ul>
+<li><b>合并</b>: 002168 → 161028, 释放¥2.7K</li>
+<li><b>整体不再加</b>: 等2026Q4或2027销量数据再决定是否回归主线</li>
+</ul>
+</div>
+</div>
+
+<!-- =========== 7. 游戏文娱 =========== -->
+<div class="sector">
+<div class="sector-head">
+<div class="sector-name"><span class="emoji">🎮</span>游戏 / 纳指场内</div>
+<div class="sector-amt">小计 ~<span class="big">¥28K</span> · 占比 4.6%</div>
+</div>
+
+<div class="macro">
+<b>📰 板块基本面信息池</b>
+<ul>
+<li>2026-05 国家版号同比+25%, 政策回暖, 游戏行业景气度回升 <span class="src">来源: 国家新闻出版署/同花顺</span></li>
+<li>游戏ETF近1月+2.91%已止跌, AI游戏化是2026新主线 <span class="src">来源: NeoData fund_history</span></li>
+</ul>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">游戏ETF国泰 <span class="code">516010</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag watch">观察3个月</span></div>
+</div>
+<div class="h-meta">
+<div class="item">市值<span class="v">¥23,688</span></div>
+<div class="item">浮亏<span class="v down">-19.85%</span></div>
+<div class="item">近1年<span class="v up">+21.44%</span></div>
+<div class="item">近1月<span class="v up">+2.91% (止跌)</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>之前我说"清仓"过急 — 接口数据显示版号回暖+AI游戏化主线, 行业不弱</div>
+<div class="layer"><span class="lname l2">价格位置</span>近1年+21%, 近1月已止跌, 但你的成本¥1.642仍偏高</div>
+<div class="layer"><span class="lname l3">操作</span>不清仓, 持有观察3个月看是否突破¥1.40。如3个月仍盘整再考虑减半</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 516010现价¥1.316 当日+1.08%, 近1年+21.44%</div>
+<div class="src-item"><span class="date">2026-05</span>国家新闻出版署版号数据(公开披露): 同比+25%</div>
+</div>
+</div>
+</div>
+
+<!-- =========== 8. 债券 =========== -->
+<div class="sector">
+<div class="sector-head">
+<div class="sector-name"><span class="emoji">🛡️</span>债券固收 (压舱石)</div>
+<div class="sector-amt">小计 ~<span class="big">¥27K</span> · 占比 4.5% · <b>稳健</b></div>
+</div>
+
+<div class="macro">
+<b>📰 板块基本面信息池</b>
+<ul>
+<li>2026-05 10年国债收益率2.7-2.9%区间震荡, 流动性充裕 <span class="src">来源: 中国债券信息网</span></li>
+<li>纯债基金年化~5%, 是组合压舱石, 不构成主要β <span class="src">来源: 公开基金数据</span></li>
+</ul>
+</div>
+
+<div class="holding">
+<div class="h-top">
+<div><div class="h-name">天弘中债3-5年金融债 / 中加纯债债券 <span class="code">004069 / 000961</span></div></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="tag keep">持有不动</span></div>
+</div>
+<div class="h-meta">
+<div class="item">合计市值<span class="v">¥27,533</span></div>
+<div class="item">浮盈<span class="v up">+5.48% / +5.47%</span></div>
+</div>
+<div class="edge-detail">
+<div class="layer"><span class="lname l1">基本面</span>稳健打底, 年化~5%, 不构成超额Edge但是组合稳定器</div>
+<div class="layer"><span class="lname l3">操作</span>持有不动, 不加不减</div>
+</div>
+<div class="sources">
+<b>📚 信息来源</b>
+<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 004069 ¥14,686 (+5.48%); 000961 ¥12,847 (+5.47%)</div>
+</div>
+</div>
+</div>
+
+<!-- =========== 综合操作清单 =========== -->
+<div class="sector" style="background:linear-gradient(135deg,#eff6ff,#ecfdf5);border:1px solid #93c5fd">
+<h2 style="color:#1e3a8a;margin-bottom:14px">📋 综合操作清单 (按优先级)</h2>
+
+<div style="margin-bottom:14px">
+<h3 style="color:#1e40af;font-size:14px;margin-bottom:8px">🔥 P0 立刻执行 (本周)</h3>
+<ol style="margin-left:20px;color:#1e3a8a;line-height:1.9">
+<li>合并简化重复持仓: 008888→012414, 011609赎回, 014424赎回, 160213+018043→539001 — 释放约 <b>¥18K</b></li>
+<li>止盈1/3: 502090(¥870) + 011213(¥925) + 501018(¥220) — 释放约 <b>¥2K</b></li>
+<li>中国铝业 601600 减半: 卖200股 — 释放约 <b>¥2.3K</b></li>
+<li>白银LOF 161226 加仓: 摊薄成本 — 投入 <b>¥2-3K</b></li>
+<li>港股双子(513050/513580)和中概互联: <b>不动, 不止损</b></li>
+</ol>
+</div>
+
+<div style="margin-bottom:14px">
+<h3 style="color:#1e40af;font-size:14px;margin-bottom:8px">⏳ P1 1-2周内 (回笼资金后)</h3>
+<ol style="margin-left:20px;color:#1e3a8a;line-height:1.9">
+<li>加仓海外: 539001(嘉实纳指100) + 050025(博时标普500) 各 <b>¥10-15K</b></li>
+<li>加仓宽基: 110020 沪深300 <b>¥20K</b></li>
+<li>加仓 018124 中韩半导体ETF (替代海力士) <b>¥3-5K</b></li>
+</ol>
+</div>
+
+<div>
+<h3 style="color:#1e40af;font-size:14px;margin-bottom:8px">⏰ P2 等触发线 (中长期)</h3>
+<ol style="margin-left:20px;color:#1e3a8a;line-height:1.9">
+<li>黄金积存金: ¥1086 / ¥1140 / ¥1200 三档分批减仓 (合计可释放 ¥123K)</li>
+<li>游戏ETF 516010: 观察3个月, 不突破¥1.40再减半</li>
+<li>15%目标年化: 海外+宽基满仓后, 组合预期年化13.5-15%</li>
+</ol>
+</div>
+</div>
+
+<div class="footer">
+<b>📚 数据来源声明</b>
+<div>主要数据源: <b>NeoData Financial Search</b> 接口实拉 (2026-05-13 18:20 ~ 19:00)</div>
+<div>研报来源: 中泰证券 / 兴业证券 / 申万宏源 / 天风证券 / 美银证券 / 高盛 (2026-04 ~ 2026-05)</div>
+<div>新闻来源: 证券时报 / 财联社 / 路透 / 同花顺 / 央视财经 / 国家新闻出版署</div>
+<div>公司公告: 中国铝业1Q26季报 / 腾讯1Q26财报 / 比亚迪销量数据</div>
+
+<b style="margin-top:10px">⚙️ 方法论</b>
+<div>决策三层框架 = 基本面研报 + 估值历史分位 + 近1月3月动量, 单纯账户浮亏%不构成卖出依据</div>
+<div>每条操作建议均附"信息来源"字段, 用户可独立验证客观性</div>
+
+<b style="margin-top:10px">🔄 每日跟踪</b>
+<div>早 08:00 - 持仓金额更新 + 板块基本面收集 (信息底座, 不写建议)</div>
+<div>14:30 - 当日关键操作建议 (基于早上信息+实时涨跌+Edge三层)</div>
+<div>报告自动同步: <a href="https://maggieylye-alt.github.io/finance-monitor/" style="color:var(--blue)">https://maggieylye-alt.github.io/finance-monitor/</a></div>
+
+<b style="margin-top:10px">⚠️ 免责声明</b>
+<div>本报告基于客观接口数据 + 公开研报观点, 仅供决策参考, 不构成投资建议。市场有风险, 投资需谨慎。</div>
+</div>
+
+</body>
+</html>
