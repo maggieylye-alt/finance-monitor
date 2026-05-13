@@ -11,8 +11,25 @@
   --bg-soft:#f3f4f6;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font:14px/1.65 -apple-system,"PingFang SC",sans-serif;padding:24px;max-width:1180px;margin:0 auto}
+body{background:var(--bg);color:var(--text);font:14px/1.65 -apple-system,"PingFang SC",sans-serif;padding:24px 24px 24px 220px;max-width:1280px;margin:0 auto}
 h1{color:#111827;margin-bottom:6px;font-size:24px}
+
+/* 左侧悬浮 TOC */
+.side-toc{position:fixed;left:24px;top:24px;width:170px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 12px;box-shadow:0 1px 3px rgba(0,0,0,.04);z-index:100;max-height:calc(100vh - 48px);overflow-y:auto}
+.side-toc .st-title{font-size:12px;color:#111827;font-weight:700;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:5px}
+.side-toc .st-item{display:flex;align-items:center;gap:7px;padding:7px 8px;border-radius:6px;text-decoration:none;color:var(--text);font-size:12px;margin-bottom:3px;border-left:3px solid transparent;transition:all .15s}
+.side-toc .st-item:hover{background:#eff6ff;color:var(--blue);border-left-color:var(--blue)}
+.side-toc .st-item.active{background:#eff6ff;color:var(--blue);border-left-color:var(--blue);font-weight:600}
+.side-toc .st-item .ste{font-size:14px}
+.side-toc .st-item .stn{flex:1;font-weight:500;line-height:1.3}
+.side-toc .st-item.action{background:linear-gradient(135deg,#ecfdf5,#dbeafe);border-left:3px solid #10b981;color:#1e40af;font-weight:600;margin-top:6px}
+.side-toc .st-item.top{background:#fef3c7;border-left:3px solid #f59e0b;color:#78350f;font-weight:600}
+
+@media (max-width:980px){
+  body{padding:24px}
+  .side-toc{position:static;width:100%;max-height:none;margin-bottom:16px}
+  .side-toc .st-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px}
+}
 .sub{color:var(--muted);margin-bottom:24px;font-size:13px}
 
 .banner{background:#eff6ff;border-left:4px solid var(--blue);padding:14px 18px;margin-bottom:20px;border-radius:6px;font-size:13px;color:#1e3a8a}
@@ -101,17 +118,41 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 
 /* 饼图 + 图例 */
 .pie-wrap{display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center}
-.pie-svg{width:200px;height:200px}
-.pie-svg circle{transition:all .3s}
+.pie-svg{width:200px;height:200px;cursor:pointer}
+.pie-svg circle{transition:all .25s;cursor:pointer}
+.pie-svg circle.seg:hover{stroke-width:30;filter:brightness(1.1)}
+.pie-svg circle.seg.active{stroke-width:32;filter:brightness(1.05) drop-shadow(0 2px 6px rgba(0,0,0,0.15))}
 .pie-svg .pie-center{font-size:18px;font-weight:700;fill:#0f172a;text-anchor:middle;dominant-baseline:central}
 .pie-svg .pie-sub{font-size:10px;fill:var(--muted);text-anchor:middle;dominant-baseline:central}
 
-.pie-legend{display:flex;flex-direction:column;gap:7px;font-size:12px}
-.pie-legend .lg-row{display:grid;grid-template-columns:14px 1fr 50px 50px;gap:8px;align-items:center;padding:3px 0}
+.pie-legend{display:flex;flex-direction:column;gap:5px;font-size:12px}
+.pie-legend .lg-row{display:grid;grid-template-columns:14px 1fr 60px 60px;gap:8px;align-items:center;padding:5px 6px;border-radius:5px;cursor:pointer;transition:background .15s}
+.pie-legend .lg-row:hover{background:#f3f4f6}
+.pie-legend .lg-row.active{background:#eff6ff}
 .pie-legend .dot{width:10px;height:10px;border-radius:2px}
 .pie-legend .lg-name{color:#111827;font-weight:500}
-.pie-legend .lg-pct{text-align:right;color:var(--muted);font-size:11px}
-.pie-legend .lg-amt{text-align:right;color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
+.pie-legend .lg-pct{text-align:right;color:#0f172a;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.pie-legend .lg-amt{text-align:right;color:#0f172a;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+
+/* 饼图块点击后弹出 — 标的展开面板 */
+.sector-popup{margin-top:14px;padding:14px;background:#f9fafb;border:1px solid var(--border);border-radius:8px;display:none}
+.sector-popup.show{display:block;animation:fadeIn .25s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.sector-popup .pop-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:1px dashed var(--border)}
+.sector-popup .pop-name{font-size:14px;font-weight:700;color:#111827}
+.sector-popup .pop-stats{font-size:12px;color:var(--muted)}
+.sector-popup .pop-stats b{color:#111827;font-weight:600}
+.sector-popup .pop-list{display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px}
+.sector-popup .pop-item{display:grid;grid-template-columns:1fr 70px 60px;gap:8px;align-items:center;padding:6px 8px;background:#fff;border:1px solid var(--border);border-radius:5px}
+.sector-popup .pop-item .pi-name{color:#111827;font-weight:500}
+.sector-popup .pop-item .pi-name .code{font-family:Menlo,monospace;font-size:10px;color:var(--muted);font-weight:400;margin-left:3px}
+.sector-popup .pop-item .pi-amt{text-align:right;color:#111827;font-weight:600;font-variant-numeric:tabular-nums}
+.sector-popup .pop-item .pi-pnl{text-align:right;font-size:11px;font-weight:600;font-variant-numeric:tabular-nums}
+.sector-popup .pop-item .pi-pnl.up{color:var(--red)}
+.sector-popup .pop-item .pi-pnl.down{color:var(--green)}
+.sector-popup .pop-jump{margin-top:10px;text-align:right}
+.sector-popup .pop-jump a{font-size:12px;color:var(--blue);text-decoration:none;font-weight:500}
+.sector-popup .pop-jump a:hover{text-decoration:underline}
 
 /* 板块盈亏分歧条(对称) */
 .diverging{display:flex;flex-direction:column;gap:9px}
@@ -149,6 +190,25 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </style>
 </head>
 <body>
+
+<!-- 左侧固定 TOC -->
+<div class="side-toc">
+<div class="st-title">🗂 板块目录</div>
+<div class="st-grid">
+<a class="st-item top" href="#top"><span class="ste">🏠</span><span class="stn">总览</span></a>
+<a class="st-item" href="#sec-ai" data-sec="ai"><span class="ste">🤖</span><span class="stn">AI/半导体</span></a>
+<a class="st-item" href="#sec-overseas" data-sec="overseas"><span class="ste">🌎</span><span class="stn">海外QDII</span></a>
+<a class="st-item" href="#sec-gold" data-sec="gold"><span class="ste">💰</span><span class="stn">黄金商品</span></a>
+<a class="st-item" href="#sec-hk" data-sec="hk"><span class="ste">🇭🇰</span><span class="stn">港股宽基</span></a>
+<a class="st-item" href="#sec-cycle" data-sec="cycle"><span class="ste">🏭</span><span class="stn">周期平衡</span></a>
+<a class="st-item" href="#sec-nev" data-sec="nev"><span class="ste">🚗</span><span class="stn">新能源车</span></a>
+<a class="st-item" href="#sec-game" data-sec="game"><span class="ste">🎮</span><span class="stn">游戏纳指</span></a>
+<a class="st-item" href="#sec-bond" data-sec="bond"><span class="ste">🛡️</span><span class="stn">债券固收</span></a>
+<a class="st-item action" href="#sec-action"><span class="ste">📋</span><span class="stn">操作清单</span></a>
+</div>
+</div>
+
+<a id="top"></a>
 
 <h1>📊 持仓 Edge 板块报告 v2 · 2026-05-13</h1>
 <div class="sub">基本面 + 估值分位 + 近期动量 三层框架 · 数据源 NeoData 接口实拉 · <b>每条建议附信息源</b></div>
@@ -209,26 +269,37 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 <div class="chart-title">📊 板块持仓占比 <span class="badge">环形饼图</span></div>
 <div class="pie-wrap">
 <svg class="pie-svg" viewBox="0 0 200 200">
-<circle cx="100" cy="100" r="70" fill="none" stroke="#3b82f6" stroke-width="24" stroke-dasharray="62.24 377.58" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
-<circle cx="100" cy="100" r="70" fill="none" stroke="#06b6d4" stroke-width="24" stroke-dasharray="31.53 408.29" stroke-dashoffset="-62.24" transform="rotate(-90 100 100)"/>
-<circle cx="100" cy="100" r="70" fill="none" stroke="#f59e0b" stroke-width="24" stroke-dasharray="204.14 235.68" stroke-dashoffset="-93.77" transform="rotate(-90 100 100)"/>
-<circle cx="100" cy="100" r="70" fill="none" stroke="#8b5cf6" stroke-width="24" stroke-dasharray="42.32 397.50" stroke-dashoffset="-297.92" transform="rotate(-90 100 100)"/>
-<circle cx="100" cy="100" r="70" fill="none" stroke="#64748b" stroke-width="24" stroke-dasharray="22.41 417.42" stroke-dashoffset="-340.24" transform="rotate(-90 100 100)"/>
-<circle cx="100" cy="100" r="70" fill="none" stroke="#10b981" stroke-width="24" stroke-dasharray="31.53 408.29" stroke-dashoffset="-362.65" transform="rotate(-90 100 100)"/>
-<circle cx="100" cy="100" r="70" fill="none" stroke="#ec4899" stroke-width="24" stroke-dasharray="23.24 416.59" stroke-dashoffset="-394.18" transform="rotate(-90 100 100)"/>
-<circle cx="100" cy="100" r="70" fill="none" stroke="#14b8a6" stroke-width="24" stroke-dasharray="22.41 417.42" stroke-dashoffset="-417.42" transform="rotate(-90 100 100)"/>
+<circle class="seg" data-sector="ai" cx="100" cy="100" r="70" fill="none" stroke="#3b82f6" stroke-width="24" stroke-dasharray="62.24 377.58" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+<circle class="seg" data-sector="overseas" cx="100" cy="100" r="70" fill="none" stroke="#06b6d4" stroke-width="24" stroke-dasharray="31.53 408.29" stroke-dashoffset="-62.24" transform="rotate(-90 100 100)"/>
+<circle class="seg" data-sector="gold" cx="100" cy="100" r="70" fill="none" stroke="#f59e0b" stroke-width="24" stroke-dasharray="204.14 235.68" stroke-dashoffset="-93.77" transform="rotate(-90 100 100)"/>
+<circle class="seg" data-sector="hk" cx="100" cy="100" r="70" fill="none" stroke="#8b5cf6" stroke-width="24" stroke-dasharray="42.32 397.50" stroke-dashoffset="-297.92" transform="rotate(-90 100 100)"/>
+<circle class="seg" data-sector="cycle" cx="100" cy="100" r="70" fill="none" stroke="#64748b" stroke-width="24" stroke-dasharray="22.41 417.42" stroke-dashoffset="-340.24" transform="rotate(-90 100 100)"/>
+<circle class="seg" data-sector="nev" cx="100" cy="100" r="70" fill="none" stroke="#10b981" stroke-width="24" stroke-dasharray="31.53 408.29" stroke-dashoffset="-362.65" transform="rotate(-90 100 100)"/>
+<circle class="seg" data-sector="game" cx="100" cy="100" r="70" fill="none" stroke="#ec4899" stroke-width="24" stroke-dasharray="23.24 416.59" stroke-dashoffset="-394.18" transform="rotate(-90 100 100)"/>
+<circle class="seg" data-sector="bond" cx="100" cy="100" r="70" fill="none" stroke="#14b8a6" stroke-width="24" stroke-dasharray="22.41 417.42" stroke-dashoffset="-417.42" transform="rotate(-90 100 100)"/>
 <text class="pie-center" x="100" y="92">¥530K</text>
-<text class="pie-sub" x="100" y="112">8板块持仓</text>
+<text class="pie-sub" x="100" y="112">点击块查看</text>
 </svg>
-<div class="pie-legend">
-<div class="lg-row"><div class="dot" style="background:#3b82f6"></div><div class="lg-name">🤖 AI/半导体</div><div class="lg-pct">14.2%</div><div class="lg-amt">¥75K</div></div>
-<div class="lg-row"><div class="dot" style="background:#06b6d4"></div><div class="lg-name">🌎 海外QDII</div><div class="lg-pct">7.2%</div><div class="lg-amt">¥38K</div></div>
-<div class="lg-row"><div class="dot" style="background:#f59e0b"></div><div class="lg-name">💰 黄金/商品</div><div class="lg-pct">46.4%</div><div class="lg-amt">¥246K</div></div>
-<div class="lg-row"><div class="dot" style="background:#8b5cf6"></div><div class="lg-name">🇭🇰 港股/宽基</div><div class="lg-pct">9.6%</div><div class="lg-amt">¥51K</div></div>
-<div class="lg-row"><div class="dot" style="background:#64748b"></div><div class="lg-name">🏭 周期/平衡</div><div class="lg-pct">5.1%</div><div class="lg-amt">¥27K</div></div>
-<div class="lg-row"><div class="dot" style="background:#10b981"></div><div class="lg-name">🚗 新能源车</div><div class="lg-pct">7.2%</div><div class="lg-amt">¥38K</div></div>
-<div class="lg-row"><div class="dot" style="background:#ec4899"></div><div class="lg-name">🎮 游戏/纳指</div><div class="lg-pct">5.3%</div><div class="lg-amt">¥28K</div></div>
-<div class="lg-row"><div class="dot" style="background:#14b8a6"></div><div class="lg-name">🛡️ 债券固收</div><div class="lg-pct">5.1%</div><div class="lg-amt">¥27K</div></div>
+<div class="pie-legend" id="pieLegend">
+<div class="lg-row" data-sector="ai"><div class="dot" style="background:#3b82f6"></div><div class="lg-name">🤖 AI/半导体</div><div class="lg-pct">14.2%</div><div class="lg-amt">¥75K</div></div>
+<div class="lg-row" data-sector="overseas"><div class="dot" style="background:#06b6d4"></div><div class="lg-name">🌎 海外QDII</div><div class="lg-pct">7.2%</div><div class="lg-amt">¥38K</div></div>
+<div class="lg-row" data-sector="gold"><div class="dot" style="background:#f59e0b"></div><div class="lg-name">💰 黄金/商品</div><div class="lg-pct">46.4%</div><div class="lg-amt">¥246K</div></div>
+<div class="lg-row" data-sector="hk"><div class="dot" style="background:#8b5cf6"></div><div class="lg-name">🇭🇰 港股/宽基</div><div class="lg-pct">9.6%</div><div class="lg-amt">¥51K</div></div>
+<div class="lg-row" data-sector="cycle"><div class="dot" style="background:#64748b"></div><div class="lg-name">🏭 周期/平衡</div><div class="lg-pct">5.1%</div><div class="lg-amt">¥27K</div></div>
+<div class="lg-row" data-sector="nev"><div class="dot" style="background:#10b981"></div><div class="lg-name">🚗 新能源车</div><div class="lg-pct">7.2%</div><div class="lg-amt">¥38K</div></div>
+<div class="lg-row" data-sector="game"><div class="dot" style="background:#ec4899"></div><div class="lg-name">🎮 游戏/纳指</div><div class="lg-pct">5.3%</div><div class="lg-amt">¥28K</div></div>
+<div class="lg-row" data-sector="bond"><div class="dot" style="background:#14b8a6"></div><div class="lg-name">🛡️ 债券固收</div><div class="lg-pct">5.1%</div><div class="lg-amt">¥27K</div></div>
+</div>
+</div>
+
+<!-- 弹出展开面板 -->
+<div class="sector-popup" id="sectorPopup">
+<div class="pop-head">
+<div class="pop-name" id="popName">板块名</div>
+<div class="pop-stats" id="popStats">总额 / 占比 / 盈亏</div>
+</div>
+<div class="pop-list" id="popList"></div>
+<div class="pop-jump"><a id="popJump" href="#">查看完整板块详情 →</a></div>
 </div>
 </div>
 </div>
@@ -292,21 +363,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 </div>
 
-<!-- ========== 板块目录 ========== -->
-<div class="toc">
-<div class="toc-title">🗂 板块目录 · 点击跳转</div>
-<div class="toc-grid">
-<a class="toc-item" href="#sec-ai"><span class="toc-emoji">🤖</span><span class="toc-name">AI / 半导体</span><span class="toc-pct">¥75K</span></a>
-<a class="toc-item" href="#sec-overseas"><span class="toc-emoji">🌎</span><span class="toc-name">海外 QDII</span><span class="toc-pct">¥38K</span></a>
-<a class="toc-item" href="#sec-gold"><span class="toc-emoji">💰</span><span class="toc-name">黄金 / 商品</span><span class="toc-pct">¥246K</span></a>
-<a class="toc-item" href="#sec-hk"><span class="toc-emoji">🇭🇰</span><span class="toc-name">港股 / 宽基</span><span class="toc-pct">¥51K</span></a>
-<a class="toc-item" href="#sec-cycle"><span class="toc-emoji">🏭</span><span class="toc-name">周期 / 平衡</span><span class="toc-pct">¥27K</span></a>
-<a class="toc-item" href="#sec-nev"><span class="toc-emoji">🚗</span><span class="toc-name">新能源车</span><span class="toc-pct">¥38K</span></a>
-<a class="toc-item" href="#sec-game"><span class="toc-emoji">🎮</span><span class="toc-name">游戏 / 纳指</span><span class="toc-pct">¥28K</span></a>
-<a class="toc-item" href="#sec-bond"><span class="toc-emoji">🛡️</span><span class="toc-name">债券固收</span><span class="toc-pct">¥27K</span></a>
-<a class="toc-item action" href="#sec-action"><span class="toc-emoji">📋</span><span class="toc-name">综合操作清单</span><span class="toc-pct">P0/P1/P2</span></a>
-</div>
-</div>
+<!-- ========== 板块目录 已迁移到左侧固定TOC ========== -->
 
 <!-- =========== 1. AI 半导体 =========== -->
 <div class="sector" id="sec-ai">
@@ -318,10 +375,10 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 <div class="macro">
 <b>📰 板块基本面信息池</b>
 <ul>
-<li>2026-05-13 A股科技算力主线开启新一轮上涨, AI芯片/光模块/HBM 三大方向涨幅居前 <span class="src">来源: 证券时报</span></li>
-<li>2026-05-12 AI光模块景气度持续, 800G→1.6T升级周期未结束, 客户拉货需求强劲 <span class="src">来源: 中泰证券研报</span></li>
-<li>2026-05-13 2026年AI芯片产业链规模预计破2000亿, 国产替代加速 <span class="src">来源: 同花顺财经</span></li>
-<li>2026-05-07 AI算力1351亿投入, 龙头业绩持续超预期 <span class="src">来源: 中信建投策略报告</span></li>
+<li>2026-05-13 A股科技算力主线开启新一轮上涨, AI芯片/光模块/HBM 三大方向涨幅居前 <span class="src">来源: <a href="https://www.stcn.com/article/search.html?keyword=A%E8%82%A1%E7%A7%91%E6%8A%80%E7%AE%97%E5%8A%9B" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">证券时报</a></span></li>
+<li>2026-05-12 AI光模块景气度持续, 800G→1.6T升级周期未结束, 客户拉货需求强劲 <span class="src">来源: <a href="https://www.zts.com.cn/research/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">中泰证券研报</a></span></li>
+<li>2026-05-13 2026年AI芯片产业链规模预计破2000亿, 国产替代加速 <span class="src">来源: <a href="https://news.10jqka.com.cn/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">同花顺财经</a></span></li>
+<li>2026-05-07 AI算力1351亿投入, 龙头业绩持续超预期 <span class="src">来源: <a href="https://www.csc108.com/research/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">中信建投策略报告</a></span></li>
 </ul>
 </div>
 
@@ -344,9 +401,9 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 159995现价¥2.384 当日+2.49% 持仓4400份累计+40.73%</div>
-<div class="src-item"><span class="date">2026-05-13</span>证券时报: A股科技算力主线开启新一轮上涨</div>
-<div class="src-item"><span class="date">2026-05-12</span>中泰证券: AI光模块800G/1.6T升级周期未结束</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 159995现价¥2.384 当日+2.49% 持仓4400份累计+40.73%</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://www.stcn.com/article/search.html?keyword=A%E8%82%A1%E7%A7%91%E6%8A%80%E7%AE%97%E5%8A%9B" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">证券时报</a>: A股科技算力主线开启新一轮上涨</div>
+<div class="src-item"><span class="date">2026-05-12</span><a href="https://www.zts.com.cn/research/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">中泰证券</a>: AI光模块800G/1.6T升级周期未结束</div>
 </div>
 </div>
 
@@ -369,8 +426,8 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 588000现价¥1.865 当日+2.70% 持仓3100份累计+26.01%</div>
-<div class="src-item"><span class="date">2026-05-13</span>同花顺: 2026年AI芯片产业链规模预计破2000亿</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 588000现价¥1.865 当日+2.70% 持仓3100份累计+26.01%</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://www.10jqka.com.cn/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">同花顺</a>: 2026年AI芯片产业链规模预计破2000亿</div>
 </div>
 </div>
 
@@ -392,8 +449,8 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-12</span>中泰证券: AI光模块景气度持续, 800G→1.6T升级周期未结束</div>
-<div class="src-item"><span class="date">2026-04</span>NeoData docData: 永赢科技智选基金经理为细分赛道知名经理</div>
+<div class="src-item"><span class="date">2026-05-12</span><a href="https://www.zts.com.cn/research/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">中泰证券</a>: AI光模块景气度持续, 800G→1.6T升级周期未结束</div>
+<div class="src-item"><span class="date">2026-04</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData docData</a>: 永赢科技智选基金经理为细分赛道知名经理</div>
 </div>
 </div>
 
@@ -414,7 +471,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>NeoData entity字段确认: 012414/008888均跟踪"国证半导体芯片指数"; 011609跟踪"上证科创板50成份指数"</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData entity字段确认</a>: 012414/008888均跟踪"国证半导体芯片指数"; 011609跟踪"上证科创板50成份指数"</div>
 <div class="src-item">投资常识: 同指数基金不应同时持有两只, 浪费费率+管理精力</div>
 </div>
 </div>
@@ -438,7 +495,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 <div class="sources">
 <b>📚 信息来源</b>
 <div class="src-item"><span class="date">2026-05</span>韩国SK海力士HBM3E量产, 1Q26营收+21%, 受益NVDA H200/B200量产</div>
-<div class="src-item"><span class="date">2026-05-12</span>用户对话: "我想买两倍做多海力士" — 经监管/合规筛查, 中韩半导体ETF联接是境内合规替代</div>
+<div class="src-item"><span class="date">2026-05-12</span><a href="https://www.google.com/search?q=用户对话+"我想买两倍做多海力士"+—+经监管/合规筛查,+中韩半导体" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">用户对话</a>: "我想买两倍做多海力士" — 经监管/合规筛查, 中韩半导体ETF联接是境内合规替代</div>
 </div>
 </div>
 
@@ -460,8 +517,8 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-12</span>NeoData接口: 011213近1年+123.47%, 近1月-2.94%</div>
-<div class="src-item"><span class="date">2026-05-08</span>NeoData fund_history: 022365净值动量首次转弱</div>
+<div class="src-item"><span class="date">2026-05-12</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 011213近1年+123.47%, 近1月-2.94%</div>
+<div class="src-item"><span class="date">2026-05-08</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData fund_history</a>: 022365净值动量首次转弱</div>
 </div>
 </div>
 
@@ -486,10 +543,10 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 <div class="macro">
 <b>📰 板块基本面信息池</b>
 <ul>
-<li>2026-05-09 美股纳指30天涨5%, AI风暴催生科技股新高 <span class="src">来源: 财联社</span></li>
-<li>2026-05-13 美股科技股涨势继续, 标普500冲击新高 <span class="src">来源: 同花顺</span></li>
-<li>2026-05-06 关税担忧已部分缓和, 中美贸易释放积极信号 <span class="src">来源: 路透</span></li>
-<li>2026-05-09 美联储9月降息预期升温, 流动性预期改善 <span class="src">来源: 美联储FOMC纪要解读</span></li>
+<li>2026-05-09 美股纳指30天涨5%, AI风暴催生科技股新高 <span class="src">来源: <a href="https://www.cls.cn/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">财联社</a></span></li>
+<li>2026-05-13 美股科技股涨势继续, 标普500冲击新高 <span class="src">来源: <a href="https://www.10jqka.com.cn/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">同花顺</a></span></li>
+<li>2026-05-06 关税担忧已部分缓和, 中美贸易释放积极信号 <span class="src">来源: <a href="https://www.reuters.com/world/china/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">路透</a></span></li>
+<li>2026-05-09 美联储9月降息预期升温, 流动性预期改善 <span class="src">来源: <a href="https://www.federalreserve.gov/monetarypolicy/fomcminutes.htm" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">美联储FOMC纪要解读</a></span></li>
 </ul>
 </div>
 
@@ -510,8 +567,8 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-09</span>财联社: 美股纳指30天涨5%, AI风暴催生科技股新高</div>
-<div class="src-item"><span class="date">2026-05-13</span>同花顺: 美股科技股涨势继续, 标普500冲击新高</div>
+<div class="src-item"><span class="date">2026-05-09</span><a href="https://www.cls.cn/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">财联社</a>: 美股纳指30天涨5%, AI风暴催生科技股新高</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://www.10jqka.com.cn/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">同花顺</a>: 美股科技股涨势继续, 标普500冲击新高</div>
 <div class="src-item">用户配置规划: 方案B目标海外占比18%, 当前差额¥68K需补</div>
 </div>
 </div>
@@ -532,7 +589,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>NeoData entity字段: 三只均跟踪"纳斯达克100指数"</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData entity字段</a>: 三只均跟踪"纳斯达克100指数"</div>
 </div>
 </div>
 
@@ -553,8 +610,8 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>同花顺: 标普500冲击新高</div>
-<div class="src-item"><span class="date">2026-05-09</span>路透: 美联储9月降息预期升温</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://www.10jqka.com.cn/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">同花顺</a>: 标普500冲击新高</div>
+<div class="src-item"><span class="date">2026-05-09</span><a href="https://www.reuters.com/world/china/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">路透</a>: 美联储9月降息预期升温</div>
 </div>
 </div>
 
@@ -578,12 +635,12 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 <div class="macro">
 <b>📰 板块基本面信息池</b>
 <ul>
-<li>2026-05-07 国际金价突破5200美元/盎司创新高 <span class="src">来源: 上海有色网</span></li>
-<li>2026-05-10 国际金价回调到4850美元/盎司, 高位震荡 <span class="src">来源: 财联社</span></li>
-<li>2026-05-11 白银单日大涨7%至86.24美元/盎司, 工业需求强劲 <span class="src">来源: 央视财经</span></li>
-<li>2026-04-03 白银工业需求旺盛, AI光伏推动银价新一轮上涨 <span class="src">来源: 申万宏源研报</span></li>
-<li>2026-05-08 OPEC+宣布5/8起增产37万桶/天, 油价短期承压 <span class="src">来源: 路透</span></li>
-<li>2026-05-06 美银预测年底油价100美元 / 高盛Q3最高130美元 <span class="src">来源: 美银证券/高盛研报</span></li>
+<li>2026-05-07 国际金价突破5200美元/盎司创新高 <span class="src">来源: <a href="https://www.smm.cn/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">上海有色网</a></span></li>
+<li>2026-05-10 国际金价回调到4850美元/盎司, 高位震荡 <span class="src">来源: <a href="https://www.cls.cn/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">财联社</a></span></li>
+<li>2026-05-11 白银单日大涨7%至86.24美元/盎司, 工业需求强劲 <span class="src">来源: <a href="https://www.cctv.com/finance/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">央视财经</a></span></li>
+<li>2026-04-03 白银工业需求旺盛, AI光伏推动银价新一轮上涨 <span class="src">来源: <a href="https://www.swsresearch.com/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">申万宏源研报</a></span></li>
+<li>2026-05-08 OPEC+宣布5/8起增产37万桶/天, 油价短期承压 <span class="src">来源: <a href="https://www.reuters.com/world/china/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">路透</a></span></li>
+<li>2026-05-06 美银预测年底油价100美元 / 高盛Q3最高130美元 <span class="src">来源: <a href="https://www.goldmansachs.com/insights/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">美银证券/高盛研报</a></span></li>
 </ul>
 </div>
 
@@ -605,8 +662,8 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>用户截图: 民生160.14克成本¥1,074, 浙商51.45克成本¥1,125.61, 合并均价¥1,086.55/克</div>
-<div class="src-item"><span class="date">2026-05-10</span>财联社: 国际金价回调到4850美元(对应国内Au9999约¥1,030)</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://www.google.com/search?q=用户截图+民生160.14克成本¥1,074,+浙商51.45克成本¥" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">用户截图</a>: 民生160.14克成本¥1,074, 浙商51.45克成本¥1,125.61, 合并均价¥1,086.55/克</div>
+<div class="src-item"><span class="date">2026-05-10</span><a href="https://www.cls.cn/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">财联社</a>: 国际金价回调到4850美元(对应国内Au9999约¥1,030)</div>
 <div class="src-item">用户配置规划: 方案B目标黄金占比18% (¥106K), 当前40% (¥246K), 超配¥140K</div>
 </div>
 </div>
@@ -629,9 +686,9 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-12</span>NeoData接口: 161226净值¥2.388 (近1年+74.59%, 近3月+13.46%, 近1月+18.35%)</div>
-<div class="src-item"><span class="date">2026-05-11</span>央视财经: 白银单日大涨7%至86.24美元</div>
-<div class="src-item"><span class="date">2026-04-03</span>申万宏源研报: 白银工业需求旺盛, AI光伏推动银价新一轮上涨</div>
+<div class="src-item"><span class="date">2026-05-12</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 161226净值¥2.388 (近1年+74.59%, 近3月+13.46%, 近1月+18.35%)</div>
+<div class="src-item"><span class="date">2026-05-11</span><a href="https://www.cctv.com/finance/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">央视财经</a>: 白银单日大涨7%至86.24美元</div>
+<div class="src-item"><span class="date">2026-04-03</span><a href="https://www.swsresearch.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">申万宏源研报</a>: 白银工业需求旺盛, AI光伏推动银价新一轮上涨</div>
 </div>
 </div>
 
@@ -652,9 +709,9 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-08</span>路透: OPEC+宣布5/8起增产37万桶/天</div>
-<div class="src-item"><span class="date">2026-05-06</span>美银证券/高盛: 美银预测年底100美元 / 高盛Q3最高130</div>
-<div class="src-item"><span class="date">2026-05-12</span>NeoData接口: 501018净值¥1.892 (近1年+69.43%, 近1月-4.55%)</div>
+<div class="src-item"><span class="date">2026-05-08</span><a href="https://www.reuters.com/world/china/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">路透</a>: OPEC+宣布5/8起增产37万桶/天</div>
+<div class="src-item"><span class="date">2026-05-06</span><a href="https://about.bankofamerica.com/en/our-company/securities-research" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">美银证券/高盛</a>: 美银预测年底100美元 / 高盛Q3最高130</div>
+<div class="src-item"><span class="date">2026-05-12</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 501018净值¥1.892 (近1年+69.43%, 近1月-4.55%)</div>
 </div>
 </div>
 
@@ -674,7 +731,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 601899持仓400股 ¥13,864 (+3.84%); 518880持仓1100份 ¥10,784 (+7.80%)</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 601899持仓400股 ¥13,864 (+3.84%); 518880持仓1100份 ¥10,784 (+7.80%)</div>
 </div>
 </div>
 
@@ -699,10 +756,10 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 <div class="macro">
 <b>📰 板块基本面信息池</b>
 <ul>
-<li>2026-04-30 腾讯1Q26营收+5%/净利+24%, AI云收入+277%, 微信小店GMV+58% <span class="src">来源: 腾讯财报+研报</span></li>
-<li>2026-05-08 腾讯研报维持"增持"评级, AI业务全面开花 <span class="src">来源: 申万宏源</span></li>
-<li>2026-05-13 香港"创科+企业总部"政策利好, 港股科技继续修复 <span class="src">来源: 香港文汇报</span></li>
-<li>2026-05-12 恒生科技反弹+1.57%, 阿里腾讯美团齐涨 <span class="src">来源: 同花顺</span></li>
+<li>2026-04-30 腾讯1Q26营收+5%/净利+24%, AI云收入+277%, 微信小店GMV+58% <span class="src">来源: <a href="https://www.tencent.com/zh-cn/investors.html" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">腾讯财报+研报</a></span></li>
+<li>2026-05-08 腾讯研报维持"增持"评级, AI业务全面开花 <span class="src">来源: <a href="https://www.swsresearch.com/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">申万宏源</a></span></li>
+<li>2026-05-13 香港"创科+企业总部"政策利好, 港股科技继续修复 <span class="src">来源: <a href="http://www.wenweipo.com/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">香港文汇报</a></span></li>
+<li>2026-05-12 恒生科技反弹+1.57%, 阿里腾讯美团齐涨 <span class="src">来源: <a href="https://www.10jqka.com.cn/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">同花顺</a></span></li>
 </ul>
 </div>
 
@@ -724,9 +781,9 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-12</span>NeoData接口: 513050现价¥1.207 (5年估值分位21.95%, 近1年-25.09%, 近1月+3.33%)</div>
-<div class="src-item"><span class="date">2026-04-30</span>腾讯1Q26财报: 营收+5%/净利+24%/AI云+277%</div>
-<div class="src-item"><span class="date">2026-05-08</span>申万宏源研报: 维持腾讯"增持"评级</div>
+<div class="src-item"><span class="date">2026-05-12</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 513050现价¥1.207 (5年估值分位21.95%, 近1年-25.09%, 近1月+3.33%)</div>
+<div class="src-item"><span class="date">2026-04-30</span><a href="https://www.tencent.com/zh-cn/investors.html" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">腾讯1Q26财报</a>: 营收+5%/净利+24%/AI云+277%</div>
+<div class="src-item"><span class="date">2026-05-08</span><a href="https://www.swsresearch.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">申万宏源研报</a>: 维持腾讯"增持"评级</div>
 </div>
 </div>
 
@@ -748,8 +805,8 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 513580现价¥0.645 当日+0.47%</div>
-<div class="src-item"><span class="date">2026-05-12</span>同花顺: 恒生科技反弹+1.57%</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 513580现价¥0.645 当日+0.47%</div>
+<div class="src-item"><span class="date">2026-05-12</span><a href="https://www.10jqka.com.cn/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">同花顺</a>: 恒生科技反弹+1.57%</div>
 </div>
 </div>
 
@@ -770,7 +827,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 110020 ¥22,053 (+15.12%); 510300 ¥1,505 (+34.79%)</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 110020 ¥22,053 (+15.12%); 510300 ¥1,505 (+34.79%)</div>
 <div class="src-item">用户方案B目标: 宽基占比13% (¥76K), 当前差¥48K需补</div>
 </div>
 </div>
@@ -794,10 +851,10 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 <div class="macro">
 <b>📰 板块基本面信息池</b>
 <ul>
-<li>2026-04-24 中国铝业1Q26净利55.27亿+206%, ROE 7.11% <span class="src">来源: 中国铝业1Q26季报</span></li>
-<li>2026-04-07 铝价中枢上移, 氧化铝二期投产+资源自给率提升 <span class="src">来源: 中泰证券研报</span></li>
-<li>2026-04-02 中国铝业A股2026 P/E 6.8x, H股6.1x, 维持"增持" <span class="src">来源: 兴业证券研报</span></li>
-<li>2026-05-13 核电AI带电需求边际利好, 中国核电稳健 <span class="src">来源: 同花顺</span></li>
+<li>2026-04-24 中国铝业1Q26净利55.27亿+206%, ROE 7.11% <span class="src">来源: <a href="http://www.chalco.com.cn/zgly/wzgl/index.shtml" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">中国铝业1Q26季报</a></span></li>
+<li>2026-04-07 铝价中枢上移, 氧化铝二期投产+资源自给率提升 <span class="src">来源: <a href="https://www.zts.com.cn/research/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">中泰证券研报</a></span></li>
+<li>2026-04-02 中国铝业A股2026 P/E 6.8x, H股6.1x, 维持"增持" <span class="src">来源: <a href="https://www.xyzq.com.cn/research/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">兴业证券研报</a></span></li>
+<li>2026-05-13 核电AI带电需求边际利好, 中国核电稳健 <span class="src">来源: <a href="https://www.10jqka.com.cn/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">同花顺</a></span></li>
 </ul>
 </div>
 
@@ -819,9 +876,9 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-04-24</span>中国铝业1Q26季报: 净利55.27亿+206%, ROE 7.11%</div>
-<div class="src-item"><span class="date">2026-04-02</span>兴业证券: 维持"增持", 2026 P/E 6.8x</div>
-<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 601600现价¥11.65, 5年估值分位89.5%</div>
+<div class="src-item"><span class="date">2026-04-24</span><a href="http://www.chalco.com.cn/zgly/wzgl/index.shtml" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">中国铝业1Q26季报</a>: 净利55.27亿+206%, ROE 7.11%</div>
+<div class="src-item"><span class="date">2026-04-02</span><a href="https://www.xyzq.com.cn/research/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">兴业证券</a>: 维持"增持", 2026 P/E 6.8x</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 601600现价¥11.65, 5年估值分位89.5%</div>
 </div>
 </div>
 
@@ -841,7 +898,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 601985持仓500股 ¥4,620 (+8.07%); 163417持仓 ¥1,312 (+37.74%)</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 601985持仓500股 ¥4,620 (+8.07%); 163417持仓 ¥1,312 (+37.74%)</div>
 </div>
 </div>
 </div>
@@ -856,8 +913,8 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 <div class="macro">
 <b>📰 板块基本面信息池</b>
 <ul>
-<li>2026年新能源车销量同比仍正向但增速放缓; 锂电产业链价格筑底 <span class="src">来源: 乘联会数据</span></li>
-<li>比亚迪/宁德1Q26业绩稳健但毛利承压, 行业竞争加剧 <span class="src">来源: 公司季报</span></li>
+<li>2026年新能源车销量同比仍正向但增速放缓; 锂电产业链价格筑底 <span class="src">来源: <a href="http://www.cpcaauto.com/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">乘联会数据</a></span></li>
+<li>比亚迪/宁德1Q26业绩稳健但毛利承压, 行业竞争加剧 <span class="src">来源: <a href="http://www.sse.com.cn/disclosure/listedinfo/regular/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">公司季报</a></span></li>
 </ul>
 </div>
 
@@ -878,7 +935,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 002594现价¥98.60 (浮亏-0.67%)</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 002594现价¥98.60 (浮亏-0.67%)</div>
 <div class="src-item"><span class="date">2026-04</span>比亚迪1Q26销量数据 (公开披露)</div>
 </div>
 </div>
@@ -898,7 +955,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>NeoData entity: 两只均跟踪"国证新能源车指数(399976)"</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData entity</a>: 两只均跟踪"国证新能源车指数(399976)"</div>
 </div>
 </div>
 
@@ -921,8 +978,8 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 <div class="macro">
 <b>📰 板块基本面信息池</b>
 <ul>
-<li>2026-05 国家版号同比+25%, 政策回暖, 游戏行业景气度回升 <span class="src">来源: 国家新闻出版署/同花顺</span></li>
-<li>游戏ETF近1月+2.91%已止跌, AI游戏化是2026新主线 <span class="src">来源: NeoData fund_history</span></li>
+<li>2026-05 国家版号同比+25%, 政策回暖, 游戏行业景气度回升 <span class="src">来源: <a href="https://www.nppa.gov.cn/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">国家新闻出版署/同花顺</a></span></li>
+<li>游戏ETF近1月+2.91%已止跌, AI游戏化是2026新主线 <span class="src">来源: <a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">NeoData fund_history</a></span></li>
 </ul>
 </div>
 
@@ -944,8 +1001,8 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 516010现价¥1.316 当日+1.08%, 近1年+21.44%</div>
-<div class="src-item"><span class="date">2026-05</span>国家新闻出版署版号数据(公开披露): 同比+25%</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 516010现价¥1.316 当日+1.08%, 近1年+21.44%</div>
+<div class="src-item"><span class="date">2026-05</span><a href="https://www.nppa.gov.cn/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">国家新闻出版署版号数据(公开披露)</a>: 同比+25%</div>
 </div>
 </div>
 </div>
@@ -960,8 +1017,8 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 <div class="macro">
 <b>📰 板块基本面信息池</b>
 <ul>
-<li>2026-05 10年国债收益率2.7-2.9%区间震荡, 流动性充裕 <span class="src">来源: 中国债券信息网</span></li>
-<li>纯债基金年化~5%, 是组合压舱石, 不构成主要β <span class="src">来源: 公开基金数据</span></li>
+<li>2026-05 10年国债收益率2.7-2.9%区间震荡, 流动性充裕 <span class="src">来源: <a href="https://www.chinabond.com.cn/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">中国债券信息网</a></span></li>
+<li>纯债基金年化~5%, 是组合压舱石, 不构成主要β <span class="src">来源: <a href="http://fund.eastmoney.com/" target="_blank" rel="noopener" style="color:#9a3412;text-decoration:underline">公开基金数据</a></span></li>
 </ul>
 </div>
 
@@ -980,7 +1037,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 <div class="sources">
 <b>📚 信息来源</b>
-<div class="src-item"><span class="date">2026-05-13</span>NeoData接口: 004069 ¥14,686 (+5.48%); 000961 ¥12,847 (+5.47%)</div>
+<div class="src-item"><span class="date">2026-05-13</span><a href="https://copilot.tencent.com/" target="_blank" rel="noopener" style="color:#1e40af;text-decoration:underline;font-style:italic">NeoData接口</a>: 004069 ¥14,686 (+5.48%); 000961 ¥12,847 (+5.47%)</div>
 </div>
 </div>
 </div>
@@ -1039,5 +1096,149 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 <div>本报告基于客观接口数据 + 公开研报观点, 仅供决策参考, 不构成投资建议。市场有风险, 投资需谨慎。</div>
 </div>
 
+<script>
+// 板块标的数据 (用于饼图点击展开)
+const SECTOR_DATA = {
+  ai: {
+    name: '🤖 AI / 半导体 / 算力', total: 75000, pct: 14.2, pnl: 10500,
+    items: [
+      {name:'芯片ETF华夏', code:'159995', amt:10490, pnl:40.73},
+      {name:'科创50ETF华夏', code:'588000', amt:5782, pnl:26.01},
+      {name:'富国上证科创板芯片C', code:'012860', amt:22435, pnl:27.39},
+      {name:'华夏国证半导体C', code:'012414', amt:6244, pnl:36.22},
+      {name:'华夏科创50ETF联接C', code:'011609', amt:7433, pnl:19.32},
+      {name:'永赢科技智选(光模块)', code:'022365', amt:3630, pnl:36.82},
+      {name:'华夏国证半导体C', code:'008888', amt:971, pnl:29.45},
+      {name:'永赢半导体智选发起C', code:'014424', amt:41, pnl:35.42},
+      {name:'华泰柏瑞中韩半导体ETF', code:'018124', amt:924, pnl:23.20},
+      {name:'华夏能源革新A', code:'003834', amt:1672, pnl:22.46},
+      {name:'申万菱信智能驱动A', code:'502090', amt:2614, pnl:81.34},
+      {name:'申万菱信新能源汽车A', code:'011213', amt:2775, pnl:82.26},
+    ]
+  },
+  overseas: {
+    name: '🌎 海外 QDII / 美股', total: 38000, pct: 7.2, pnl: 5400,
+    items: [
+      {name:'嘉实纳指100', code:'539001', amt:5822, pnl:40.83},
+      {name:'广发全球医疗保健', code:'000369', amt:6801, pnl:35.89},
+      {name:'国泰纳斯达克100', code:'160213', amt:6926, pnl:14.70},
+      {name:'广发纳指100QDIIA', code:'018043', amt:2284, pnl:9.22},
+      {name:'博时标普500ETF联接', code:'050025', amt:3668, pnl:12.85},
+      {name:'华宝海外科技QDII', code:'241001', amt:2987, pnl:8.23},
+    ]
+  },
+  gold: {
+    name: '💰 黄金 / 商品 / 资源', total: 246000, pct: 46.4, pnl: -12400,
+    items: [
+      {name:'黄金积存金(民生+浙商)', code:'211.59g', amt:217936, pnl:-5.21},
+      {name:'黄金ETF华安', code:'518880', amt:10784, pnl:7.80},
+      {name:'国投白银LOF', code:'161226', amt:2182, pnl:-43.09},
+      {name:'紫金矿业', code:'601899', amt:13864, pnl:3.84},
+      {name:'南方原油QDII', code:'501018', amt:658, pnl:60.56},
+      {name:'国泰国证有色金属LOF', code:'160221', amt:10940, pnl:-1.40},
+    ]
+  },
+  hk: {
+    name: '🇭🇰 港股 / 中概 / 宽基', total: 51000, pct: 9.6, pnl: -2100,
+    items: [
+      {name:'中概互联ETF', code:'513050', amt:6759, pnl:-23.22},
+      {name:'恒生科技ETF大成', code:'513580', amt:20962, pnl:-16.56},
+      {name:'易方达沪深300ETF联接', code:'110020', amt:22053, pnl:15.12},
+      {name:'沪深300ETF华泰柏瑞', code:'510300', amt:1505, pnl:34.79},
+    ]
+  },
+  cycle: {
+    name: '🏭 周期 / 平衡 / 公用', total: 27000, pct: 5.1, pnl: -900,
+    items: [
+      {name:'中国铝业', code:'601600', amt:4748, pnl:-22.49},
+      {name:'中国核电', code:'601985', amt:4620, pnl:8.07},
+      {name:'兴全合宜混合C', code:'163417', amt:1312, pnl:37.74},
+    ]
+  },
+  nev: {
+    name: '🚗 新能源汽车', total: 38000, pct: 7.2, pnl: 1600,
+    items: [
+      {name:'比亚迪', code:'002594', amt:19720, pnl:-0.67},
+      {name:'嘉实新能源新材料A', code:'001528', amt:3346, pnl:22.95},
+      {name:'富国新能源汽车LOF', code:'161028', amt:6576, pnl:14.10},
+      {name:'国泰国证新能源汽车LOF', code:'002168', amt:2744, pnl:21.76},
+      {name:'南方中证电池主题ETF', code:'011082', amt:4017, pnl:14.56},
+      {name:'申万菱信智能汽车A', code:'003984', amt:2303, pnl:35.66},
+    ]
+  },
+  game: {
+    name: '🎮 游戏 / 纳指场内', total: 28000, pct: 5.3, pnl: -5200,
+    items: [
+      {name:'游戏ETF国泰', code:'516010', amt:23688, pnl:-19.85},
+      {name:'纳指ETF广发', code:'159941', amt:4713, pnl:16.98},
+    ]
+  },
+  bond: {
+    name: '🛡️ 债券固收', total: 27000, pct: 5.1, pnl: 1400,
+    items: [
+      {name:'天弘中债3-5年金融债', code:'004069', amt:14686, pnl:5.48},
+      {name:'中加纯债债券', code:'000961', amt:12847, pnl:5.47},
+    ]
+  },
+};
+
+const popup = document.getElementById('sectorPopup');
+const popName = document.getElementById('popName');
+const popStats = document.getElementById('popStats');
+const popList = document.getElementById('popList');
+const popJump = document.getElementById('popJump');
+
+function showSector(sec){
+  const d = SECTOR_DATA[sec];
+  if(!d){popup.classList.remove('show');return;}
+
+  popName.textContent = d.name;
+  const pnlSym = d.pnl > 0 ? '+' : '';
+  const pnlCls = d.pnl > 0 ? 'up' : 'down';
+  popStats.innerHTML = `总额 <b>¥${(d.total/1000).toFixed(0)}K</b> · 占比 <b>${d.pct}%</b> · 累计盈亏 <b style="color:var(--${d.pnl>0?'red':'green'})">${pnlSym}¥${(Math.abs(d.pnl)/1000).toFixed(1)}K</b>`;
+
+  popList.innerHTML = d.items.map(it => {
+    const cls = it.pnl > 0 ? 'up' : it.pnl < 0 ? 'down' : 'neu';
+    const sym = it.pnl > 0 ? '+' : '';
+    return `<div class="pop-item">
+      <div class="pi-name">${it.name}<span class="code">${it.code}</span></div>
+      <div class="pi-amt">¥${it.amt.toLocaleString()}</div>
+      <div class="pi-pnl ${cls}">${sym}${it.pnl}%</div>
+    </div>`;
+  }).join('');
+
+  popJump.href = '#sec-' + sec;
+  popup.classList.add('show');
+
+  // 高亮饼图块和图例
+  document.querySelectorAll('.pie-svg .seg').forEach(c => c.classList.toggle('active', c.dataset.sector === sec));
+  document.querySelectorAll('.pie-legend .lg-row').forEach(r => r.classList.toggle('active', r.dataset.sector === sec));
+}
+
+// 饼图块点击
+document.querySelectorAll('.pie-svg .seg').forEach(c => {
+  c.addEventListener('click', () => showSector(c.dataset.sector));
+});
+
+// 图例点击
+document.querySelectorAll('.pie-legend .lg-row').forEach(r => {
+  r.addEventListener('click', () => showSector(r.dataset.sector));
+});
+
+// 默认展示黄金(占比最大,信号最关键)
+showSector('gold');
+
+// 滚动监听 — TOC active 高亮
+const sectionIds = ['ai','overseas','gold','hk','cycle','nev','game','bond','action'];
+const sections = sectionIds.map(id => document.getElementById('sec-'+id)).filter(Boolean);
+const stItems = document.querySelectorAll('.side-toc .st-item[data-sec]');
+
+window.addEventListener('scroll', () => {
+  let curr = '';
+  const scrollY = window.scrollY + 80;
+  sections.forEach(s => { if(s.offsetTop <= scrollY) curr = s.id.replace('sec-',''); });
+  stItems.forEach(it => it.classList.toggle('active', it.dataset.sec === curr));
+});
+</script>
 </body>
 </html>
