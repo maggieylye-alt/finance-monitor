@@ -1,19 +1,19 @@
 {
-  "date": "2026-05-13 12:16",
+  "date": "2026-05-13 22:34",
   "version": "V2-corrected",
   "total_capital": 980000,
   "total_mv": 604650.841,
   "total_pnl": 16900.220500000007,
-  "total_daily_real": -124.23166666666646,
+  "total_daily_real": -26.724999999999795,
   "cash": 375349.159,
   "ashare_mv": 130650.52600000001,
   "ashare_daily": -767.2899999999998,
   "fund_mv": 213000,
-  "fund_daily_real": -97.50666666666665,
+  "fund_daily_real": 0,
   "fund_data_status": {
-    "real_count": 19,
-    "fallback_count": 2,
-    "missing_count": 24
+    "real_count": 0,
+    "fallback_count": 29,
+    "missing_count": 16
   },
   "gold_mv": 217620.315,
   "gold_daily": 740.565,
@@ -22,49 +22,49 @@
     {
       "name": "半导体/AI(基金部分)",
       "mv": 33133.33333333333,
-      "real_n": 5,
+      "real_n": 0,
       "total_n": 7,
       "advice": "持有,Edge强区"
     },
     {
       "name": "新能源(基金)",
       "mv": 47333.333333333336,
-      "real_n": 7,
+      "real_n": 0,
       "total_n": 10,
       "advice": "触发+50%止盈纪律"
     },
     {
       "name": "海外QDII",
       "mv": 61533.33333333334,
-      "real_n": 1,
+      "real_n": 0,
       "total_n": 13,
       "advice": "持有,β稳定"
     },
     {
       "name": "主题(创新药/有色/白银)",
       "mv": 14200.0,
-      "real_n": 2,
+      "real_n": 0,
       "total_n": 3,
       "advice": "白银已触发+5.97%,继续持有"
     },
     {
       "name": "黄金(基金)",
       "mv": 9466.666666666666,
-      "real_n": 1,
+      "real_n": 0,
       "total_n": 2,
       "advice": "与积存金合并看"
     },
     {
       "name": "宽基/平衡",
       "mv": 37866.666666666664,
-      "real_n": 2,
+      "real_n": 0,
       "total_n": 8,
       "advice": "核心仓位,持有"
     },
     {
       "name": "债基",
       "mv": 9466.666666666666,
-      "real_n": 1,
+      "real_n": 0,
       "total_n": 2,
       "advice": "防御位,持有"
     }
