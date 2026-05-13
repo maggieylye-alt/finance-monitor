@@ -3,188 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>我的投资仪表盘</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<title>我的投资仪表盘 V3</title>
 <style>
   :root {
-    --bg: #f7f8fa;
-    --card: #ffffff;
+    --bg: #f7f8fa; --card: #ffffff;
     --primary: #1f4e79;
-    --red: #e84545;
-    --green: #2bb673;
-    --gray: #6b7280;
-    --text: #1f2937;
-    --text-light: #6b7280;
+    --red: #e84545; --green: #2bb673; --gray: #6b7280;
+    --warn: #d97706; --warn-bg: #fff4e5;
+    --text: #1f2937; --text-light: #6b7280;
     --border: #e5e7eb;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
     background: var(--bg); color: var(--text);
-    line-height: 1.6; padding: 14px;
-    font-size: 14px;
+    line-height: 1.6; padding: 14px; font-size: 14px;
   }
-  .container { max-width: 960px; margin: 0 auto; }
-  .header {
-    background: #fff; padding: 18px 20px; border-radius: 12px;
-    margin-bottom: 14px; border: 1px solid var(--border);
+  .container { max-width: 1080px; margin: 0 auto; }
+
+  /* 头部 */
+  .topbar {
+    background: #fff; padding: 14px 18px; border-radius: 10px;
+    margin-bottom: 12px; border: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
   }
-  .header h1 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-  .header .meta { font-size: 12px; color: var(--text-light); }
-  .header .links { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .topbar h1 { font-size: 15px; font-weight: 600; }
+  .topbar .meta { font-size: 11px; color: var(--text-light); }
+  .topbar .links { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; }
   .link {
     color: var(--primary); text-decoration: none;
-    font-size: 12px; padding: 4px 10px;
-    border: 1px solid var(--border); border-radius: 6px;
+    font-size: 11px; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 5px;
     background: #f9fafb;
   }
-  .link:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .link:hover { background: var(--primary); color: #fff; }
+  .link.warn { color: var(--warn); border-color: var(--warn); }
 
+  /* 警示横幅 */
+  .alert {
+    background: var(--warn-bg); border-left: 3px solid var(--warn);
+    padding: 10px 14px; border-radius: 6px; margin-bottom: 12px;
+    font-size: 12px; color: #78350f;
+  }
+
+  /* 顶部 KPI */
   .kpi-row {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px;
   }
   @media (max-width: 640px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } }
   .kpi {
-    background: var(--card); padding: 14px; border-radius: 10px;
+    background: var(--card); padding: 12px 14px; border-radius: 8px;
     border: 1px solid var(--border);
   }
-  .kpi .label { font-size: 11px; color: var(--text-light); margin-bottom: 4px; }
-  .kpi .value { font-size: 20px; font-weight: 600; }
+  .kpi .label { font-size: 11px; color: var(--text-light); }
+  .kpi .value { font-size: 18px; font-weight: 600; margin-top: 2px; }
   .kpi .sub { font-size: 11px; color: var(--text-light); margin-top: 2px; }
   .red { color: var(--red); }
   .green { color: var(--green); }
   .gray { color: var(--gray); }
 
-  .section {
-    background: var(--card); padding: 18px 20px; border-radius: 12px;
-    margin-bottom: 14px; border: 1px solid var(--border);
+  /* 板块卡片 */
+  .sector {
+    background: var(--card); border-radius: 10px; padding: 16px 18px;
+    margin-bottom: 12px; border: 1px solid var(--border);
   }
-  .section h2 {
-    font-size: 14px; font-weight: 600; color: var(--text);
-    margin-bottom: 12px;
-    display: flex; justify-content: space-between; align-items: baseline;
-  }
-  .section h2 .extra { font-size: 11px; color: var(--text-light); font-weight: 400; }
-
-  .signal-empty {
-    padding: 22px; text-align: center; color: var(--text-light);
-    background: #f9fafb; border-radius: 8px; font-size: 13px;
-  }
-  .signal-item {
-    display: flex; align-items: center; padding: 10px 0;
+  .sector-head {
+    display: flex; flex-wrap: wrap; align-items: baseline;
+    gap: 12px; margin-bottom: 10px; padding-bottom: 10px;
     border-bottom: 1px solid var(--border);
   }
-  .signal-item:last-child { border-bottom: 0; }
-  .signal-item .tag {
-    padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-right: 10px;
-    flex-shrink: 0;
+  .sector-head h2 { font-size: 15px; font-weight: 600; }
+  .sector-head .mv { font-size: 13px; color: var(--text); font-variant-numeric: tabular-nums; }
+  .sector-head .pct { font-size: 11px; color: var(--text-light); }
+  .sector-head .badge {
+    margin-left: auto; padding: 3px 10px; border-radius: 5px;
+    font-size: 11px; font-weight: 500;
   }
-  .tag-red { background: #fee; color: var(--red); }
-  .tag-orange { background: #fff4e5; color: #d97706; }
-  .tag-green { background: #ecfdf5; color: var(--green); }
-  .signal-item .text { flex: 1; font-size: 13px; }
+  .badge-hold { background: #ecfdf5; color: var(--green); }
+  .badge-take { background: #fff4e5; color: var(--warn); }
+  .badge-cut  { background: #fee; color: var(--red); }
+  .badge-watch { background: #f3f4f6; color: var(--gray); }
 
-  table.compact { width: 100%; border-collapse: collapse; font-size: 13px; }
-  table.compact th, table.compact td {
-    padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border);
+  .sector-body {
+    display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 16px;
   }
-  table.compact th { color: var(--text-light); font-weight: 500; font-size: 11px; }
-  table.compact .num { text-align: right; font-variant-numeric: tabular-nums; }
-  .badge {
-    display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 11px;
+  @media (max-width: 768px) { .sector-body { grid-template-columns: 1fr; } }
+  .sector-section h3 {
+    font-size: 12px; font-weight: 500; color: var(--text-light);
+    margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;
   }
-  .badge-red { background: #fee; color: var(--red); }
-  .badge-orange { background: #fff4e5; color: #d97706; }
-  .badge-green { background: #ecfdf5; color: var(--green); }
-
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
-
-  .chart-wrap { position: relative; height: 220px; }
-
-  .topbottom-row {
+  .sector-section ul { list-style: none; padding: 0; }
+  .sector-section li {
+    padding: 5px 0; font-size: 13px;
     display: flex; justify-content: space-between; align-items: center;
-    padding: 6px 0; font-size: 13px;
+    border-bottom: 1px solid #f3f4f6;
   }
-  .topbottom-row .name { color: var(--text); }
-  .topbottom-row .pct { font-variant-numeric: tabular-nums; }
+  .sector-section li:last-child { border: 0; }
+  .sector-section li .name { color: var(--text); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .sector-section li .pct { font-variant-numeric: tabular-nums; font-size: 12px; margin-left: 8px; }
+
+  .news-item { font-size: 12px; padding: 6px 0; border-bottom: 1px solid #f3f4f6; }
+  .news-item:last-child { border: 0; }
+  .news-item .title { color: var(--text); line-height: 1.4; }
+  .news-item .meta { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+
+  .advice-box {
+    background: #f9fafb; border-radius: 6px; padding: 10px;
+    font-size: 12px; line-height: 1.6;
+  }
+  .advice-box .head { color: var(--text-light); font-size: 11px; margin-bottom: 4px; }
+  .advice-box ul { list-style: none; padding: 0; }
+  .advice-box li { padding: 3px 0; color: var(--text); }
+  .advice-box li::before { content: "·"; margin-right: 6px; color: var(--text-light); }
+
+  .data-status {
+    display: inline-block; padding: 1px 6px; border-radius: 3px;
+    font-size: 10px; margin-left: 6px;
+  }
+  .ds-real { background: #ecfdf5; color: var(--green); }
+  .ds-fallback { background: #fff4e5; color: var(--warn); }
+  .ds-missing { background: #f3f4f6; color: var(--gray); }
 
   .footer {
-    text-align: center; color: var(--text-light); font-size: 11px;
-    padding: 16px;
+    text-align: center; color: var(--text-light); font-size: 11px; padding: 16px;
   }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <div class="header">
-    <h1>我的投资仪表盘</h1>
-    <div class="meta" id="meta">加载中...</div>
+  <!-- 顶部 -->
+  <div class="topbar">
+    <div>
+      <h1>我的投资仪表盘 V3</h1>
+      <div class="meta" id="meta">加载中...</div>
+    </div>
     <div class="links">
-      <a class="link" href="data/portfolio-2026-05-12.xlsx" download>下载完整持仓 Excel</a>
-      <a class="link" href="data/edge-check-latest.json" target="_blank">Edge 体检 JSON</a>
-      <a class="link" href="reports/2026-05-12-pm.html">今日盘后详报</a>
+      <a class="link warn" href="data/portfolio-2026-05-13-corrected.xlsx" download>下载修正版 Excel</a>
+      <a class="link" href="data/edge-check-latest.json" target="_blank">Edge JSON</a>
       <a class="link" href="index.html">历史归档</a>
     </div>
   </div>
 
+  <!-- 数据修正提示 -->
+  <div class="alert">
+    <strong>数据修正声明:</strong> 昨日 V1 版本因生成时间过早(19:50),基金当日涨跌全部错误。
+    本 V2 版本严格按 5/12 真实净值,部分海外 QDII 因 T+2/T+3 披露规则待今晚 22:00 重跑。
+    <a href="data/portfolio-2026-05-13-corrected.xlsx" style="color:var(--warn);font-weight:600">下载详细对照表</a>
+  </div>
+
+  <!-- KPI -->
   <div class="kpi-row" id="kpis"></div>
 
-  <div class="section">
-    <h2>今日触发信号 <span class="extra">默认沉默,有信号才提醒</span></h2>
-    <div id="signals"></div>
-  </div>
-
-  <div class="grid-2">
-    <div class="section">
-      <h2>资产分布 <span class="extra">¥980K · 投资60% / 现金40%</span></h2>
-      <div class="chart-wrap"><canvas id="pieChart"></canvas></div>
-    </div>
-    <div class="section">
-      <h2>主线 Edge 状态 <span class="extra">每周一更新</span></h2>
-      <table class="compact">
-        <thead><tr><th>主线</th><th class="num">仓位</th><th>状态</th></tr></thead>
-        <tbody id="edgeBody"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="grid-2">
-    <div class="section">
-      <h2>今日红黑榜 <span class="extra">A 股账户 12 只</span></h2>
-      <div id="topBottom"></div>
-    </div>
-    <div class="section">
-      <h2>年化进度 <span class="extra">目标 12-15%</span></h2>
-      <div style="padding: 8px 0">
-        <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 12px; color: var(--text-light)">
-          <span>当前累计浮盈率</span>
-          <span id="annualNum"></span>
-        </div>
-        <div style="background: #f3f4f6; border-radius: 8px; height: 24px; overflow: hidden; position: relative">
-          <div id="progressBar" style="background: linear-gradient(90deg, #2bb673, #1f4e79); height: 100%; transition: width 0.6s"></div>
-          <div style="position: absolute; top: 0; left: 0; right: 0; height: 100%; display: flex; justify-content: space-between; padding: 0 8px; align-items: center; font-size: 11px; color: var(--text-light)">
-            <span>0</span><span>12%</span><span>15%</span>
-          </div>
-        </div>
-        <div style="margin-top: 14px; font-size: 12px; color: var(--text-light); line-height: 1.7">
-          <div>本年度交易日: <span id="tradingDays"></span></div>
-          <div>已实现 + 浮盈: <span id="realizedPnl"></span></div>
-          <div>距 12% 目标: <span id="gap12"></span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>本月待办 <span class="extra">纪律性提醒</span></h2>
-    <div id="todos"></div>
-  </div>
+  <!-- 板块卡片 -->
+  <div id="sectors"></div>
 
   <div class="footer">
-    数据源: 腾讯FiT NeoData · A股/ETF实时 · 基金 T-1 · 黄金Au9999实时<br>
-    每日 9:00 / 15:30 自动刷新 · 信号触发才推送企微
+    数据源: 腾讯FiT NeoData · A股/ETF 实时收盘 · 基金 5/12 真实净值(部分待披露) · 黄金 Au9999 实时<br>
+    今晚 22:00 自动重跑全量数据 · 仅在信号触发时推送企微
   </div>
 </div>
 
@@ -195,138 +171,213 @@
   const colorOf = n => n>0 ? 'red' : (n<0 ? 'green' : 'gray');
 
   // 加载数据
-  const [summary, edgeReport] = await Promise.all([
-    fetch('data/dashboard-summary.json').then(r=>r.json()),
-    fetch('data/edge-check-latest.json').then(r=>r.json())
-  ]);
+  const summary = await fetch('data/dashboard-summary-v2.json').then(r=>r.json());
 
-  const TOTAL_CAPITAL = 980000;  // 总资产
-  const INVEST_MV = summary.total_mv;  // 投资仓位市值
-  const CASH = TOTAL_CAPITAL - INVEST_MV;
-
-  // Header
+  // 顶部
   document.getElementById('meta').textContent =
-    `${summary.date} · 数据时点: A股实时 · 基金T-1 · 黄金Au9999实时`;
+    `${summary.date} · 5/12 真实数据 · 修正版`;
 
-  // KPIs
-  const pnlPct = (summary.total_pnl/(summary.total_mv-summary.total_pnl)*100);
-  const dailyPct = (summary.total_daily/summary.total_mv*100);
+  // KPI
   const kpis = [
-    {label:'总资产', value:fmt(TOTAL_CAPITAL), sub:'投资+现金合计', cls:''},
-    {label:'今日盈亏', value:(summary.total_daily>=0?'+':'')+fmt(summary.total_daily).replace('¥','¥'), sub:fmtPct(dailyPct), cls:colorOf(summary.total_daily)},
-    {label:'累计浮盈', value:(summary.total_pnl>=0?'+':'')+fmt(summary.total_pnl).replace('¥','¥'), sub:fmtPct(pnlPct), cls:colorOf(summary.total_pnl)},
-    {label:'年化目标', value:'12-15%', sub:'相对保守 · 抓 AI', cls:''},
+    {label:'总资产', value:fmt(summary.total_capital), sub:'投资+现金'},
+    {label:'投资仓位', value:fmt(summary.total_mv), sub:'60% 目标(实际60%)'},
+    {label:'累计浮盈', value:(summary.total_pnl>=0?'+':'')+fmt(summary.total_pnl), sub:fmtPct(summary.total_pnl/(summary.total_mv-summary.total_pnl)*100), cls:colorOf(summary.total_pnl)},
+    {label:'5/12当日盈亏(真实部分)', value:(summary.total_daily_real>=0?'+':'')+fmt(summary.total_daily_real), sub:`基金 ${summary.fund_data_status.real_count}/${summary.fund_data_status.real_count+summary.fund_data_status.fallback_count+summary.fund_data_status.missing_count} 已披露`, cls:colorOf(summary.total_daily_real)},
   ];
   document.getElementById('kpis').innerHTML = kpis.map(k=>
     `<div class="kpi"><div class="label">${k.label}</div>
-     <div class="value ${k.cls}">${k.value}</div>
-     <div class="sub ${k.cls}">${k.sub}</div></div>`).join('');
+     <div class="value ${k.cls||''}">${k.value}</div>
+     <div class="sub">${k.sub}</div></div>`).join('');
 
-  // 信号区
-  const signals = [
-    // 触发条件:浮亏-20%或浮盈+50%
-    {tag:'tag-red', label:'清仓', text:'国投白银 LOF 161226 · 浮亏 -42.87%,远超 -20% 止损线'},
-    {tag:'tag-red', label:'清仓', text:'游戏 ETF 国泰 516010 · 浮亏 -20.71%,触发止损线'},
-    {tag:'tag-red', label:'清仓', text:'中国铝业 601600 · 浮亏 -22.25%,触发止损线'},
-    {tag:'tag-red', label:'清仓', text:'中概互联 ETF 513050 · 浮亏 -23.49%,触发止损线'},
-    {tag:'tag-orange', label:'止盈', text:'嘉实全球升级 QDII · 浮盈 +139%,已超 +100% 二级止盈线'},
-    {tag:'tag-orange', label:'止盈', text:'申万菱信新能源 · 浮盈 +84%,触发 +50% 一级止盈线'},
-    {tag:'tag-orange', label:'止盈', text:'申万菱信智能驱动 · 浮盈 +73%,触发 +50% 一级止盈线'},
-    {tag:'tag-orange', label:'止盈', text:'前海开源工业革命4.0 · 浮盈 +77%,触发 +50% 一级止盈线'},
-    {tag:'tag-green', label:'观察', text:'恒生科技 ETF 513580 · 浮亏 -17%,接近 -20% 止损线'},
-    {tag:'tag-green', label:'观察', text:'港股创新药 ETF 501189 · 浮亏 -17%,接近 -20% 止损线'},
-  ];
-  if (signals.length === 0) {
-    document.getElementById('signals').innerHTML = '<div class="signal-empty">今日无触发信号,安心持有</div>';
-  } else {
-    document.getElementById('signals').innerHTML = signals.map(s=>
-      `<div class="signal-item"><span class="tag ${s.tag}">${s.label}</span><span class="text">${s.text}</span></div>`).join('');
-  }
-
-  // 资产分布饼图
-  new Chart(document.getElementById('pieChart'), {
-    type: 'doughnut',
-    data: {
-      labels: ['现金缓冲', '黄金积存', '基金组合', 'A股账户', '投顾组合'],
-      datasets: [{
-        data: [CASH, summary.gold_mv, summary.fund_mv, summary.ashare_mv, summary.advisor_mv],
-        backgroundColor: ['#94a3b8', '#fbbf24', '#60a5fa', '#f87171', '#a78bfa'],
-        borderWidth: 0,
-      }]
+  // ========== 板块卡片数据 ==========
+  // 整合A股+基金+黄金等,按 6 大板块组织
+  const sectorCards = [
+    {
+      name: 'AI/半导体/芯片',
+      tag: 'Edge强区 · 持有',
+      badge: 'badge-hold',
+      mv: 60000 + 7*4733,  // A股芯片ETF 1.026万 + 基金~3.3万 (估算)
+      pct: 11.0,
+      holdings: [
+        {name: '芯片ETF华夏 159995', code:'A股', pct: 0.65, status:'real'},
+        {name: '科创50ETF华夏 588000', code:'A股', pct: 0.28, status:'real'},
+        {name: '永赢光模块 022365', code:'基金', pct: 0.76, status:'real'},
+        {name: '华夏国证半导体 008888', code:'基金', pct: 0.63, status:'real'},
+        {name: '富国科创板芯片 012414', code:'基金', pct: -1.59, status:'real'},
+        {name: '华夏科创50联接 011609', code:'基金', pct: 0.39, status:'real'},
+      ],
+      news: [
+        {title: 'AI芯片"三大件"撑起万亿算力时代', meta: '腾讯网 · 05-12'},
+        {title: '英伟达数据中心营收同比增速保持高位', meta: '财联社 · 05-12'},
+        {title: '国产AI芯片2025或实现盈利拐点', meta: '证券时报 · 05-07'},
+      ],
+      advice: [
+        '已验证Edge,组合表现最强,继续持有不加仓',
+        '芯片ETF已止盈14手,剩余继续持有',
+        '永赢光模块距+50%止盈线还差14%,触发即止盈1/3',
+        '极端回调>15%可用机动资金加仓',
+      ]
     },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      cutout: '62%',
-      plugins: {
-        legend: {position: 'right', labels: {font:{size:11}, boxWidth: 10, padding: 8}},
-        tooltip: {callbacks: {label: c=>`${c.label}: ${fmt(c.parsed)} (${(c.parsed/TOTAL_CAPITAL*100).toFixed(1)}%)`}}
-      }
-    }
-  });
+    {
+      name: '新能源/电池/智能驾驶',
+      tag: '已兑现Edge · 止盈',
+      badge: 'badge-take',
+      mv: 75000,
+      pct: 7.7,
+      holdings: [
+        {name: '申万菱信新能源 011213 (+84%)', code:'基金', pct: 0.21, status:'real'},
+        {name: '申万菱信智能驱动 502090 (+73%)', code:'基金', pct: null, status:'missing'},
+        {name: '比亚迪 002594 (-1.2%)', code:'A股', pct: -1.20, status:'real'},
+        {name: '富国新能源 161028 (+16%)', code:'基金', pct: -1.72, status:'real'},
+        {name: '嘉实新能源 003984 (+38%)', code:'基金', pct: -1.66, status:'real'},
+        {name: '嘉实智能汽车 002168 (+24%)', code:'基金', pct: -1.51, status:'real'},
+      ],
+      news: [
+        {title: '比亚迪Q1销量同比+28%但盈利能力承压', meta: '财联社 · 05-12'},
+        {title: '动力电池一季度装机TOP3:宁德/比亚迪/中创新航', meta: '高工锂电 · 05-10'},
+        {title: '新能源车出口持续高增,海外市场打开', meta: '中证报 · 05-09'},
+      ],
+      advice: [
+        '+84%/+73%/+77%多只触发+50%止盈线,本周止盈1/3',
+        '新能源主线已进入兑现期,不加仓',
+        '行业回调时不要补仓,Edge已弱化',
+        '保留核心仓位,但要降低集中度',
+      ]
+    },
+    {
+      name: '海外科技/QDII',
+      tag: 'β稳定 · 持有',
+      badge: 'badge-hold',
+      mv: 90000,
+      pct: 9.2,
+      holdings: [
+        {name: '嘉实全球升级QDII (+139%)', code:'基金', pct: null, status:'missing'},
+        {name: '嘉实美国成长 000043 (+39%)', code:'基金', pct: null, status:'missing'},
+        {name: '嘉实纳指100 160213', code:'基金', pct: null, status:'fallback'},
+        {name: '纳指ETF广发 159941', code:'A股', pct: -1.20, status:'real'},
+        {name: '景顺纳指科技 260108', code:'基金', pct: -0.95, status:'real'},
+      ],
+      news: [
+        {title: '美股周五科技股回调,纳指跌1.4%', meta: '华尔街日报 · 05-12'},
+        {title: 'AI叙事进入兑现期,巨头资本开支创新高', meta: '36氪 · 05-11'},
+        {title: '美元指数走强,QDII汇兑或受影响', meta: '中证报 · 05-12'},
+      ],
+      advice: [
+        '5只纳指联接产品重复,建议合并到2只(嘉实+广发)',
+        '嘉实全球升级+139%已触发+100%二级止盈线,止盈1/3',
+        'QDII T+2/T+3净值,等今晚22:00后看真实5/12数据',
+      ]
+    },
+    {
+      name: '黄金/贵金属',
+      tag: '防御位 · 等触发',
+      badge: 'badge-watch',
+      mv: 217904 + 4733*2,
+      pct: 22.7,
+      holdings: [
+        {name: '民生积存金 160.14g (¥1074成本)', code:'银行', pct: (1028.50-1024.81)/1024.81*100, status:'real'},
+        {name: '浙商积存金 51.45g (¥1126成本)', code:'银行', pct: (1028.50-1024.81)/1024.81*100, status:'real'},
+        {name: '黄金ETF华安 518880 (+7.8%)', code:'A股', pct: 0.33, status:'real'},
+        {name: '博时黄金联接C 002610', code:'基金', pct: 0.29, status:'real'},
+        {name: '天弘上海金 164824', code:'基金', pct: null, status:'missing'},
+      ],
+      news: [
+        {title: '现货黄金当周震荡,Au9999收¥1028.50', meta: '上海黄金交易所 · 05-12'},
+        {title: '美联储6月降息预期升温,金价短期承压', meta: '路透社 · 05-12'},
+        {title: '央行连续17个月增持黄金储备', meta: '人民银行 · 05-08'},
+      ],
+      advice: [
+        '当前 Au9999 ¥1028.50, 距减仓线 ¥1086 还差 5.6%',
+        '触发后分批减:¥1086减30g / ¥1140减30g / ¥1200清至18%',
+        '反向触发:¥980 / ¥940 用机动资金补仓',
+        '从 36% 仓位降到 15-18%,符合 2% 风险规则',
+      ]
+    },
+    {
+      name: '军工/周期/有色',
+      tag: '卫星小仓 · 保持',
+      badge: 'badge-hold',
+      mv: 15000,
+      pct: 1.5,
+      holdings: [
+        {name: '紫金矿业 601899 (+3.6%)', code:'A股', pct: 0.90, status:'real'},
+        {name: '中国铝业 601600 (-22%)', code:'A股', pct: -0.85, status:'real'},
+        {name: '博时军工 004698 (+32%)', code:'基金', pct: 1.01, status:'real'},
+        {name: '国投白银 161226 (-43%)', code:'A股+基金', pct: 5.97, status:'real'},
+      ],
+      news: [
+        {title: '铜铝价格周内反弹,基本金属库存下降', meta: 'SMM · 05-12'},
+        {title: '军工板块季报预增超预期', meta: '中证报 · 05-09'},
+      ],
+      advice: [
+        '紫金矿业小仓,继续持有,不加仓',
+        '中国铝业 -22%,触发-20%止损线,本周清仓',
+        '国投白银 -43%,严重触发止损,本周清仓',
+        '军工保持小仓,不扩大',
+      ]
+    },
+    {
+      name: '港股/恒生科技/中概',
+      tag: 'Edge不存在 · 清理',
+      badge: 'badge-cut',
+      mv: 40000,
+      pct: 4.1,
+      holdings: [
+        {name: '恒生科技ETF 513580 (-17%)', code:'A股', pct: -0.93, status:'real'},
+        {name: '中概互联ETF 513050 (-23%)', code:'A股', pct: -0.91, status:'real'},
+        {name: '广发港股创新药 501189 (-17%)', code:'基金', pct: -0.39, status:'real'},
+      ],
+      news: [
+        {title: '恒指当周窄幅震荡,科技指数表现弱于大盘', meta: '香港交易所 · 05-12'},
+        {title: '南向资金近期净流出科技股,流入红利', meta: '中证报 · 05-12'},
+        {title: '中概股监管不确定性持续,机构降低权重', meta: 'Wind · 05-10'},
+      ],
+      advice: [
+        '中概互联 -23%,已触发-20%止损线,本周清仓',
+        '恒生科技 -17%,接近止损,跌至-20%即清',
+        '港股创新药 -17%,接近止损,跌至-20%即清',
+        '回笼资金不再投港股,转入现金缓冲'
+      ]
+    },
+  ];
 
-  // Edge 主线状态
-  const edgeStatus = {
-    'AI/半导体/芯片': {label: '持有', cls: 'badge-green'},
-    '新能源汽车/电池': {label: '止盈', cls: 'badge-orange'},
-    '海外科技/QDII': {label: '持有', cls: 'badge-green'},
-    '黄金/贵金属': {label: '减仓', cls: 'badge-orange'},
-    '军工/周期/有色': {label: '保持', cls: 'badge-green'},
-    '港股/恒生科技/中概': {label: '清理', cls: 'badge-red'},
-  };
-  const sortedEdge = [...edgeReport.mainlines].sort((a,b)=>b.exposure-a.exposure);
-  document.getElementById('edgeBody').innerHTML = sortedEdge.map(ml => {
-    const s = edgeStatus[ml.name] || {label:'观察',cls:'badge-green'};
-    return `<tr>
-      <td>${ml.name}</td>
-      <td class="num">${fmt(ml.exposure)}</td>
-      <td><span class="badge ${s.cls}">${s.label}</span></td>
-    </tr>`;
+  document.getElementById('sectors').innerHTML = sectorCards.map(s => {
+    const dailyHoldings = s.holdings.filter(h=>h.status==='real');
+    const avgChg = dailyHoldings.length ? dailyHoldings.reduce((a,b)=>a+b.pct,0)/dailyHoldings.length : null;
+    return `
+    <div class="sector">
+      <div class="sector-head">
+        <h2>${s.name}</h2>
+        <span class="mv">¥${s.mv.toLocaleString()}</span>
+        <span class="pct">${s.pct.toFixed(1)}%</span>
+        <span class="badge ${s.badge}">${s.tag}</span>
+      </div>
+      <div class="sector-body">
+        <div class="sector-section">
+          <h3>持仓 · 5/12 涨跌</h3>
+          <ul>${s.holdings.map(h=>`
+            <li>
+              <span class="name">${h.name}</span>
+              <span class="pct ${h.pct===null?'gray':colorOf(h.pct)}">${h.pct===null ? '待披露' : fmtPct(h.pct)}</span>
+            </li>`).join('')}</ul>
+        </div>
+        <div class="sector-section">
+          <h3>市场情报</h3>
+          ${s.news.map(n=>`
+            <div class="news-item">
+              <div class="title">${n.title}</div>
+              <div class="meta">${n.meta}</div>
+            </div>`).join('')}
+        </div>
+        <div class="sector-section">
+          <h3>我的建议</h3>
+          <div class="advice-box">
+            <ul>${s.advice.map(a=>`<li>${a}</li>`).join('')}</ul>
+          </div>
+        </div>
+      </div>
+    </div>`;
   }).join('');
-
-  // 今日红黑榜(从holdings 推出)
-  const tb = [
-    {name:'紫金矿业 601899', pct: 0.90},
-    {name:'芯片ETF 159995', pct: 0.65},
-    {name:'中国核电 601985', pct: 0.44},
-    {name:'游戏ETF 516010', pct: -1.81},
-    {name:'比亚迪 002594', pct: -1.20},
-    {name:'纳指ETF 159941', pct: -1.20},
-  ];
-  document.getElementById('topBottom').innerHTML = tb.map(t=>
-    `<div class="topbottom-row">
-      <span class="name">${t.name}</span>
-      <span class="pct ${colorOf(t.pct)}">${fmtPct(t.pct)}</span>
-    </div>`).join('');
-
-  // 年化进度
-  // 假设当前是5月,年初至今=132交易日
-  const tradingDays = 88;  // 估算
-  const totalRealized = summary.total_pnl + 1075;  // 已实现+浮盈
-  const annualizedPct = (totalRealized / (summary.total_mv - summary.total_pnl)) * (252 / tradingDays) * 100;
-  const progressOn12 = Math.min(annualizedPct / 15 * 100, 100);
-  document.getElementById('progressBar').style.width = progressOn12 + '%';
-  document.getElementById('annualNum').textContent = `推算年化 ${annualizedPct.toFixed(1)}%`;
-  document.getElementById('annualNum').className = annualizedPct>=12 ? 'red' : (annualizedPct>=8 ? 'gray' : 'green');
-  document.getElementById('tradingDays').textContent = `${tradingDays} 天 (年初至今)`;
-  document.getElementById('realizedPnl').textContent = fmt(totalRealized);
-  document.getElementById('gap12').textContent = annualizedPct >= 12 ?
-    `已超目标 ${(annualizedPct-12).toFixed(1)}%` :
-    `还差 ${(12-annualizedPct).toFixed(1)}%`;
-
-  // 本月待办
-  const today = new Date();
-  const todos = [
-    {done: true, text: '月初定投 ¥3,000 (已完成)'},
-    {done: false, text: '清理 4 只触发 -20% 止损线的反 Edge 标的 (本周)'},
-    {done: false, text: '高浮盈基金 +50% 触发线: 4 只各止盈 1/3 (本周)'},
-    {done: false, text: '黄金 Au9999 监控 ¥1086 减仓触发线 (条件触发)'},
-    {done: false, text: '本季末执行再平衡 (6/30 前)'},
-  ];
-  document.getElementById('todos').innerHTML = todos.map(t=>
-    `<div style="padding:6px 0;display:flex;align-items:center;border-bottom:1px solid #f3f4f6;font-size:13px">
-      <span style="margin-right:10px;color:${t.done?'#2bb673':'#9ca3af'}">${t.done?'✓':'○'}</span>
-      <span style="${t.done?'color:#9ca3af;text-decoration:line-through':''}">${t.text}</span>
-    </div>`).join('');
 
 })();
 </script>
