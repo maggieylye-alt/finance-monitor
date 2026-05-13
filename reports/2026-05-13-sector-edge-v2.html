@@ -24,7 +24,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 .kpi .val{font-size:20px;font-weight:700;color:#111827}
 .kpi .sub2{font-size:11px;color:var(--muted);margin-top:2px}
 
-.sector{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.sector{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:20px}
 .sector-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:10px}
 .sector-name{font-size:18px;font-weight:700;color:#111827}
 .sector-name .emoji{margin-right:6px}
@@ -76,6 +76,52 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 
 .tip{background:#fff7ed;border:1px solid #fdba74;border-radius:6px;padding:10px 14px;margin-bottom:18px;font-size:13px;color:#7c2d12}
 .tip b{color:#7c2d12}
+
+/* === Dashboard 区 === */
+.dashboard{background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 50%,#3b82f6 100%);border-radius:12px;padding:22px;margin-bottom:18px;color:#fff;box-shadow:0 4px 14px rgba(37,99,235,0.18)}
+.dash-title{font-size:13px;opacity:0.85;margin-bottom:12px;letter-spacing:1px;font-weight:500;display:flex;justify-content:space-between;align-items:center}
+.dash-title .ts{font-size:11px;opacity:0.7}
+.dash-main{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:18px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.15)}
+.dash-cell{padding:0}
+.dash-cell .lbl{font-size:11px;opacity:0.75;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px}
+.dash-cell .v{font-size:26px;font-weight:700;line-height:1.1}
+.dash-cell .v.big{font-size:32px}
+.dash-cell .v.up{color:#fca5a5}
+.dash-cell .v.down{color:#86efac}
+.dash-cell .sub3{font-size:11px;opacity:0.75;margin-top:3px}
+.progress-bar{margin-top:6px;height:5px;background:rgba(255,255,255,0.2);border-radius:3px;overflow:hidden}
+.progress-bar .fill{height:100%;background:linear-gradient(90deg,#fcd34d,#f59e0b);border-radius:3px}
+
+.sector-bars{padding:4px 0 0}
+.sb-title{font-size:12px;opacity:0.85;margin-bottom:8px;font-weight:600}
+.sb-row{display:grid;grid-template-columns:130px 1fr 60px 80px;gap:10px;align-items:center;padding:5px 0;border-bottom:1px dashed rgba(255,255,255,0.12);font-size:12px}
+.sb-row:last-child{border-bottom:none}
+.sb-name{font-weight:500}
+.sb-name .e{margin-right:4px}
+.sb-bar{height:7px;background:rgba(255,255,255,0.15);border-radius:4px;overflow:hidden;position:relative}
+.sb-bar .bar{height:100%;border-radius:4px;background:linear-gradient(90deg,#fbbf24,#fb923c);transition:width 0.3s}
+.sb-amt{text-align:right;opacity:0.9}
+.sb-pnl{text-align:right;font-weight:600}
+.sb-pnl.up{color:#fca5a5}
+.sb-pnl.down{color:#86efac}
+
+/* === 板块目录 === */
+.toc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,.04);position:sticky;top:8px;z-index:10}
+.toc-title{font-size:14px;color:#111827;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.toc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.toc-item{display:flex;align-items:center;gap:8px;padding:9px 12px;background:#f9fafb;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);font-size:13px;transition:all .15s}
+.toc-item:hover{background:#eff6ff;border-color:var(--blue);color:var(--blue);transform:translateX(2px)}
+.toc-item .toc-emoji{font-size:16px}
+.toc-item .toc-name{flex:1;font-weight:500}
+.toc-item .toc-pct{color:var(--muted);font-size:11px}
+.toc-item.action{background:linear-gradient(135deg,#ecfdf5,#dbeafe);border:1px solid #93c5fd;color:#1e40af;font-weight:600}
+
+@media (max-width:760px){
+  .dash-main{grid-template-columns:1fr 1fr;gap:14px}
+  .toc-grid{grid-template-columns:repeat(2,1fr)}
+  .sb-row{grid-template-columns:100px 1fr 60px 70px;font-size:11px}
+  .toc{position:static}
+}
 </style>
 </head>
 <body>
@@ -92,15 +138,125 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 <b>每日跟踪</b>: 早 08:00 信息收集 + 14:30 操作建议, 推送企微 + 同步到本页面公网链接。
 </div>
 
-<div class="summary-grid">
+<div class="summary-grid" style="display:none">
 <div class="kpi"><div class="lbl">总市值</div><div class="val">¥609K</div><div class="sub2">A股+基金+黄金积存</div></div>
 <div class="kpi"><div class="lbl">浮盈合计</div><div class="val" style="color:var(--red)">+¥16K</div><div class="sub2">综合年化 ~7.8%</div></div>
 <div class="kpi"><div class="lbl">标的数</div><div class="val">67 只</div><div class="sub2">8 大板块</div></div>
 <div class="kpi"><div class="lbl">目标年化</div><div class="val">15%</div><div class="sub2">完成 52%</div></div>
 </div>
 
+<!-- ========== 总览 Dashboard ========== -->
+<div class="dashboard">
+<div class="dash-title">
+<span>📊 全持仓总览 Dashboard</span>
+<span class="ts">数据时间: 2026-05-13 18:20</span>
+</div>
+
+<div class="dash-main">
+<div class="dash-cell">
+<div class="lbl">总市值</div>
+<div class="v big">¥609,278</div>
+<div class="sub3">A股 ¥128.9K · 基金 ¥221.4K · 黄金 ¥217.9K · 投顾 ¥43.4K</div>
+</div>
+<div class="dash-cell">
+<div class="lbl">综合浮盈</div>
+<div class="v up">+¥16,213</div>
+<div class="sub3">+2.74% · 年化 ~7.8%</div>
+</div>
+<div class="dash-cell">
+<div class="lbl">15% 目标进度</div>
+<div class="v">52%</div>
+<div class="progress-bar"><div class="fill" style="width:52%"></div></div>
+<div class="sub3">差额 ~¥44K/年</div>
+</div>
+<div class="dash-cell">
+<div class="lbl">标的数 / 板块</div>
+<div class="v">67 / 8</div>
+<div class="sub3">基金 54 · A股 13 · 黄金积存</div>
+</div>
+</div>
+
+<!-- 板块占比 + 当前盈亏 条形图 -->
+<div class="sector-bars">
+<div class="sb-title">📊 8 大板块占比 & 累计盈亏</div>
+
+<div class="sb-row">
+<div class="sb-name"><span class="e">🤖</span>AI / 半导体</div>
+<div class="sb-bar"><div class="bar" style="width:55%"></div></div>
+<div class="sb-amt">¥75K · 12%</div>
+<div class="sb-pnl up">+¥10.5K</div>
+</div>
+
+<div class="sb-row">
+<div class="sb-name"><span class="e">🌎</span>海外 QDII</div>
+<div class="sb-bar"><div class="bar" style="width:28%"></div></div>
+<div class="sb-amt">¥38K · 6.3%</div>
+<div class="sb-pnl up">+¥5.4K</div>
+</div>
+
+<div class="sb-row">
+<div class="sb-name"><span class="e">💰</span>黄金 / 商品</div>
+<div class="sb-bar"><div class="bar" style="width:100%;background:linear-gradient(90deg,#f87171,#dc2626)"></div></div>
+<div class="sb-amt">¥246K · 40%</div>
+<div class="sb-pnl down">-¥12.4K</div>
+</div>
+
+<div class="sb-row">
+<div class="sb-name"><span class="e">🇭🇰</span>港股 / 宽基</div>
+<div class="sb-bar"><div class="bar" style="width:38%"></div></div>
+<div class="sb-amt">¥51K · 8.4%</div>
+<div class="sb-pnl down">-¥2.1K</div>
+</div>
+
+<div class="sb-row">
+<div class="sb-name"><span class="e">🏭</span>周期 / 平衡</div>
+<div class="sb-bar"><div class="bar" style="width:20%"></div></div>
+<div class="sb-amt">¥27K · 4.4%</div>
+<div class="sb-pnl down">-¥0.9K</div>
+</div>
+
+<div class="sb-row">
+<div class="sb-name"><span class="e">🚗</span>新能源车</div>
+<div class="sb-bar"><div class="bar" style="width:28%"></div></div>
+<div class="sb-amt">¥38K · 6.3%</div>
+<div class="sb-pnl up">+¥1.6K</div>
+</div>
+
+<div class="sb-row">
+<div class="sb-name"><span class="e">🎮</span>游戏 / 纳指场内</div>
+<div class="sb-bar"><div class="bar" style="width:21%"></div></div>
+<div class="sb-amt">¥28K · 4.6%</div>
+<div class="sb-pnl down">-¥5.2K</div>
+</div>
+
+<div class="sb-row">
+<div class="sb-name"><span class="e">🛡️</span>债券 (压舱)</div>
+<div class="sb-bar"><div class="bar" style="width:20%"></div></div>
+<div class="sb-amt">¥27K · 4.5%</div>
+<div class="sb-pnl up">+¥1.4K</div>
+</div>
+
+</div>
+</div>
+
+<!-- ========== 板块目录 ========== -->
+<div class="toc">
+<div class="toc-title">🗂 板块目录 · 点击跳转</div>
+<div class="toc-grid">
+<a class="toc-item" href="#sec-ai"><span class="toc-emoji">🤖</span><span class="toc-name">AI / 半导体</span><span class="toc-pct">¥75K</span></a>
+<a class="toc-item" href="#sec-overseas"><span class="toc-emoji">🌎</span><span class="toc-name">海外 QDII</span><span class="toc-pct">¥38K</span></a>
+<a class="toc-item" href="#sec-gold"><span class="toc-emoji">💰</span><span class="toc-name">黄金 / 商品</span><span class="toc-pct">¥246K</span></a>
+<a class="toc-item" href="#sec-hk"><span class="toc-emoji">🇭🇰</span><span class="toc-name">港股 / 宽基</span><span class="toc-pct">¥51K</span></a>
+<a class="toc-item" href="#sec-cycle"><span class="toc-emoji">🏭</span><span class="toc-name">周期 / 平衡</span><span class="toc-pct">¥27K</span></a>
+<a class="toc-item" href="#sec-nev"><span class="toc-emoji">🚗</span><span class="toc-name">新能源车</span><span class="toc-pct">¥38K</span></a>
+<a class="toc-item" href="#sec-game"><span class="toc-emoji">🎮</span><span class="toc-name">游戏 / 纳指</span><span class="toc-pct">¥28K</span></a>
+<a class="toc-item" href="#sec-bond"><span class="toc-emoji">🛡️</span><span class="toc-name">债券固收</span><span class="toc-pct">¥27K</span></a>
+<a class="toc-item action" href="#sec-action"><span class="toc-emoji">📋</span><span class="toc-name">综合操作清单</span><span class="toc-pct">P0/P1/P2</span></a>
+</div>
+</div>
+
 <!-- =========== 1. AI 半导体 =========== -->
-<div class="sector">
+<div class="sector" id="sec-ai">
 <div class="sector-head">
 <div class="sector-name"><span class="emoji">🤖</span>AI / 半导体 / 算力</div>
 <div class="sector-amt">小计 ~<span class="big">¥75K</span> · 占比 12% · <b>主线 · 加</b></div>
@@ -268,7 +424,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 
 <!-- =========== 2. 海外 QDII =========== -->
-<div class="sector">
+<div class="sector" id="sec-overseas">
 <div class="sector-head">
 <div class="sector-name"><span class="emoji">🌎</span>海外 QDII / 美股</div>
 <div class="sector-amt">小计 ~<span class="big">¥38K</span> · 占比 6.3% · <b>大幅低配 · 加</b></div>
@@ -360,7 +516,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 
 <!-- =========== 3. 黄金商品 =========== -->
-<div class="sector">
+<div class="sector" id="sec-gold">
 <div class="sector-head">
 <div class="sector-name"><span class="emoji">💰</span>黄金 / 商品 / 资源</div>
 <div class="sector-amt">小计 ~<span class="big">¥246K</span> · 占比 40% · <b>大幅超配 · 减</b></div>
@@ -481,7 +637,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 
 <!-- =========== 4. 港股+宽基 =========== -->
-<div class="sector">
+<div class="sector" id="sec-hk">
 <div class="sector-head">
 <div class="sector-name"><span class="emoji">🇭🇰</span>港股 / 中概 / 宽基</div>
 <div class="sector-amt">小计 ~<span class="big">¥51K</span> · 占比 8.4% · <b>低配 · 加宽基</b></div>
@@ -576,7 +732,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 
 <!-- =========== 5. 周期+平衡 =========== -->
-<div class="sector">
+<div class="sector" id="sec-cycle">
 <div class="sector-head">
 <div class="sector-name"><span class="emoji">🏭</span>周期 / 平衡 / 公用</div>
 <div class="sector-amt">小计 ~<span class="big">¥27K</span> · 占比 4.4%</div>
@@ -638,7 +794,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 
 <!-- =========== 6. 新能源车 =========== -->
-<div class="sector">
+<div class="sector" id="sec-nev">
 <div class="sector-head">
 <div class="sector-name"><span class="emoji">🚗</span>新能源汽车</div>
 <div class="sector-amt">小计 ~<span class="big">¥38K</span> · 占比 6.3% · <b>不再加</b></div>
@@ -703,7 +859,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 
 <!-- =========== 7. 游戏文娱 =========== -->
-<div class="sector">
+<div class="sector" id="sec-game">
 <div class="sector-head">
 <div class="sector-name"><span class="emoji">🎮</span>游戏 / 纳指场内</div>
 <div class="sector-amt">小计 ~<span class="big">¥28K</span> · 占比 4.6%</div>
@@ -742,7 +898,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 
 <!-- =========== 8. 债券 =========== -->
-<div class="sector">
+<div class="sector" id="sec-bond">
 <div class="sector-head">
 <div class="sector-name"><span class="emoji">🛡️</span>债券固收 (压舱石)</div>
 <div class="sector-amt">小计 ~<span class="big">¥27K</span> · 占比 4.5% · <b>稳健</b></div>
@@ -777,7 +933,7 @@ h1{color:#111827;margin-bottom:6px;font-size:24px}
 </div>
 
 <!-- =========== 综合操作清单 =========== -->
-<div class="sector" style="background:linear-gradient(135deg,#eff6ff,#ecfdf5);border:1px solid #93c5fd">
+<div class="sector" id="sec-action" style="background:linear-gradient(135deg,#eff6ff,#ecfdf5);border:1px solid #93c5fd">
 <h2 style="color:#1e3a8a;margin-bottom:14px">📋 综合操作清单 (按优先级)</h2>
 
 <div style="margin-bottom:14px">
