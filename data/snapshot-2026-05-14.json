@@ -1,0 +1,270 @@
+{
+  "date": "2026-05-14",
+  "generated_at": "2026-05-14 08:05:00",
+  "note": "基金净值T-1数据(22:00入库); A股/美股/港股/商品为实时/昨日收盘数据",
+  "market": {
+    "ashare": {
+      "上证指数": {"close": 4242.57, "chg_pct": 0.67, "chg1m": 1.98, "chg3m": 6.37},
+      "深证成指": {"close": 16089.75, "chg_pct": 1.67, "chg1m": 4.08, "chg3m": 11.67},
+      "创业板指": {"close": 4038.33, "chg_pct": 2.63, "chg1m": null, "chg3m": 16.16},
+      "沪深300": {"close": 4245.07, "chg_pct": 1.47, "chg1m": null, "chg3m": null},
+      "成交额_亿": 32645,
+      "数据来源": "NeoData接口, 2026-05-13收盘"
+    },
+    "us": {
+      "纳指": {"close": 26402.34, "chg_pct": 1.20, "chg1m": 13.88, "chg3m": 16.84},
+      "标普500": {"close": 7444.25, "chg_pct": 0.58, "chg1m": 8.10, "chg3m": 8.95},
+      "数据来源": "NeoData接口, 2026-05-13美股收盘"
+    },
+    "hk": {
+      "恒生指数": {"close": 26388.44, "chg_pct": null, "chg1m": 2.84},
+      "恒生科技": {"close": 5093.85, "chg_pct": null, "chg1m": 5.64},
+      "数据来源": "NeoData接口, 2026-05-13港股收盘"
+    },
+    "commodities": {
+      "Au9999": {"close": 1029.90, "unit": "元/克", "chg_pct": -0.01, "chg1m": null},
+      "COMEX黄金": {"close": 4700.90, "unit": "美元/盎司"},
+      "COMEX白银": {"close": 88.200, "unit": "美元/盎司", "chg_pct": -1.31},
+      "LME铜": {"close": 6.623, "unit": "美元/磅", "chg_pct": -0.84},
+      "WTI原油": {"close": 100.970, "unit": "美元/桶", "chg_pct": -0.05},
+      "数据来源": "NeoData接口, 2026-05-13夜盘"
+    },
+    "bond": {
+      "中国10年国债": {"yield": 1.7514, "date": "2026-05-13"},
+      "美国10年国债": {"yield": 3.63, "date": "2026-05-11"},
+      "数据来源": "NeoData接口"
+    }
+  },
+  "ashare": {
+    "holdings": [
+      {"code": "159995", "name": "芯片ETF华夏", "shares": 4400, "cost": 1.694, "price": 2.384, "chg_pct": 2.49, "market_value": 10489.6, "daily_pnl": 261.56, "position_pnl": 3036.0, "position_pct": 40.73, "chg1m": null, "chg3m": null, "fund_flow": -13770},
+      {"code": "516010", "name": "游戏ETF国泰", "shares": 18000, "cost": 1.642, "price": 1.316, "chg_pct": null, "market_value": 23688.0, "daily_pnl": null, "position_pnl": -5868.0, "position_pct": -19.85, "chg1m": 3.65, "chg3m": 10.44, "fund_flow": null},
+      {"code": "513050", "name": "中概互联ETF", "shares": 5600, "cost": 1.572, "price": 1.207, "chg_pct": null, "market_value": 6759.2, "daily_pnl": null, "position_pnl": -2044.0, "position_pct": -23.22, "chg1m": null, "chg3m": null, "fund_flow": null},
+      {"code": "513580", "name": "恒生科技ETF大成", "shares": 32500, "cost": 0.773, "price": 0.645, "chg_pct": null, "market_value": 20962.5, "daily_pnl": null, "position_pnl": -4160.0, "position_pct": -16.56, "chg1m": null, "chg3m": null, "fund_flow": null},
+      {"code": "159941", "name": "纳指ETF广发", "shares": 3000, "cost": 1.343, "price": 1.571, "chg_pct": null, "market_value": 4713.0, "daily_pnl": null, "position_pnl": 684.0, "position_pct": 16.98, "chg1m": null, "chg3m": null, "fund_flow": null},
+      {"code": "510300", "name": "沪深300ETF华泰柏瑞", "shares": 300, "cost": 3.722, "price": 5.017, "chg_pct": null, "market_value": 1505.1, "daily_pnl": null, "position_pnl": 388.5, "position_pct": 34.79, "chg1m": null, "chg3m": null, "fund_flow": null},
+      {"code": "588000", "name": "科创50ETF华夏", "shares": 3100, "cost": 1.48, "price": 1.865, "chg_pct": null, "market_value": 5781.5, "daily_pnl": null, "position_pnl": 1193.5, "position_pct": 26.01, "chg1m": null, "chg3m": null, "fund_flow": null},
+      {"code": "518880", "name": "黄金ETF华安", "shares": 1100, "cost": 9.095, "price": 9.804, "chg_pct": null, "market_value": 10784.4, "daily_pnl": null, "position_pnl": 779.9, "position_pct": 7.8, "chg1m": null, "chg3m": null, "fund_flow": null},
+      {"code": "161226", "name": "国投白银LOF", "shares": 794, "cost": 4.829, "price": 2.748, "chg_pct": null, "market_value": 2181.91, "daily_pnl": null, "position_pnl": -1652.31, "position_pct": -43.09, "chg1m": null, "chg3m": null, "fund_flow": null},
+      {"code": "002594", "name": "比亚迪", "shares": 200, "cost": 99.261, "price": 98.6, "chg_pct": -0.63, "market_value": 19720.0, "daily_pnl": -124.24, "position_pnl": -132.2, "position_pct": -0.67, "chg1m": null, "chg3m": null, "fund_flow": null},
+      {"code": "601899", "name": "紫金矿业", "shares": 400, "cost": 33.379, "price": 34.66, "chg_pct": 0.23, "market_value": 13864.0, "daily_pnl": 31.89, "position_pnl": 512.4, "position_pct": 3.84, "chg1m": null, "chg3m": null, "fund_flow": null},
+      {"code": "601600", "name": "中国铝业", "shares": 400, "cost": 15.023, "price": 11.87, "chg_pct": null, "market_value": 4748.0, "daily_pnl": null, "position_pnl": -1261.2, "position_pct": -20.99, "chg1m": null, "chg3m": null, "fund_flow": null},
+      {"code": "601985", "name": "中国核电", "shares": 500, "cost": 8.55, "price": 9.24, "chg_pct": null, "market_value": 4620.0, "daily_pnl": null, "position_pnl": 345.0, "position_pct": 8.07, "chg1m": null, "chg3m": null, "fund_flow": null}
+    ],
+    "note": "基金持仓(54只)使用T-1净值,今日涨跌待22:00更新",
+    "total_mv": 129817.21,
+    "total_daily_pnl": null,
+    "total_position_pnl": -8178.41
+  },
+  "funds": {
+    "total_mv": 221434.54,
+    "note": "54只基金,使用T-1净值(2026-05-13); 今日涨跌待22:00"
+  },
+  "gold": {
+    "grams": 211.59,
+    "price": 1029.99,
+    "total_mv": 217935.58,
+    "total_pnl": -11967.41
+  },
+  "advisor": {
+    "total_mv": 43379
+  },
+  "sectors": {
+    "ai": {
+      "label": "AI/半导体",
+      "holdings": ["159995", "588000", "012860", "012414", "011609", "014424", "022365", "008888", "018124", "003834", "502090", "011213"],
+      "yesterday_pnl": null,
+      "total_pnl_pct": null,
+      "market_chg_pct": null,
+      "note": "芯片ETF 159995 +2.49%; 科创50ETF +2.7%(T-1); 部分基金T-1净值"
+    },
+    "overseas": {
+      "label": "海外QDII",
+      "holdings": ["539001", "000369", "160213", "018043", "050025", "241001"],
+      "yesterday_pnl": null,
+      "total_pnl_pct": null,
+      "market_chg_pct": null,
+      "note": "纳指+1.20%(5/13); 标普500+0.58%(5/13); QDII基金T-1净值"
+    },
+    "nev": {
+      "label": "新能源车",
+      "holdings": ["002594", "001528", "161028", "002168", "011082", "003984"],
+      "yesterday_pnl": null,
+      "total_pnl_pct": null,
+      "note": "比亚迪-0.63%; 新能源基金T-1净值"
+    },
+    "gold": {
+      "label": "黄金/商品",
+      "holdings": ["积存金", "518880", "161226", "601899", "501018", "160221"],
+      "yesterday_pnl": null,
+      "total_pnl_pct": null,
+      "note": "Au9999 ¥1029.90(昨收); COMEX金 ¥4700.90; 白银-1.31%; 铜-0.84%; WTI油-0.05%"
+    },
+    "hk": {
+      "label": "港股+宽基",
+      "holdings": ["513050", "513580", "110020", "510300"],
+      "yesterday_pnl": null,
+      "total_pnl_pct": null,
+      "note": "恒生指数 26388; 恒生科技 5093.85; 沪深300 +1.47%(T-1)"
+    },
+    "cycle": {
+      "label": "周期/平衡",
+      "holdings": ["601600", "601985", "163417"],
+      "yesterday_pnl": null,
+      "total_pnl_pct": null
+    },
+    "game": {
+      "label": "游戏/纳指",
+      "holdings": ["516010", "159941"],
+      "yesterday_pnl": null,
+      "total_pnl_pct": null,
+      "note": "游戏ETF 516010 近1月+3.65%; 纳指ETF +1.20%"
+    },
+    "bond": {
+      "label": "债券",
+      "holdings": ["004069", "000961"],
+      "yesterday_pnl": null,
+      "total_pnl_pct": null,
+      "note": "10年国债收益率 1.75%(2026-05-13)"
+    }
+  },
+  "macro_news": {
+    "ai_semiconductor": [
+      {
+        "title": "2026年AI服务器功率密度显著提升,GPU先进封装需求爆发",
+        "source": "腾讯财经",
+        "date": "2026-05-13",
+        "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20260513143706a4ab44d4",
+        "summary": "26Q1 GPU先进封装需求环比+68%,先进封装占比达16.2%,AI服务器功率密度成核心矛盾"
+      },
+      {
+        "title": "2026年存储原厂资本开支持续攀升,AI驱动HBM扩产",
+        "source": "腾讯财经",
+        "date": "2026-05-13",
+        "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20260513070421a7012a77",
+        "summary": "TrendForce预计26Q2 DRAM涨幅+58-63%, NAND涨幅+70-75%, AI存储需求持续强劲"
+      },
+      {
+        "title": "AMD发布2026年AI处理器路线图,算力密度持续提升",
+        "source": "腾讯财经",
+        "date": "2026-05-10",
+        "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=res831834234308",
+        "summary": "AMD预计2027年AI CPU较2024年提升70%, MI350 GPU功耗密度大幅提升"
+      }
+    ],
+    "overseas": [
+      {
+        "title": "美股科技股继续走强,纳指再创阶段新高",
+        "source": "NeoData接口",
+        "date": "2026-05-13",
+        "url": null,
+        "summary": "纳指收于26402.34点,近1月+13.88%; AI算力龙头持续吸引资金"
+      },
+      {
+        "title": "美联储维持利率3.63%,降息预期受美国CPI数据扰动",
+        "source": "NeoData接口",
+        "date": "2026-05-13",
+        "url": null,
+        "summary": "5月13日美国CPI公布后市场降息预期波动,但CME FedWatch显示6月降息25bp概率维持99%"
+      }
+    ],
+    "nev": [
+      {
+        "title": "乘联会:2026年4月新能源车渗透率71%,智能化成为核心竞争力",
+        "source": "证券时报",
+        "date": "2026-05-13",
+        "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026051319294994d7244c",
+        "summary": "4月新能源乘用车批发84.9万辆,渗透率71%创新高,智能驾驶成车企差异化主战场"
+      },
+      {
+        "title": "机构:2026-2035年全球智能驾驶市场CAGR达60%,市场规模2.4万亿美元",
+        "source": "财联社",
+        "date": "2026-05-13",
+        "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026051318521294d710ad",
+        "summary": "L2+渗透率快速提升, Robotaxi和L4自动驾驶成为下一阶段增长主线"
+      }
+    ],
+    "gold": [
+      {
+        "title": "美联储6月降息预期维持在99%,黄金基本面支撑较强",
+        "source": "腾讯财经",
+        "date": "2026-05-14",
+        "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN2026051407515694d82ad1",
+        "summary": "CME FedWatch显示6月降息25bp概率维持99%,短期黄金下行空间有限"
+      },
+      {
+        "title": "COMEX黄金4700美元附近波动,白银连续回调",
+        "source": "NeoData接口",
+        "date": "2026-05-13",
+        "url": null,
+        "summary": "COMEX黄金收4700.90(-0.12%),白银-1.31%; 伦敦金回落至4687美元"
+      },
+      {
+        "title": "WTI原油100.97美元/桶,地缘风险支撑能源价格",
+        "source": "NeoData接口",
+        "date": "2026-05-13",
+        "url": null,
+        "summary": "原油近100美元高位震荡,俄乌局势及中东地缘风险持续扰动供应预期"
+      }
+    ],
+    "hk": [
+      {
+        "title": "港股恒生指数26388点,科技股分化中概互联网反弹",
+        "source": "腾讯财经",
+        "date": "2026-05-13",
+        "url": null,
+        "summary": "港股近1月恒生指数+2.84%,恒生科技+5.64%; 南向资金持续流入港股科技板块"
+      },
+      {
+        "title": "港股AI产业链持续吸引资金,PCB/服务器需求同比高增",
+        "source": "腾讯财经",
+        "date": "2026-05-13",
+        "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260513074653973ab8e6&s=b",
+        "summary": "港股AI服务器订单同比增长61.4%, PCB需求同比+31%, 算力产业链高景气延续"
+      }
+    ],
+    "broad_index": [
+      {
+        "title": "创业板指强势反弹+2.63%, AI板块带动科技股普涨",
+        "source": "腾讯财经",
+        "date": "2026-05-13",
+        "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026051316555694d6d264",
+        "summary": "A股成交额3.26万亿, TMT板块成交占比约26%; 科创50重回4000点上方"
+      },
+      {
+        "title": "A股近1月创业板+16.16%,科技股赚钱效应持续",
+        "source": "NeoData接口",
+        "date": "2026-05-13",
+        "url": null,
+        "summary": "创业板近3月累计涨幅+16.16%, AI和半导体成为A股核心主线"
+      }
+    ],
+    "metals": [
+      {
+        "title": "LME铜价回调0.84%,智利Codelco铜矿Q1产量下降9.98%",
+        "source": "财联社",
+        "date": "2026-05-12",
+        "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026051308545394d5c7bb",
+        "summary": "铜价短期承压但供给端扰动持续, LME铝价+0.49%,镍价+1.48%"
+      }
+    ],
+    "bond": [
+      {
+        "title": "中国10年国债收益率1.75%, 债券牛市格局延续",
+        "source": "NeoData接口",
+        "date": "2026-05-13",
+        "url": null,
+        "summary": "10年国债收益率降至1.75%附近,资金面宽松支撑债市,债基表现稳健"
+      }
+    ]
+  },
+  "year_progress": {
+    "year_start_value": 540000,
+    "current_value_estimate": 612566,
+    "absolute_pnl_estimate": 26200,
+    "annualized_pct_estimate": 0.078,
+    "target_pct": 0.15,
+    "gap": -0.072,
+    "note": "当前总市值含T-1净值,待今日22:00基金净值更新后精确"
+  }
+}
