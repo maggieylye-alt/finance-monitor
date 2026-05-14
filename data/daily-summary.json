@@ -12,6 +12,28 @@
       "unreported_funds": ["000043", "050025", "270042", "501018", "501312", "070012", "018043", "017145", "001984", "002569", "5162.GS", "41511.GS"],
       "unreported_pnl": 0,
       "note": "QDII基金净值T-1未更新，暂不计入"
+    },
+    {
+      "date": "2026-05-13",
+      "total_value": null,
+      "daily_pnl": 3231,
+      "fund_pnl": 2168,
+      "ashare_pnl": 1063,
+      "gold_pnl": 0,
+      "unreported_funds": [],
+      "unreported_pnl": 0,
+      "note": "补录5/13数据"
+    },
+    {
+      "date": "2026-05-14",
+      "total_value": null,
+      "daily_pnl": -2950,
+      "fund_pnl": 0,
+      "ashare_pnl": -1787,
+      "gold_pnl": -1164,
+      "unreported_funds": ["全部34只基金(含QDII)"],
+      "unreported_pnl": 0,
+      "note": "基金T日净值neodata接口未更新(最新仍5/13),暂不计入; A股数据WebSearch交叉验证"
     }
   ]
 }
