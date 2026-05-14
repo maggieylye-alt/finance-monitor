@@ -1,0 +1,67 @@
+{
+  "date": "2026-05-14",
+  "generated_at": "2026-05-14 14:32:00",
+  "type": "pm_action",
+  "market": {
+    "上证指数": {"price": 4209.68, "prev": 4242.57, "chg_pct": -0.78},
+    "深证成指": {"price": 15909.59, "prev": 16089.75, "chg_pct": -1.12},
+    "沪深300": {"price": 4952.09, "prev": 4998.34, "chg_pct": -0.93},
+    "创业板指": {"price": 3996.95, "prev": 4038.33, "chg_pct": -1.02},
+    "科创50": {"price": null, "prev": null, "chg_pct": null},
+    "恒生科技": {"price": 5103.88, "prev": 5093.85, "chg_pct": 0.20},
+    "纳指100": {"price": 29366.94, "prev": 29064.80, "chg_pct": 1.04, "note": "5/13收盘"}
+  },
+  "commodities": {
+    "Au9999": {"price": 1025.51, "prev": 1030.80, "chg_pct": -0.51},
+    "伦敦金": {"price": 4692.44, "prev": 4689.40, "chg_pct": 0.06},
+    "COMEX白银": {"price": null, "prev": 88.20, "chg_pct": null},
+    "WTI原油": {"price": null, "prev": 100.97, "chg_pct": null}
+  },
+  "ashare": {
+    "holdings": [
+      {"code": "002594", "name": "比亚迪", "shares": 200, "cost": 99.261, "price": 99.12, "prev": 98.60, "daily_pct": 0.53, "mv": 19824, "daily_pnl": 104, "pos_pnl": -28, "pos_pct": -0.14},
+      {"code": "513580", "name": "恒生科技ETF大成", "shares": 32500, "cost": 0.773, "price": 0.646, "prev": 0.645, "daily_pct": 0.16, "mv": 20995, "daily_pnl": 33, "pos_pnl": -4128, "pos_pct": -16.43},
+      {"code": "159941", "name": "纳指ETF广发", "shares": 3000, "cost": 1.343, "price": 1.581, "prev": 1.571, "daily_pct": 0.64, "mv": 4743, "daily_pnl": 30, "pos_pnl": 714, "pos_pct": 17.72},
+      {"code": "159995", "name": "芯片ETF华夏", "shares": 4400, "cost": 1.694, "price": 2.355, "prev": 2.384, "daily_pct": -1.22, "mv": 10362, "daily_pnl": -128, "pos_pnl": 2908, "pos_pct": 39.02},
+      {"code": "161226", "name": "国投白银LOF", "shares": 794, "cost": 4.829, "price": 2.699, "prev": 2.748, "daily_pct": -1.78, "mv": 2143, "daily_pnl": -39, "pos_pnl": -1691, "pos_pct": -44.11},
+      {"code": "510300", "name": "沪深300ETF华泰柏瑞", "shares": 300, "cost": 3.722, "price": 4.967, "prev": 5.017, "daily_pct": -1.00, "mv": 1490, "daily_pnl": -15, "pos_pnl": 373, "pos_pct": 33.45},
+      {"code": "513050", "name": "中概互联ETF", "shares": 5600, "cost": 1.572, "price": 1.224, "prev": 1.207, "daily_pct": 1.41, "mv": 6854, "daily_pnl": 95, "pos_pnl": -1949, "pos_pct": -22.14},
+      {"code": "516010", "name": "游戏ETF国泰", "shares": 18000, "cost": 1.642, "price": 1.284, "prev": 1.316, "daily_pct": -2.43, "mv": 23112, "daily_pnl": -576, "pos_pnl": -6444, "pos_pct": -21.80},
+      {"code": "518880", "name": "黄金ETF华安", "shares": 1100, "cost": 9.095, "price": 9.778, "prev": 9.804, "daily_pct": -0.27, "mv": 10756, "daily_pnl": -29, "pos_pnl": 751, "pos_pct": 7.51},
+      {"code": "588000", "name": "科创50ETF华夏", "shares": 3100, "cost": 1.480, "price": 1.844, "prev": 1.865, "daily_pct": -1.13, "mv": 5716, "daily_pnl": -65, "pos_pnl": 1128, "pos_pct": 24.59},
+      {"code": "601600", "name": "中国铝业", "shares": 400, "cost": 15.023, "price": 11.70, "prev": 11.87, "daily_pct": -1.43, "mv": 4680, "daily_pnl": -68, "pos_pnl": -1329, "pos_pct": -22.12},
+      {"code": "601899", "name": "紫金矿业", "shares": 400, "cost": 33.379, "price": 33.75, "prev": 34.66, "daily_pct": -2.63, "mv": 13500, "daily_pnl": -364, "pos_pnl": 148, "pos_pct": 1.11},
+      {"code": "601985", "name": "中国核电", "shares": 500, "cost": 8.550, "price": 9.07, "prev": 9.24, "daily_pct": -1.84, "mv": 4535, "daily_pnl": -85, "pos_pnl": 260, "pos_pct": 6.08}
+    ],
+    "total_mv": 128711,
+    "total_daily_pnl": -1107,
+    "total_position_pnl": -9285
+  },
+  "gold": {
+    "grams": 211.59,
+    "price": 1025.51,
+    "prev": 1030.80,
+    "mv": 216988,
+    "daily_pnl": -1119,
+    "pos_pnl": -12915,
+    "cost_per_gram": 1086.55
+  },
+  "funds": {"total_mv": 221435, "note": "T-1净值"},
+  "advisor": {"total_mv": 43379},
+  "total_estimate": {
+    "total_mv": 610512,
+    "ashare_daily_pnl": -1107,
+    "gold_daily_pnl": -1119,
+    "combined_daily_pnl": -2226,
+    "note": "基金当日盈亏待22:00更新"
+  },
+  "trigger_status": {
+    "Au9999": {"price": 1025.51, "sell_lines": [1086, 1140, 1200], "buy_lines": [980, 940], "status": "未触发"},
+    "芯片ETF": {"price": 2.355, "buy_lines": [2.10, 1.95, 1.80], "sell_50pct_line": 2.541, "status": "未触发", "pos_pct": 39.02},
+    "中概互联": {"price": 1.224, "pos_pct": -22.14, "status": "触发-20%止损线"},
+    "中国铝业": {"price": 11.70, "pos_pct": -22.12, "status": "触发-20%止损线"},
+    "游戏ETF": {"price": 1.284, "pos_pct": -21.80, "status": "触发-20%止损线"},
+    "白银LOF": {"price": 2.699, "pos_pct": -44.11, "status": "深亏(商品类不适用常规止损)"}
+  },
+  "data_source": "NeoData接口, 2026-05-14 14:30盘中实时"
+}
