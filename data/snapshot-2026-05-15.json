@@ -1,0 +1,160 @@
+{
+  "date": "2026-05-15",
+  "generated_at": "2026-05-15T08:00:30+08:00",
+  "data_note": "A股/ETF为5月14日收盘数据; 基金净值为5月14日(T-1)数据; 黄金为5月15日凌晨数据",
+  "market_indices": {
+    "SSE": {"name": "上证指数", "close": 3406.87, "change_pct": -0.35, "note": "数据未取到,使用估值"},
+    "SZSE": {"name": "创业板指", "close": 2105.62, "change_pct": 1.52, "note": "5月14日A股科技+1.52%"},
+    "STAR50": {"name": "科创50", "close": 1038.75, "change_pct": -2.55, "note": "5月14日"},
+    "CSI300": {"name": "沪深300", "close": 3945.23, "change_pct": -0.15, "note": "数据未取到,使用估值"},
+    "NASDAQ": {"name": "纳指100", "close": 21310.26, "change_pct": -1.99, "note": "5月14日"},
+    "SP500": {"name": "标普500", "close": 5933.15, "change_pct": 0.42, "note": "5月14日"}
+  },
+  "commodities": {
+    "Au9999": {"name": "Au9999沪金", "close": 1028.68, "change_pct": -0.45, "note": "5月15日凌晨"},
+    "COMEX_gold": {"name": "COMEX黄金", "close": 4657.10, "change_pct": -0.60, "unit": "USD/oz"},
+    "COMEX_silver": {"name": "COMEX白银", "close": 83.945, "change_pct": -1.62, "unit": "USD/oz"},
+    "WTI_oil": {"name": "WTI原油", "close": 101.99, "change_pct": 0.81, "unit": "USD/bbl"},
+    "LME_copper": {"name": "LME铜", "close": 13938.5, "change_pct": 1.5, "unit": "USD/mt"}
+  },
+  "sectors": {
+    "ai_semiconductor": {
+      "label": "AI/半导体",
+      "color": "#3b82f6",
+      "holdings": [
+        {"code": "159995", "name": "芯片ETF华夏", "type": "ETF", "close": 2.321, "prev_close": 2.384, "change_pct": -2.64, "volume": 4921452, "amount": 0, "high": 2.409, "low": 2.320, "turnover": 0.79, "net_inflow": 15935, "pe_pct_5y": 53.99, "近1月": -1.58, "近3月": 1.12, "近6月": 16.40, "近1年": 53.99, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "588000", "name": "科创50ETF华夏", "type": "ETF", "close": 1.815, "prev_close": 1.865, "change_pct": -2.68, "volume": 34701713, "amount": 0, "high": 1.884, "low": 1.814, "turnover": 1.15, "net_inflow": -35296, "pe_pct_5y": -20.19, "近1月": -2.41, "近3月": 2.67, "近6月": 9.18, "近1年": -20.19, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "012860", "name": "华夏科创板芯片ETF联接C", "type": "基金", "nav": 3.0388, "nav_date": "2026-05-13", "change_pct": 0.56, "近1月": 0.84, "近3月": 7.33, "近6月": 7.12, "近1年": 18.94, "sources": ["NeoData apiData 2026-05-13"]},
+        {"code": "012414", "name": "华夏科创50ETF联接C", "type": "基金", "nav": 0.5927, "nav_date": "2026-05-13", "change_pct": -1.58, "近1月": -3.25, "近3月": -5.68, "近6月": -15.39, "近1年": -25.59, "sources": ["NeoData apiData 2026-05-13"]},
+        {"code": "011609", "name": "永赢半导体产业智选C", "type": "基金", "nav": 1.316, "nav_date": "2026-05-14", "change_pct": -2.42, "近1月": 2.58, "近3月": 21.89, "近6月": 16.86, "近1年": 67.17, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "014424", "name": "华泰中韩半导体ETF联接A", "type": "基金", "nav": 0.8743, "nav_date": "2026-05-14", "change_pct": -1.71, "近1月": -4.48, "近3月": -6.91, "近6月": -12.13, "近1年": 15.45, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "022365", "name": "永赢科技智选/光模块C", "type": "基金", "nav": 5.1705, "nav_date": "2026-05-14", "change_pct": -3.41, "近1月": 4.22, "近3月": 17.21, "近6月": 39.60, "近1年": 318.77, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "008888", "name": "华夏国证半导体芯片ETF联接C", "type": "基金", "nav": "数据未取到", "nav_date": null, "change_pct": null, "sources": ["接口未返回该基金"]},
+        {"code": "018124", "name": "天弘中证科创创业50ETF联接C", "type": "基金", "nav": "数据未取到", "nav_date": null, "change_pct": null, "sources": ["接口未返回该基金"]},
+        {"code": "003834", "name": "华夏能源革新股票A", "type": "基金", "nav": 3.1419, "nav_date": "2026-05-14", "change_pct": -3.62, "近1月": -8.92, "近3月": -1.20, "近6月": 8.45, "近1年": 75.99, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "502090", "name": "富国上证科创板芯片ETF联接C", "type": "基金", "nav": "数据未取到", "nav_date": null, "change_pct": null, "sources": ["接口未返回该基金"]},
+        {"code": "011213", "name": "国泰国证有色金属指数C", "type": "基金", "nav": "数据未取到", "nav_date": null, "change_pct": null, "sources": ["接口未返回该基金"]}
+      ]
+    },
+    "overseas_qdii": {
+      "label": "海外QDII",
+      "color": "#06b6d4",
+      "holdings": [
+        {"code": "539001", "name": "嘉实纳指100QDIIA", "type": "基金", "nav": 3.4637, "nav_date": "2026-05-13", "change_pct": 1.04, "近1月": 2.42, "近3月": 14.14, "近6月": 16.40, "近1年": 28.57, "sources": ["NeoData apiData 2026-05-13"]},
+        {"code": "000369", "name": "国富亚洲机会QDIIC", "type": "基金", "nav": "数据未取到", "nav_date": null, "change_pct": null, "sources": ["接口未返回该基金"]},
+        {"code": "160213", "name": "建信新兴市场优选QDII", "type": "基金", "nav": 4.495, "nav_date": "2026-05-13", "change_pct": 1.06, "近1月": 2.49, "近3月": 15.32, "近6月": 17.06, "近1年": 31.03, "sources": ["NeoData apiData 2026-05-13"]},
+        {"code": "018043", "name": "博时标普500ETF联接A", "type": "基金", "nav": 2.0443, "nav_date": "2026-05-13", "change_pct": 1.00, "近1月": 2.37, "近3月": 14.45, "近6月": 16.07, "近1年": 29.44, "sources": ["NeoData apiData 2026-05-13"]},
+        {"code": "050025", "name": "华宝纳斯达克精选A", "type": "基金", "nav": 5.479, "nav_date": "2026-05-13", "change_pct": 0.57, "近1月": 0.86, "近3月": 7.49, "近6月": 7.24, "近1年": 19.63, "sources": ["NeoData apiData 2026-05-13"]},
+        {"code": "241001", "name": "汇添富全球移动互联QDIIC", "type": "基金", "nav": 1.724, "nav_date": "2026-05-13", "change_pct": 6.09, "近1月": 4.55, "近3月": 7.08, "近6月": 12.46, "近1年": 41.66, "sources": ["NeoData apiData 2026-05-13"]}
+      ]
+    },
+    "nev": {
+      "label": "新能源车",
+      "color": "#10b981",
+      "holdings": [
+        {"code": "002594", "name": "比亚迪", "type": "A股", "close": 98.73, "prev_close": 99.00, "change_pct": 0.13, "volume": 33918000, "amount": 3361151176, "high": 100.00, "low": 98.45, "turnover": 0.97, "pe_pct_5y": 50.29, "近1月": 1.57, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "001528", "name": "申万菱信新能源汽车混合A", "type": "基金", "nav": "数据未取到", "nav_date": null, "change_pct": null, "sources": ["接口未返回该基金"]},
+        {"code": "161028", "name": "嘉实新能源新材料股票A", "type": "基金", "nav": 1.277, "nav_date": "2026-05-14", "change_pct": -2.96, "近1月": -6.17, "近3月": 1.67, "近6月": 8.04, "近1年": 57.85, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "002168", "name": "富国新能源汽车LOF A", "type": "基金", "nav": 3.513, "nav_date": "2026-05-14", "change_pct": -3.52, "近1月": -7.87, "近3月": 0.09, "近6月": 9.34, "近1年": 68.33, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "011082", "name": "前海开源新能源C", "type": "基金", "nav": 1.0113, "nav_date": "2026-05-14", "change_pct": -2.43, "近1月": -3.87, "近3月": -4.63, "近6月": -2.20, "近1年": 19.44, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "003984", "name": "华夏能源革新股票A", "type": "基金", "nav": 3.1419, "nav_date": "2026-05-14", "change_pct": -3.62, "近1月": -8.92, "近3月": -1.20, "近6月": 8.45, "近1年": 75.99, "sources": ["NeoData apiData 2026-05-14"]}
+      ]
+    },
+    "gold_commodity": {
+      "label": "黄金商品",
+      "color": "#f59e0b",
+      "holdings": [
+        {"code": "gold_minsheng", "name": "民生积存金", "type": "积存金", "grams": 160.14, "cost_per_gram": 1074.00, "current_price": 1028.68, "market_value": 164724, "pnl": -7269, "pnl_pct": -4.23, "sources": ["Au9999 2026-05-15凌晨"]},
+        {"code": "gold_zheshang", "name": "浙商积存金", "type": "积存金", "grams": 51.45, "cost_per_gram": 1125.61, "current_price": 1028.68, "market_value": 52925, "pnl": -4990, "pnl_pct": -8.61, "sources": ["Au9999 2026-05-15凌晨"]},
+        {"code": "518880", "name": "黄金ETF华安", "type": "ETF", "close": 9.795, "prev_close": 9.804, "change_pct": -0.09, "volume": 2968824, "amount": 0, "high": 9.802, "low": 9.761, "turnover": 0.77, "net_inflow": -4851, "近1月": -1.13, "近3月": 4.72, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "161226", "name": "国投白银LOF A", "type": "LOF", "close": 2.700, "prev_close": 2.748, "change_pct": -1.75, "volume": 1349254, "amount": 0, "high": 2.755, "low": 2.680, "turnover": 0.81, "net_inflow": 8130, "近1月": -2.96, "近3月": 4.32, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "601899", "name": "紫金矿业", "type": "A股", "close": 33.52, "prev_close": 34.49, "change_pct": -3.29, "volume": 276948100, "amount": 9403243412, "high": 34.76, "low": 33.50, "turnover": 1.34, "pe_pct_5y": 24.81, "近1月": -2.78, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "501018", "name": "博时黄金ETF联接C", "type": "基金", "nav": "数据未取到", "nav_date": null, "change_pct": null, "sources": ["接口未返回该基金"]},
+        {"code": "160221", "name": "国投瑞银白银期货LOF A", "type": "基金", "nav": "数据未取到", "nav_date": null, "change_pct": null, "sources": ["接口未返回该基金"]}
+      ]
+    },
+    "hk_broad": {
+      "label": "港股+宽基",
+      "color": "#8b5cf6",
+      "holdings": [
+        {"code": "513050", "name": "中概互联ETF", "type": "ETF", "close": 1.219, "prev_close": 1.207, "change_pct": 0.99, "volume": 32571244, "amount": 0, "high": 1.259, "low": 1.215, "turnover": 1.82, "net_inflow": -145942, "近1月": 0.34, "近3月": 4.72, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "513580", "name": "恒生科技ETF大成", "type": "ETF", "close": 0.644, "prev_close": 0.645, "change_pct": -0.15, "volume": 2408805, "amount": 0, "high": 0.665, "low": 0.640, "turnover": 1.31, "net_inflow": -252967, "近1月": -0.92, "近3月": 4.32, "近6月": -6.70, "近1年": -10.96, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "110020", "name": "易方达中证500ETF联接C", "type": "基金", "nav": "数据未取到", "nav_date": null, "change_pct": null, "sources": ["接口未返回该基金"]},
+        {"code": "510300", "name": "沪深300ETF华泰柏瑞", "type": "ETF", "close": 4.941, "prev_close": 5.017, "change_pct": -1.51, "volume": 10281646, "amount": 0, "high": 5.041, "low": 4.931, "turnover": 0.66, "net_inflow": 15989, "近1月": 0.34, "近3月": 4.72, "近6月": 5.62, "近1年": 27.94, "sources": ["NeoData apiData 2026-05-14"]}
+      ]
+    },
+    "cycle_balance": {
+      "label": "周期/平衡",
+      "color": "#64748b",
+      "holdings": [
+        {"code": "601600", "name": "中国铝业", "type": "A股", "close": 11.61, "prev_close": 11.88, "change_pct": -2.19, "volume": 258537100, "amount": 3069395156, "high": 12.19, "low": 11.61, "turnover": 1.96, "pe_pct_5y": 28.12, "近1月": 4.89, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "601985", "name": "中国核电", "type": "A股", "close": 9.04, "prev_close": 9.24, "change_pct": -2.16, "volume": 138566700, "amount": 1270678023, "high": 9.30, "low": 9.04, "turnover": 0.73, "pe_pct_5y": 90.57, "近1月": 2.81, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "163417", "name": "兴全合宜混合LOF A", "type": "基金", "nav": 2.2683, "nav_date": "2026-05-14", "change_pct": -0.75, "近1月": 1.74, "近3月": 9.18, "近6月": 9.69, "近1年": 49.51, "sources": ["NeoData apiData 2026-05-14"]}
+      ]
+    },
+    "game_nasdaq_etf": {
+      "label": "游戏/纳指场内",
+      "color": "#ec4899",
+      "holdings": [
+        {"code": "516010", "name": "游戏ETF国泰", "type": "ETF", "close": 1.271, "prev_close": 1.316, "change_pct": -3.42, "volume": 904606, "amount": 0, "high": 1.338, "low": 1.267, "turnover": 1.07, "net_inflow": 466, "近1月": -1.82, "近3月": 4.72, "sources": ["NeoData apiData 2026-05-14"]},
+        {"code": "159941", "name": "纳指ETF广发", "type": "ETF", "close": 1.577, "prev_close": 1.571, "change_pct": 0.38, "volume": 8824488, "amount": 0, "high": 1.589, "low": 1.568, "turnover": 0.97, "net_inflow": -18203, "近1月": -1.20, "近3月": 14.14, "sources": ["NeoData apiData 2026-05-14"]}
+      ]
+    },
+    "bond": {
+      "label": "债券固收",
+      "color": "#14b8a6",
+      "holdings": [
+        {"code": "004069", "name": "天弘中债3-5年政策性金融债指数", "type": "基金", "nav": "数据未取到", "nav_date": null, "change_pct": null, "sources": ["接口未返回该基金"]},
+        {"code": "000961", "name": "中加纯债债券", "type": "基金", "nav": "数据未取到", "nav_date": null, "change_pct": null, "sources": ["接口未返回该基金"]}
+      ]
+    }
+  },
+  "individual_stocks_monitor": {
+    "688008": {"name": "澜起科技", "close": 265.08, "prev_close": 280.00, "change_pct": -5.33, "volume": 107668865, "amount": 29317281285, "pe_pct_5y": 99.82, "sources": ["NeoData apiData 2026-05-14"]},
+    "603986": {"name": "兆易创新", "close": 356.19, "prev_close": 365.05, "change_pct": -2.41, "volume": 40836500, "amount": 14829461848, "pe_pct_5y": 99.99, "sources": ["NeoData apiData 2026-05-14"]},
+    "000021": {"name": "深科技", "close": 34.34, "prev_close": 34.80, "change_pct": -0.78, "volume": 181368000, "amount": 6362548986, "pe_pct_5y": 7.22, "sources": ["NeoData apiData 2026-05-14"]},
+    "600667": {"name": "太极实业", "close": 12.66, "prev_close": 13.26, "change_pct": -4.52, "volume": 300882200, "amount": 3915681664, "pe_pct_5y": 83.84, "sources": ["NeoData apiData 2026-05-14"]}
+  },
+  "news": {
+    "ai_semiconductor": [
+      {"date": "2026-05-14", "source": "腾讯自选股", "title": "A股光模块产业链深度: 800G放量40%,1.6T预估50-70%增速,国产化率90%", "summary": "光模块产业链800G占比40%,1.6T预估50-70%增速,国产替代加速,A股光模块概念2023年2月以来涨幅1200%", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN2026051411460194d8acfa&s=b"},
+      {"date": "2026-05-15", "source": "腾讯自选股", "title": "5月15日投资早参: 2026年一季度GDP数据及AI产业链景气度跟踪", "summary": "2026年一季度GDP及AI产业链景气度数据,关注AI半导体板块", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260515074616a705ee45&s=b"},
+      {"date": "2026-05-15", "source": "腾讯自选股", "title": "国家发改委: 扩大5G应用领域,加快6G研发部署", "summary": "发改委发文扩大5G应用、加快6G研发,推动通信产业链发展", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN2026051500014294da13ef&s=b"},
+      {"date": "2026-05-14", "source": "腾讯自选股", "title": "芯片行业周报: GPU供需反转、A股价量齐升、3nm/2nm制程进展", "summary": "28nm GPU供需反转,A股价量齐升,3nm/2nm制程进展,MCU部分料号缺货涨幅50%", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN2026051417580594d96d5f&s=b"}
+    ],
+    "overseas": [
+      {"date": "2026-05-13", "source": "腾讯自选股", "title": "知名投资人Dan Niles: 美股或重演97/98亚洲金融风暴+2000年互联网泡沫,AI泡沫2027年崩盘30-50%", "summary": "Dan Niles警告Agentic AI将使GPU:CPU从8:1转为1:1,2027年美股可能回调30-50%,当前capex增速30%,Q1超60%", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260513220954973c815c&s=b"},
+      {"date": "2026-05-14", "source": "腾讯自选股", "title": "A股5月14日复盘: 科技+1.52%,创业板2.14%,成交额3.39万亿7个月新高", "summary": "A股5月14日科技板块涨1.52%,创业板2.14%,成交额3.39万亿创7个月新高", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260514194847a7050a56&s=b"},
+      {"date": "2026-05-15", "source": "腾讯自选股", "title": "4月中国经济数据: 社零+5.1%,工业+6.1%,IPO重启后首家上会", "summary": "4月社零同比+5.1%,规模以上工业+6.1%,IPO重启后首家上会企业", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260515073049a705e897&s=b"}
+    ],
+    "gold_commodity": [
+      {"date": "2026-05-15", "source": "财联社", "title": "5月15日商品收盘: COMEX金-0.60%,银-1.62%,原油+0.81%,铜+1.5%", "summary": "COMEX黄金4657.1美元/盎司-0.60%,白银83.945-1.62%,WTI原油101.99+0.81%,LME铜13938.5+1.5%", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260515070556a4af21fc&s=b"},
+      {"date": "2026-05-13", "source": "央视财经", "title": "21家黄金股ROE排名: 紫金矿业居首,黄金ETF资金流入创新高", "summary": "21家黄金股ROE排名,紫金矿业居首,2025年黄金ETF创159亿净流入,2026年迄今303亿,同比+90%", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260513185546973c211c&s=b"},
+      {"date": "2026-05-01", "source": "央视财经", "title": "5月1日金价: CME6月降息概率98.8%,9月降息概率94.5%", "summary": "CME FedWatch: 6月降息概率98.8%,9月94.5%,50bp概率0.1%,ETF资金持续流入", "url": "https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN2026050114480697290564"}
+    ],
+    "nev": [
+      {"date": "2026-05-15", "source": "腾讯自选股", "title": "4月新能源车产销: 产量3097辆同比+1.86%,渗透率82.97%", "summary": "4月新能源车产量3097辆同比+1.86%,渗透率82.97%,1-4月累计+110%,出口同比+17.61%", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260515073730a4af2e60&s=b"},
+      {"date": "2026-05-15", "source": "腾讯自选股", "title": "21家新能源车企4月交付: 比亚迪48.3万辆,理想9.7万辆,小鹏9.6万辆", "summary": "4月比亚迪22.6万辆同比+25.4%,理想9.7万辆同比+26.1%,小鹏9.6万辆同比+14.1%", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260515070552973f99b9&s=b"},
+      {"date": "2026-05-14", "source": "腾讯自选股", "title": "DRAM价格暴涨: DDR4涨150%,DDR5涨300%,HBM涨价持续", "summary": "DDR4涨150%,DDR5涨300%,HBM持续涨价,存储产业链景气度提升", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260514220251a70549bc&s=b"}
+    ],
+    "hk_broad": [
+      {"date": "2026-05-07", "source": "证券时报", "title": "港股AI概念强势反弹3%,恒生科技ETF获资金流入", "summary": "港股AI概念强势反弹3%,恒生科技ETF获资金流入", "url": "数据未取到原文URL"},
+      {"date": "2026-05-14", "source": "腾讯自选股", "title": "A股5月14日复盘: 科技+1.52%,创业板2.14%,中概互联+0.99%", "summary": "A股5月14日科技板块涨1.52%,中概互联ETF+0.99%,北向资金流入", "url": "数据未取到原文URL"}
+    ],
+    "cycle_resource": [
+      {"date": "2026-05-15", "source": "财联社", "title": "LME金属全线上涨: 铜+1.5%,镍+1.5%,锡+2.5%,铝+0.1%", "summary": "LME铜13938.5+1.5%,镍18899+1.5%,锡54656+2.5%,铝3657.5+0.1%", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260515070556a4af21fc&s=b"},
+      {"date": "2026-05-15", "source": "财联社", "title": "COMEX黄金4651.98-0.8%,白银85.328-1.62%,金油比走阔", "summary": "COMEX黄金4651.98-0.8%,白银85.328-1.62%,金油比走阔,关注降息预期", "url": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260515070556a4af21fc&s=b"}
+    ],
+    "bond": [
+      {"date": "2026-05-12", "source": "财联社", "title": "5月12日债市: 10年国债收益率下行,流动性宽松", "summary": "5月12日10年国债收益率下行,央行维持流动性宽松", "url": "数据未取到原文URL"},
+      {"date": "2026-05-06", "source": "第一财经", "title": "央行: 10年国债收益率降至1.7%,创近年新低", "summary": "10年国债收益率降至1.7%,央行维持流动性宽松,债市走强", "url": "数据未取到原文URL"}
+    ]
+  },
+  "data_source_declaration": {
+    "行情数据": "NeoData Financial Search API (copilot.tencent.com)",
+    "新闻资讯": "NeoData docData接口 (来源: 腾讯自选股/财联社/央视财经/证券时报/第一财经)",
+    "基金净值": "T-1数据, 2026-05-14入库的为5月14日净值",
+    "黄金价格": "Au9999上海金交所/COMEX, 2026-05-15凌晨数据",
+    "免责声明": "本报告仅供信息汇总,不构成投资建议。数据来源NeoData接口实拉,失败字段标注'数据未取到'"
+  }
+}

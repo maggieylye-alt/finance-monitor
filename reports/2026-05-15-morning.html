@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>📊 早8:00 持仓 + 基本面简报 | 2026-05-15 周五</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#f7f8fa;color:#1f2937;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;padding-left:220px;line-height:1.6;font-size:14px;}
+a{color:#2563eb;text-decoration:none;}a:hover{text-decoration:underline;}
+.up{color:#dc2626;}.down{color:#16a34a;}.flat{color:#6b7280;}
+
+/* Side TOC */
+.side-toc{position:fixed;left:24px;top:24px;width:170px;z-index:100;}
+.side-toc .toc-title{font-size:13px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;padding-left:8px;}
+.side-toc a{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;font-size:13px;color:#374151;text-decoration:none;transition:background .15s;}
+.side-toc a:hover{background:#e5e7eb;text-decoration:none;}
+.side-toc a .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.side-toc a.active{background:#2563eb;color:#fff;}
+.side-toc a.active .dot{border:2px solid #fff;}
+
+/* Header */
+.header{background:linear-gradient(135deg,#1e3a5f 0%,#2563eb 100%);color:#fff;padding:28px 32px 20px;border-radius:0 0 16px 16px;margin-bottom:24px;}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px;}
+.header .sub{font-size:13px;opacity:.8;}
+.header .date-badge{display:inline-block;background:rgba(255,255,255,.15);border-radius:20px;padding:3px 14px;font-size:12px;margin-top:8px;}
+
+/* Dashboard */
+.dashboard{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:28px;padding:0 32px;}
+.kpi-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;grid-column:1/2;}
+.kpi-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px 20px;position:relative;overflow:hidden;}
+.kpi-card::after{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:#2563eb;}
+.kpi-card .label{font-size:12px;color:#6b7280;margin-bottom:6px;}
+.kpi-card .value{font-size:24px;font-weight:700;color:#1f2937;}
+.kpi-card .sub-val{font-size:12px;margin-top:4px;}
+
+/* Chart containers */
+.chart-box{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;}
+.chart-box h3{font-size:14px;font-weight:600;margin-bottom:14px;color:#374151;}
+
+/* Donut chart */
+.donut-wrap{display:flex;align-items:center;justify-content:center;gap:20px;}
+.donut-wrap svg{flex-shrink:0;}
+.donut-legend{font-size:12px;}
+.donut-legend .leg-item{display:flex;align-items:center;gap:6px;margin-bottom:4px;cursor:pointer;padding:2px 4px;border-radius:4px;transition:background .15s;}
+.donut-legend .leg-item:hover{background:#f3f4f6;}
+.donut-legend .leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+/* Sector popup */
+.sector-popup{display:none;position:fixed;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;box-shadow:0 8px 30px rgba(0,0,0,.12);z-index:200;min-width:200px;max-width:320px;}
+.sector-popup.show{display:block;}
+.sector-popup h4{font-size:14px;font-weight:600;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #e5e7eb;}
+.sector-popup .pop-item{font-size:13px;padding:3px 0;display:flex;justify-content:space-between;}
+.sector-popup .close-pop{position:absolute;top:8px;right:12px;cursor:pointer;font-size:18px;color:#9ca3af;line-height:1;}
+
+/* Divergence bar chart */
+.div-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px;}
+.div-bar-row .bar-label{width:80px;text-align:right;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.div-bar-track{flex:1;height:22px;background:#f1f5f9;border-radius:4px;position:relative;overflow:hidden;display:flex;}
+.div-bar-track .bar-fill{height:100%;border-radius:4px;transition:width .4s;display:flex;align-items:center;padding:0 6px;font-size:11px;font-weight:600;color:#fff;white-space:nowrap;}
+.div-bar-track .bar-center{position:absolute;left:50%;top:0;width:1px;height:100%;background:#94a3b8;}
+.div-bar-row .bar-val{width:52px;text-align:left;flex-shrink:0;font-weight:600;}
+
+/* Section */
+.section{margin-bottom:24px;padding:0 32px;}
+.sec-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;}
+.sec-header{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid #f1f5f9;cursor:default;}
+.sec-header .sec-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+.sec-header h2{font-size:16px;font-weight:600;flex:1;}
+.sec-header .sec-change{font-size:15px;font-weight:700;}
+.sec-body{padding:16px 20px;}
+
+/* Holdings table */
+.hold-table{width:100%;border-collapse:collapse;font-size:13px;}
+.hold-table th{text-align:left;padding:6px 8px;color:#6b7280;font-weight:500;border-bottom:1px solid #e5e7eb;font-size:12px;}
+.hold-table td{padding:8px;border-bottom:1px solid #f3f4f6;}
+.hold-table tr:last-child td{border-bottom:none;}
+.hold-table .name{font-weight:500;}
+.hold-table .chg{font-weight:600;}
+
+/* News */
+.news-bar{background:#fef3c7;border:1px solid #fde68a;border-radius:8px;padding:12px 16px;margin-top:14px;}
+.news-bar .news-title{font-size:12px;font-weight:700;color:#92400e;margin-bottom:8px;display:flex;align-items:center;gap:4px;}
+.news-item{font-size:12px;color:#78350f;padding:4px 0;line-height:1.5;border-bottom:1px dashed #fde68a;}
+.news-item:last-child{border-bottom:none;}
+.news-item .news-date{color:#a16207;font-weight:600;margin-right:4px;}
+.news-item a{color:#2563eb;}
+
+/* Watchlist */
+.watch-table{width:100%;border-collapse:collapse;font-size:13px;}
+.watch-table th{text-align:left;padding:6px 8px;color:#6b7280;font-weight:500;border-bottom:1px solid #e5e7eb;font-size:12px;}
+.watch-table td{padding:8px;border-bottom:1px solid #f3f4f6;}
+.watch-table tr:last-child td{border-bottom:none;}
+
+/* Gold trigger */
+.gold-trigger{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:14px 18px;margin-top:14px;display:flex;align-items:center;gap:12px;}
+.gold-trigger .gt-icon{font-size:24px;}
+.gold-trigger .gt-text{font-size:13px;}
+.gold-trigger .gt-val{font-weight:700;font-size:15px;}
+
+/* Source banner */
+.source-banner{background:#f0f4ff;border:1px solid #c7d2fe;border-radius:8px;padding:12px 20px;margin:20px 32px 32px;font-size:12px;color:#4338ca;text-align:center;}
+
+/* Progress bar */
+.progress-wrap{margin-top:8px;}
+.progress-track{height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:4px;transition:width .6s;}
+
+/* Responsive */
+@media(max-width:760px){
+  body{padding-left:0;}
+  .side-toc{position:static;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:12px;background:#fff;border-bottom:1px solid #e5e7eb;margin-bottom:12px;}
+  .side-toc .toc-title{grid-column:1/-1;}
+  .dashboard{grid-template-columns:1fr;padding:0 16px;}
+  .kpi-row{grid-template-columns:1fr 1fr;}
+  .section{padding:0 16px;}
+  .source-banner{margin:16px;}
+  .donut-wrap{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- Side TOC -->
+<nav class="side-toc" id="sideToc">
+  <div class="toc-title">板块导航</div>
+  <a href="#sec-ai" data-sec="sec-ai"><span class="dot" style="background:#3b82f6"></span>AI/半导体</a>
+  <a href="#sec-qdii" data-sec="sec-qdii"><span class="dot" style="background:#06b6d4"></span>海外QDII</a>
+  <a href="#sec-ev" data-sec="sec-ev"><span class="dot" style="background:#10b981"></span>新能源车</a>
+  <a href="#sec-gold" data-sec="sec-gold"><span class="dot" style="background:#f59e0b"></span>黄金商品</a>
+  <a href="#sec-hk" data-sec="sec-hk"><span class="dot" style="background:#8b5cf6"></span>港股+宽基</a>
+  <a href="#sec-cyclic" data-sec="sec-cyclic"><span class="dot" style="background:#64748b"></span>周期/平衡</a>
+  <a href="#sec-game" data-sec="sec-game"><span class="dot" style="background:#ec4899"></span>游戏/纳指</a>
+  <a href="#sec-bond" data-sec="sec-bond"><span class="dot" style="background:#14b8a6"></span>债券固收</a>
+  <a href="#sec-summary" data-sec="sec-summary"><span class="dot" style="background:#1f2937"></span>综合清单</a>
+</nav>
+
+<!-- Sector popup -->
+<div class="sector-popup" id="sectorPopup">
+  <span class="close-pop" onclick="closePopup()">&times;</span>
+  <h4 id="popTitle"></h4>
+  <div id="popBody"></div>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <h1>📊 早8:00 持仓 + 基本面简报</h1>
+  <div class="sub">基于NeoData接口实拉数据 · 不含操作建议</div>
+  <div class="date-badge">2026-05-15 周五 · 数据截至5月14日收盘</div>
+</div>
+
+<!-- Dashboard -->
+<div class="dashboard">
+  <!-- KPI Cards -->
+  <div class="kpi-row">
+    <div class="kpi-card" style="--accent:#2563eb">
+      <div class="label">总市值估算</div>
+      <div class="value">¥596,000</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">综合浮盈</div>
+      <div class="value up">+¥19,000</div>
+      <div class="sub-val up">+3.29%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">15%年化目标进度</div>
+      <div class="value" style="color:#2563eb">55%</div>
+      <div class="progress-wrap">
+        <div class="progress-track"><div class="progress-fill" style="width:55%;background:#2563eb"></div></div>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">当日综合变动</div>
+      <div class="value down">-0.8%</div>
+      <div class="sub-val">5月14日</div>
+    </div>
+  </div>
+
+  <!-- Donut Chart -->
+  <div class="chart-box">
+    <h3>板块市值分布</h3>
+    <div class="donut-wrap">
+      <svg id="donutSvg" width="200" height="200" viewBox="0 0 200 200"></svg>
+      <div class="donut-legend" id="donutLegend"></div>
+    </div>
+  </div>
+
+  <!-- Divergence Bar Chart -->
+  <div class="chart-box">
+    <h3>板块当日盈亏分歧</h3>
+    <div id="divBars"></div>
+  </div>
+</div>
+
+<!-- ========== SECTIONS ========== -->
+
+<!-- AI/半导体 -->
+<div class="section">
+<div class="sec-card">
+  <div class="sec-header" id="sec-ai" style="scroll-margin-top:20px">
+    <span class="sec-dot" style="background:#3b82f6"></span>
+    <h2>AI / 半导体</h2>
+    <span class="sec-change down">-2.5%</span>
+  </div>
+  <div class="sec-body">
+    <table class="hold-table">
+      <thead><tr><th>标的</th><th>当日涨跌</th></tr></thead>
+      <tbody>
+        <tr><td class="name">芯片ETF</td><td class="chg down">-2.64%</td></tr>
+        <tr><td class="name">科创50ETF</td><td class="chg down">-2.68%</td></tr>
+        <tr><td class="name">光模块</td><td class="chg down">-3.41%</td></tr>
+        <tr><td class="name">永赢半导体</td><td class="chg down">-2.42%</td></tr>
+      </tbody>
+    </table>
+    <div class="news-bar">
+      <div class="news-title">📰 基本面动态</div>
+      <div class="news-item"><span class="news-date">[5/14]</span>光模块产业链: 800G放量40%, 1.6T预估50-70%增速, 国产化率90% <a href="javascript:void(0)">来源:腾讯自选股</a></div>
+      <div class="news-item"><span class="news-date">[5/15]</span>投资早参: 2026Q1 GDP数据+AI产业链景气度跟踪 <a href="javascript:void(0)">来源:腾讯自选股</a></div>
+      <div class="news-item"><span class="news-date">[5/15]</span>发改委: 扩大5G应用, 加快6G研发部署 <a href="javascript:void(0)">来源:腾讯自选股</a></div>
+      <div class="news-item"><span class="news-date">[5/14]</span>芯片周报: 28nm GPU供需反转, MCU缺货涨价50% <a href="javascript:void(0)">来源:腾讯自选股</a></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 海外QDII -->
+<div class="section">
+<div class="sec-card">
+  <div class="sec-header" id="sec-qdii" style="scroll-margin-top:20px">
+    <span class="sec-dot" style="background:#06b6d4"></span>
+    <h2>海外 QDII</h2>
+    <span class="sec-change up">+1.5%</span>
+  </div>
+  <div class="sec-body">
+    <table class="hold-table">
+      <thead><tr><th>标的</th><th>当日涨跌</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td class="name">纳指100</td><td class="chg up">+1.04%</td><td style="color:#6b7280;font-size:12px">T-1数据</td></tr>
+        <tr><td class="name">标普500</td><td class="chg up">+1.00%</td><td style="color:#6b7280;font-size:12px">T-1数据</td></tr>
+        <tr><td class="name">全球互联</td><td class="chg up">+6.09%</td><td style="color:#6b7280;font-size:12px">T-1数据</td></tr>
+      </tbody>
+    </table>
+    <div class="news-bar">
+      <div class="news-title">📰 基本面动态</div>
+      <div class="news-item"><span class="news-date">[5/13]</span>Dan Niles: 美股或重演97/98+2000泡沫, 2027年AI泡沫崩盘30-50% <a href="javascript:void(0)">来源:腾讯自选股</a></div>
+      <div class="news-item"><span class="news-date">[5/14]</span>A股复盘: 科技+1.52%, 创业板2.14%, 成交额3.39万亿7个月新高 <a href="javascript:void(0)">来源:腾讯自选股</a></div>
+      <div class="news-item"><span class="news-date">[5/15]</span>4月经济: 社零+5.1%, 工业+6.1%, IPO重启 <a href="javascript:void(0)">来源:腾讯自选股</a></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 新能源车 -->
+<div class="section">
+<div class="sec-card">
+  <div class="sec-header" id="sec-ev" style="scroll-margin-top:20px">
+    <span class="sec-dot" style="background:#10b981"></span>
+    <h2>新能源车</h2>
+    <span class="sec-change down">-2.5%</span>
+  </div>
+  <div class="sec-body">
+    <table class="hold-table">
+      <thead><tr><th>标的</th><th>当日涨跌</th></tr></thead>
+      <tbody>
+        <tr><td class="name">比亚迪</td><td class="chg up">+0.13%</td></tr>
+        <tr><td class="name">新能源LOF</td><td class="chg down">-2.96% ~ -3.62%</td></tr>
+      </tbody>
+    </table>
+    <div class="news-bar">
+      <div class="news-title">📰 基本面动态</div>
+      <div class="news-item"><span class="news-date">[5/15]</span>4月新能源车产销: 渗透率82.97%, 1-4月累计+110% <a href="javascript:void(0)">来源:腾讯自选股</a></div>
+      <div class="news-item"><span class="news-date">[5/15]</span>4月车企交付: 比亚迪48.3万辆+25.4%, 理想9.7万+26.1% <a href="javascript:void(0)">来源:腾讯自选股</a></div>
+      <div class="news-item"><span class="news-date">[5/14]</span>DRAM暴涨: DDR4+150%, DDR5+300%, HBM持续涨价 <a href="javascript:void(0)">来源:腾讯自选股</a></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 黄金商品 -->
+<div class="section">
+<div class="sec-card">
+  <div class="sec-header" id="sec-gold" style="scroll-margin-top:20px">
+    <span class="sec-dot" style="background:#f59e0b"></span>
+    <h2>黄金商品</h2>
+    <span class="sec-change down">-1.5%</span>
+  </div>
+  <div class="sec-body">
+    <table class="hold-table">
+      <thead><tr><th>标的</th><th>当日涨跌</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Au9999</td><td class="chg down">-0.45%</td><td style="font-size:12px;color:#6b7280">¥1028.68</td></tr>
+        <tr><td class="name">黄金ETF</td><td class="chg down">-0.09%</td><td></td></tr>
+        <tr><td class="name">紫金矿业</td><td class="chg down">-3.29%</td><td></td></tr>
+        <tr><td class="name">白银LOF</td><td class="chg down">-1.75%</td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="gold-trigger">
+      <span class="gt-icon">🥇</span>
+      <div class="gt-text">
+        黄金触发线：Au9999 <span class="gt-val down">¥1028.68</span>，远低于成本 ¥1086.55，<b>不触发减仓线(¥1086)</b>
+      </div>
+    </div>
+    <div class="news-bar">
+      <div class="news-title">📰 基本面动态</div>
+      <div class="news-item"><span class="news-date">[5/15]</span>商品收盘: COMEX金-0.60% $4657, 银-1.62%, 原油+0.81% $101.99 <a href="javascript:void(0)">来源:财联社</a></div>
+      <div class="news-item"><span class="news-date">[5/13]</span>21家黄金股ROE: 紫金矿业居首, 黄金ETF净流入创303亿 <a href="javascript:void(0)">来源:央视财经</a></div>
+      <div class="news-item"><span class="news-date">[5/01]</span>CME: 6月降息概率98.8%, 9月94.5% <a href="javascript:void(0)">来源:央视财经</a></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 港股+宽基 -->
+<div class="section">
+<div class="sec-card">
+  <div class="sec-header" id="sec-hk" style="scroll-margin-top:20px">
+    <span class="sec-dot" style="background:#8b5cf6"></span>
+    <h2>港股 + 宽基</h2>
+    <span class="sec-change down">-0.5%</span>
+  </div>
+  <div class="sec-body">
+    <table class="hold-table">
+      <thead><tr><th>标的</th><th>当日涨跌</th></tr></thead>
+      <tbody>
+        <tr><td class="name">中概互联</td><td class="chg up">+0.99%</td></tr>
+        <tr><td class="name">恒生科技ETF</td><td class="chg down">-0.15%</td></tr>
+        <tr><td class="name">沪深300ETF</td><td class="chg down">-1.51%</td></tr>
+      </tbody>
+    </table>
+    <div class="news-bar">
+      <div class="news-title">📰 基本面动态</div>
+      <div class="news-item"><span class="news-date">[5/07]</span>港股AI概念强势反弹3%, 恒生科技ETF获资金流入 <a href="javascript:void(0)">来源:证券时报</a></div>
+      <div class="news-item"><span class="news-date">[5/14]</span>A股复盘: 科技+1.52%, 中概互联+0.99% <a href="javascript:void(0)">来源:腾讯自选股</a></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 周期/平衡 -->
+<div class="section">
+<div class="sec-card">
+  <div class="sec-header" id="sec-cyclic" style="scroll-margin-top:20px">
+    <span class="sec-dot" style="background:#64748b"></span>
+    <h2>周期 / 平衡</h2>
+    <span class="sec-change down">-1.8%</span>
+  </div>
+  <div class="sec-body">
+    <table class="hold-table">
+      <thead><tr><th>标的</th><th>当日涨跌</th></tr></thead>
+      <tbody>
+        <tr><td class="name">中国铝业</td><td class="chg down">-2.19%</td></tr>
+        <tr><td class="name">中国核电</td><td class="chg down">-2.16%</td></tr>
+        <tr><td class="name">兴全合宜</td><td class="chg down">-0.75%</td></tr>
+      </tbody>
+    </table>
+    <div class="news-bar">
+      <div class="news-title">📰 基本面动态</div>
+      <div class="news-item"><span class="news-date">[5/15]</span>LME金属全线涨: 铜+1.5%, 镍+1.5%, 锡+2.5% <a href="javascript:void(0)">来源:财联社</a></div>
+      <div class="news-item"><span class="news-date">[5/15]</span>COMEX黄金-0.8%, 白银-1.62%, 金油比走阔 <a href="javascript:void(0)">来源:财联社</a></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 游戏/纳指场内 -->
+<div class="section">
+<div class="sec-card">
+  <div class="sec-header" id="sec-game" style="scroll-margin-top:20px">
+    <span class="sec-dot" style="background:#ec4899"></span>
+    <h2>游戏 / 纳指场内</h2>
+    <span class="sec-change down">-1.5%</span>
+  </div>
+  <div class="sec-body">
+    <table class="hold-table">
+      <thead><tr><th>标的</th><th>当日涨跌</th></tr></thead>
+      <tbody>
+        <tr><td class="name">游戏ETF</td><td class="chg down">-3.42%</td></tr>
+        <tr><td class="name">纳指ETF</td><td class="chg up">+0.38%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<!-- 债券固收 -->
+<div class="section">
+<div class="sec-card">
+  <div class="sec-header" id="sec-bond" style="scroll-margin-top:20px">
+    <span class="sec-dot" style="background:#14b8a6"></span>
+    <h2>债券固收</h2>
+    <span class="sec-change flat">≈0%</span>
+  </div>
+  <div class="sec-body">
+    <table class="hold-table">
+      <thead><tr><th>标的</th><th>当日涨跌</th></tr></thead>
+      <tbody>
+        <tr><td class="name" style="color:#6b7280">—</td><td style="color:#6b7280">数据未取到</td></tr>
+      </tbody>
+    </table>
+    <div class="news-bar">
+      <div class="news-title">📰 基本面动态</div>
+      <div class="news-item"><span class="news-date">[5/12]</span>10年国债收益率下行, 流动性宽松 <a href="javascript:void(0)">来源:财联社</a></div>
+      <div class="news-item"><span class="news-date">[5/06]</span>10年国债收益率降至1.7%创近年新低 <a href="javascript:void(0)">来源:第一财经</a></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 综合清单 -->
+<div class="section">
+<div class="sec-card">
+  <div class="sec-header" id="sec-summary" style="scroll-margin-top:20px">
+    <span class="sec-dot" style="background:#1f2937"></span>
+    <h2>综合清单</h2>
+  </div>
+  <div class="sec-body">
+    <h3 style="font-size:14px;margin-bottom:10px;color:#374151;">个股监控</h3>
+    <table class="watch-table">
+      <thead><tr><th>股票</th><th>当日涨跌</th><th>所属板块</th></tr></thead>
+      <tbody>
+        <tr><td class="name">澜起科技</td><td class="chg down">-5.33%</td><td style="color:#6b7280;font-size:12px">AI/半导体</td></tr>
+        <tr><td class="name">兆易创新</td><td class="chg down">-2.41%</td><td style="color:#6b7280;font-size:12px">AI/半导体</td></tr>
+        <tr><td class="name">深科技</td><td class="chg down">-0.78%</td><td style="color:#6b7280;font-size:12px">AI/半导体</td></tr>
+        <tr><td class="name">太极实业</td><td class="chg down">-4.52%</td><td style="color:#6b7280;font-size:12px">AI/半导体</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;margin:16px 0 10px;color:#374151;">板块当日涨跌一览</h3>
+    <table class="watch-table">
+      <thead><tr><th>板块</th><th>当日变动</th></tr></thead>
+      <tbody>
+        <tr><td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3b82f6;margin-right:6px;vertical-align:middle"></span>AI/半导体</td><td class="chg down">-2.5%</td></tr>
+        <tr><td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#06b6d4;margin-right:6px;vertical-align:middle"></span>海外QDII</td><td class="chg up">+1.5%</td></tr>
+        <tr><td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;margin-right:6px;vertical-align:middle"></span>新能源车</td><td class="chg down">-2.5%</td></tr>
+        <tr><td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#f59e0b;margin-right:6px;vertical-align:middle"></span>黄金商品</td><td class="chg down">-1.5%</td></tr>
+        <tr><td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#8b5cf6;margin-right:6px;vertical-align:middle"></span>港股+宽基</td><td class="chg down">-0.5%</td></tr>
+        <tr><td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#64748b;margin-right:6px;vertical-align:middle"></span>周期/平衡</td><td class="chg down">-1.8%</td></tr>
+        <tr><td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#ec4899;margin-right:6px;vertical-align:middle"></span>游戏/纳指</td><td class="chg down">-1.5%</td></tr>
+        <tr><td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#14b8a6;margin-right:6px;vertical-align:middle"></span>债券固收</td><td class="chg flat">≈0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<!-- Source banner -->
+<div class="source-banner">
+  数据来源：NeoData金融接口 · 腾讯自选股 · 财联社 · 央视财经 · 证券时报 · 第一财经 &nbsp;|&nbsp; 数据截至2026-05-14收盘 &nbsp;|&nbsp; 本简报仅供参考，不构成任何投资建议
+</div>
+
+<script>
+// ====== DATA ======
+const sectors = [
+  {id:'ai',name:'AI/半导体',color:'#3b82f6',pct:28,chg:-2.5,
+   items:[{n:'芯片ETF',c:-2.64},{n:'科创50ETF',c:-2.68},{n:'光模块',c:-3.41},{n:'永赢半导体',c:-2.42}]},
+  {id:'qdii',name:'海外QDII',color:'#06b6d4',pct:18,chg:1.5,
+   items:[{n:'纳指100',c:1.04},{n:'标普500',c:1.00},{n:'全球互联',c:6.09}]},
+  {id:'ev',name:'新能源车',color:'#10b981',pct:10,chg:-2.5,
+   items:[{n:'比亚迪',c:0.13},{n:'新能源LOF',c:-3.3}]},
+  {id:'gold',name:'黄金商品',color:'#f59e0b',pct:15,chg:-1.5,
+   items:[{n:'Au9999',c:-0.45},{n:'黄金ETF',c:-0.09},{n:'紫金矿业',c:-3.29},{n:'白银LOF',c:-1.75}]},
+  {id:'hk',name:'港股+宽基',color:'#8b5cf6',pct:12,chg:-0.5,
+   items:[{n:'中概互联',c:0.99},{n:'恒生科技ETF',c:-0.15},{n:'沪深300ETF',c:-1.51}]},
+  {id:'cyclic',name:'周期/平衡',color:'#64748b',pct:7,chg:-1.8,
+   items:[{n:'中国铝业',c:-2.19},{n:'中国核电',c:-2.16},{n:'兴全合宜',c:-0.75}]},
+  {id:'game',name:'游戏/纳指',color:'#ec4899',pct:5,chg:-1.5,
+   items:[{n:'游戏ETF',c:-3.42},{n:'纳指ETF',c:0.38}]},
+  {id:'bond',name:'债券固收',color:'#14b8a6',pct:5,chg:0,
+   items:[{n:'(数据暂缺)',c:0}]}
+];
+
+// ====== DONUT CHART ======
+(function(){
+  const svg = document.getElementById('donutSvg');
+  const legend = document.getElementById('donutLegend');
+  const cx=100,cy=100,r=70,circum=2*Math.PI*r;
+  const gap=4; // degrees gap between segments
+  const totalGap = gap * sectors.length;
+  const availDeg = 360 - totalGap;
+  let offset = 0;
+
+  sectors.forEach((s,i) => {
+    const deg = (s.pct / 100) * availDeg;
+    const dashLen = (deg / 360) * circum;
+    const dashGap = circum - dashLen;
+    const rotateOffset = offset + gap/2;
+    const circle = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circle.setAttribute('cx',cx);
+    circle.setAttribute('cy',cy);
+    circle.setAttribute('r',r);
+    circle.setAttribute('fill','none');
+    circle.setAttribute('stroke',s.color);
+    circle.setAttribute('stroke-width',22);
+    circle.setAttribute('stroke-dasharray',`${dashLen} ${dashGap}`);
+    circle.setAttribute('stroke-dashoffset',-((rotateOffset/360)*circum));
+    circle.setAttribute('transform',`rotate(-90 ${cx} ${cy})`);
+    circle.style.cursor='pointer';
+    circle.style.transition='stroke-width .2s, opacity .2s';
+    circle.addEventListener('mouseenter',()=>{circle.setAttribute('stroke-width',28);circle.style.opacity='0.85';});
+    circle.addEventListener('mouseleave',()=>{circle.setAttribute('stroke-width',22);circle.style.opacity='1';});
+    circle.addEventListener('click',(e)=>{showPopup(s,e);});
+    svg.appendChild(circle);
+    offset += deg + gap;
+  });
+
+  // center text
+  const t1 = document.createElementNS('http://www.w3.org/2000/svg','text');
+  t1.setAttribute('x',cx);t1.setAttribute('y',cy-6);t1.setAttribute('text-anchor','middle');
+  t1.setAttribute('font-size','14');t1.setAttribute('font-weight','700');t1.setAttribute('fill','#1f2937');
+  t1.textContent='¥596K';
+  svg.appendChild(t1);
+  const t2 = document.createElementNS('http://www.w3.org/2000/svg','text');
+  t2.setAttribute('x',cx);t2.setAttribute('y',cy+12);t2.setAttribute('text-anchor','middle');
+  t2.setAttribute('font-size','10');t2.setAttribute('fill','#6b7280');
+  t2.textContent='总市值';
+  svg.appendChild(t2);
+
+  // legend
+  sectors.forEach(s=>{
+    const d = document.createElement('div');
+    d.className='leg-item';
+    d.innerHTML=`<span class="leg-dot" style="background:${s.color}"></span><span>${s.name} ${s.pct}%</span>`;
+    d.addEventListener('click',(e)=>showPopup(s,e));
+    legend.appendChild(d);
+  });
+})();
+
+// ====== POPUP ======
+function showPopup(s,e){
+  const pop = document.getElementById('sectorPopup');
+  document.getElementById('popTitle').textContent=s.name;
+  document.getElementById('popTitle').style.borderLeft=`4px solid ${s.color}`;
+  let html='';
+  s.items.forEach(it=>{
+    const cls = it.c>0?'up':it.c<0?'down':'flat';
+    const sign = it.c>0?'+':'';
+    html+=`<div class="pop-item"><span>${it.n}</span><span class="${cls}">${sign}${it.c.toFixed(2)}%</span></div>`;
+  });
+  document.getElementById('popBody').innerHTML=html;
+  pop.style.left = Math.min(e.clientX+10, window.innerWidth-340)+'px';
+  pop.style.top = Math.min(e.clientY+10, window.innerHeight-200)+'px';
+  pop.classList.add('show');
+}
+function closePopup(){document.getElementById('sectorPopup').classList.remove('show');}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.sector-popup')&&!e.target.closest('#donutSvg')&&!e.target.closest('.donut-legend')){
+    closePopup();
+  }
+});
+
+// ====== DIVERGENCE BAR ======
+(function(){
+  const container = document.getElementById('divBars');
+  const maxAbs = 3;
+  sectors.forEach(s=>{
+    const row = document.createElement('div');
+    row.className='div-bar-row';
+    const isUp = s.chg >= 0;
+    const pct = Math.min(Math.abs(s.chg)/maxAbs*50, 48);
+    const cls = isUp?'up':'down';
+    const sign = isUp?'+':'';
+    const fillColor = isUp?'#dc2626':'#16a34a';
+    row.innerHTML=`
+      <span class="bar-label">${s.name}</span>
+      <div class="div-bar-track">
+        <div class="bar-center"></div>
+        ${isUp
+          ?`<div class="bar-fill" style="margin-left:50%;width:${pct}%;background:${fillColor}"></div>`
+          :`<div class="bar-fill" style="margin-left:${50-pct}%;width:${pct}%;background:${fillColor}"></div>`
+        }
+      </div>
+      <span class="bar-val ${cls}">${sign}${s.chg.toFixed(1)}%</span>
+    `;
+    container.appendChild(row);
+  });
+})();
+
+// ====== TOC ACTIVE STATE ======
+(function(){
+  const links = document.querySelectorAll('.side-toc a[data-sec]');
+  const sections = [];
+  links.forEach(a=>{
+    const sec = document.getElementById(a.dataset.sec);
+    if(sec) sections.push({el:sec,link:a});
+  });
+  function onScroll(){
+    let current = sections[0];
+    sections.forEach(s=>{
+      if(window.scrollY >= s.el.offsetTop - 60) current = s;
+    });
+    links.forEach(l=>l.classList.remove('active'));
+    if(current) current.link.classList.add('active');
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+
+// ====== SMOOTH SCROLL ======
+document.querySelectorAll('.side-toc a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+</body>
+</html>
