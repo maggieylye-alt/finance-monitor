@@ -1,0 +1,276 @@
+{
+  "date": "2026-05-15",
+  "generated": "2026-05-16T14:30:00+08:00",
+  "type": "action-pm",
+  "indices": {
+    "上证指数": {
+      "close": 3358.47,
+      "chg": -1.02
+    },
+    "深证成指": {
+      "close": 10258.21,
+      "chg": -1.17
+    },
+    "沪深300": {
+      "close": 4859.59,
+      "chg": -1.12
+    },
+    "创业板指": {
+      "close": 3929.06,
+      "chg": -0.56
+    },
+    "科创50": {
+      "close": 1696.26,
+      "chg": -1.67
+    },
+    "恒生科技": {
+      "close": 5069.46,
+      "chg": -2.66
+    },
+    "纳指100": {
+      "close": 29125.2,
+      "chg": -1.54
+    }
+  },
+  "holdings": [
+    {
+      "code": "002594",
+      "name": "比亚迪",
+      "price": 96.3,
+      "prev_close": 98.73,
+      "change_pct": -2.46,
+      "shares": 200,
+      "cost": 99.261,
+      "market_value": 19260.0,
+      "pnl": -592.2,
+      "daily_pnl": -486.0,
+      "sector": "nev"
+    },
+    {
+      "code": "513580",
+      "name": "恒生科技ETF大成",
+      "price": 0.627,
+      "prev_close": 0.644,
+      "change_pct": -2.64,
+      "shares": 32500,
+      "cost": 0.773,
+      "market_value": 20377.5,
+      "pnl": -4745.0,
+      "daily_pnl": -552.5,
+      "sector": "hk"
+    },
+    {
+      "code": "159941",
+      "name": "纳指ETF广发",
+      "price": 1.564,
+      "prev_close": 1.577,
+      "change_pct": -0.82,
+      "shares": 3000,
+      "cost": 1.343,
+      "market_value": 4692.0,
+      "pnl": 663.0,
+      "daily_pnl": -39.0,
+      "sector": "overseas"
+    },
+    {
+      "code": "159995",
+      "name": "芯片ETF华夏",
+      "price": 2.315,
+      "prev_close": 2.321,
+      "change_pct": -0.26,
+      "shares": 4400,
+      "cost": 1.694,
+      "market_value": 10186.0,
+      "pnl": 2732.4,
+      "daily_pnl": -26.4,
+      "sector": "ai"
+    },
+    {
+      "code": "161226",
+      "name": "国投白银LOF",
+      "price": 2.598,
+      "prev_close": 2.7,
+      "change_pct": -3.78,
+      "shares": 794,
+      "cost": 4.829,
+      "market_value": 2062.81,
+      "pnl": -1771.41,
+      "daily_pnl": -80.99,
+      "sector": "gold"
+    },
+    {
+      "code": "510300",
+      "name": "沪深300ETF华泰柏瑞",
+      "price": 4.878,
+      "prev_close": 4.941,
+      "change_pct": -1.28,
+      "shares": 300,
+      "cost": 3.722,
+      "market_value": 1463.4,
+      "pnl": 346.8,
+      "daily_pnl": -18.9,
+      "sector": "hk"
+    },
+    {
+      "code": "513050",
+      "name": "中概互联ETF",
+      "price": 1.19,
+      "prev_close": 1.219,
+      "change_pct": -2.38,
+      "shares": 5600,
+      "cost": 1.572,
+      "market_value": 6664.0,
+      "pnl": -2139.2,
+      "daily_pnl": -162.4,
+      "sector": "hk"
+    },
+    {
+      "code": "516010",
+      "name": "游戏ETF国泰",
+      "price": 1.268,
+      "prev_close": 1.271,
+      "change_pct": -0.24,
+      "shares": 18000,
+      "cost": 1.642,
+      "market_value": 22824.0,
+      "pnl": -6732.0,
+      "daily_pnl": -54.0,
+      "sector": "game"
+    },
+    {
+      "code": "518880",
+      "name": "黄金ETF华安",
+      "price": 9.554,
+      "prev_close": 9.795,
+      "change_pct": -2.46,
+      "shares": 1100,
+      "cost": 9.095,
+      "market_value": 10509.4,
+      "pnl": 504.9,
+      "daily_pnl": -265.1,
+      "sector": "gold"
+    },
+    {
+      "code": "588000",
+      "name": "科创50ETF华夏",
+      "price": 1.787,
+      "prev_close": 1.815,
+      "change_pct": -1.54,
+      "shares": 3100,
+      "cost": 1.48,
+      "market_value": 5539.7,
+      "pnl": 951.7,
+      "daily_pnl": -86.8,
+      "sector": "ai"
+    },
+    {
+      "code": "601600",
+      "name": "中国铝业",
+      "price": 10.93,
+      "prev_close": 11.61,
+      "change_pct": -5.86,
+      "shares": 400,
+      "cost": 15.023,
+      "market_value": 4372.0,
+      "pnl": -1637.2,
+      "daily_pnl": -272.0,
+      "sector": "cycle"
+    },
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "price": 31.84,
+      "prev_close": 33.52,
+      "change_pct": -5.01,
+      "shares": 400,
+      "cost": 33.379,
+      "market_value": 12736.0,
+      "pnl": -615.6,
+      "daily_pnl": -672.0,
+      "sector": "cycle"
+    },
+    {
+      "code": "601985",
+      "name": "中国核电",
+      "price": 9.14,
+      "prev_close": 9.04,
+      "change_pct": 1.11,
+      "shares": 500,
+      "cost": 8.55,
+      "market_value": 4570.0,
+      "pnl": 295.0,
+      "daily_pnl": 50.0,
+      "sector": "bond"
+    }
+  ],
+  "gold": {
+    "Au9999": 1003.7,
+    "COMEX": 4538.69,
+    "COMEX_chg": -2.39
+  },
+  "trigger_status": {
+    "Au9999": {
+      "current": 1003.7,
+      "sell_lines": [
+        1086,
+        1140,
+        1200
+      ],
+      "buy_lines": [
+        980,
+        940
+      ],
+      "status": "距980补仓线仅2.4%, 暂未触发"
+    },
+    "159995": {
+      "current": 2.315,
+      "sell_target": 2.1,
+      "buy_lines": [
+        2.1,
+        1.95,
+        1.8
+      ],
+      "status": "远高于买入触发线, 持有"
+    }
+  },
+  "actions": [
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "action": "减仓",
+      "detail": "减2手(200股), 回笼约¥6,368"
+    },
+    {
+      "code": "601600",
+      "name": "中国铝业",
+      "action": "减仓",
+      "detail": "减2手(200股), 回笼约¥2,186"
+    },
+    {
+      "code": "Au9999",
+      "name": "黄金积存金",
+      "action": "观望",
+      "detail": "距980补仓线2.4%, 暂未触发"
+    },
+    {
+      "code": "159995",
+      "name": "芯片ETF华夏",
+      "action": "持有",
+      "detail": "浮盈+36.7%, 动量健康"
+    },
+    {
+      "code": "513050",
+      "name": "中概互联ETF",
+      "action": "观望",
+      "detail": "浮亏-24.3%, 等港股企稳"
+    }
+  ],
+  "sources": [
+    "NeoData API (2026-05-15 close)",
+    "搜狐财经 sohu.com (2026-05-15)",
+    "东方财富 eastmoney.com (2026-05-15)",
+    "新浪财经 sina.cn (2026-05-15)",
+    "腾讯新闻 qq.com (2026-05-15)",
+    "金投网 cngold.org (2026-05-16)"
+  ]
+}
