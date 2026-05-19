@@ -34,8 +34,8 @@
       "unreported_funds": ["全部34只基金(含QDII)"],
       "unreported_pnl": 0,
       "note": "基金T日净值neodata接口未更新(最新仍5/13),暂不计入; A股数据WebSearch交叉验证"
-    }
-    ,{
+    },
+    {
       "date": "2026-05-15",
       "total_value": 543000,
       "daily_pnl": -7639,
@@ -45,6 +45,17 @@
       "unreported_funds": ["000834","017145","002230","050025","000043","270042","501018","018043","070012","501312","501309","002937","001984"],
       "unreported_pnl": 0,
       "note": "QDII基金13只5/15净值未披露(接口最新5/14),暂不计入; 黄金Au9999收盘1006.01(-2.20%); 上证-1.02%科创50-1.67%"
+    },
+    {
+      "date": "2026-05-19",
+      "total_value": 557000,
+      "daily_pnl": 1291,
+      "fund_pnl": 0,
+      "ashare_pnl": 1649,
+      "gold_pnl": -358,
+      "unreported_funds": ["全部34只基金(neodata T日5/19未更新,最新5/18)"],
+      "unreported_pnl": 0,
+      "note": "基金5/19 NAV neodata未披露(最新5/18),全部标注未披露等待; A股westock-data kline实拉; Au9999 5/19收998.00(-0.17%)"
     }
   ]
 }
