@@ -1,0 +1,57 @@
+{
+  "date": "2026-05-19",
+  "time": "14:30",
+  "type": "pm-snapshot",
+  "indices": {
+    "上证指数": {"price": 4160.39, "change_pct": 0.70},
+    "沪深300": {"price": 4838.65, "change_pct": 0.11},
+    "创业板": {"price": 3897.18, "change_pct": -0.45},
+    "科创50": {"price": 1765.99, "change_pct": 3.28},
+    "恒生指数": {"price": 25785.46, "change_pct": 0.43}
+  },
+  "gold": {
+    "Au9999": 997.80,
+    "Au9999_change_pct": -0.19,
+    "COMEX": 4549.60,
+    "COMEX_change_pct": -0.18
+  },
+  "holdings": {
+    "比亚迪002594": {"price": 95.73, "change_pct": 1.29, "cost": 99.261, "shares": 200, "pnl_pct": -3.55},
+    "恒生科技ETF513580": {"price": 0.617, "change_pct": 0.33, "cost": 0.773, "shares": 32500, "pnl_pct": -20.18},
+    "纳指ETF159941": {"price": 1.517, "change_pct": -0.46, "cost": 1.343, "shares": 3000, "pnl_pct": 12.96},
+    "芯片ETF159995": {"price": 2.416, "change_pct": 3.07, "cost": 1.694, "shares": 4400, "pnl_pct": 42.62},
+    "白银LOF161226": {"price": 2.476, "change_pct": -1.67, "cost": 4.829, "shares": 794, "pnl_pct": -48.74},
+    "沪深300ETF510300": {"price": 4.854, "change_pct": 0.04, "cost": 3.722, "shares": 300, "pnl_pct": 30.41},
+    "中概互联ETF513050": {"price": 1.195, "change_pct": 1.36, "cost": 1.572, "shares": 5600, "pnl_pct": -24.01},
+    "游戏ETF516010": {"price": 1.261, "change_pct": 1.53, "cost": 1.642, "shares": 18000, "pnl_pct": -23.17},
+    "黄金ETF518880": {"price": 9.51, "change_pct": -0.03, "cost": 9.095, "shares": 1100, "pnl_pct": 4.56},
+    "科创50ETF588000": {"price": 1.859, "change_pct": 3.11, "cost": 1.480, "shares": 3100, "pnl_pct": 25.61},
+    "中国铝业601600": {"price": 10.65, "change_pct": 1.24, "cost": 15.023, "shares": 400, "pnl_pct": -29.11},
+    "紫金矿业601899": {"price": 30.99, "change_pct": -0.99, "cost": 33.379, "shares": 400, "pnl_pct": -7.16},
+    "中国核电601985": {"price": 9.21, "change_pct": 1.77, "cost": 8.550, "shares": 500, "pnl_pct": 7.72}
+  },
+  "fund_flows": {
+    "比亚迪002594": {"main_net": 69930316, "main_5d": -2749277268},
+    "紫金矿业601899": {"main_net": -454163449, "main_5d": -4219860168},
+    "中国铝业601600": {"main_net": -85631730, "main_5d": -809928700},
+    "中国核电601985": {"main_net": 156622624, "main_5d": 102121390},
+    "芯片ETF159995": {"main_net": 92466233, "main_5d": 225480146},
+    "黄金ETF518880": {"main_net": -124656649, "main_5d": -432129945},
+    "中概互联ETF513050": {"main_net": 125195692, "main_5d": -542293952},
+    "恒生科技ETF513580": {"main_net": -1509914, "main_5d": -17533381},
+    "纳指ETF159941": {"main_net": 79251515, "main_5d": -427988662},
+    "游戏ETF516010": {"main_net": 5618542, "main_5d": -37189843},
+    "沪深300ETF510300": {"main_net": 61441322, "main_5d": 1040282288},
+    "科创50ETF588000": {"main_net": 419342002, "main_5d": 779884152},
+    "白银LOF161226": {"main_net": -38872413, "main_5d": -160983060}
+  },
+  "news_highlights": [
+    {"time": "2026-05-19 14:14", "title": "半导体板块午后震荡走强 芯原股份涨超10%", "source": "每经AI"},
+    {"time": "2026-05-19 13:24", "title": "A股超2900只个股飘绿 沪指收涨 电力半导体上涨", "source": "中新网"},
+    {"time": "2026-05-19 12:02", "title": "AI方向持续走强 半导体设备概念大涨", "source": "腾讯财经"},
+    {"time": "2026-05-19 10:28", "title": "黄金破位白银暴跌 美国通胀超预期强化加息预期", "source": "证券时报"},
+    {"time": "2026-05-19 09:54", "title": "中概互联网ETF涨1.34% 腾讯AI大模型即将商用", "source": "金融界"},
+    {"time": "2026-05-19 07:51", "title": "A股港股汽车板块18日集体重挫 理想暴跌超14%", "source": "新浪财经"}
+  ],
+  "data_sources": ["westock-data(腾讯自选股)", "neodata-financial-search", "WebSearch(中新网/证券时报/金融界/雪球/新浪财经)"]
+}
