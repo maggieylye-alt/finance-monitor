@@ -1,0 +1,57 @@
+{
+  "date": "2026-05-20",
+  "time": "14:30",
+  "type": "pm-snapshot",
+  "indices": {
+    "沪深300": {"price": 4845.32, "change_pct": -0.16},
+    "创业板指": {"price": 3916.18, "change_pct": 0.20},
+    "科创50": {"price": 4182.54, "change_pct": 0.26},
+    "恒生指数": {"price": 25607.49, "change_pct": -0.74},
+    "恒生科技": {"price": 4869.74, "change_pct": 0.25}
+  },
+  "gold": {
+    "Au9999": 982.40,
+    "Au9999_chg": -1.56,
+    "COMEX": 4469.97,
+    "COMEX_chg": -0.27
+  },
+  "ashare_holdings": {
+    "比亚迪002594": {"price": 93.42, "change_pct": -2.69, "cost": 99.261, "shares": 200, "pnl_pct": -5.88},
+    "恒生科技ETF513580": {"price": 0.619, "change_pct": 0.00, "cost": 0.773, "shares": 32500, "pnl_pct": -19.92},
+    "纳指ETF159941": {"price": 1.525, "change_pct": 0.33, "cost": 1.343, "shares": 3000, "pnl_pct": 13.55},
+    "芯片ETF159995": {"price": 2.529, "change_pct": 4.07, "cost": 1.694, "shares": 4400, "pnl_pct": 49.29},
+    "白银LOF161226": {"price": 2.409, "change_pct": -2.90, "cost": 4.829, "shares": 794, "pnl_pct": -50.13},
+    "沪深300ETF510300": {"price": 4.860, "change_pct": -0.18, "cost": 3.722, "shares": 300, "pnl_pct": 30.58},
+    "中概互联ETF513050": {"price": 1.186, "change_pct": -1.00, "cost": 1.572, "shares": 5600, "pnl_pct": -24.56},
+    "游戏ETF516010": {"price": 1.238, "change_pct": -2.21, "cost": 1.642, "shares": 18000, "pnl_pct": -24.60},
+    "黄金ETF518880": {"price": 9.359, "change_pct": -1.64, "cost": 9.095, "shares": 1100, "pnl_pct": 2.90},
+    "科创50ETF588000": {"price": 1.918, "change_pct": 2.51, "cost": 1.480, "shares": 3100, "pnl_pct": 29.59},
+    "中国铝业601600": {"price": 10.99, "change_pct": 2.71, "cost": 15.023, "shares": 400, "pnl_pct": -26.85},
+    "紫金矿业601899": {"price": 30.40, "change_pct": -2.44, "cost": 33.379, "shares": 400, "pnl_pct": -8.93},
+    "中国核电601985": {"price": 9.01, "change_pct": -2.28, "cost": 8.550, "shares": 500, "pnl_pct": 5.38}
+  },
+  "fund_flows_millions": {
+    "比亚迪002594": -868.4,
+    "恒生科技ETF513580": 2.3,
+    "纳指ETF159941": 2.0,
+    "芯片ETF159995": 142.2,
+    "白银LOF161226": -28.5,
+    "沪深300ETF510300": 267.7,
+    "中概互联ETF513050": -75.7,
+    "黄金ETF518880": -107.8,
+    "科创50ETF588000": 792.5,
+    "中国铝业601600": 90.6,
+    "紫金矿业601899": -1132.6,
+    "中国核电601985": -226.5
+  },
+  "trigger_lines": {
+    "Au9999": {"current": 982.40, "reduce": [1086, 1140, 1200], "buy": [980, 940], "nearest": "距980补仓线仅2.4元"},
+    "芯片ETF159995": {"current": 2.529, "stop_profit_50pct": 2.54, "buy_lines": [2.10, 1.95, 1.80], "nearest": "距+50%止盈线2.54仅差0.011"}
+  },
+  "data_sources": [
+    "westock-data (腾讯自选股) — A股场内实时行情+资金流",
+    "neodata-financial-search — 游戏ETF行情",
+    "金投网 cngold.org — Au9999/COMEX实时金价",
+    "WebSearch — 盘中新闻/板块异动"
+  ]
+}
