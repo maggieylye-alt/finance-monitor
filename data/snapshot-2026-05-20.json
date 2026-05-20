@@ -1,0 +1,640 @@
+{
+  "date": "2026-05-20",
+  "time": "08:00",
+  "type": "morning-snapshot",
+  "data_note": "A股场内为5/19收盘价，基金净值为T-1(5/19或5/18)，Au9999为5/20凌晨02:29",
+  "indices": {
+    "上证指数": {
+      "price": 4169.54,
+      "change_pct": 0.92
+    },
+    "深证成指": {
+      "price": 15569.91,
+      "change_pct": 0.26
+    },
+    "创业板指": {
+      "price": 3908.44,
+      "change_pct": -0.16
+    }
+  },
+  "gold": {
+    "Au9999": 994.0,
+    "Au9999_chg": -0.4,
+    "COMEX": 4493.8,
+    "COMEX_chg": -0.39,
+    "WTI": 103.99,
+    "WTI_chg": -0.15
+  },
+  "gold_accumulation": {
+    "民生积存金": {
+      "grams": 160.14,
+      "cost_per_gram": 1074.0,
+      "current_price": 994.0,
+      "value": 159179.16,
+      "pnl_pct": -7.45
+    },
+    "浙商积存金": {
+      "grams": 51.45,
+      "cost_per_gram": 1125.61,
+      "current_price": 994.0,
+      "value": 51141.3,
+      "pnl_pct": -11.69
+    }
+  },
+  "ashare_holdings": {
+    "比亚迪002594": {
+      "price": 96.0,
+      "change_pct": 1.58,
+      "cost": 99.261,
+      "shares": 200,
+      "value": 19200.0,
+      "pnl": -652.2,
+      "pnl_pct": -3.29,
+      "chg_5d": -3.26,
+      "chg_20d": -9.04,
+      "chg_60d": 5.72,
+      "chg_ytd": -1.76
+    },
+    "恒生科技ETF513580": {
+      "price": 0.615,
+      "change_pct": -1.91,
+      "cost": 0.773,
+      "shares": 32500,
+      "value": 19987.5,
+      "pnl": -5135.0,
+      "pnl_pct": -20.44,
+      "chg_5d": -5.09,
+      "chg_20d": -1.6,
+      "chg_60d": -16.44,
+      "chg_ytd": -15.29
+    },
+    "纳指ETF159941": {
+      "price": 1.52,
+      "change_pct": -0.26,
+      "cost": 1.343,
+      "shares": 3000,
+      "value": 4560.0,
+      "pnl": 531.0,
+      "pnl_pct": 13.18,
+      "chg_5d": -2.44,
+      "chg_20d": 7.65,
+      "chg_60d": 10.63,
+      "chg_ytd": 7.57
+    },
+    "芯片ETF159995": {
+      "price": 2.43,
+      "change_pct": 3.67,
+      "cost": 1.694,
+      "shares": 4400,
+      "value": 10692.0,
+      "pnl": 3238.4,
+      "pnl_pct": 43.45,
+      "chg_5d": 4.47,
+      "chg_20d": 17.22,
+      "chg_60d": 32.35,
+      "chg_ytd": 40.3
+    },
+    "沪深300ETF510300": {
+      "price": 4.869,
+      "change_pct": 0.35,
+      "cost": 3.722,
+      "shares": 300,
+      "value": 1460.7,
+      "pnl": 344.1,
+      "pnl_pct": 30.82,
+      "chg_5d": -1.89,
+      "chg_20d": 2.59,
+      "chg_60d": 2.87,
+      "chg_ytd": 5.16
+    },
+    "中概互联ETF513050": {
+      "price": 1.179,
+      "change_pct": -0.92,
+      "cost": 1.572,
+      "shares": 5600,
+      "value": 6602.4,
+      "pnl": -2200.8,
+      "pnl_pct": -25.0,
+      "chg_5d": -2.88,
+      "chg_20d": -3.04,
+      "chg_60d": -17.61,
+      "chg_ytd": -19.63
+    },
+    "游戏ETF516010": {
+      "price": 1.266,
+      "change_pct": 1.93,
+      "cost": 1.642,
+      "shares": 18000,
+      "value": 22788.0,
+      "pnl": -6768.0,
+      "pnl_pct": -22.9,
+      "chg_5d": -2.76,
+      "chg_20d": -5.52,
+      "chg_60d": -23.37,
+      "chg_ytd": -11.41
+    },
+    "黄金ETF518880": {
+      "price": 9.515,
+      "change_pct": 0.02,
+      "cost": 9.095,
+      "shares": 1100,
+      "value": 10466.5,
+      "pnl": 462.0,
+      "pnl_pct": 4.62,
+      "chg_5d": -2.97,
+      "chg_20d": -5.76,
+      "chg_60d": -10.82,
+      "chg_ytd": 2.3
+    },
+    "科创50ETF588000": {
+      "price": 1.871,
+      "change_pct": 3.77,
+      "cost": 1.48,
+      "shares": 3100,
+      "value": 5800.1,
+      "pnl": 1212.1,
+      "pnl_pct": 26.42,
+      "chg_5d": 3.03,
+      "chg_20d": 13.12,
+      "chg_60d": 24.9,
+      "chg_ytd": 32.04
+    },
+    "中国铝业601600": {
+      "price": 10.7,
+      "change_pct": 1.71,
+      "cost": 15.023,
+      "shares": 400,
+      "value": 4280.0,
+      "pnl": -1729.2,
+      "pnl_pct": -28.78,
+      "chg_5d": -8.39,
+      "chg_20d": -16.41,
+      "chg_60d": -18.63,
+      "chg_ytd": -12.44
+    },
+    "紫金矿业601899": {
+      "price": 31.16,
+      "change_pct": -0.45,
+      "cost": 33.379,
+      "shares": 400,
+      "value": 12464.0,
+      "pnl": -887.6,
+      "pnl_pct": -6.65,
+      "chg_5d": -9.89,
+      "chg_20d": -11.73,
+      "chg_60d": -19.71,
+      "chg_ytd": -9.6
+    },
+    "中国核电601985": {
+      "price": 9.22,
+      "change_pct": 1.88,
+      "cost": 8.55,
+      "shares": 500,
+      "value": 4610.0,
+      "pnl": 335.0,
+      "pnl_pct": 7.84,
+      "chg_5d": -0.11,
+      "chg_20d": 5.25,
+      "chg_60d": 7.08,
+      "chg_ytd": 6.84
+    }
+  },
+  "fund_holdings": {
+    "012860": {
+      "name": "南方中证500LOF C",
+      "nav": 3.0231,
+      "nav_date": "2026-05-18",
+      "change_pct": -0.05,
+      "chg_1m": 3.41,
+      "chg_3m": 6.57,
+      "chg_6m": 7.77,
+      "chg_1y": 17.02
+    },
+    "012414": {
+      "name": "中欧半导体C",
+      "nav": 0.5785,
+      "nav_date": "2026-05-19",
+      "change_pct": 0.26,
+      "chg_1m": -3.94,
+      "chg_3m": -7.56,
+      "chg_6m": -17.42,
+      "chg_1y": -25.69
+    },
+    "011609": {
+      "name": "华夏科创50C",
+      "nav": 1.3522,
+      "nav_date": "2026-05-19",
+      "change_pct": 3.59,
+      "chg_1m": 2.84,
+      "chg_3m": 23.67,
+      "chg_6m": 20.08,
+      "chg_1y": 74.79
+    },
+    "014424": {
+      "name": "华夏半导体ETF联接A",
+      "nav": 0.8297,
+      "nav_date": "2026-05-19",
+      "change_pct": -0.6,
+      "chg_1m": -7.66,
+      "chg_3m": -14.12,
+      "chg_6m": -16.61,
+      "chg_1y": 7.47
+    },
+    "022365": {
+      "name": "永赢光模块C",
+      "nav": 5.1708,
+      "nav_date": "2026-05-19",
+      "change_pct": -0.21,
+      "chg_1m": 12.32,
+      "chg_3m": 39.61,
+      "chg_6m": 59.64,
+      "chg_1y": 333.83
+    },
+    "008888": {
+      "name": "华夏国证半导体芯片C",
+      "nav": 2.0619,
+      "nav_date": "2026-05-19",
+      "change_pct": 3.75,
+      "chg_1m": 4.29,
+      "chg_3m": 29.7,
+      "chg_6m": 24.17,
+      "chg_1y": 91.95
+    },
+    "018124": {
+      "name": "景顺长城电子信息A",
+      "nav": 2.5785,
+      "nav_date": "2026-05-19",
+      "change_pct": 0.43,
+      "chg_1m": 3.51,
+      "chg_3m": 12.23,
+      "chg_6m": -0.89,
+      "chg_1y": 31.93
+    },
+    "003834": {
+      "name": "银河创新成长A",
+      "nav": 3.653,
+      "nav_date": "2026-05-19",
+      "change_pct": 0.74,
+      "chg_1m": -1.7,
+      "chg_3m": 1.11,
+      "chg_6m": 6.01,
+      "chg_1y": 11.47
+    },
+    "011213": {
+      "name": "创金合信芯片产业A",
+      "nav": 0.9915,
+      "nav_date": "2026-05-19",
+      "change_pct": -0.15,
+      "chg_1m": -2.61,
+      "chg_3m": 1.18,
+      "chg_6m": 2.09,
+      "chg_1y": 17.71
+    },
+    "502090": {
+      "name": "鹏华钢煤",
+      "nav": null,
+      "nav_date": null,
+      "change_pct": null,
+      "chg_1m": null,
+      "chg_3m": null,
+      "chg_6m": null,
+      "chg_1y": null
+    },
+    "539001": {
+      "name": "华安纳斯达克100ETF联接A",
+      "nav": 3.4224,
+      "nav_date": "2026-05-18",
+      "change_pct": -0.38,
+      "chg_1m": -1.0,
+      "chg_3m": 7.75,
+      "chg_6m": 15.02,
+      "chg_1y": 12.16
+    },
+    "000369": {
+      "name": "广发纳斯达克100A",
+      "nav": 2.341,
+      "nav_date": "2026-05-18",
+      "change_pct": 0.3,
+      "chg_1m": 1.17,
+      "chg_3m": -3.82,
+      "chg_6m": -9.54,
+      "chg_1y": -6.51
+    },
+    "160213": {
+      "name": "国泰纳斯达克100A",
+      "nav": 4.438,
+      "nav_date": "2026-05-18",
+      "change_pct": -0.43,
+      "chg_1m": -1.16,
+      "chg_3m": 8.4,
+      "chg_6m": 15.57,
+      "chg_1y": 14.4
+    },
+    "018043": {
+      "name": "华夏纳斯达克100ETF联接A",
+      "nav": 2.0205,
+      "nav_date": "2026-05-18",
+      "change_pct": -0.38,
+      "chg_1m": -1.07,
+      "chg_3m": 7.98,
+      "chg_6m": 14.72,
+      "chg_1y": 13.43
+    },
+    "050025": {
+      "name": "博时标普500ETF联接A",
+      "nav": 5.4508,
+      "nav_date": "2026-05-18",
+      "change_pct": -0.06,
+      "chg_1m": -0.16,
+      "chg_3m": 3.52,
+      "chg_6m": 6.69,
+      "chg_1y": 8.08
+    },
+    "241001": {
+      "name": "华安德国DAX ETF联接",
+      "nav": 1.605,
+      "nav_date": "2026-05-18",
+      "change_pct": 0.5,
+      "chg_1m": -3.89,
+      "chg_3m": -0.25,
+      "chg_6m": 4.7,
+      "chg_1y": 10.23
+    },
+    "001528": {
+      "name": "华夏新能源汽车ETF联接A",
+      "nav": 3.489,
+      "nav_date": "2026-05-19",
+      "change_pct": 0.72,
+      "chg_1m": 0.11,
+      "chg_3m": 5.5,
+      "chg_6m": 0.84,
+      "chg_1y": 9.07
+    },
+    "161028": {
+      "name": "申万菱信新能源汽车C",
+      "nav": 1.269,
+      "nav_date": "2026-05-19",
+      "change_pct": -0.39,
+      "chg_1m": -3.5,
+      "chg_3m": 0.16,
+      "chg_6m": 7.36,
+      "chg_1y": 5.93
+    },
+    "011082": {
+      "name": "华夏智能驱动A",
+      "nav": 0.9938,
+      "nav_date": "2026-05-19",
+      "change_pct": 0.35,
+      "chg_1m": -5.16,
+      "chg_3m": -6.09,
+      "chg_6m": -3.9,
+      "chg_1y": -3.86
+    },
+    "003984": {
+      "name": "嘉实新能源新材料A",
+      "nav": 3.0731,
+      "nav_date": "2026-05-19",
+      "change_pct": -1.09,
+      "chg_1m": -6.6,
+      "chg_3m": -3.94,
+      "chg_6m": 6.08,
+      "chg_1y": 5.49
+    },
+    "160221": {
+      "name": "国投瑞银白银期货A",
+      "nav": 2.3696,
+      "nav_date": "2026-05-19",
+      "change_pct": -1.06,
+      "chg_1m": -8.88,
+      "chg_3m": -8.14,
+      "chg_6m": -9.83,
+      "chg_1y": 11.91
+    },
+    "161226": {
+      "name": "国投白银LOF",
+      "nav": 2.1365,
+      "nav_date": "2026-05-19",
+      "change_pct": 1.11,
+      "chg_1m": -10.55,
+      "chg_3m": -3.73,
+      "chg_6m": -3.35,
+      "chg_1y": 56.31
+    },
+    "110020": {
+      "name": "易方达港股通红利A",
+      "nav": 1.9535,
+      "nav_date": "2026-05-19",
+      "change_pct": 0.39,
+      "chg_1m": -1.77,
+      "chg_3m": 2.73,
+      "chg_6m": 4.21,
+      "chg_1y": 6.19
+    },
+    "163417": {
+      "name": "兴全合润A",
+      "nav": 2.2212,
+      "nav_date": "2026-05-19",
+      "change_pct": 0.23,
+      "chg_1m": -2.13,
+      "chg_3m": 5.07,
+      "chg_6m": 7.41,
+      "chg_1y": 14.44
+    },
+    "004069": {
+      "name": "天弘中证金融债A",
+      "nav": 1.1414,
+      "nav_date": "2026-05-19",
+      "change_pct": 1.0,
+      "chg_1m": -3.73,
+      "chg_3m": -1.68,
+      "chg_6m": -9.4,
+      "chg_1y": -12.76
+    },
+    "000961": {
+      "name": "中加纯债一年A",
+      "nav": 1.7181,
+      "nav_date": "2026-05-19",
+      "change_pct": 0.39,
+      "chg_1m": -1.78,
+      "chg_3m": 2.75,
+      "chg_6m": 4.1,
+      "chg_1y": 6.18
+    }
+  },
+  "summary": {
+    "ashare_value": 122911.2,
+    "ashare_pnl": -11250.2,
+    "ashare_pnl_pct": -8.39,
+    "gold_value": 210320.46,
+    "gold_pnl": -19582.53,
+    "gold_pnl_pct": -8.52,
+    "fund_value_est": 220769.7,
+    "advisor_value_est": 43379,
+    "grand_total_est": 597380.36,
+    "total_pnl": -30832.73,
+    "year_start": 540000,
+    "annualized_pct": 10.63,
+    "target_15pct_progress": 70.84
+  },
+  "news": {
+    "ai": [
+      {
+        "date": "2026-05-19",
+        "source": "国金证券",
+        "title": "美国商务部升级对华芯片管制，AI芯片国产替代预计将加速",
+        "summary": "英伟达H20受管制计提55亿费用损失，中国特供版芯片或采用GDDR7替代HBM，性能或大超英伟达改版芯片",
+        "url": "https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/search/rptid/800960704112/index.phtml"
+      },
+      {
+        "date": "2026-05-19",
+        "source": "钛媒体",
+        "title": "黄仁勋发布GB300 NVL72平台，AI推理性能提升1.5倍",
+        "summary": "GB300采用全液冷机架，HBM内存容量增1.5倍，NVLink Fusion开放半定制化AI架构",
+        "url": "https://www.tmtpost.com/7569513.html"
+      },
+      {
+        "date": "2026-05-19",
+        "source": "NVIDIA",
+        "title": "NVLink Fusion发布，联发科/Marvell/世芯率先采用",
+        "summary": "半定制化AI基础架构，各产业可打造定制化芯片扩展，富士通与高通CPU可与NVIDIA GPU整合",
+        "url": "https://blogs.nvidia.com.tw/blog/nvidia-nvlink-fusion-semi-custom-ai-infrastructure-partner-ecosystem/"
+      },
+      {
+        "date": "2026-05-19",
+        "source": "新浪财经",
+        "title": "黄仁勋发布多项新技术产品力图巩固英伟达AI芯片领先地位",
+        "summary": "GB300系统Q3推出，RTX Pro Server处理DeepSeek性能是H100四倍，上海设AI芯片研发中心",
+        "url": "https://finance.sina.com.cn/stock/usstock/c/2025-05-19/doc-inexazpu7630909.shtml"
+      }
+    ],
+    "overseas": [
+      {
+        "date": "2026-05-19",
+        "source": "证券时报",
+        "title": "美联储博斯蒂克：倾向于今年只降息一次，通胀令人不安",
+        "summary": "关税影响超预期，博斯蒂克称需3-6个月观察，9月前可能不会降息；威廉姆斯警告关税或推高通胀和失业率",
+        "url": "https://stcn.com/article/detail/1836622.html"
+      },
+      {
+        "date": "2026-05-19",
+        "source": "中国基金报",
+        "title": "美股低开高走集体收涨！散户净买入41亿美元创纪录",
+        "summary": "标普500六连涨，散户交易量占比达36%创历史新高，穆迪下调美国信用评级影响被消化",
+        "url": "https://www.chnfund.com/article/AR0c472843-b16a-3e34-444a-3a19fd455f14"
+      },
+      {
+        "date": "2026-05-19",
+        "source": "21世纪经济报道",
+        "title": "美股三大股指集体收涨，科技股表现强劲",
+        "summary": "纳指周涨7.15%，英伟达涨约16%领涨，市场重新定价滞胀风险，关税对美股影响暂告一段落",
+        "url": "https://finance.eastmoney.com/a/202505193407601814.html"
+      }
+    ],
+    "nev": [
+      {
+        "date": "2026-06-01",
+        "source": "比亚迪公告",
+        "title": "比亚迪5月新能源车销量38.25万辆，同比增38.7%",
+        "summary": "海外销售8.9万辆，累计同比增38.87%，动力电池装机约28.48GWh",
+        "url": "https://stcn.com/article/detail/1853439.html"
+      },
+      {
+        "date": "2026-05-19",
+        "source": "证券时报",
+        "title": "港口航运板块涨4.15%领涨，中美互相调整关税后赴美线集装箱运输飙升277%",
+        "summary": "并购重组、ST板块大涨，房地产涨超3%，A股成交1.12万亿",
+        "url": "https://stcn.com/article/detail/1835610.html"
+      }
+    ],
+    "gold": [
+      {
+        "date": "2026-05-19",
+        "source": "新华财经",
+        "title": "穆迪下调美国主权信用评级至Aa1，黄金受避险情绪提振再度走强",
+        "summary": "伦敦金现涨超1.5%触及3249.83美元，COMEX最高3252.9美元，30年期美债收益率升至5.02%",
+        "url": "https://www.cnfin.com/dz-lb/detail/20250519/4235923_1.html"
+      },
+      {
+        "date": "2026-05-19",
+        "source": "证券时报",
+        "title": "金价坐上过山车，4月22日破3500后一路下跌至3120，5月19日大幅反弹",
+        "summary": "三重驱动力：美债上限僵局+技术支撑3120+主流投行看好中长期配置",
+        "url": "https://stcn.com/article/detail/1836382.html"
+      },
+      {
+        "date": "2026-05-20",
+        "source": "证券时报",
+        "title": "美联储三大官员对降息持观望态度，贵金属板块涨幅居前",
+        "summary": "博斯蒂克倾向今年只降一次，威廉姆斯9月前可能不降息，美国黄金公司涨超5%",
+        "url": "https://stcn.com/article/detail/1836787.html"
+      }
+    ],
+    "hk": [
+      {
+        "date": "2026-05-19",
+        "source": "新浪财经",
+        "title": "恒生AH股溢价指数133.82，A股较H股溢价33.82%",
+        "summary": "溢价水平低于过去五年93.88%的交易时间",
+        "url": "https://finance.sina.com.cn/stock/stockzmt/2025-05-19/doc-inexcfvw2110893.shtml"
+      },
+      {
+        "date": "2026-05-19",
+        "source": "东方财富",
+        "title": "恒生科技指数将纳入比亚迪！权重8%，6月9日生效",
+        "summary": "恒生指数纳入美的集团与中通快递，阅文集团被剔除恒生科技",
+        "url": "https://fund.eastmoney.com/a/202505193408196415.html"
+      },
+      {
+        "date": "2026-05-19",
+        "source": "中泰国际",
+        "title": "港股短期震荡整固，估值已不算太便宜",
+        "summary": "恒指预测PE 10.2倍处53%七年内分位，风险溢价接近负两倍标准差，再向上面临中美技术脱钩风险",
+        "url": "https://www.hibor.com.cn/docdetail/4732846.html"
+      }
+    ],
+    "cycle": [
+      {
+        "date": "2026-05-19",
+        "source": "民生证券",
+        "title": "北上资金整体净卖出A股，主要净买入汽车/机械/通信",
+        "summary": "主要净卖出食品饮料/电力/有色/传媒，两融活跃度仍处3月下旬以来高点",
+        "url": "https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/search/rptid/800984660203/index.phtml"
+      },
+      {
+        "date": "2026-05",
+        "source": "中原证券",
+        "title": "PPI有色金属矿采选业保持正同比增速，5月PPI同比降3.3%",
+        "summary": "有色金属冶炼及压延加工业同比增速从9.3%降至2.3%，制造业固投累计同比增8.5%",
+        "url": "http://finance.sina.com.cn/roll/2025-06-21/doc-infausvs3276035.shtml"
+      }
+    ],
+    "bond": [
+      {
+        "date": "2026-05-19",
+        "source": "中债网",
+        "title": "10年期国债收益率上行1BP至1.69%，债市涨跌互现",
+        "summary": "3M国债上行4BP至1.43%，2年期下行1BP至1.46%，信用债AAA 3年期上行1BP至1.85%",
+        "url": "https://www.chinabond.com.cn/xxwsy/sy_zdgz_ath/202505/t20250519_854652998.html"
+      },
+      {
+        "date": "2026-05-19",
+        "source": "华西证券",
+        "title": "存款降息预期发酵，10年/30年国债收益率分别下行2.4bp/3.0bp",
+        "summary": "10年国债收益率降至1.66%，30年降至1.89%，央行逆回购净投放920亿",
+        "url": "https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/lastest/rptid/801020307563/index.phtml"
+      },
+      {
+        "date": "2026-05-19",
+        "source": "新华财经",
+        "title": "关税争端缓和债市收益率上行，全周10年期国债上涨超4BP至1.68%",
+        "summary": "中美关税缓和对债市利空，降准落地但央行连续净回笼，资金面边际收敛",
+        "url": "https://m.cnfin.com/yw-lb/zixun/20250519/4235532_1.html"
+      }
+    ]
+  },
+  "data_sources": [
+    "westock-data (腾讯自选股) — A股场内行情",
+    "neodata-financial-search — 公募基金净值(T-1)",
+    "WebSearch — 财经新闻/研报"
+  ]
+}
