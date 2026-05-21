@@ -1,0 +1,56 @@
+{
+  "date": "2026-05-21",
+  "time": "14:30",
+  "type": "action",
+  "indices": {
+    "沪深300": {"value": 4811.43, "change": -0.81},
+    "科创50": {"value": 1787.12, "change": -2.45},
+    "创业板": {"value": 3864.40, "change": -1.46},
+    "恒生科技": {"value": 4795.61, "change": -1.60},
+    "纳斯达克": {"value": 26270.36, "change": 1.54, "note": "5/20 US close"}
+  },
+  "gold": {
+    "Au9999": {"price": 995.00, "change": 1.02, "high": 1002, "low": 984},
+    "COMEX": {"price": 4532.10, "change": -0.07},
+    "COMEX_Silver": {"price": 75.55, "change": -0.83}
+  },
+  "holdings": [
+    {"code": "002594", "name": "比亚迪", "shares": 200, "cost": 99.261, "price": 93.68, "change": 0.34, "pnl_pct": -5.63, "market": 18736, "pnl": -1116},
+    {"code": "513580", "name": "恒生科技ETF", "shares": 32500, "cost": 0.773, "price": 0.609, "change": -1.62, "pnl_pct": -21.21, "market": 19793, "pnl": -5330},
+    {"code": "159941", "name": "纳指ETF", "shares": 3000, "cost": 1.343, "price": 1.569, "change": 2.35, "pnl_pct": 16.83, "market": 4707, "pnl": 678},
+    {"code": "159995", "name": "芯片ETF", "shares": 4400, "cost": 1.694, "price": 2.498, "change": -1.92, "pnl_pct": 47.46, "market": 10991, "pnl": 3537},
+    {"code": "161226", "name": "白银LOF", "shares": 794, "cost": 4.829, "price": 2.406, "change": -1.23, "pnl_pct": -50.19, "market": 1910, "pnl": -1924},
+    {"code": "510300", "name": "沪深300ETF", "shares": 300, "cost": 3.722, "price": 4.828, "change": -0.88, "pnl_pct": 29.72, "market": 1448, "pnl": 332},
+    {"code": "513050", "name": "中概互联ETF", "shares": 5600, "cost": 1.572, "price": 1.155, "change": -2.70, "pnl_pct": -26.53, "market": 6468, "pnl": -2335},
+    {"code": "516010", "name": "游戏ETF", "shares": 18000, "cost": 1.642, "price": 1.213, "change": -2.02, "pnl_pct": -26.13, "market": 21834, "pnl": -7722},
+    {"code": "518880", "name": "黄金ETF", "shares": 1100, "cost": 9.095, "price": 9.476, "change": 1.16, "pnl_pct": 4.19, "market": 10424, "pnl": 419},
+    {"code": "588000", "name": "科创50ETF", "shares": 3100, "cost": 1.480, "price": 1.877, "change": -2.80, "pnl_pct": 26.82, "market": 5819, "pnl": 1231},
+    {"code": "601600", "name": "中国铝业", "shares": 400, "cost": 15.023, "price": 10.89, "change": -1.00, "pnl_pct": -27.51, "market": 4356, "pnl": -1653},
+    {"code": "601899", "name": "紫金矿业", "shares": 400, "cost": 33.379, "price": 30.06, "change": -1.09, "pnl_pct": -9.95, "market": 12024, "pnl": -1328},
+    {"code": "601985", "name": "中国核电", "shares": 500, "cost": 8.550, "price": 8.77, "change": -2.66, "pnl_pct": 2.57, "market": 4385, "pnl": 110}
+  ],
+  "gold_savings": {
+    "total_grams": 211.59,
+    "avg_cost": 1086.55,
+    "Au9999_price": 995.00,
+    "market": 210532,
+    "cost_total": 229901,
+    "pnl": -19369,
+    "pnl_pct": -8.43
+  },
+  "summary": {
+    "total_market": 122895,
+    "total_cost": 137997,
+    "total_pnl": -15102,
+    "total_pnl_pct": -10.95,
+    "daily_pnl_est": -1343
+  },
+  "actions": [
+    {"code": "159995", "name": "芯片ETF", "action": "止盈", "detail": "卖出1500份", "amount": 3747, "reason": "盘中高2.610触及+50%止盈线(2.54)"},
+    {"code": "601600", "name": "中国铝业", "action": "清仓", "detail": "清仓4手(400股)", "amount": 4356, "reason": "基本面恶化+动量弱,条件①触发"},
+    {"code": "513050", "name": "中概互联ETF", "action": "减仓", "detail": "减仓2000份", "amount": 2310, "reason": "港股弱+动量弱,条件①触发"},
+    {"code": "161226", "name": "白银LOF", "action": "减仓", "detail": "减仓200份", "amount": 481, "reason": "基本面弱+动量弱,条件①触发"}
+  ],
+  "total_recycle": 10894,
+  "sources": ["NeoData Financial Search", "WebSearch(证券时报/金投网/金价查询网/中新经纬)", "westock-data(unavailable-fallback)"]
+}
