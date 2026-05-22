@@ -1,0 +1,42 @@
+{
+  "date": "2026-05-22",
+  "generated_at": "2026-05-22 14:31",
+  "type": "pm_action",
+  "data_source": "NeoData+westock-data实时盘中",
+  "indices": {
+    "沪深300": {"val": 4841.47, "chg_pct": 1.22},
+    "科创50": {"val": 1791.55, "chg_pct": 1.55},
+    "创业板": {"val": 3935.63, "chg_pct": 2.76},
+    "恒生科技": {"val": 4876.90, "chg_pct": 2.26},
+    "纳指100": {"val": 26293.10, "chg_pct": 0.09, "note": "5/21收盘"}
+  },
+  "gold": {
+    "au9999": 992.30,
+    "au9999_chg": 0.09,
+    "comex_usd": 4521.00,
+    "comex_chg": -0.47,
+    "comex_silver_usd": 76.67,
+    "silver_chg": -0.08
+  },
+  "items": [
+    {"code":"002594","name":"比亚迪","price":93.40,"prev_close":93.51,"chg_pct":-0.12,"cost":99.261,"shares":200,"mkt_val":18680,"pnl":-1172,"pnl_pct":-5.91,"sector":"nev"},
+    {"code":"518880","name":"黄金ETF","price":9.454,"prev_close":9.45,"chg_pct":0.04,"cost":9.095,"shares":1100,"mkt_val":10399,"pnl":394,"pnl_pct":3.95,"sector":"gold"},
+    {"code":"601899","name":"紫金矿业","price":30.88,"prev_close":29.99,"chg_pct":2.97,"cost":33.379,"shares":400,"mkt_val":12352,"pnl":-1000,"pnl_pct":-7.49,"sector":"gold"},
+    {"code":"601600","name":"中国铝业","price":11.14,"prev_close":10.84,"chg_pct":2.77,"cost":15.023,"shares":400,"mkt_val":4456,"pnl":-1547,"pnl_pct":-25.82,"sector":"cycle"},
+    {"code":"601985","name":"中国核电","price":8.70,"prev_close":8.74,"chg_pct":-0.46,"cost":8.55,"shares":500,"mkt_val":4350,"pnl":75,"pnl_pct":1.75,"sector":"cycle"},
+    {"code":"510300","name":"沪深300ETF","price":4.857,"prev_close":4.808,"chg_pct":1.02,"cost":3.722,"shares":300,"mkt_val":1457,"pnl":340,"pnl_pct":30.52,"sector":"hk_broad"},
+    {"code":"513050","name":"中概互联ETF","price":1.157,"prev_close":1.151,"chg_pct":0.52,"cost":1.572,"shares":5600,"mkt_val":6479,"pnl":-2324,"pnl_pct":-26.40,"sector":"hk_broad"},
+    {"code":"513580","name":"恒生科技ETF","price":0.617,"prev_close":0.605,"chg_pct":1.98,"cost":0.773,"shares":32500,"mkt_val":20053,"pnl":-5078,"pnl_pct":-20.18,"sector":"hk_broad"},
+    {"code":"516010","name":"游戏ETF","price":1.204,"prev_close":1.206,"chg_pct":-0.17,"cost":1.642,"shares":18000,"mkt_val":21672,"pnl":-7844,"pnl_pct":-26.67,"sector":"game"},
+    {"code":"159995","name":"芯片ETF","price":2.529,"prev_close":2.477,"chg_pct":2.10,"cost":1.694,"shares":4400,"mkt_val":11128,"pnl":3674,"pnl_pct":49.29,"sector":"ai"},
+    {"code":"159941","name":"纳指ETF","price":1.585,"prev_close":1.561,"chg_pct":1.54,"cost":1.343,"shares":3000,"mkt_val":4755,"pnl":724,"pnl_pct":18.02,"sector":"game"},
+    {"code":"588000","name":"科创50ETF","price":1.886,"prev_close":1.860,"chg_pct":1.40,"cost":1.48,"shares":3100,"mkt_val":5847,"pnl":1261,"pnl_pct":27.43,"sector":"ai"},
+    {"code":"161226","name":"白银LOF","price":2.430,"prev_close":2.402,"chg_pct":1.17,"cost":4.829,"shares":794,"mkt_val":1929,"pnl":-1907,"pnl_pct":-49.70,"sector":"gold"},
+    {"code":"minsheng","name":"民生积存金","price":992.30,"grams":160.14,"cost":1074,"mkt_val":158923,"pnl":-13067,"pnl_pct":-7.60,"sector":"gold"},
+    {"code":"zheshang","name":"浙商积存金","price":992.30,"grams":51.45,"cost":1125.61,"mkt_val":51052,"pnl":-6861,"pnl_pct":-11.83,"sector":"gold"}
+  ],
+  "total_a_stock_mkt_val": 123556,
+  "total_gold_mkt_val": 223725,
+  "total_mkt_val": 347281,
+  "total_pnl": -29747
+}

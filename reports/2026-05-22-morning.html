@@ -2,736 +2,419 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>2026-05-22 早8:00 持仓+基本面简报</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>持仓盘前简报 | 2026-05-22</title>
 <style>
-:root{--bg:#f7f8fa;--card:#fff;--card2:#f0f2f5;--border:#e5e7eb;--muted:#6b7280;--text:#1f2937;--text-dark:#0f172a;--up:#dc2626;--down:#16a34a;--blue:#2563eb;--amber:#f59e0b;--pink:#ec4899;--cyan:#06b6d4;--purple:#8b5cf6;--teal:#14b8a6;--grayblue:#64748b;--green:#10b981}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font:14px/1.6 -apple-system,SF Pro,PingFang SC,sans-serif;background:var(--bg);color:var(--text);max-width:1100px;margin:0 auto;padding-left:220px;padding-right:20px;padding-top:20px;padding-bottom:40px}
-a{color:var(--blue);text-decoration:none}
-a:hover{text-decoration:underline}
-.link-src{color:var(--up);font-style:italic;text-decoration:underline;font-size:12px}
-.up-text{color:var(--up)}
-.down-text{color:var(--down)}
-.flat-text{color:var(--muted)}
-
-/* TOC */
-.toc{position:fixed;left:24px;top:24px;width:170px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 12px;box-shadow:0 2px 12px rgba(0,0,0,.06);z-index:100;font-size:13px}
-.toc .toc-title{font-weight:700;font-size:14px;margin-bottom:10px;color:var(--text-dark)}
-.toc a{display:block;padding:6px 10px;margin:2px 0;border-radius:6px;color:var(--muted);text-decoration:none;transition:all .2s}
-.toc a:hover,.toc a.active{background:var(--card2);color:var(--text-dark);font-weight:600}
-.toc a .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f7f8fa;color:#1f2937;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.6;font-size:14px}
+a{color:#2563eb;text-decoration:none}a:hover{text-decoration:underline}
+.up{color:#dc2626}.dn{color:#16a34a}.neutral{color:#6b7280}
 
 /* Header */
-.report-header{background:linear-gradient(135deg,#fafbff,#fff);border:1px solid var(--border);border-radius:14px;padding:28px 32px;margin-bottom:20px;box-shadow:0 2px 16px rgba(0,0,0,.05)}
-.report-header .title{font-size:22px;font-weight:700;color:var(--text-dark)}
-.report-header .subtitle{font-size:13px;color:var(--muted);margin-top:4px}
+.header{background:linear-gradient(135deg,#1e3a5f 0%,#2563eb 100%);color:#fff;padding:24px 32px;position:relative;overflow:hidden}
+.header::after{content:'';position:absolute;top:-50%;right:-10%;width:300px;height:300px;background:rgba(255,255,255,.05);border-radius:50%}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header .sub{font-size:13px;opacity:.85}
 
-/* KPI Cards */
-.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
-.kpi-card{background:linear-gradient(135deg,#fafbff,#fff);border:1px solid var(--border);border-radius:12px;padding:18px 16px;box-shadow:0 1px 8px rgba(0,0,0,.04)}
-.kpi-card .kpi-label{font-size:12px;color:var(--muted);margin-bottom:6px}
-.kpi-card .kpi-value{font-size:22px;font-weight:700;color:var(--text-dark)}
-.kpi-card .kpi-value.up{color:var(--up)}
-.kpi-card .kpi-value.down{color:var(--down)}
-.kpi-card .kpi-sub{font-size:11px;color:var(--muted);margin-top:4px}
+/* Summary Cards */
+.summary-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:20px 32px 12px;max-width:1200px;margin:0 auto}
+.summary-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:16px 18px;text-align:center}
+.summary-card .label{font-size:12px;color:#6b7280;margin-bottom:4px}
+.summary-card .val{font-size:20px;font-weight:700}
+.summary-card .sub-val{font-size:12px;margin-top:2px}
 
-/* Progress bar */
-.progress-bar{width:100%;height:8px;background:var(--card2);border-radius:4px;margin-top:8px;overflow:hidden}
-.progress-bar .fill{height:100%;border-radius:4px;transition:width .4s}
-.progress-bar .fill.negative{background:linear-gradient(90deg,var(--down),#86efac)}
+/* Charts Row */
+.charts-row{display:grid;grid-template-columns:280px 1fr;gap:16px;padding:12px 32px 20px;max-width:1200px;margin:0 auto}
+.chart-box{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:20px;display:flex;flex-direction:column;align-items:center}
+.chart-box h3{font-size:14px;font-weight:600;margin-bottom:12px;color:#374151}
+.diverge-box{padding:20px 24px}
+.diverge-bar-row{display:flex;align-items:center;margin-bottom:6px;font-size:12px}
+.diverge-bar-row .name{width:100px;text-align:right;padding-right:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.diverge-bar-row .bar-area{flex:1;display:flex;height:18px;position:relative}
+.diverge-bar-row .bar-area .neg{background:#16a34a;border-radius:3px 0 0 3px;min-width:0}
+.diverge-bar-row .bar-area .pos{background:#dc2626;border-radius:0 3px 3px 0;min-width:0}
+.diverge-bar-row .bar-area .zero-line{position:absolute;left:50%;top:0;bottom:0;width:1px;background:#9ca3af}
+.diverge-bar-row .pnl{width:90px;text-align:right;padding-left:8px;white-space:nowrap}
 
-/* Charts row */
-.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
-.chart-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
-.chart-card h3{font-size:15px;font-weight:600;margin-bottom:14px;color:var(--text-dark)}
+/* Market Index */
+.market-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 32px 16px;max-width:1200px;margin:0 auto}
+.market-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+.market-card .idx-name{font-weight:600;font-size:14px}
+.market-card .idx-val{font-size:16px;font-weight:700}
 
-/* Donut chart */
-.donut-wrap{display:flex;align-items:center;gap:24px}
-.donut-svg{flex-shrink:0}
-.donut-legend{flex:1;font-size:12px;line-height:1.8}
-.donut-legend .leg-item{display:flex;align-items:center;gap:6px}
-.donut-legend .leg-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
-.donut-legend .leg-pct{font-weight:700;margin-left:auto}
+/* TOC */
+.toc{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:100;background:#fff;border:1px solid #e5e7eb;border-radius:0 10px 10px 0;padding:14px 10px;box-shadow:2px 0 12px rgba(0,0,0,.06);max-height:80vh;overflow-y:auto}
+.toc a{display:block;font-size:11px;padding:5px 8px;border-radius:6px;color:#374151;white-space:nowrap;margin-bottom:2px;transition:background .15s}
+.toc a:hover,.toc a.active{background:#eff6ff;color:#2563eb;text-decoration:none}
+.toc .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:middle}
 
-/* Sector popup */
-.sector-popup{display:none;position:absolute;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:0 4px 20px rgba(0,0,0,.12);z-index:200;min-width:240px;font-size:12px;max-height:320px;overflow-y:auto}
-.sector-popup.show{display:block}
-.sector-popup .popup-title{font-weight:700;font-size:14px;margin-bottom:8px}
-.sector-popup table{width:100%;border-collapse:collapse;font-size:11px}
-.sector-popup th{background:var(--card2);padding:4px 6px;text-align:left;border-bottom:1px solid var(--border)}
-.sector-popup td{padding:4px 6px;border-bottom:1px solid var(--border)}
+/* Section */
+.main-content{margin-left:140px;padding:0 32px 32px;max-width:1200px}
+.section{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:20px 24px;margin-bottom:16px}
+.section h2{font-size:16px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section h2 .badge{display:inline-block;width:10px;height:10px;border-radius:50%}
+.section-meta{display:flex;gap:16px;margin-bottom:12px;font-size:13px;color:#6b7280;flex-wrap:wrap}
+.section-meta span{display:flex;align-items:center;gap:3px}
 
-/* Diverging bar */
-.div-bar-wrap{position:relative;height:240px;padding-left:80px}
-.div-bar-row{position:absolute;display:flex;align-items:center;height:26px}
-.div-bar-row .bar-label{position:absolute;right:calc(100% + 6px);white-space:nowrap;font-size:11px;font-weight:500;width:74px;text-align:right}
-.div-bar-row .bar-left{height:20px;border-radius:0 4px 4px 0;transition:width .4s}
-.div-bar-row .bar-right{height:20px;border-radius:4px 0 0 4px;transition:width .4s}
-.div-bar-center{position:absolute;left:80px;top:0;bottom:0;width:1px;background:var(--muted);opacity:.4}
+/* Holdings table */
+.holdings{width:100%;border-collapse:collapse;font-size:13px}
+.holdings th{text-align:left;padding:6px 8px;border-bottom:2px solid #e5e7eb;color:#6b7280;font-weight:600;font-size:12px;white-space:nowrap}
+.holdings td{padding:6px 8px;border-bottom:1px solid #f3f4f6;white-space:nowrap}
+.holdings tr:last-child td{border-bottom:none}
+.holdings .chg{font-weight:600}
 
-/* Macro bar */
-.macro-bar{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;box-shadow:0 1px 8px rgba(0,0,0,.04)}
-.macro-bar .macro-item{font-size:13px}
-.macro-bar .macro-item .macro-label{color:var(--muted);font-size:11px}
-.macro-bar .macro-item .macro-val{font-weight:600;color:var(--text-dark)}
-
-/* Sector sections */
-.sector-section{margin-bottom:24px;scroll-margin-top:20px}
-.sector-section .sec-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.sector-section .sec-header .sec-bar{width:4px;height:20px;border-radius:2px}
-.sector-section .sec-header h2{font-size:16px;font-weight:700;color:var(--text-dark)}
-.sector-section .sec-header .sec-stats{font-size:12px;color:var(--muted);margin-left:auto}
-.sector-section .sec-header .sec-stats .val{font-weight:600}
-.sector-section .sec-header .sec-stats .pnl{font-weight:700}
-
-.sec-body{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.sec-table-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:0 1px 6px rgba(0,0,0,.03)}
-.sec-table-card h4{font-size:13px;font-weight:600;margin-bottom:8px;color:var(--text-dark)}
-.sec-table-card table{width:100%;border-collapse:collapse;font-size:12px}
-.sec-table-card th{background:var(--card2);padding:6px 8px;text-align:left;border-bottom:1px solid var(--border);font-weight:500;font-size:11px}
-.sec-table-card td{padding:5px 8px;border-bottom:1px solid var(--border)}
-.sec-table-card tr:hover{background:var(--card2)}
-
-/* News card */
-.news-card{background:#fef3c7;border:1px solid #fde68a;border-radius:10px;padding:14px;box-shadow:0 1px 6px rgba(0,0,0,.03)}
-.news-card h4{font-size:13px;font-weight:600;margin-bottom:8px;color:#92400e}
-.news-card ul{list-style:none;padding:0}
-.news-card li{font-size:12px;line-height:1.7;padding:3px 0;border-bottom:1px dashed #fde68a}
-.news-card li:last-child{border-bottom:none}
-.news-card .news-date{color:#b45309;font-weight:600}
-.news-card .news-src{color:#92400e;font-style:italic}
-
-/* Checklist section */
-.checklist-section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
-.checklist-section h2{font-size:16px;font-weight:700;margin-bottom:12px;color:var(--text-dark)}
-.checklist-section ul{list-style:none;padding:0}
-.checklist-section li{font-size:13px;padding:5px 0;border-bottom:1px solid var(--border)}
-.checklist-section li:last-child{border-bottom:none}
+/* News */
+.news-section{background:#fef3c7;border:1px solid #fde68a;border-radius:10px;padding:16px 20px;margin-bottom:16px}
+.news-section h3{font-size:14px;font-weight:700;margin-bottom:10px;color:#92400e;display:flex;align-items:center;gap:6px}
+.news-item{font-size:12.5px;margin-bottom:6px;padding-left:12px;border-left:3px solid #f59e0b;line-height:1.5}
+.news-item .meta{color:#92400e;font-size:11px}
 
 /* Footer */
-.footer-banner{background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-top:20px;font-size:12px;color:var(--muted);line-height:1.8}
-.footer-banner .footer-title{font-weight:700;font-size:13px;color:var(--text-dark);margin-bottom:6px}
-.footer-banner .footer-sources{display:flex;flex-wrap:wrap;gap:4px 10px}
-.footer-banner .data-note{margin-top:10px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+.footer{background:#1f2937;color:#d1d5db;padding:16px 32px;font-size:11px;text-align:center;line-height:1.8}
+.footer a{color:#93c5fd}
 
 /* Responsive */
-@media(max-width:980px){
-  body{padding-left:20px}
-  .toc{display:none}
-}
 @media(max-width:760px){
-  .kpi-grid{grid-template-columns:repeat(2,1fr)}
-  .charts-row{grid-template-columns:1fr}
-  .sec-body{grid-template-columns:1fr}
-  .toc{position:static;width:100%;display:grid;grid-template-columns:1fr 1fr;margin-bottom:16px}
+  .toc{display:none}
+  .main-content{margin-left:0;padding:0 12px 24px}
+  .summary-row{grid-template-columns:repeat(2,1fr);padding:12px 12px 8px}
+  .charts-row{grid-template-columns:1fr;padding:8px 12px 12px}
+  .market-row{grid-template-columns:1fr;padding:0 12px 12px}
+  .section{padding:14px 12px}
+  .header{padding:16px 12px}
+  .holdings{font-size:12px}
+  .holdings th,.holdings td{padding:4px 5px}
 }
 </style>
 </head>
 <body>
 
-<!-- TOC -->
-<div class="toc" id="toc">
-  <div class="toc-title">板块导航</div>
-  <a href="#sec-ai" data-sec="sec-ai"><span class="dot" style="background:#3b82f6"></span>AI/半导体</a>
-  <a href="#sec-overseas" data-sec="sec-overseas"><span class="dot" style="background:#06b6d4"></span>海外QDII</a>
-  <a href="#sec-nev" data-sec="sec-nev"><span class="dot" style="background:#10b981"></span>新能源车</a>
-  <a href="#sec-gold" data-sec="sec-gold"><span class="dot" style="background:#f59e0b"></span>黄金商品</a>
-  <a href="#sec-hk" data-sec="sec-hk"><span class="dot" style="background:#8b5cf6"></span>港股+宽基</a>
-  <a href="#sec-cycle" data-sec="sec-cycle"><span class="dot" style="background:#64748b"></span>周期/平衡</a>
-  <a href="#sec-game" data-sec="sec-game"><span class="dot" style="background:#ec4899"></span>游戏/纳指场内</a>
-  <a href="#sec-bond" data-sec="sec-bond"><span class="dot" style="background:#14b8a6"></span>债券固收</a>
-  <a href="#sec-checklist" data-sec="sec-checklist"><span class="dot" style="background:#0f172a"></span>综合操作清单</a>
-</div>
-
 <!-- Header -->
-<div class="report-header">
-  <div class="title">📊 早 8:00 持仓 + 基本面简报 | 2026-05-22</div>
-  <div class="subtitle">盘前信息速览 · A股/ETF为T-1(5/21)收盘价 · 基金净值T-1或T-2 · Au9999实时价 · COMEX延迟数据</div>
+<div class="header">
+  <h1>📊 早8:00 持仓+基本面简报</h1>
+  <div class="sub">2026-05-22 盘前 | A股/ETF收盘T-1(5/21) · 基金净值T-1/T-2 · Au9999实时价 · COMEX延迟</div>
 </div>
 
-<!-- Macro Bar -->
-<div class="macro-bar">
-  <div class="macro-item"><span class="macro-label">Au9999</span><br><span class="macro-val up-text">¥994.50</span></div>
-  <div class="macro-item"><span class="macro-label">COMEX金</span><br><span class="macro-val">$4,535.5</span></div>
-  <div class="macro-item"><span class="macro-label">COMEX银</span><br><span class="macro-val">$76.87</span></div>
-  <div class="macro-item"><span class="macro-label">10年国债</span><br><span class="macro-val">1.7448%</span></div>
-  <div class="macro-item"><span class="macro-label">上证</span><br><span class="macro-val down-text">4,077.28(-2.04%)</span></div>
-  <div class="macro-item"><span class="macro-label">深证</span><br><span class="macro-val down-text">15,247.27(-2.07%)</span></div>
-  <div class="macro-item"><span class="macro-label">创业板</span><br><span class="macro-val down-text">3,829.78(-2.35%)</span></div>
-</div>
-
-<!-- KPI Cards -->
-<div class="kpi-grid">
-  <div class="kpi-card">
-    <div class="kpi-label">总市值（A股+黄金积存）</div>
-    <div class="kpi-value">¥330,832</div>
-    <div class="kpi-sub">基金市值留空</div>
+<!-- Summary -->
+<div class="summary-row">
+  <div class="summary-card">
+    <div class="label">总市值(A股+黄金积存)</div>
+    <div class="val">¥330,832</div>
   </div>
-  <div class="kpi-card">
-    <div class="kpi-label">综合浮盈</div>
-    <div class="kpi-value down">-¥33,233</div>
-    <div class="kpi-sub">年化 -38.73%</div>
+  <div class="summary-card">
+    <div class="label">综合浮亏</div>
+    <div class="val dn">-¥33,233</div>
   </div>
-  <div class="kpi-card">
-    <div class="kpi-label">15%目标进度</div>
-    <div class="kpi-value down">-258.2%</div>
-    <div class="progress-bar"><div class="fill negative" style="width:100%"></div></div>
-    <div class="kpi-sub">距+15%目标为负值</div>
+  <div class="summary-card">
+    <div class="label">Au9999 实时</div>
+    <div class="val">¥994.50</div>
+    <div class="sub-val">COMEX金 $4,535.5</div>
   </div>
-  <div class="kpi-card">
-    <div class="kpi-label">标的 / 板块</div>
-    <div class="kpi-value">42 / 8</div>
-    <div class="kpi-sub">全仓位覆盖</div>
+  <div class="summary-card">
+    <div class="label">10年国债收益率</div>
+    <div class="val">1.7448%</div>
   </div>
 </div>
 
-<!-- Charts Row -->
+<!-- Charts -->
 <div class="charts-row">
-  <!-- Donut Chart -->
-  <div class="chart-card" style="position:relative">
+  <div class="chart-box">
     <h3>板块市值占比</h3>
-    <div class="donut-wrap">
-      <svg class="donut-svg" width="200" height="200" viewBox="0 0 200 200" id="donutChart">
-        <circle cx="100" cy="100" r="70" fill="none" stroke="#e5e7eb" stroke-width="28"/>
-        <!-- Gold 70.3% -->
-        <circle cx="100" cy="100" r="70" fill="none" stroke="#f59e0b" stroke-width="28"
-          stroke-dasharray="308.7 440.0" stroke-dashoffset="0" transform="rotate(-90 100 100)"
-          data-sector="gold" style="cursor:pointer" onclick="showSector('gold')"/>
-        <!-- Game 8.0% -->
-        <circle cx="100" cy="100" r="70" fill="none" stroke="#ec4899" stroke-width="28"
-          stroke-dasharray="35.1 440.0" stroke-dashoffset="-308.7" transform="rotate(-90 100 100)"
-          data-sector="game" style="cursor:pointer" onclick="showSector('game')"/>
-        <!-- HK 8.3% -->
-        <circle cx="100" cy="100" r="70" fill="none" stroke="#8b5cf6" stroke-width="28"
-          stroke-dasharray="36.5 440.0" stroke-dashoffset="-343.8" transform="rotate(-90 100 100)"
-          data-sector="hk" style="cursor:pointer" onclick="showSector('hk')"/>
-        <!-- NEV 5.7% -->
-        <circle cx="100" cy="100" r="70" fill="none" stroke="#10b981" stroke-width="28"
-          stroke-dasharray="25.0 440.0" stroke-dashoffset="-380.3" transform="rotate(-90 100 100)"
-          data-sector="nev" style="cursor:pointer" onclick="showSector('nev')"/>
-        <!-- AI 5.0% -->
-        <circle cx="100" cy="100" r="70" fill="none" stroke="#3b82f6" stroke-width="28"
-          stroke-dasharray="22.0 440.0" stroke-dashoffset="-405.3" transform="rotate(-90 100 100)"
-          data-sector="ai" style="cursor:pointer" onclick="showSector('ai')"/>
-        <!-- Cycle 2.6% -->
-        <circle cx="100" cy="100" r="70" fill="none" stroke="#64748b" stroke-width="28"
-          stroke-dasharray="11.6 440.0" stroke-dashoffset="-427.3" transform="rotate(-90 100 100)"
-          data-sector="cycle" style="cursor:pointer" onclick="showSector('cycle')"/>
-        <!-- Overseas 0% -->
-        <!-- Bond 0% -->
-        <text x="100" y="95" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">¥330,832</text>
-        <text x="100" y="112" text-anchor="middle" font-size="10" fill="#6b7280">总市值</text>
-      </svg>
-      <div class="donut-legend">
-        <div class="leg-item"><span class="leg-dot" style="background:#f59e0b"></span>黄金商品 <span class="leg-pct">70.3% ¥232,817</span></div>
-        <div class="leg-item"><span class="leg-dot" style="background:#8b5cf6"></span>港股+宽基 <span class="leg-pct">8.3% ¥27,551</span></div>
-        <div class="leg-item"><span class="leg-dot" style="background:#ec4899"></span>游戏/纳指 <span class="leg-pct">8.0% ¥26,391</span></div>
-        <div class="leg-item"><span class="leg-dot" style="background:#10b981"></span>新能源车 <span class="leg-pct">5.7% ¥18,702</span></div>
-        <div class="leg-item"><span class="leg-dot" style="background:#3b82f6"></span>AI/半导体 <span class="leg-pct">5.0% ¥16,665</span></div>
-        <div class="leg-item"><span class="leg-dot" style="background:#64748b"></span>周期/平衡 <span class="leg-pct">2.6% ¥8,706</span></div>
-        <div class="leg-item"><span class="leg-dot" style="background:#06b6d4"></span>海外QDII <span class="leg-pct">— 基金无市值</span></div>
-        <div class="leg-item"><span class="leg-dot" style="background:#14b8a6"></span>债券固收 <span class="leg-pct">— 基金无市值</span></div>
+    <svg width="200" height="200" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="70" fill="none" stroke="#e5e7eb" stroke-width="28"/>
+      <!-- AI/半导体 16665/330832=5.04% -->
+      <circle cx="100" cy="100" r="70" fill="none" stroke="#3b82f6" stroke-width="28" stroke-dasharray="22.08 417.62" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+      <!-- 新能源车 18702/330832=5.65% -->
+      <circle cx="100" cy="100" r="70" fill="none" stroke="#10b981" stroke-width="28" stroke-dasharray="24.75 415.95" stroke-dashoffset="-22.08" transform="rotate(-90 100 100)"/>
+      <!-- 黄金商品 232817/330832=70.37% -->
+      <circle cx="100" cy="100" r="70" fill="none" stroke="#f59e0b" stroke-width="28" stroke-dasharray="308.55 131.15" stroke-dashoffset="-46.83" transform="rotate(-90 100 100)"/>
+      <!-- 港股+宽基 27550/330832=8.33% -->
+      <circle cx="100" cy="100" r="70" fill="none" stroke="#8b5cf6" stroke-width="28" stroke-dasharray="36.49 404.21" stroke-dashoffset="-355.38" transform="rotate(-90 100 100)"/>
+      <!-- 周期/平衡 8706/330832=2.63% -->
+      <circle cx="100" cy="100" r="70" fill="none" stroke="#64748b" stroke-width="28" stroke-dasharray="11.53 429.17" stroke-dashoffset="-391.87" transform="rotate(-90 100 100)"/>
+      <!-- 游戏/纳指场内 26391/330832=7.98% -->
+      <circle cx="100" cy="100" r="70" fill="none" stroke="#ec4899" stroke-width="28" stroke-dasharray="34.96 405.74" stroke-dashoffset="-403.40" transform="rotate(-90 100 100)"/>
+      <!-- 海外QDII 0/330832=0% -->
+      <!-- 债券固收 0/330832=0% -->
+      <text x="100" y="94" text-anchor="middle" font-size="16" font-weight="700" fill="#1f2937">¥330,832</text>
+      <text x="100" y="112" text-anchor="middle" font-size="11" fill="#6b7280">总市值</text>
+    </svg>
+    <div style="display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:8px;font-size:11px;justify-content:center">
+      <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3b82f6;margin-right:2px"></span>AI/半导体</span>
+      <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;margin-right:2px"></span>新能源车</span>
+      <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#f59e0b;margin-right:2px"></span>黄金商品</span>
+      <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#8b5cf6;margin-right:2px"></span>港股+宽基</span>
+      <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#64748b;margin-right:2px"></span>周期/平衡</span>
+      <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#ec4899;margin-right:2px"></span>游戏/纳指</span>
+    </div>
+  </div>
+  <div class="chart-box diverge-box">
+    <h3>板块盈亏分布</h3>
+    <div style="width:100%">
+      <!-- Scale labels -->
+      <div style="display:flex;font-size:10px;color:#9ca3af;margin-bottom:4px;padding:0 108px 0 108px;justify-content:space-between">
+        <span>-2万</span><span>-1万</span><span>0</span><span>+1万</span><span>+5千</span>
       </div>
-    </div>
-    <!-- Sector popup -->
-    <div class="sector-popup" id="sectorPopup"></div>
-  </div>
-
-  <!-- Diverging Bar Chart -->
-  <div class="chart-card">
-    <h3>板块累计盈亏</h3>
-    <div class="div-bar-wrap" id="divBarWrap">
-      <div class="div-bar-center"></div>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== Sector Sections ==================== -->
-
-<!-- 1. AI/半导体 -->
-<div class="sector-section" id="sec-ai">
-  <div class="sec-header">
-    <div class="sec-bar" style="background:#3b82f6"></div>
-    <h2>AI/半导体</h2>
-    <div class="sec-stats">
-      市值 <span class="val">¥16,665</span> · 浮盈 <span class="pnl up-text">+¥4,623</span> · 均变 <span class="down-text">-1.09%</span> · 12只
-    </div>
-  </div>
-  <div class="sec-body">
-    <div class="sec-table-card">
-      <h4>A股/ETF持仓</h4>
-      <table>
-        <tr><th>代码</th><th>名称</th><th>现价</th><th>市值</th><th>浮盈</th><th>涨跌%</th></tr>
-        <tr><td>159995</td><td>芯片ETF</td><td>2.477</td><td>¥10,899</td><td class="up-text">+¥3,445</td><td class="down-text">-2.75%</td></tr>
-        <tr><td>588000</td><td>科创50ETF</td><td>1.860</td><td>¥5,766</td><td class="up-text">+¥1,178</td><td class="down-text">-3.68%</td></tr>
-      </table>
-    </div>
-    <div class="sec-table-card">
-      <h4>基金持仓</h4>
-      <table>
-        <tr><th>代码</th><th>名称</th><th>净值</th><th>涨跌%</th><th>日期</th></tr>
-        <tr><td>012860</td><td>广发纳指500C</td><td>3.033</td><td class="up-text">+1.05%</td><td>5/20</td></tr>
-        <tr><td>012414</td><td>景顺成长龙头C</td><td>0.5793</td><td class="down-text">-0.29%</td><td>5/21</td></tr>
-        <tr><td>011609</td><td>景顺科创50C</td><td>1.3447</td><td class="down-text">-3.49%</td><td>5/21</td></tr>
-        <tr><td>014424</td><td>华安半导体QDII A</td><td>0.8369</td><td class="up-text">+0.66%</td><td>5/21</td></tr>
-        <tr><td>022365</td><td>永赢光模块C</td><td>5.1416</td><td class="down-text">-1.36%</td><td>5/21</td></tr>
-        <tr><td>008888</td><td>华夏半导体联接C</td><td>2.0919</td><td class="down-text">-2.90%</td><td>5/21</td></tr>
-        <tr><td>018124</td><td>德邦半导体A</td><td>2.6612</td><td class="up-text">+4.11%</td><td>5/21</td></tr>
-        <tr><td>003834</td><td>华夏科创50A</td><td>3.660</td><td class="down-text">-0.95%</td><td>5/21</td></tr>
-        <tr><td>502090</td><td>鹏华钢煤</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>011213</td><td>景顺6月持有C</td><td>0.971</td><td class="down-text">-2.34%</td><td>5/21</td></tr>
-      </table>
-    </div>
-    <div class="news-card" style="grid-column:1/-1">
-      <h4>基本面新闻</h4>
-      <ul>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">国海证券</span> AI算力月度跟踪:NV表示Blackwell已出货,GB300或Q3推出;华为910C 6月大规模出货 <a class="link-src" href="https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/lastest/rptid/801106207617/index.phtml" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">财联社</span> 英伟达:DeepSeek将AI计算需求提高100至1000倍 <a class="link-src" href="https://www.cls.cn/detail/2036629" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">证券之星</span> 马斯克:AI芯片瓶颈将转为电力设备短缺,最早2026年中AI企业面临发电量不足 <a class="link-src" href="https://stock.stockstar.com/KX2025052100015583.shtml" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">富途牛牛</span> 澜起科技暂停AI芯片开发转向PCIe Switch,在手订单超12.9亿元 <a class="link-src" href="https://www.moomoo.com/news/post/53327206/" target="_blank" rel="noopener">[链接]</a></li>
-      </ul>
+      <!-- AI/半导体 +4623 -->
+      <div class="diverge-bar-row"><div class="name">AI/半导体</div><div class="bar-area"><div class="zero-line"></div><div class="pos" style="width:0;margin-left:50%"></div></div><div class="pnl up">+¥4,623</div></div>
+      <!-- 海外QDII 0 -->
+      <div class="diverge-bar-row"><div class="name">海外QDII</div><div class="bar-area"><div class="zero-line"></div></div><div class="pnl neutral">¥0</div></div>
+      <!-- 新能源车 -1150 -->
+      <div class="diverge-bar-row"><div class="name">新能源车</div><div class="bar-area"><div class="zero-line"></div><div class="neg" style="width:5.75%;margin-right:50%"></div></div><div class="pnl dn">-¥1,150</div></div>
+      <!-- 黄金商品 -20442 -->
+      <div class="diverge-bar-row"><div class="name">黄金商品</div><div class="bar-area"><div class="zero-line"></div><div class="neg" style="width:40.88%;margin-right:50%"></div></div><div class="pnl dn">-¥20,442</div></div>
+      <!-- 港股+宽基 -7492 -->
+      <div class="diverge-bar-row"><div class="name">港股+宽基</div><div class="bar-area"><div class="zero-line"></div><div class="neg" style="width:14.98%;margin-right:50%"></div></div><div class="pnl dn">-¥7,492</div></div>
+      <!-- 周期/平衡 -1578 -->
+      <div class="diverge-bar-row"><div class="name">周期/平衡</div><div class="bar-area"><div class="zero-line"></div><div class="neg" style="width:3.16%;margin-right:50%"></div></div><div class="pnl dn">-¥1,578</div></div>
+      <!-- 游戏/纳指 -7194 -->
+      <div class="diverge-bar-row"><div class="name">游戏/纳指</div><div class="bar-area"><div class="zero-line"></div><div class="neg" style="width:14.39%;margin-right:50%"></div></div><div class="pnl dn">-¥7,194</div></div>
+      <!-- 债券固收 0 -->
+      <div class="diverge-bar-row"><div class="name">债券固收</div><div class="bar-area"><div class="zero-line"></div></div><div class="pnl neutral">¥0</div></div>
     </div>
   </div>
 </div>
 
-<!-- 2. 海外QDII -->
-<div class="sector-section" id="sec-overseas">
-  <div class="sec-header">
-    <div class="sec-bar" style="background:#06b6d4"></div>
-    <h2>海外QDII</h2>
-    <div class="sec-stats">
-      市价留空 · 均变 <span class="up-text">+1.41%</span> · 6只基金
-    </div>
+<!-- Market Index -->
+<div class="market-row">
+  <div class="market-card">
+    <span class="idx-name">上证指数</span>
+    <span class="idx-val dn">4077.28 (-2.04%)</span>
   </div>
-  <div class="sec-body">
-    <div class="sec-table-card" style="grid-column:1/-1">
-      <h4>基金持仓</h4>
-      <table>
-        <tr><th>代码</th><th>名称</th><th>净值</th><th>涨跌%</th><th>日期</th></tr>
-        <tr><td>539001</td><td>招商纳指100A人民币</td><td>3.4532</td><td class="up-text">+1.63%</td><td>5/20</td></tr>
-        <tr><td>000369</td><td>长信全球债券A</td><td>2.367</td><td class="up-text">+0.13%</td><td>5/20</td></tr>
-        <tr><td>160213</td><td>国泰纳指100指数</td><td>4.483</td><td class="up-text">+1.72%</td><td>5/20</td></tr>
-        <tr><td>018043</td><td>华夏纳指100联接A</td><td>2.0393</td><td class="up-text">+1.59%</td><td>5/20</td></tr>
-        <tr><td>050025</td><td>博时标普500联接A</td><td>5.4693</td><td class="up-text">+1.06%</td><td>5/20</td></tr>
-        <tr><td>241001</td><td>华宝标普油气</td><td>1.604</td><td class="up-text">+2.36%</td><td>5/20</td></tr>
-      </table>
-    </div>
-    <div class="news-card" style="grid-column:1/-1">
-      <h4>基本面新闻</h4>
-      <ul>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">新华财经</span> 美股三大指数下跌,标普500结束6连涨;圣路易斯联储称关税仍可能对经济产生显著影响 <a class="link-src" href="https://finance.eastmoney.com/a/202505213409919996.html" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">证券时报</span> 深夜美股集体下跌中概股逆势飘红,穆迪下调美评级后港基金或被迫抛售美债 <a class="link-src" href="https://stcn.com/article/detail/1840151.html" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">新浪财经</span> 美银:标普500或很快重返历史高点,从恐慌转向中性指标历史上成功率84% <a class="link-src" href="https://finance.sina.com.cn/stock/hkstock/hshknews/2025-05-21/doc-inexitzx2582715.shtml" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">中新经纬</span> 欧盟为美准备修改后贸易提议,太阳能关税6月开征成定局 <a class="link-src" href="https://www.jwview.com/jingwei/html/m/05-21/622866.shtml" target="_blank" rel="noopener">[链接]</a></li>
-      </ul>
-    </div>
+  <div class="market-card">
+    <span class="idx-name">深证成指</span>
+    <span class="idx-val dn">15247.27 (-2.07%)</span>
+  </div>
+  <div class="market-card">
+    <span class="idx-name">创业板指</span>
+    <span class="idx-val dn">3829.78 (-2.35%)</span>
   </div>
 </div>
 
-<!-- 3. 新能源车 -->
-<div class="sector-section" id="sec-nev">
-  <div class="sec-header">
-    <div class="sec-bar" style="background:#10b981"></div>
-    <h2>新能源车</h2>
-    <div class="sec-stats">
-      市值 <span class="val">¥18,702</span> · 浮亏 <span class="pnl down-text">-¥1,150</span> · 均变 <span class="down-text">-1.25%</span> · 6只
-    </div>
+<!-- TOC -->
+<nav class="toc" id="toc">
+  <a href="#s1"><span class="dot" style="background:#3b82f6"></span>AI/半导体</a>
+  <a href="#s2"><span class="dot" style="background:#06b6d4"></span>海外QDII</a>
+  <a href="#s3"><span class="dot" style="background:#10b981"></span>新能源车</a>
+  <a href="#s4"><span class="dot" style="background:#f59e0b"></span>黄金商品</a>
+  <a href="#s5"><span class="dot" style="background:#8b5cf6"></span>港股+宽基</a>
+  <a href="#s6"><span class="dot" style="background:#64748b"></span>周期/平衡</a>
+  <a href="#s7"><span class="dot" style="background:#ec4899"></span>游戏/纳指</a>
+  <a href="#s8"><span class="dot" style="background:#14b8a6"></span>债券固收</a>
+</nav>
+
+<!-- Main Content -->
+<div class="main-content">
+
+<!-- S1: AI/半导体 -->
+<div class="section" id="s1">
+  <h2><span class="badge" style="background:#3b82f6"></span>AI/半导体</h2>
+  <div class="section-meta">
+    <span>市值: <b>¥16,665</b></span>
+    <span>浮盈: <b class="up">+¥4,623</b></span>
+    <span>板块均变: <b class="dn">-1.09%</b></span>
   </div>
-  <div class="sec-body">
-    <div class="sec-table-card">
-      <h4>A股持仓</h4>
-      <table>
-        <tr><th>代码</th><th>名称</th><th>现价</th><th>市值</th><th>浮盈</th><th>涨跌%</th></tr>
-        <tr><td>002594</td><td>比亚迪</td><td>93.51</td><td>¥18,702</td><td class="down-text">-¥1,150</td><td class="up-text">+0.16%</td></tr>
-      </table>
-    </div>
-    <div class="sec-table-card">
-      <h4>基金持仓</h4>
-      <table>
-        <tr><th>代码</th><th>名称</th><th>净值</th><th>涨跌%</th><th>日期</th></tr>
-        <tr><td>001528</td><td>华夏新能源车A</td><td>3.436</td><td class="down-text">-2.11%</td><td>5/21</td></tr>
-        <tr><td>161028</td><td>富国新能源车A</td><td>1.269</td><td class="down-text">-1.32%</td><td>5/21</td></tr>
-        <tr><td>002168</td><td>深证新能源</td><td>3.458</td><td class="down-text">-2.40%</td><td>5/21</td></tr>
-        <tr><td>011082</td><td>申万智能驱动C</td><td>0.999</td><td class="up-text">+0.60%</td><td>5/21</td></tr>
-        <tr><td>003984</td><td>申万新能源A</td><td>3.0658</td><td class="down-text">-2.40%</td><td>5/21</td></tr>
-      </table>
-    </div>
-    <div class="news-card" style="grid-column:1/-1">
-      <h4>基本面新闻</h4>
-      <ul>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">同花顺</span> A股5/21收盘:创业板+0.83%,固态电池/锂电池领涨;主力净流出301亿,北向净流出37亿 <a class="link-src" href="https://t.10jqka.com.cn/pid_452374798.shtml" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">东方财富</span> 5/21北向资金成交1287亿,紫金矿业/贵州茅台/恒瑞医药列沪股通前三 <a class="link-src" href="https://stock.eastmoney.com/a/cyjyc_12.html" target="_blank" rel="noopener">[链接]</a></li>
-      </ul>
-    </div>
-  </div>
+  <table class="holdings">
+    <tr><th>标的</th><th>价格/净值</th><th>涨跌</th></tr>
+    <tr><td>芯片ETF</td><td>2.477</td><td class="chg dn">-2.75%</td></tr>
+    <tr><td>科创50ETF</td><td>1.860</td><td class="chg dn">-3.68%</td></tr>
+    <tr><td>德邦半导体A</td><td>nav 2.6612</td><td class="chg up">+4.11%</td></tr>
+    <tr><td>永赢光模块C</td><td>nav 5.1416</td><td class="chg dn">-1.36%</td></tr>
+    <tr><td>华夏半导体联接C</td><td>nav 2.0919</td><td class="chg dn">-2.90%</td></tr>
+    <tr><td>华安半导体QDII A</td><td>nav 0.8369</td><td class="chg up">+0.66%</td></tr>
+    <tr><td>景顺科创50C</td><td>nav 1.3447</td><td class="chg dn">-3.49%</td></tr>
+    <tr><td>华夏科创50A</td><td>nav 3.66</td><td class="chg dn">-0.95%</td></tr>
+    <tr><td>广发纳指500C</td><td>nav 3.033</td><td class="chg up">+1.05%</td></tr>
+    <tr><td>景顺成长龙头C</td><td>nav 0.5793</td><td class="chg dn">-0.29%</td></tr>
+    <tr><td>鹏华钢煤</td><td colspan="2" style="color:#9ca3af">数据未取到</td></tr>
+    <tr><td>景顺6月持有C</td><td>nav 0.971</td><td class="chg dn">-2.34%</td></tr>
+  </table>
+</div>
+<div class="news-section">
+  <h3>📰 基本面 · AI/半导体</h3>
+  <div class="news-item"><span class="meta">[2026-05-21 | 国海证券]</span> AI算力月度跟踪:NV表示Blackwell已出货,GB300或Q3推出;华为910C 6月大规模出货 <a href="https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/lastest/rptid/801106207617/index.phtml" target="_blank" rel="noopener">🔗</a></div>
+  <div class="news-item"><span class="meta">[2026-05-21 | 财联社]</span> 英伟达:DeepSeek将AI计算需求提高100至1000倍 <a href="https://www.cls.cn/detail/2036629" target="_blank" rel="noopener">🔗</a></div>
+  <div class="news-item"><span class="meta">[2026-05-21 | 证券之星]</span> 马斯克:AI芯片瓶颈将转为电力设备短缺 <a href="https://stock.stockstar.com/KX2025052100015583.shtml" target="_blank" rel="noopener">🔗</a></div>
+  <div class="news-item"><span class="meta">[2026-05-21 | 富途牛牛]</span> 澜起科技暂停AI芯片开发转向PCIe Switch,在手订单超12.9亿元 <a href="https://www.moomoo.com/news/post/53327206/" target="_blank" rel="noopener">🔗</a></div>
 </div>
 
-<!-- 4. 黄金商品 -->
-<div class="sector-section" id="sec-gold">
-  <div class="sec-header">
-    <div class="sec-bar" style="background:#f59e0b"></div>
-    <h2>黄金商品</h2>
-    <div class="sec-stats">
-      市值 <span class="val">¥232,817</span> · 浮亏 <span class="pnl down-text">-¥20,442</span> · 均变 <span class="down-text">-1.02%</span> · 7只
-    </div>
+<!-- S2: 海外QDII -->
+<div class="section" id="s2">
+  <h2><span class="badge" style="background:#06b6d4"></span>海外QDII</h2>
+  <div class="section-meta">
+    <span>市值: <b>¥0</b></span>
+    <span>浮盈: <b>¥0</b></span>
+    <span>板块均变: <b class="up">+1.41%</b></span>
   </div>
-  <div class="sec-body">
-    <div class="sec-table-card">
-      <h4>A股/ETF/积存金持仓</h4>
-      <table>
-        <tr><th>代码</th><th>名称</th><th>现价</th><th>市值</th><th>浮盈</th><th>涨跌%</th></tr>
-        <tr><td>518880</td><td>黄金ETF</td><td>9.450</td><td>¥10,395</td><td class="up-text">+¥391</td><td class="up-text">+0.89%</td></tr>
-        <tr><td>601899</td><td>紫金矿业</td><td>29.99</td><td>¥11,996</td><td class="down-text">-¥1,356</td><td class="down-text">-1.32%</td></tr>
-        <tr><td>minsheng</td><td>民生积存金</td><td>994.50</td><td>¥159,259</td><td class="down-text">-¥12,731</td><td class="up-text">+0.31%</td></tr>
-        <tr><td>zheshang</td><td>浙商积存金</td><td>994.50</td><td>¥51,167</td><td class="down-text">-¥6,746</td><td class="up-text">+0.31%</td></tr>
-      </table>
-    </div>
-    <div class="sec-table-card">
-      <h4>基金持仓</h4>
-      <table>
-        <tr><th>代码</th><th>名称</th><th>净值</th><th>涨跌%</th><th>日期</th></tr>
-        <tr><td>161226</td><td>国投白银LOF</td><td>2.402</td><td class="down-text">-1.40%</td><td>5/21</td></tr>
-        <tr><td>501018</td><td>南方原油A</td><td>1.9413</td><td class="down-text">-3.81%</td><td>5/20</td></tr>
-        <tr><td>160221</td><td>国投白银期货A</td><td>2.3217</td><td class="down-text">-2.14%</td><td>5/21</td></tr>
-      </table>
-    </div>
-    <div class="news-card" style="grid-column:1/-1">
-      <h4>基本面新闻</h4>
-      <ul>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">财联社</span> COMEX黄金突破3300美元!地缘风险+美债评级下调+中国4月黄金进口环比+73% <a class="link-src" href="https://cn.investing.com/news/company-news/article-93CH-2815200" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">FX678</span> 美债评级下调+降息预期推黄金三连阳,CFTC净多头增7%创3月新高 <a class="link-src" href="https://cn.investing.com/news/commodities-news/article-2815377" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">证券时报</span> 现货黄金重返3300美元,高盛维持年底3700/2026年中4000美元目标 <a class="link-src" href="https://stcn.com/article/detail/1838925.html" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">上证报</span> 国内沪金涨近3%,信达期货:各消息面共振,方正看好黄金长期上行趋势 <a class="link-src" href="https://www.cnstock.com/commonDetail/443556" target="_blank" rel="noopener">[链接]</a></li>
-      </ul>
-    </div>
-  </div>
+  <table class="holdings">
+    <tr><th>标的</th><th>价格/净值</th><th>涨跌</th></tr>
+    <tr><td>招商纳指100A</td><td>nav 3.4532</td><td class="chg up">+1.63%</td></tr>
+    <tr><td>长信全球债券A</td><td>nav 2.367</td><td class="chg up">+0.13%</td></tr>
+    <tr><td>国泰纳指100指数</td><td>nav 4.483</td><td class="chg up">+1.72%</td></tr>
+    <tr><td>华夏纳指100联接A</td><td>nav 2.0393</td><td class="chg up">+1.59%</td></tr>
+    <tr><td>博时标普500联接A</td><td>nav 5.4693</td><td class="chg up">+1.06%</td></tr>
+    <tr><td>华宝标普油气</td><td>nav 1.604</td><td class="chg up">+2.36%</td></tr>
+  </table>
+</div>
+<div class="news-section">
+  <h3>📰 基本面 · 海外QDII</h3>
+  <div class="news-item"><span class="meta">[2026-05-21 | 新华财经]</span> 美股三大指数下跌,标普500结束6连涨;圣路易斯联储称关税仍可能对经济产生显著影响 <a href="https://finance.eastmoney.com/a/202505213409919996.html" target="_blank" rel="noopener">🔗</a></div>
+  <div class="news-item"><span class="meta">[2026-05-21 | 证券时报]</span> 深夜美股集体下跌中概股逆势飘红,穆迪下调美评级后港基金或被迫抛售美债 <a href="https://stcn.com/article/detail/1840151.html" target="_blank" rel="noopener">🔗</a></div>
+  <div class="news-item"><span class="meta">[2026-05-21 | 新浪财经]</span> 美银:标普500或很快重返历史高点 <a href="https://finance.sina.com.cn/stock/hkstock/hshknews/2025-05-21/doc-inexitzx2582715.shtml" target="_blank" rel="noopener">🔗</a></div>
 </div>
 
-<!-- 5. 港股+宽基 -->
-<div class="sector-section" id="sec-hk">
-  <div class="sec-header">
-    <div class="sec-bar" style="background:#8b5cf6"></div>
-    <h2>港股+宽基</h2>
-    <div class="sec-stats">
-      市值 <span class="val">¥27,551</span> · 浮亏 <span class="pnl down-text">-¥7,492</span> · 均变 <span class="down-text">-1.97%</span> · 4只
-    </div>
+<!-- S3: 新能源车 -->
+<div class="section" id="s3">
+  <h2><span class="badge" style="background:#10b981"></span>新能源车</h2>
+  <div class="section-meta">
+    <span>市值: <b>¥18,702</b></span>
+    <span>浮亏: <b class="dn">-¥1,150</b></span>
+    <span>板块均变: <b class="dn">-1.25%</b></span>
   </div>
-  <div class="sec-body">
-    <div class="sec-table-card">
-      <h4>A股/ETF持仓</h4>
-      <table>
-        <tr><th>代码</th><th>名称</th><th>现价</th><th>市值</th><th>浮盈</th><th>涨跌%</th></tr>
-        <tr><td>510300</td><td>沪深300ETF</td><td>4.808</td><td>¥1,442</td><td class="up-text">+¥326</td><td class="down-text">-1.29%</td></tr>
-        <tr><td>513050</td><td>中概互联ETF</td><td>1.151</td><td>¥6,446</td><td class="down-text">-¥2,358</td><td class="down-text">-3.03%</td></tr>
-        <tr><td>513580</td><td>恒生科技ETF</td><td>0.605</td><td>¥19,663</td><td class="down-text">-¥5,460</td><td class="down-text">-2.26%</td></tr>
-      </table>
-    </div>
-    <div class="sec-table-card">
-      <h4>基金持仓</h4>
-      <table>
-        <tr><th>代码</th><th>名称</th><th>净值</th><th>涨跌%</th><th>日期</th></tr>
-        <tr><td>110020</td><td>易方达沪深300联接A</td><td>1.9276</td><td class="down-text">-1.31%</td><td>5/21</td></tr>
-      </table>
-    </div>
-    <div class="news-card" style="grid-column:1/-1">
-      <h4>基本面新闻</h4>
-      <ul>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">东方财富</span> 5/21 A股:上证+0.21%报3387,深成指+0.44%,创业板+0.83%;北向连续2日净流出 <a class="link-src" href="https://caifuhao.eastmoney.com/news/20250521164205926120540" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">证券时报</span> 上海印发提振消费专项行动方案,推动国有控股上市公司完善市值管理 <a class="link-src" href="https://stcn.com/article/detail/1840151.html" target="_blank" rel="noopener">[链接]</a></li>
-      </ul>
-    </div>
-  </div>
+  <table class="holdings">
+    <tr><th>标的</th><th>价格/净值</th><th>涨跌</th><th>持仓</th></tr>
+    <tr><td>比亚迪</td><td>93.51</td><td class="chg up">+0.16%</td><td>200股</td></tr>
+    <tr><td>华夏新能源车A</td><td>nav 3.436</td><td class="chg dn">-2.11%</td><td>-</td></tr>
+    <tr><td>富国新能源车A</td><td>nav 1.269</td><td class="chg dn">-1.32%</td><td>-</td></tr>
+    <tr><td>深证新能源</td><td>nav 3.458</td><td class="chg dn">-2.40%</td><td>-</td></tr>
+    <tr><td>申万智能驱动C</td><td>nav 0.999</td><td class="chg up">+0.60%</td><td>-</td></tr>
+    <tr><td>申万新能源A</td><td>nav 3.0658</td><td class="chg dn">-2.40%</td><td>-</td></tr>
+  </table>
+</div>
+<div class="news-section">
+  <h3>📰 基本面 · 新能源车</h3>
+  <div class="news-item"><span class="meta">[2026-05-21 | 同花顺]</span> A股5/21:创业板+0.83%,固态电池/锂电池领涨;主力净流出301亿 <a href="https://t.10jqka.com.cn/pid_452374798.shtml" target="_blank" rel="noopener">🔗</a></div>
+  <div class="news-item"><span class="meta">[2026-05-21 | 东方财富]</span> 5/21北向资金成交1287亿 <a href="https://stock.eastmoney.com/a/cyjyc_12.html" target="_blank" rel="noopener">🔗</a></div>
 </div>
 
-<!-- 6. 周期/平衡 -->
-<div class="sector-section" id="sec-cycle">
-  <div class="sec-header">
-    <div class="sec-bar" style="background:#64748b"></div>
-    <h2>周期/平衡</h2>
-    <div class="sec-stats">
-      市值 <span class="val">¥8,706</span> · 浮亏 <span class="pnl down-text">-¥1,578</span> · 均变 <span class="down-text">-2.30%</span> · 3只
-    </div>
+<!-- S4: 黄金商品 -->
+<div class="section" id="s4">
+  <h2><span class="badge" style="background:#f59e0b"></span>黄金商品</h2>
+  <div class="section-meta">
+    <span>市值: <b>¥232,817</b></span>
+    <span>浮亏: <b class="dn">-¥20,442</b></span>
+    <span>板块均变: <b class="dn">-1.02%</b></span>
   </div>
-  <div class="sec-body">
-    <div class="sec-table-card">
-      <h4>A股持仓</h4>
-      <table>
-        <tr><th>代码</th><th>名称</th><th>现价</th><th>市值</th><th>浮盈</th><th>涨跌%</th></tr>
-        <tr><td>601600</td><td>中国铝业</td><td>10.84</td><td>¥4,336</td><td class="down-text">-¥1,673</td><td class="down-text">-1.45%</td></tr>
-        <tr><td>601985</td><td>中国核电</td><td>8.74</td><td>¥4,370</td><td class="up-text">+¥95</td><td class="down-text">-3.00%</td></tr>
-      </table>
-    </div>
-    <div class="sec-table-card">
-      <h4>基金持仓</h4>
-      <table>
-        <tr><th>代码</th><th>名称</th><th>净值</th><th>涨跌%</th><th>日期</th></tr>
-        <tr><td>163417</td><td>兴全合润A</td><td>2.171</td><td class="down-text">-2.44%</td><td>5/21</td></tr>
-      </table>
-    </div>
-    <div class="news-card" style="grid-column:1/-1">
-      <h4>基本面新闻</h4>
-      <ul>
-        <li><span class="news-date">[2026-05-14]</span> <span class="news-src">证券时报</span> 铝价回调:伦铝跌至2400附近,国内电解铝产能过剩预期升温 <a class="link-src" href="https://stcn.com" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-11]</span> <span class="news-src">有色网</span> EGA铝业2026年产能将达1000万吨,全球铝供应宽松格局延续 <a class="link-src" href="https://stcn.com" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-12]</span> <span class="news-src">国家统计局</span> 4月PPI同比-1.6%,CPI同比+0.3%,工业品价格仍承压 <a class="link-src" href="https://stcn.com" target="_blank" rel="noopener">[链接]</a></li>
-      </ul>
-    </div>
-  </div>
+  <table class="holdings">
+    <tr><th>标的</th><th>价格/净值</th><th>涨跌</th><th>持仓</th></tr>
+    <tr><td>黄金ETF</td><td>9.450</td><td class="chg up">+0.89%</td><td>1100股</td></tr>
+    <tr><td>紫金矿业</td><td>29.99</td><td class="chg dn">-1.32%</td><td>400股</td></tr>
+    <tr><td>民生积存金</td><td colspan="2">160.14g · 成本1074</td><td>-</td></tr>
+    <tr><td>浙商积存金</td><td colspan="2">51.45g · 成本1125.61</td><td>-</td></tr>
+    <tr><td>国投白银LOF</td><td>nav 2.402</td><td class="chg dn">-1.40%</td><td>-</td></tr>
+    <tr><td>南方原油A</td><td>nav 1.9413</td><td class="chg dn">-3.81%</td><td>-</td></tr>
+    <tr><td>国投白银期货A</td><td>nav 2.3217</td><td class="chg dn">-2.14%</td><td>-</td></tr>
+  </table>
+</div>
+<div class="news-section">
+  <h3>📰 基本面 · 黄金商品</h3>
+  <div class="news-item"><span class="meta">[2026-05-21 | 财联社]</span> COMEX黄金突破$4,500!地缘风险+美债评级下调+中国4月黄金进口环比+73% <a href="https://cn.investing.com/news/company-news/article-93CH-2815200" target="_blank" rel="noopener">🔗</a></div>
+  <div class="news-item"><span class="meta">[2026-05-21 | FX678]</span> 美债评级下调+降息预期推黄金三连阳,CFTC净多头增7% <a href="https://cn.investing.com/news/commodities-news/article-2815377" target="_blank" rel="noopener">🔗</a></div>
+  <div class="news-item"><span class="meta">[2026-05-21 | 证券时报]</span> 现货黄金重返$3,300,高盛维持年底$3,700目标 <a href="https://stcn.com/article/detail/1838925.html" target="_blank" rel="noopener">🔗</a></div>
+  <div class="news-item"><span class="meta">[2026-05-21 | 上证报]</span> 国内沪金涨近3%,方正看好黄金长期上行趋势 <a href="https://www.cnstock.com/commonDetail/443556" target="_blank" rel="noopener">🔗</a></div>
 </div>
 
-<!-- 7. 游戏/纳指场内 -->
-<div class="sector-section" id="sec-game">
-  <div class="sec-header">
-    <div class="sec-bar" style="background:#ec4899"></div>
-    <h2>游戏/纳指场内</h2>
-    <div class="sec-stats">
-      市值 <span class="val">¥26,391</span> · 浮亏 <span class="pnl down-text">-¥7,194</span> · 均变 <span class="down-text">-0.38%</span> · 2只
-    </div>
+<!-- S5: 港股+宽基 -->
+<div class="section" id="s5">
+  <h2><span class="badge" style="background:#8b5cf6"></span>港股+宽基</h2>
+  <div class="section-meta">
+    <span>市值: <b>¥27,550</b></span>
+    <span>浮亏: <b class="dn">-¥7,492</b></span>
+    <span>板块均变: <b class="dn">-1.97%</b></span>
   </div>
-  <div class="sec-body">
-    <div class="sec-table-card" style="grid-column:1/-1">
-      <h4>A股/ETF持仓</h4>
-      <table>
-        <tr><th>代码</th><th>名称</th><th>现价</th><th>市值</th><th>浮盈</th><th>涨跌%</th></tr>
-        <tr><td>516010</td><td>游戏ETF</td><td>1.206</td><td>¥21,708</td><td class="down-text">-¥7,848</td><td class="down-text">-2.58%</td></tr>
-        <tr><td>159941</td><td>纳指ETF</td><td>1.561</td><td>¥4,683</td><td class="up-text">+¥654</td><td class="up-text">+1.83%</td></tr>
-      </table>
-    </div>
-    <div class="news-card" style="grid-column:1/-1">
-      <h4>基本面新闻</h4>
-      <ul>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">新华财经</span> 美股科技股普遍下跌,纳指-0.38%,英伟达-0.88%,仅特斯拉+0.51%勉强收涨 <a class="link-src" href="https://finance.eastmoney.com/a/202505213409919996.html" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">证券时报</span> Wolfspeed暴跌70%准备申请破产,半导体分化加剧 <a class="link-src" href="https://stcn.com/article/detail/1840151.html" target="_blank" rel="noopener">[链接]</a></li>
-      </ul>
-    </div>
-  </div>
+  <table class="holdings">
+    <tr><th>标的</th><th>价格/净值</th><th>涨跌</th><th>持仓</th></tr>
+    <tr><td>中概互联ETF</td><td>1.151</td><td class="chg dn">-3.03%</td><td>5600份</td></tr>
+    <tr><td>恒生科技ETF</td><td>0.605</td><td class="chg dn">-2.26%</td><td>32500份</td></tr>
+    <tr><td>沪深300ETF</td><td>4.808</td><td class="chg dn">-1.29%</td><td>300份</td></tr>
+    <tr><td>易方达沪深300联接A</td><td>nav 1.9276</td><td class="chg dn">-1.31%</td><td>-</td></tr>
+  </table>
+</div>
+<div class="news-section">
+  <h3>📰 基本面 · 港股+宽基</h3>
+  <div class="news-item"><span class="meta">[2026-05-21 | 东方财富]</span> 5/21 A股:上证+0.21%报3387;北向连续2日净流出 <a href="https://caifuhao.eastmoney.com/news/20250521164205926120540" target="_blank" rel="noopener">🔗</a></div>
+  <div class="news-item"><span class="meta">[2026-05-21 | 证券时报]</span> 上海印发提振消费专项行动方案 <a href="https://stcn.com/article/detail/1840151.html" target="_blank" rel="noopener">🔗</a></div>
 </div>
 
-<!-- 8. 债券固收 -->
-<div class="sector-section" id="sec-bond">
-  <div class="sec-header">
-    <div class="sec-bar" style="background:#14b8a6"></div>
-    <h2>债券固收</h2>
-    <div class="sec-stats">
-      市价留空 · 均变 <span class="down-text">-0.57%</span> · 2只基金
-    </div>
+<!-- S6: 周期/平衡 -->
+<div class="section" id="s6">
+  <h2><span class="badge" style="background:#64748b"></span>周期/平衡</h2>
+  <div class="section-meta">
+    <span>市值: <b>¥8,706</b></span>
+    <span>浮亏: <b class="dn">-¥1,578</b></span>
+    <span>板块均变: <b class="dn">-2.30%</b></span>
   </div>
-  <div class="sec-body">
-    <div class="sec-table-card" style="grid-column:1/-1">
-      <h4>基金持仓</h4>
-      <table>
-        <tr><th>代码</th><th>名称</th><th>净值</th><th>涨跌%</th><th>日期</th></tr>
-        <tr><td>004069</td><td>天弘金融债联接A</td><td>1.1362</td><td class="up-text">+0.19%</td><td>5/21</td></tr>
-        <tr><td>000961</td><td>天弘沪深300联接A</td><td>1.6951</td><td class="down-text">-1.32%</td><td>5/21</td></tr>
-      </table>
-    </div>
-    <div class="news-card" style="grid-column:1/-1">
-      <h4>基本面新闻</h4>
-      <ul>
-        <li><span class="news-date">[2026-05-21]</span> <span class="news-src">NeoData宏观</span> 10年国债收益率1.7448%,较前日+0.66bp,5月以来窄幅震荡 <a class="link-src" href="https://copilot.tencent.com" target="_blank" rel="noopener">[链接]</a></li>
-        <li><span class="news-date">[2026-05-17]</span> <span class="news-src">证券时报</span> 10年国债收益率下行至1.70%附近,市场预期央行仍有降息空间 <a class="link-src" href="https://stcn.com" target="_blank" rel="noopener">[链接]</a></li>
-      </ul>
-    </div>
-  </div>
+  <table class="holdings">
+    <tr><th>标的</th><th>价格/净值</th><th>涨跌</th><th>持仓</th></tr>
+    <tr><td>中国铝业</td><td>10.84</td><td class="chg dn">-1.45%</td><td>400股</td></tr>
+    <tr><td>中国核电</td><td>8.74</td><td class="chg dn">-3.00%</td><td>500股</td></tr>
+    <tr><td>兴全合润A</td><td>nav 2.171</td><td class="chg dn">-2.44%</td><td>-</td></tr>
+  </table>
+</div>
+<div class="news-section">
+  <h3>📰 基本面 · 周期/平衡</h3>
+  <div class="news-item"><span class="meta">[2026-05-14 | 证券时报]</span> 铝价回调:伦铝跌至2400附近 <a href="https://stcn.com" target="_blank" rel="noopener">🔗</a></div>
+  <div class="news-item"><span class="meta">[2026-05-12 | 国家统计局]</span> 4月PPI同比-1.6%,CPI同比+0.3% <a href="https://stcn.com" target="_blank" rel="noopener">🔗</a></div>
 </div>
 
-<!-- 综合操作清单 -->
-<div class="sector-section" id="sec-checklist">
-  <div class="checklist-section">
-    <h2>综合操作清单（信息待办）</h2>
-    <ul>
-      <li>关注今日A股开盘后黄金板块走势（COMEX金$4,535.5 + 穆迪下调美评级）</li>
-      <li>跟踪恒生科技ETF/中概互联ETF超跌修复信号（昨日-2.26%/-3.03%）</li>
-      <li>关注AI/半导体板块资金流向（Blackwell出货+华为910C 6月出货预期）</li>
-      <li>监控游戏ETF破位风险（浮亏-26.55%，昨日-2.58%）</li>
-      <li>观察周期板块铝价/核电政策面变化</li>
-      <li>留意10年国债收益率1.7448%附近央行操作信号</li>
-      <li>跟踪海外QDII净值更新（纳指/标普500 5/20净值已出）</li>
-      <li>关注新能源车板块固态电池/锂电池主题延续性</li>
-    </ul>
+<!-- S7: 游戏/纳指场内 -->
+<div class="section" id="s7">
+  <h2><span class="badge" style="background:#ec4899"></span>游戏/纳指场内</h2>
+  <div class="section-meta">
+    <span>市值: <b>¥26,391</b></span>
+    <span>浮亏: <b class="dn">-¥7,194</b></span>
+    <span>板块均变: <b class="dn">-0.38%</b></span>
   </div>
+  <table class="holdings">
+    <tr><th>标的</th><th>价格/净值</th><th>涨跌</th><th>持仓</th></tr>
+    <tr><td>游戏ETF</td><td>1.206</td><td class="chg dn">-2.58%</td><td>18000份</td></tr>
+    <tr><td>纳指ETF</td><td>1.561</td><td class="chg up">+1.83%</td><td>3000份</td></tr>
+  </table>
 </div>
+<div class="news-section">
+  <h3>📰 基本面 · 游戏/纳指场内</h3>
+  <div class="news-item"><span class="meta">[2026-05-21 | 新华财经]</span> 美股科技股普遍下跌,纳指-0.38% <a href="https://finance.eastmoney.com/a/202505213409919996.html" target="_blank" rel="noopener">🔗</a></div>
+  <div class="news-item"><span class="meta">[2026-05-21 | 证券时报]</span> Wolfspeed暴跌70%准备申请破产 <a href="https://stcn.com/article/detail/1840151.html" target="_blank" rel="noopener">🔗</a></div>
+</div>
+
+<!-- S8: 债券固收 -->
+<div class="section" id="s8">
+  <h2><span class="badge" style="background:#14b8a6"></span>债券固收</h2>
+  <div class="section-meta">
+    <span>市值: <b>¥0</b></span>
+    <span>浮盈: <b>¥0</b></span>
+    <span>板块均变: <b class="dn">-0.57%</b></span>
+  </div>
+  <table class="holdings">
+    <tr><th>标的</th><th>价格/净值</th><th>涨跌</th></tr>
+    <tr><td>天弘金融债联接A</td><td>nav 1.1362</td><td class="chg up">+0.19%</td></tr>
+    <tr><td>天弘沪深300联接A</td><td>nav 1.6951</td><td class="chg dn">-1.32%</td></tr>
+  </table>
+</div>
+<div class="news-section">
+  <h3>📰 基本面 · 债券固收</h3>
+  <div class="news-item"><span class="meta">[2026-05-21 | NeoData宏观]</span> 10年国债收益率1.7448% <a href="https://copilot.tencent.com" target="_blank" rel="noopener">🔗</a></div>
+  <div class="news-item"><span class="meta">[2026-05-17 | 证券时报]</span> 10年国债收益率下行至1.70%附近 <a href="https://stcn.com" target="_blank" rel="noopener">🔗</a></div>
+</div>
+
+</div><!-- /main-content -->
 
 <!-- Footer -->
-<div class="footer-banner">
-  <div class="footer-title">数据来源</div>
-  <div class="footer-sources">
-    westock-data(腾讯自选股) · NeoData · 新华财经 · 财联社 · 证券时报 · 东方财富 · 同花顺 · 新浪财经 · 国海证券 · FX678 · 上证报 · 中新经纬
-  </div>
-  <div class="data-note">
-    数据日期注: A股/ETF收盘价为T-1(5/21); 基金净值为T-1或T-2; Au9999为实时价; COMEX为延迟数据<br>
-    本报告为信息收集任务，不构成操作建议。操作建议请参考14:30盘前简报。
-  </div>
+<div class="footer">
+  ⚠️ 数据来源声明: 本报告数据来自公开市场信息,仅供参考,不构成任何投资建议<br>
+  A股/ETF收盘数据截至T-1(2026-05-21) | 基金净值为T-1/T-2估值 | Au9999为实时价 | COMEX数据存在延迟<br>
+  综合浮亏为各板块浮亏之和,可能与账户实际数据存在偏差
 </div>
 
 <script>
-// TOC active highlight
-(function(){
-  const tocLinks=document.querySelectorAll('.toc a[data-sec]');
-  const sections=[];
-  tocLinks.forEach(a=>{
-    const id=a.getAttribute('data-sec');
-    const el=document.getElementById(id);
-    if(el) sections.push({el,a});
-  });
-  function onScroll(){
-    let current=null;
-    sections.forEach(s=>{
-      const rect=s.el.getBoundingClientRect();
-      if(rect.top<=120) current=s;
-    });
-    tocLinks.forEach(a=>a.classList.remove('active'));
-    if(current) current.a.classList.add('active');
-  }
-  window.addEventListener('scroll',onScroll,{passive:true});
-  onScroll();
-})();
-
-// Diverging bar chart
-(function(){
-  const data=[
-    {label:'黄金商品',color:'#f59e0b',pnl:-20442},
-    {label:'港股+宽基',color:'#8b5cf6',pnl:-7492},
-    {label:'游戏/纳指',color:'#ec4899',pnl:-7194},
-    {label:'周期/平衡',color:'#64748b',pnl:-1578},
-    {label:'新能源车',color:'#10b981',pnl:-1150},
-    {label:'AI/半导体',color:'#3b82f6',pnl:4623},
-    {label:'海外QDII',color:'#06b6d4',pnl:0},
-    {label:'债券固收',color:'#14b8a6',pnl:0},
-  ];
-  const maxAbs=Math.max(...data.map(d=>Math.abs(d.pnl)),1);
-  const wrap=document.getElementById('divBarWrap');
-  const barMaxW=160;
-  const rowH=28;
-  const startY=10;
-  data.forEach((d,i)=>{
-    const row=document.createElement('div');
-    row.className='div-bar-row';
-    row.style.top=(startY+i*rowH)+'px';
-    row.style.left='80px';
-    row.style.width='320px';
-    const label=document.createElement('span');
-    label.className='bar-label';
-    label.textContent=d.label;
-    const pct=Math.abs(d.pnl)/maxAbs*barMaxW;
-    if(d.pnl<0){
-      const left=document.createElement('div');
-      left.className='bar-left';
-      left.style.width=pct+'px';
-      left.style.background=d.color;
-      left.style.opacity='0.7';
-      left.style.position='absolute';
-      left.style.right='0';
-      const valSpan=document.createElement('span');
-      valSpan.style.cssText='position:absolute;left:'+(pct+6)+'px;top:2px;font-size:11px;font-weight:600;color:'+d.color;
-      valSpan.textContent='¥'+d.pnl.toLocaleString();
-      row.appendChild(left);
-      row.appendChild(valSpan);
-    }else if(d.pnl>0){
-      const right=document.createElement('div');
-      right.className='bar-right';
-      right.style.width=pct+'px';
-      right.style.background=d.color;
-      right.style.position='absolute';
-      right.style.left='0';
-      const valSpan=document.createElement('span');
-      valSpan.style.cssText='position:absolute;left:'+(pct+6)+'px;top:2px;font-size:11px;font-weight:600;color:'+d.color;
-      valSpan.textContent='+¥'+d.pnl.toLocaleString();
-      row.appendChild(right);
-      row.appendChild(valSpan);
-    }else{
-      const valSpan=document.createElement('span');
-      valSpan.style.cssText='position:absolute;left:6px;top:2px;font-size:11px;color:#6b7280';
-      valSpan.textContent='¥0';
-      row.appendChild(valSpan);
-    }
-    row.appendChild(label);
-    wrap.appendChild(row);
-  });
-  wrap.style.height=(startY+data.length*rowH)+'px';
-})();
-
-// Sector popup
-const sectorData={
-  ai:{label:'AI/半导体',items:[
-    {name:'芯片ETF',code:'159995',val:'¥10,899',chg:'-2.75%'},
-    {name:'科创50ETF',code:'588000',val:'¥5,766',chg:'-3.68%'},
-    {name:'广发纳指500C',code:'012860',val:'基金',chg:'+1.05%'},
-    {name:'景顺成长龙头C',code:'012414',val:'基金',chg:'-0.29%'},
-    {name:'景顺科创50C',code:'011609',val:'基金',chg:'-3.49%'},
-    {name:'华安半导体QDII A',code:'014424',val:'基金',chg:'+0.66%'},
-    {name:'永赢光模块C',code:'022365',val:'基金',chg:'-1.36%'},
-    {name:'华夏半导体联接C',code:'008888',val:'基金',chg:'-2.90%'},
-    {name:'德邦半导体A',code:'018124',val:'基金',chg:'+4.11%'},
-    {name:'华夏科创50A',code:'003834',val:'基金',chg:'-0.95%'},
-    {name:'鹏华钢煤',code:'502090',val:'基金',chg:'—'},
-    {name:'景顺6月持有C',code:'011213',val:'基金',chg:'-2.34%'},
-  ]},
-  overseas:{label:'海外QDII',items:[
-    {name:'招商纳指100A',code:'539001',val:'基金',chg:'+1.63%'},
-    {name:'长信全球债券A',code:'000369',val:'基金',chg:'+0.13%'},
-    {name:'国泰纳指100指数',code:'160213',val:'基金',chg:'+1.72%'},
-    {name:'华夏纳指100联接A',code:'018043',val:'基金',chg:'+1.59%'},
-    {name:'博时标普500联接A',code:'050025',val:'基金',chg:'+1.06%'},
-    {name:'华宝标普油气',code:'241001',val:'基金',chg:'+2.36%'},
-  ]},
-  nev:{label:'新能源车',items:[
-    {name:'比亚迪',code:'002594',val:'¥18,702',chg:'+0.16%'},
-    {name:'华夏新能源车A',code:'001528',val:'基金',chg:'-2.11%'},
-    {name:'富国新能源车A',code:'161028',val:'基金',chg:'-1.32%'},
-    {name:'深证新能源',code:'002168',val:'基金',chg:'-2.40%'},
-    {name:'申万智能驱动C',code:'011082',val:'基金',chg:'+0.60%'},
-    {name:'申万新能源A',code:'003984',val:'基金',chg:'-2.40%'},
-  ]},
-  gold:{label:'黄金商品',items:[
-    {name:'黄金ETF',code:'518880',val:'¥10,395',chg:'+0.89%'},
-    {name:'紫金矿业',code:'601899',val:'¥11,996',chg:'-1.32%'},
-    {name:'民生积存金',code:'minsheng',val:'¥159,259',chg:'+0.31%'},
-    {name:'浙商积存金',code:'zheshang',val:'¥51,167',chg:'+0.31%'},
-    {name:'国投白银LOF',code:'161226',val:'基金',chg:'-1.40%'},
-    {name:'南方原油A',code:'501018',val:'基金',chg:'-3.81%'},
-    {name:'国投白银期货A',code:'160221',val:'基金',chg:'-2.14%'},
-  ]},
-  hk:{label:'港股+宽基',items:[
-    {name:'沪深300ETF',code:'510300',val:'¥1,442',chg:'-1.29%'},
-    {name:'中概互联ETF',code:'513050',val:'¥6,446',chg:'-3.03%'},
-    {name:'恒生科技ETF',code:'513580',val:'¥19,663',chg:'-2.26%'},
-    {name:'易方达沪深300联接A',code:'110020',val:'基金',chg:'-1.31%'},
-  ]},
-  cycle:{label:'周期/平衡',items:[
-    {name:'中国铝业',code:'601600',val:'¥4,336',chg:'-1.45%'},
-    {name:'中国核电',code:'601985',val:'¥4,370',chg:'-3.00%'},
-    {name:'兴全合润A',code:'163417',val:'基金',chg:'-2.44%'},
-  ]},
-  game:{label:'游戏/纳指场内',items:[
-    {name:'游戏ETF',code:'516010',val:'¥21,708',chg:'-2.58%'},
-    {name:'纳指ETF',code:'159941',val:'¥4,683',chg:'+1.83%'},
-  ]},
-  bond:{label:'债券固收',items:[
-    {name:'天弘金融债联接A',code:'004069',val:'基金',chg:'+0.19%'},
-    {name:'天弘沪深300联接A',code:'000961',val:'基金',chg:'-1.32%'},
-  ]},
-};
-
-function showSector(sec){
-  const popup=document.getElementById('sectorPopup');
-  const d=sectorData[sec];
-  if(!d) return;
-  let html='<div class="popup-title">'+d.label+'</div><table><tr><th>名称</th><th>代码</th><th>市值</th><th>涨跌%</th></tr>';
-  d.items.forEach(it=>{
-    const cls=it.chg.startsWith('+')?'up-text':it.chg.startsWith('-')?'down-text':'';
-    html+='<tr><td>'+it.name+'</td><td>'+it.code+'</td><td>'+it.val+'</td><td class="'+cls+'">'+it.chg+'</td></tr>';
-  });
-  html+='</table>';
-  popup.innerHTML=html;
-  popup.classList.add('show');
-  setTimeout(()=>{document.addEventListener('click',hidePopup,{once:true})},10);
-}
-function hidePopup(e){
-  const popup=document.getElementById('sectorPopup');
-  if(!popup.contains(e.target)) popup.classList.remove('show');
-}
+// TOC active highlight on scroll
+const sections=document.querySelectorAll('.section[id]');
+const tocLinks=document.querySelectorAll('.toc a');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-120)current=s.id});
+  tocLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+current)});
+});
 </script>
 </body>
 </html>
