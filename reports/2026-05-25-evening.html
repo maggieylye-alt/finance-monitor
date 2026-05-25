@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>5月25日 晚间日结 · 金融监控</title>
+<style>
+:root{--bg:#f7f8fa;--card:#fff;--card2:#f0f2f5;--border:#e4e6eb;--muted:#6b7280;--text:#1f2937;--up:#dc2626;--down:#16a34a;--flat:#6b7280;--info:#2563eb;--ai:#3b82f6;--qdii:#06b6d4;--gold:#f59e0b;--hk:#8b5cf6;--cycle:#64748b;--ne:#10b981;--game:#ec4899;--bond:#14b8a6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:14px/1.6 -apple-system,SF Pro,PingFang SC,sans-serif;background:var(--bg);color:var(--text);padding:14px;max-width:920px;margin:0 auto}
+a{color:var(--info);text-decoration:none}
+a:hover{text-decoration:underline}
+header{padding:20px 0 16px;border-bottom:1px solid var(--border);margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+header h1{font-size:20px;font-weight:600}
+.back{font-size:13px;color:var(--info)}
+.banner{padding:10px 12px;border-radius:8px;font-size:12px;line-height:1.6;margin-bottom:14px;background:#eff6ff;border-left:3px solid var(--info)}
+.hero{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:18px;text-align:center}
+.hero .label{font-size:13px;color:var(--muted);margin-bottom:6px}
+.hero .big{font-size:42px;font-weight:700;letter-spacing:-1px}
+.hero .big.up{color:var(--up)}
+.hero .big.down{color:var(--down)}
+.hero .big.flat{color:var(--flat)}
+.hero .sub{font-size:13px;color:var(--muted);margin-top:8px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:18px}
+.three-col .col{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.three-col .col .icon{font-size:20px;margin-bottom:4px}
+.three-col .col .val{font-size:20px;font-weight:600}
+.three-col .col .val.up{color:var(--up)}
+.three-col .col .val.down{color:var(--down)}
+.three-col .col .val.flat{color:var(--flat)}
+.three-col .col .lbl{font-size:12px;color:var(--muted);margin-top:2px}
+.section{margin-bottom:18px}
+.section h2{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.section h2::before{content:'';width:3px;height:14px;border-radius:2px}
+.section h2.sec-ai::before{background:var(--ai)}
+.section h2.sec-qdii::before{background:var(--qdii)}
+.section h2.sec-gold::before{background:var(--gold)}
+.section h2.sec-ne::before{background:var(--ne)}
+.section h2.sec-bond::before{background:var(--bond)}
+.section h2.sec-mix::before{background:var(--cycle)}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;border:1px solid var(--border);font-size:13px}
+th{background:var(--card2);font-weight:500;padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
+td{padding:7px 10px;border-bottom:1px solid #f0f0f0}
+tr:last-child td{border-bottom:none}
+.up{color:var(--up)}
+.down{color:var(--down)}
+.flat{color:var(--flat)}
+.archive{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:18px;font-size:12px;color:var(--muted)}
+.archive .total{font-size:13px;color:var(--text);margin-bottom:8px}
+.trend{margin-top:10px}
+.trend table{font-size:12px}
+.trend th,.trend td{padding:5px 8px}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:20px 0 12px}
+.unreported{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:10px 12px;font-size:12px;color:#92400e;margin-bottom:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>5月25日 晚间日结</h1>
+  <a class="back" href="../index.html">← 历史索引</a>
+</header>
+
+<div class="banner">
+  <strong>数据来源声明:</strong>A股行情来自腾讯自选股(westock-data)K线+WebSearch交叉验证 · 基金净值来自东方财富API(5/25 T日已披露30只,QDII 14只T-1未披露) · Au9999来自金投网/头条 · 数据更新时间:2026-05-25 22:00
+</div>
+
+<!-- 顶部大数字 -->
+<div class="hero">
+  <div class="label">当日总盈亏 (A股+黄金)</div>
+  <div class="big up">+¥2,260</div>
+  <div class="sub">今日赚了 · 芯片ETF+7.53%领涨 · 黄金+0.49% · 游戏ETF-2.89%拖累</div>
+</div>
+
+<!-- 三大账户 -->
+<div class="three-col">
+  <div class="col">
+    <div class="icon">📊</div>
+    <div class="val up">+¥1,223</div>
+    <div class="lbl">A股 13只</div>
+  </div>
+  <div class="col">
+    <div class="icon">🏦</div>
+    <div class="val flat">¥0</div>
+    <div class="lbl">基金(金额未确认)</div>
+  </div>
+  <div class="col">
+    <div class="icon">🥇</div>
+    <div class="val up">+¥1,037</div>
+    <div class="lbl">黄金 211.59g</div>
+  </div>
+</div>
+
+<!-- A股账户明细 -->
+<div class="section">
+  <h2 class="sec-ai">📊 A股账户 13只当日盈亏</h2>
+  <table>
+    <tr><th>标的</th><th>收盘</th><th>昨收</th><th>涨跌%</th><th>当日盈亏</th></tr>
+    <tr><td>芯片ETF 159995</td><td>2.727</td><td>2.536</td><td class="up">+7.53%</td><td class="up">+¥840</td></tr>
+    <tr><td>比亚迪 002594</td><td>95.96</td><td>93.75</td><td class="up">+2.36%</td><td class="up">+¥443</td></tr>
+    <tr><td>科创50ETF 588000</td><td>1.998</td><td>1.887</td><td class="up">+5.88%</td><td class="up">+¥344</td></tr>
+    <tr><td>纳指ETF 159941</td><td>1.645</td><td>1.588</td><td class="up">+3.59%</td><td class="up">+¥171</td></tr>
+    <tr><td>紫金矿业 601899</td><td>31.35</td><td>30.96</td><td class="up">+1.26%</td><td class="up">+¥156</td></tr>
+    <tr><td>黄金ETF 518880</td><td>9.512</td><td>9.461</td><td class="up">+0.54%</td><td class="up">+¥56</td></tr>
+    <tr><td>沪深300ETF 510300</td><td>4.937</td><td>4.862</td><td class="up">+1.54%</td><td class="up">+¥22</td></tr>
+    <tr><td>中国核电 601985</td><td>8.75</td><td>8.71</td><td class="up">+0.46%</td><td class="up">+¥20</td></tr>
+    <tr><td>白银LOF 161226</td><td>2.44</td><td>2.439</td><td class="flat">+0.04%</td><td class="flat">+¥1</td></tr>
+    <tr><td>恒生科技ETF 513580</td><td>0.614</td><td>0.616</td><td class="down">-0.32%</td><td class="down">-¥64</td></tr>
+    <tr><td>中国铝业 601600</td><td>10.99</td><td>11.15</td><td class="down">-1.43%</td><td class="down">-¥64</td></tr>
+    <tr><td>中概互联ETF 513050</td><td>1.141</td><td>1.154</td><td class="down">-1.13%</td><td class="down">-¥73</td></tr>
+    <tr><td>游戏ETF 516010</td><td>1.175</td><td>1.210</td><td class="down">-2.89%</td><td class="down">-¥629</td></tr>
+  </table>
+</div>
+
+<!-- 基金: 科技半导体 -->
+<div class="section">
+  <h2 class="sec-ai">💻 科技/半导体 (5/25净值 +4.21%均值)</h2>
+  <table>
+    <tr><th>基金</th><th>5/25净值</th><th>5/22净值</th><th>涨跌幅</th><th>状态</th></tr>
+    <tr><td>008281 国泰芯片ETF联接</td><td>2.9020</td><td>2.7222</td><td class="up">+6.60%</td><td>✅</td></tr>
+    <tr><td>011613 银河创新成长</td><td>1.4751</td><td>1.3971</td><td class="up">+5.58%</td><td>✅</td></tr>
+    <tr><td>008888 华夏半导体ETF联接</td><td>2.2941</td><td>2.1435</td><td class="up">+7.03%</td><td>✅</td></tr>
+    <tr><td>017644 招商芯片产业</td><td>1.8982</td><td>1.8693</td><td class="up">+1.55%</td><td>✅</td></tr>
+    <tr><td>017679 华夏半导体材料</td><td>1.1241</td><td>1.1242</td><td class="flat">-0.01%</td><td>✅</td></tr>
+    <tr><td>012894 易方达芯片产业</td><td>1.4107</td><td>1.3498</td><td class="up">+4.51%</td><td>✅</td></tr>
+    <tr><td>164906 交银创新成长</td><td>-</td><td>0.9783(5/22)</td><td>-</td><td>⏳未披露</td></tr>
+  </table>
+</div>
+
+<!-- 基金: 新能源 -->
+<div class="section">
+  <h2 class="sec-ne">🔋 新能源 (5/25净值 -1.28%均值)</h2>
+  <table>
+    <tr><th>基金</th><th>5/25净值</th><th>5/22净值</th><th>涨跌幅</th><th>状态</th></tr>
+    <tr><td>001156 工银生态环境</td><td>3.2200</td><td>3.2950</td><td class="down">-2.28%</td><td>✅</td></tr>
+    <tr><td>161028 富国中证新能源</td><td>1.2660</td><td>1.2880</td><td class="down">-1.71%</td><td>✅</td></tr>
+    <tr><td>003984 嘉实新能源新材料</td><td>3.0118</td><td>3.0994</td><td class="down">-2.83%</td><td>✅</td></tr>
+    <tr><td>012812 华夏新能源</td><td>1.0944</td><td>1.0937</td><td class="flat">+0.06%</td><td>✅</td></tr>
+    <tr><td>002168 深圳成长</td><td>3.4130</td><td>3.5080</td><td class="down">-2.71%</td><td>✅</td></tr>
+    <tr><td>002190 农银新能源</td><td>3.2641</td><td>3.2806</td><td class="down">-0.50%</td><td>✅</td></tr>
+    <tr><td>003834 华夏能源革新</td><td>3.6940</td><td>3.7230</td><td class="down">-0.78%</td><td>✅</td></tr>
+    <tr><td>160225 国泰国证新能源汽车</td><td>2.1138</td><td>2.1323</td><td class="down">-0.87%</td><td>✅</td></tr>
+    <tr><td>002934 长信低碳经济</td><td>1.1818</td><td>1.1810</td><td class="flat">+0.07%</td><td>✅</td></tr>
+    <tr><td>002937 易方达全球医药</td><td>-</td><td>0.5966(5/22)</td><td>-</td><td>⏳数据异常</td></tr>
+  </table>
+</div>
+
+<!-- 基金: 海外QDII -->
+<div class="section">
+  <h2 class="sec-qdii">🌍 海外QDII (5/25已披露2只 +0.80%均值, 12只T-1未披露)</h2>
+  <table>
+    <tr><th>基金</th><th>5/25净值</th><th>5/22净值</th><th>涨跌幅</th><th>状态</th></tr>
+    <tr><td>001877 诺安成长</td><td>4.2102</td><td>4.1248</td><td class="up">+2.07%</td><td>✅</td></tr>
+    <tr><td>011329 广发全球精选</td><td>1.5710</td><td>1.5782</td><td class="down">-0.46%</td><td>✅</td></tr>
+    <tr><td colspan="4" style="color:var(--muted);text-align:center">以下12只QDII T-1(5/22)净值,5/25未披露</td><td></td></tr>
+    <tr><td>000834 大成深证成长40</td><td>-</td><td>6.3949(5/22)</td><td>-</td><td>⏳</td></tr>
+    <tr><td>017145 汇添富全球互联</td><td>-</td><td>1.6567(5/22)</td><td>-</td><td>⏳</td></tr>
+    <tr><td>002230 工银全球精选</td><td>-</td><td>1.4390(5/22)</td><td>-</td><td>⏳</td></tr>
+    <tr><td>050025 博时标普500</td><td>-</td><td>5.4958(5/22)</td><td>-</td><td>⏳</td></tr>
+    <tr><td>000043 嘉实美国成长</td><td>-</td><td>6.3510(5/22)</td><td>-</td><td>⏳</td></tr>
+    <tr><td>270042 广发纳斯达克100</td><td>-</td><td>8.2866(5/22)</td><td>-</td><td>⏳</td></tr>
+    <tr><td>501018 南方恒生科技</td><td>-</td><td>1.9194(5/22)</td><td>-</td><td>⏳</td></tr>
+    <tr><td>018043 华夏全球科技</td><td>-</td><td>2.0508(5/22)</td><td>-</td><td>⏳</td></tr>
+    <tr><td>070012 嘉实海外中国</td><td>-</td><td>0.8570(5/22)</td><td>-</td><td>⏳</td></tr>
+    <tr><td>501312 易方达中证海外互联</td><td>-</td><td>2.2752(5/22)</td><td>-</td><td>⏳</td></tr>
+    <tr><td>501309 华夏恒生ETF联接</td><td>-</td><td>-</td><td>-</td><td>⏳</td></tr>
+    <tr><td>001984 景顺长城沪港深</td><td>-</td><td>1.3523(5/22)</td><td>-</td><td>⏳</td></tr>
+  </table>
+</div>
+
+<!-- 基金: 宽基混合 -->
+<div class="section">
+  <h2 class="sec-mix">📈 宽基混合 (5/25净值 +1.01%均值)</h2>
+  <table>
+    <tr><th>基金</th><th>5/25净值</th><th>5/22净值</th><th>涨跌幅</th><th>状态</th></tr>
+    <tr><td>007028 招商MSCI中国</td><td>2.0610</td><td>2.0327</td><td class="up">+1.39%</td><td>✅</td></tr>
+    <tr><td>007339 嘉实基本面50</td><td>1.9523</td><td>1.9236</td><td class="up">+1.49%</td><td>✅</td></tr>
+    <tr><td>163417 兴全合宜</td><td>2.2334</td><td>2.2147</td><td class="up">+0.84%</td><td>✅</td></tr>
+    <tr><td>012948 鹏华中债1-3年</td><td>1.0802</td><td>1.0798</td><td class="flat">+0.04%</td><td>✅</td></tr>
+    <tr><td>460005 华泰柏瑞价值增长</td><td>4.5307</td><td>4.5046</td><td class="up">+0.58%</td><td>✅</td></tr>
+    <tr><td>001270 工银瑞信新金融</td><td>1.4835</td><td>1.4883</td><td class="down">-0.32%</td><td>✅</td></tr>
+    <tr><td>001102 前海开源沪港深</td><td>2.2520</td><td>2.2170</td><td class="up">+1.58%</td><td>✅</td></tr>
+    <tr><td>004698 汇添富全球互联</td><td>2.5040</td><td>2.4430</td><td class="up">+2.50%</td><td>✅</td></tr>
+  </table>
+</div>
+
+<!-- 基金: 商品债 -->
+<div class="section">
+  <h2 class="sec-bond">💰 商品/债 (5/25净值 +0.64%均值)</h2>
+  <table>
+    <tr><th>基金</th><th>5/25净值</th><th>5/22净值</th><th>涨跌幅</th><th>状态</th></tr>
+    <tr><td>160221 国泰国证有色</td><td>2.4150</td><td>2.4052</td><td class="up">+0.41%</td><td>✅</td></tr>
+    <tr><td>012846 天弘中证红利</td><td>1.8470</td><td>1.8043</td><td class="up">+2.37%</td><td>✅</td></tr>
+    <tr><td>012710 鹏华全球高收益债</td><td>0.9398</td><td>0.9477</td><td class="down">-0.83%</td><td>✅</td></tr>
+    <tr><td>161226 白银LOF</td><td>2.1327</td><td>2.1075</td><td class="up">+1.20%</td><td>✅</td></tr>
+    <tr><td>002569 安信新常态</td><td>1.1477</td><td>1.1471</td><td class="flat">+0.05%</td><td>✅</td></tr>
+  </table>
+</div>
+
+<!-- 黄金 -->
+<div class="section">
+  <h2 class="sec-gold">🥇 黄金积存</h2>
+  <table>
+    <tr><th>品种</th><th>今日收盘</th><th>昨收</th><th>涨跌幅</th><th>持仓量</th><th>当日盈亏</th></tr>
+    <tr><td>Au9999</td><td>997.00</td><td>992.10</td><td class="up">+0.49%</td><td>211.59克</td><td class="up">+¥1,037</td></tr>
+  </table>
+  <div style="font-size:12px;color:var(--muted);margin-top:6px">
+    民生160.14g(成本1074) + 浙商51.45g(成本1125.61) = 合计成本¥1,086.55/克 · 积存金与大盘同步,简化处理
+  </div>
+</div>
+
+<!-- 未披露提示 -->
+<div class="unreported">
+  ⏳ <strong>QDII基金14只5/25净值未披露(接口最新5/22):</strong> 164906/002937/000834/017145/002230/050025/000043/270042/501018/018043/070012/501312/501309/001984 · 投顾组合(华夏全球固收+/工银稳健成长)净值不计入
+</div>
+
+<!-- 底部存档区 -->
+<div class="archive">
+  <div class="total">当日市值快照(存档): A股约¥131K(含ETF) + 基金¥221K(估值) + 黄金积存¥211K ≈ ¥563K (不含QDII未披露+投顾)</div>
+  <div class="trend">
+    <strong>近7日盈亏趋势</strong>
+    <table>
+      <tr><th>日期</th><th>当日盈亏</th><th>A股</th><th>基金</th><th>黄金</th></tr>
+      <tr><td>5/25</td><td class="up">+¥2,260</td><td class="up">+¥1,223</td><td>¥0</td><td class="up">+¥1,037</td></tr>
+      <tr><td>5/21</td><td class="down">-¥2,970</td><td class="down">-¥2,006</td><td class="down">-¥2,322</td><td class="up">+¥1,358</td></tr>
+      <tr><td>5/19</td><td class="up">+¥1,291</td><td class="up">+¥1,649</td><td>¥0</td><td class="down">-¥358</td></tr>
+      <tr><td>5/15</td><td class="down">-¥7,639</td><td class="down">-¥1,868</td><td class="down">-¥975</td><td class="down">-¥4,797</td></tr>
+      <tr><td>5/14</td><td class="down">-¥2,950</td><td class="down">-¥1,787</td><td>¥0</td><td class="down">-¥1,164</td></tr>
+      <tr><td>5/13</td><td class="up">+¥3,231</td><td class="up">+¥1,063</td><td class="up">+¥2,168</td><td>¥0</td></tr>
+      <tr><td>5/12</td><td class="up">+¥1,812</td><td class="up">+¥183</td><td class="up">+¥1,648</td><td class="down">-¥19</td></tr>
+    </table>
+  </div>
+</div>
+
+<footer>
+  金融监控 · 晚间日结 · 由 WorkBuddy 自动生成<br>
+  数据来源:腾讯自选股/东方财富API/金投网 · 仅供参考,不构成投资建议
+</footer>
+
+</body>
+</html>
