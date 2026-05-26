@@ -1,0 +1,46 @@
+{
+  "date": "2026-05-26",
+  "time": "14:30",
+  "type": "pm_snapshot",
+  "indices": {
+    "hs300": {"value": 4938.98, "change_pct": 0.35},
+    "sz50": {"value": 2970.07, "change_pct": 0.05},
+    "cyb": {"value": 4036.00, "change_pct": 0.37},
+    "kc50": {"value": 1964.00, "change_pct": -1.70},
+    "hstech": {"value": 4972.49, "change_pct": 2.11}
+  },
+  "gold": {
+    "au9999": 991.60,
+    "au9999_change_pct": -0.54,
+    "comex_gold": 4537.26,
+    "comex_gold_change_pct": -0.73,
+    "comex_silver": 76.75,
+    "comex_silver_change_pct": -1.65
+  },
+  "holdings": [
+    {"code": "sz002594", "name": "比亚迪", "price": 96.44, "change_pct": 0.50, "cost": 99.261, "shares": 200, "pnl_pct": -2.84},
+    {"code": "sh513580", "name": "恒生科技ETF", "price": 0.626, "change_pct": 1.95, "cost": 0.773, "shares": 32500, "pnl_pct": -19.02},
+    {"code": "sz159941", "name": "纳指ETF", "price": 1.615, "change_pct": -1.82, "cost": 1.343, "shares": 3000, "pnl_pct": 20.25},
+    {"code": "sz159995", "name": "芯片ETF", "price": 2.693, "change_pct": -1.25, "cost": 1.694, "shares": 4400, "pnl_pct": 58.97},
+    {"code": "sz161226", "name": "白银LOF", "price": 2.395, "change_pct": -1.84, "cost": 4.829, "shares": 794, "pnl_pct": -50.40},
+    {"code": "sh510300", "name": "沪深300ETF", "price": 4.937, "change_pct": 1.54, "cost": 3.722, "shares": 300, "pnl_pct": 32.64},
+    {"code": "sh513050", "name": "中概互联ETF", "price": 1.144, "change_pct": 0.26, "cost": 1.572, "shares": 5600, "pnl_pct": -27.23},
+    {"code": "sz516010", "name": "游戏ETF", "price": 1.168, "change_pct": -0.60, "cost": 1.642, "shares": 18000, "pnl_pct": -28.87},
+    {"code": "sh518880", "name": "黄金ETF", "price": 9.451, "change_pct": -0.64, "cost": 9.095, "shares": 1100, "pnl_pct": 3.91},
+    {"code": "sh588000", "name": "科创50ETF", "price": 1.964, "change_pct": -1.70, "cost": 1.480, "shares": 3100, "pnl_pct": 32.70},
+    {"code": "sh601600", "name": "中国铝业", "price": 12.09, "change_pct": 10.01, "cost": 15.023, "shares": 400, "pnl_pct": -19.52},
+    {"code": "sh601899", "name": "紫金矿业", "price": 32.71, "change_pct": 4.34, "cost": 33.379, "shares": 400, "pnl_pct": -2.00},
+    {"code": "sh601985", "name": "中国核电", "price": 8.75, "change_pct": 0.00, "cost": 8.550, "shares": 500, "pnl_pct": 2.34}
+  ],
+  "actions": [
+    {"code": "sz159995", "name": "芯片ETF", "action": "止盈1/3", "amount": "卖出1500份", "cash": 4040, "reason": "条件②+③：浮盈+58.97%远超+50%止盈线2.54，板块拥挤+主力出逃"},
+    {"code": "sz161226", "name": "白银LOF", "action": "减仓300份", "amount": "卖出300份", "cash": 719, "reason": "条件①：基本面弱+动量弱+浮亏超-50%"},
+    {"code": "sh601600", "name": "中国铝业", "action": "持有观望", "amount": "0", "cash": 0, "reason": "涨停+10%但浮亏未回正，几内亚铝土矿管控利好，等14元再减"}
+  ],
+  "data_sources": {
+    "quotes": "westock-data(腾讯自选股) 14:30盘中 + NeoData",
+    "gold": "金投网 Au9999/COMEX",
+    "silver": "金投网 COMEX白银 + westock-data",
+    "news": "证券时报/新浪财经/东方财富/界面新闻/网易财经"
+  }
+}
