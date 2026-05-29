@@ -1,0 +1,461 @@
+{
+  "date": "2026-05-29",
+  "data_date": "2026-05-28",
+  "note": "A股价格T-1(5/28收盘);基金净值T-1(QDII为T-2);Au9999为5/29凌晨价",
+  "ashare": [
+    {
+      "code": "002594",
+      "name": "比亚迪",
+      "shares": 200,
+      "cost": 99.261,
+      "price": 95.22,
+      "chg_pct": 0.69,
+      "sector": "nev",
+      "mkt_val": 19044.0,
+      "cost_val": 19852.2,
+      "pnl": -808.2,
+      "pnl_pct": -4.07,
+      "daily_pnl": 130.5
+    },
+    {
+      "code": "513580",
+      "name": "恒生科技ETF",
+      "shares": 32500,
+      "cost": 0.773,
+      "price": 0.615,
+      "chg_pct": -0.16,
+      "sector": "hk",
+      "mkt_val": 19987.5,
+      "cost_val": 25122.5,
+      "pnl": -5135.0,
+      "pnl_pct": -20.44,
+      "daily_pnl": -32.03
+    },
+    {
+      "code": "159941",
+      "name": "纳指ETF",
+      "shares": 3000,
+      "cost": 1.343,
+      "price": 1.646,
+      "chg_pct": -0.18,
+      "sector": "game",
+      "mkt_val": 4938.0,
+      "cost_val": 4029.0,
+      "pnl": 909.0,
+      "pnl_pct": 22.56,
+      "daily_pnl": -8.9
+    },
+    {
+      "code": "159995",
+      "name": "芯片ETF",
+      "shares": 4400,
+      "cost": 1.694,
+      "price": 2.637,
+      "chg_pct": 0.23,
+      "sector": "ai",
+      "mkt_val": 11602.8,
+      "cost_val": 7453.6,
+      "pnl": 4149.2,
+      "pnl_pct": 55.67,
+      "daily_pnl": 26.63
+    },
+    {
+      "code": "161226",
+      "name": "白银LOF",
+      "shares": 794,
+      "cost": 4.829,
+      "price": 2.218,
+      "chg_pct": -3.4,
+      "sector": "gold",
+      "mkt_val": 1761.09,
+      "cost_val": 3834.23,
+      "pnl": -2073.13,
+      "pnl_pct": -54.07,
+      "daily_pnl": -61.98
+    },
+    {
+      "code": "510300",
+      "name": "沪深300ETF",
+      "shares": 300,
+      "cost": 3.722,
+      "price": 4.932,
+      "chg_pct": 0.0,
+      "sector": "hk",
+      "mkt_val": 1479.6,
+      "cost_val": 1116.6,
+      "pnl": 363.0,
+      "pnl_pct": 32.51,
+      "daily_pnl": 0
+    },
+    {
+      "code": "513050",
+      "name": "中概互联ETF",
+      "shares": 5600,
+      "cost": 1.572,
+      "price": 1.097,
+      "chg_pct": -2.57,
+      "sector": "hk",
+      "mkt_val": 6143.2,
+      "cost_val": 8803.2,
+      "pnl": -2660.0,
+      "pnl_pct": -30.22,
+      "daily_pnl": -162.04
+    },
+    {
+      "code": "516010",
+      "name": "游戏ETF",
+      "shares": 18000,
+      "cost": 1.642,
+      "price": 1.149,
+      "chg_pct": -0.78,
+      "sector": "game",
+      "mkt_val": 20682.0,
+      "cost_val": 29556.0,
+      "pnl": -8874.0,
+      "pnl_pct": -30.02,
+      "daily_pnl": -162.59
+    },
+    {
+      "code": "518880",
+      "name": "黄金ETF",
+      "shares": 1100,
+      "cost": 9.095,
+      "price": 9.132,
+      "chg_pct": -2.28,
+      "sector": "gold",
+      "mkt_val": 10045.2,
+      "cost_val": 10004.5,
+      "pnl": 40.7,
+      "pnl_pct": 0.41,
+      "daily_pnl": -234.37
+    },
+    {
+      "code": "588000",
+      "name": "科创50ETF",
+      "shares": 3100,
+      "cost": 1.48,
+      "price": 1.942,
+      "chg_pct": 1.62,
+      "sector": "ai",
+      "mkt_val": 6020.2,
+      "cost_val": 4588.0,
+      "pnl": 1432.2,
+      "pnl_pct": 31.22,
+      "daily_pnl": 95.97
+    },
+    {
+      "code": "601600",
+      "name": "中国铝业",
+      "shares": 400,
+      "cost": 15.023,
+      "price": 11.3,
+      "chg_pct": -4.56,
+      "sector": "cycle",
+      "mkt_val": 4520.0,
+      "cost_val": 6009.2,
+      "pnl": -1489.2,
+      "pnl_pct": -24.78,
+      "daily_pnl": -215.96
+    },
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "shares": 400,
+      "cost": 33.379,
+      "price": 30.71,
+      "chg_pct": -2.88,
+      "sector": "gold",
+      "mkt_val": 12284.0,
+      "cost_val": 13351.6,
+      "pnl": -1067.6,
+      "pnl_pct": -8.0,
+      "daily_pnl": -364.27
+    },
+    {
+      "code": "601985",
+      "name": "中国核电",
+      "shares": 500,
+      "cost": 8.55,
+      "price": 8.84,
+      "chg_pct": 1.38,
+      "sector": "cycle",
+      "mkt_val": 4420.0,
+      "cost_val": 4275.0,
+      "pnl": 145.0,
+      "pnl_pct": 3.39,
+      "daily_pnl": 60.17
+    }
+  ],
+  "gold_savings": {
+    "minsheng": {
+      "grams": 160.14,
+      "cost_per_gram": 1074.0,
+      "price_per_gram": 985.0
+    },
+    "zheshang": {
+      "grams": 51.45,
+      "cost_per_gram": 1125.61,
+      "price_per_gram": 985.0
+    }
+  },
+  "au9999": 985.0,
+  "comex_gold": 4525.1,
+  "indices": {
+    "上证指数": {
+      "price": 4098.64,
+      "chg": 0.12
+    },
+    "深证成指": {
+      "price": 15861.89,
+      "chg": 0.8
+    },
+    "创业板指": {
+      "price": 4125.07,
+      "chg": 1.96
+    }
+  },
+  "sector_summary": {
+    "ai": {
+      "label": "AI/半导体",
+      "color": "#3b82f6",
+      "emoji": "🔵",
+      "mkt_val": 17623.0,
+      "pnl": 5581.4,
+      "daily_pnl": 122.6,
+      "stock_count": 2
+    },
+    "overseas": {
+      "label": "海外QDII",
+      "color": "#06b6d4",
+      "emoji": "🌐",
+      "mkt_val": 0,
+      "pnl": 0,
+      "daily_pnl": 0,
+      "stock_count": 0
+    },
+    "nev": {
+      "label": "新能源车",
+      "color": "#10b981",
+      "emoji": "🚗",
+      "mkt_val": 19044.0,
+      "pnl": -808.2,
+      "daily_pnl": 130.5,
+      "stock_count": 1
+    },
+    "gold": {
+      "label": "黄金商品",
+      "color": "#f59e0b",
+      "emoji": "🥇",
+      "mkt_val": 232506.44,
+      "pnl": -24586.87,
+      "daily_pnl": -660.62,
+      "stock_count": 4
+    },
+    "hk": {
+      "label": "港股+宽基",
+      "color": "#8b5cf6",
+      "emoji": "🇭🇰",
+      "mkt_val": 27610.3,
+      "pnl": -7432.0,
+      "daily_pnl": -194.07,
+      "stock_count": 3
+    },
+    "cycle": {
+      "label": "周期/平衡",
+      "color": "#64748b",
+      "emoji": "⚙️",
+      "mkt_val": 8940.0,
+      "pnl": -1344.2,
+      "daily_pnl": -155.79,
+      "stock_count": 2
+    },
+    "game": {
+      "label": "游戏/纳指场内",
+      "color": "#ec4899",
+      "emoji": "🎮",
+      "mkt_val": 25620.0,
+      "pnl": -7965.0,
+      "daily_pnl": -171.49,
+      "stock_count": 2
+    },
+    "bond": {
+      "label": "债券固收",
+      "color": "#14b8a6",
+      "emoji": "🏦",
+      "mkt_val": 0,
+      "pnl": 0,
+      "daily_pnl": 0,
+      "stock_count": 0
+    }
+  },
+  "total_mkt_val": 331343.74,
+  "total_pnl": -36554.87,
+  "total_daily_pnl": -928.87,
+  "year_start": 540000,
+  "progress_to_15pct": -257.6,
+  "news": {
+    "ai": [
+      {
+        "date": "2026-05-29",
+        "source": "钜亨网/摩根士丹利",
+        "title": "大摩:中国HBM技术差距缩短至3-4年",
+        "summary": "长鑫存储HBM2E已送样,HBM3计划2026年量产;英伟达降级版H20将采用GDDR7替代HBM",
+        "url": "https://m.cnyes.com/news/print/5998474"
+      },
+      {
+        "date": "2026-05-28",
+        "source": "国金证券",
+        "title": "美国升级芯片管制,AI芯片国产替代加速",
+        "summary": "美撤销AI扩散规则+三项新规;黄仁勋称将推新中国特供芯片,用GDDR7替代HBM;国产芯片性能或超英伟达改版",
+        "url": "https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/search/rptid/800960704112/"
+      },
+      {
+        "date": "2026-05-20",
+        "source": "新浪财经",
+        "title": "英伟达官宣GB300,AI算力革命再提速",
+        "summary": "1.6T光模块成标配,液冷渗透率破30%,HBM堆叠ABF载板市场规模2025年达30亿美元",
+        "url": "https://finance.sina.cn/2025-05-20/detail-inexeiih2140699.d.html"
+      }
+    ],
+    "overseas": [
+      {
+        "date": "2026-05-29",
+        "source": "证券时报",
+        "title": "特朗普关税政策被美国联邦法院阻止",
+        "summary": "美联邦法院裁定特朗普4月2日关税越权;特朗普政府已上诉;纳指期货盘后涨1.8%,黄金跳水",
+        "url": "https://egs.stcn.com/news/detail/2054480.html"
+      },
+      {
+        "date": "2026-05-29",
+        "source": "中国商报",
+        "title": "美联储:经济前景不确定性异常高",
+        "summary": "FOMC纪要显示决策者担心关税推升通胀;连续第3次维持4.25%-4.5%不变;暗示不急于降息",
+        "url": "https://cj.sina.com.cn/articles/view/1958132051/74b6b95300101w4p8"
+      },
+      {
+        "date": "2026-05-29",
+        "source": "环球市场播报",
+        "title": "英伟达盘后大涨超4.9%",
+        "summary": "英伟达发布FY2026Q1财报;市场聚焦AI算力需求持续性;纳指/标普28日收盘跌0.51%/0.56%",
+        "url": "https://finance.sina.com.cn/stock/usstock/c/2025-05-28/doc-ineycrwx0436464.shtml"
+      }
+    ],
+    "nev": [
+      {
+        "date": "2026-06-01",
+        "source": "证券时报",
+        "title": "比亚迪5月销38.25万辆同比增15.3%",
+        "summary": "5月新能源车销量382476辆创年内新高;海外89047辆创历史新高;纯电204369辆超过插混",
+        "url": "https://stcn.com/article/detail/1853439.html"
+      },
+      {
+        "date": "2026-05-28",
+        "source": "澎湃新闻",
+        "title": "A股窄幅震荡,新能源车题材走弱",
+        "summary": "5/28新能源车/CRO/PEEK材料/光伏/固态电池走弱;大消费逆势走强;两市成交1.01万亿",
+        "url": "https://finance.eastmoney.com/a/202505283416731521.html"
+      },
+      {
+        "date": "2026-05-29",
+        "source": "华尔街见闻",
+        "title": "比亚迪新一轮大降价后销量涨股价跌",
+        "summary": "5月下旬比亚迪启动降价攻势,部分车型降幅达34%;零跑/吉利等对手迅速跟进",
+        "url": "https://3g.163.com/dy/article/K12A0FHQ05198NMR.html"
+      }
+    ],
+    "gold": [
+      {
+        "date": "2026-05-29",
+        "source": "FX168",
+        "title": "黄金暴跌后重返3320,美联储纪要显鹰",
+        "summary": "5/28现货黄金$3324涨0.7%;COMEX金$4525;美联储纪要暗示不急于降息利空金价;地缘缓和",
+        "url": "https://k.sina.com.cn/article_1663309857_63241821020019rgy.html"
+      },
+      {
+        "date": "2026-05-29",
+        "source": "创利金",
+        "title": "地缘缓和+美联储纪要显鹰,黄金持续回调",
+        "summary": "黄金TD收盘767.50;乌方向俄递交停火文件;特朗普称美伊核协议可能几周内达成;SPDR持仓925.61吨+3.15吨",
+        "url": "https://www.clgold.com/NewsInfo.aspx?Id=16743"
+      },
+      {
+        "date": "2026-05-29",
+        "source": "证券时报",
+        "title": "关税被法院阻止后黄金跳水",
+        "summary": "美联邦法院叫停关税→纳指期货涨1.8%→黄金短线跌6美元至$3250;避险需求降温",
+        "url": "https://egs.stcn.com/news/detail/2054480.html"
+      }
+    ],
+    "hk": [
+      {
+        "date": "2026-05-29",
+        "source": "中国证券报",
+        "title": "港股分化加剧,南向资金转战防御",
+        "summary": "5/28恒指-0.53%/恒生科技-0.15%;快手AI商业化涨逾5%;南向5月净流入258亿,金融吸金超223亿",
+        "url": "https://stcn.com/article/detail/1849731.html"
+      },
+      {
+        "date": "2026-05-28",
+        "source": "新浪财经",
+        "title": "AH溢价指数132.41,A股溢价32.41%",
+        "summary": "恒生AH溢价指数最新132.41,高于过去五年2.56%交易时间;宁德时代H股较A股折价2.64%",
+        "url": "https://finance.sina.com.cn/stock/stockzmt/2025-05-28/doc-ineycrww7759107.shtml"
+      },
+      {
+        "date": "2026-05-28",
+        "source": "财联社",
+        "title": "港股场内情绪平淡,空头再加码",
+        "summary": "恒指成交1808亿港元为近两周新低;沽空211.84亿港元占11.72%;小米/阿里/美团沽空金额居前",
+        "url": "https://www.hstong.com/news/detail/25052821550093278"
+      }
+    ],
+    "broad": [
+      {
+        "date": "2026-05-28",
+        "source": "澎湃新闻",
+        "title": "A股窄幅震荡,沪指微跌0.02%",
+        "summary": "沪指3339.93;深证成指10003.27;创业板1985.38;两市成交1.01万亿;北向净流入约15亿",
+        "url": "https://finance.eastmoney.com/a/202505283416731521.html"
+      },
+      {
+        "date": "2026-05-29",
+        "source": "巨丰投顾",
+        "title": "A股五连阴后谨防急跌",
+        "summary": "沪指连五日跌累计1.4%;成交从1.5万亿降至1.01万亿;银行逆势走强,科技/新能源大幅回调;存量资金向低估值防御迁移",
+        "url": "https://cj.sina.com.cn/articles/view/2619203540/9c1ddfd4027018j8e"
+      }
+    ],
+    "cycle": [
+      {
+        "date": "2026-05-30",
+        "source": "中金",
+        "title": "沪铜77830震荡,铝偏弱运行",
+        "summary": "沪铜主力78130涨0.1%;卡库拉地震短期影响;沪铝20200涨0.25%;几内亚撤销部分铝矿许可;镍-0.63%至120480",
+        "url": "https://www.cjfco.com.cn/main/a/20250530/79872.shtml"
+      },
+      {
+        "date": "2026-05-29",
+        "source": "新浪财经",
+        "title": "A股中国铝业-4.56%,紫金矿业-2.88%",
+        "summary": "铝业/有色板块领跌;5月PPI有色金属冶炼同比增速从9.3%降至2.3%;LME铝1-5月下降3.18%",
+        "url": "https://stcn.com/article/detail/1848625.html"
+      }
+    ],
+    "bond": [
+      {
+        "date": "2026-05-26",
+        "source": "中国金融信息网",
+        "title": "流动性投放加码,10年国债1.68-1.72窄幅震荡",
+        "summary": "5/15降准注入1万亿;5/23加量续做5000亿MLF;10年国债1.68%-1.72%窄幅震荡;预计短期1.65%-1.70%",
+        "url": "https://m.cnfin.com/yw-lb/zixun/20250526/4239402_1.html"
+      },
+      {
+        "date": "2026-05",
+        "source": "兴银基金",
+        "title": "5月10年国债上行5BP至1.67%",
+        "summary": "5月债市熊陡:30年国债+10BP至1.90%,10年+5BP至1.67%;3年以内信用债下行10BP;存款利率下调导致银行负债荒",
+        "url": "https://caifuhao.eastmoney.com/news/20250609105219863414010"
+      }
+    ]
+  }
+}
