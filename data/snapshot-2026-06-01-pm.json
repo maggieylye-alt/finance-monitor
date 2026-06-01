@@ -1,0 +1,62 @@
+{
+  "date": "2026-06-01",
+  "time": "14:30",
+  "type": "pm-action",
+  "indices": {
+    "hs300": {"price": 4838.43, "change_pct": -1.10},
+    "cyb": {"price": 3946.00, "change_pct": -2.28},
+    "sz50": {"price": 2891.40, "change_pct": -1.02},
+    "kc50": {"price": 4266.55, "change_pct": -2.45},
+    "hstech": {"price": 25394.72, "change_pct": 0.84}
+  },
+  "gold": {
+    "au9999": 985.50,
+    "au9999_change_pct": 0.54,
+    "comex": 4514.07,
+    "comex_change_pct": -0.56,
+    "cost_per_gram": 1086.55
+  },
+  "silver": {
+    "comex": 73.55,
+    "comex_change_pct": -3.00,
+    "lof_161226": 2.214,
+    "lof_change_pct": -0.18
+  },
+  "holdings": [
+    {"code": "sz002594", "name": "比亚迪", "shares": 200, "cost": 99.261, "price": 96.18, "change_pct": 0.31, "pnl_pct": -3.11},
+    {"code": "sz159995", "name": "芯片ETF", "shares": 4400, "cost": 1.694, "price": 2.352, "change_pct": -5.58, "pnl_pct": 38.84},
+    {"code": "sz159941", "name": "纳指ETF", "shares": 3000, "cost": 1.343, "price": 1.694, "change_pct": 2.92, "pnl_pct": 26.14},
+    {"code": "sz161226", "name": "白银LOF", "shares": 794, "cost": 4.829, "price": 2.214, "change_pct": -0.18, "pnl_pct": -54.15},
+    {"code": "sh510300", "name": "沪深300ETF", "shares": 300, "cost": 3.722, "price": 4.864, "change_pct": -1.20, "pnl_pct": 30.63},
+    {"code": "sz513050", "name": "中概互联ETF", "shares": 5600, "cost": 1.572, "price": 1.117, "change_pct": 1.46, "pnl_pct": -28.94},
+    {"code": "sz516010", "name": "游戏ETF", "shares": 18000, "cost": 1.642, "price": 1.158, "change_pct": 2.21, "pnl_pct": -29.48},
+    {"code": "sh518880", "name": "黄金ETF", "shares": 1100, "cost": 9.095, "price": 9.352, "change_pct": -0.48, "pnl_pct": 2.83},
+    {"code": "sh588000", "name": "科创50ETF", "shares": 3100, "cost": 1.480, "price": 1.754, "change_pct": -4.88, "pnl_pct": 18.51},
+    {"code": "sz513580", "name": "恒生科技ETF", "shares": 32500, "cost": 0.773, "price": 0.624, "change_pct": 1.30, "pnl_pct": -19.27},
+    {"code": "sh601600", "name": "中国铝业", "shares": 400, "cost": 15.023, "price": 11.26, "change_pct": -1.40, "pnl_pct": -25.03},
+    {"code": "sh601899", "name": "紫金矿业", "shares": 400, "cost": 33.379, "price": 30.16, "change_pct": -0.92, "pnl_pct": -9.65},
+    {"code": "sh601985", "name": "中国核电", "shares": 500, "cost": 8.550, "price": 9.17, "change_pct": 1.44, "pnl_pct": 7.25}
+  ],
+  "fund_flows": {
+    "sz159995": {"main_net": -11127679, "main_pct": -0.04},
+    "sh601600": {"main_net": -146502800, "main_pct": -0.10},
+    "sh601899": {"main_net": -179186429, "main_pct": -0.03},
+    "sh601985": {"main_net": 79308133, "main_pct": 0.05},
+    "sz002594": {"main_net": -791049492, "main_pct": -0.24},
+    "sh510300": {"main_net": -430379548, "main_pct": -0.32},
+    "sh518880": {"main_net": -40523059, "main_pct": -0.04},
+    "sh588000": {"main_net": -629408404, "main_pct": -1.06},
+    "sz159941": {"main_net": -166232017, "main_pct": -0.42},
+    "sz161226": {"main_net": -8704992, "main_pct": -0.11}
+  },
+  "key_news": [
+    {"title": "Computex 2026与GTC Taipei联动举行,黄仁勋6/1上午主题演讲,英伟达发布N1/N1X PC芯片", "source": "21世纪经济报道/网易财经", "date": "2026-06-01"},
+    {"title": "半导体板块集体暴跌-5.00%:大基金减持延续+高位获利了结+科创50跌-2.45%", "source": "中国基金报/证券时报", "date": "2026-06-01"},
+    {"title": "AI应用全线爆发:软通动力20cm涨停/雷神科技+29%/金蝶国际+19%/金山+7%", "source": "中国基金报/网易财经", "date": "2026-06-01"},
+    {"title": "煤炭板块涨停潮:焦煤期货+7%/焦炭+5%,大有能源等多股涨停", "source": "证券时报/山西证券", "date": "2026-06-01"},
+    {"title": "新能源车涨价反内卷:15家车企调涨2000-10000元,比亚迪自研4nm智驾芯片'璇玑A3'", "source": "华创证券/腾讯新闻", "date": "2026-06-01"},
+    {"title": "COMEX白银暴跌-3%至$73.55/盎司,金银比走扩", "source": "每日经济新闻/东方财富", "date": "2026-06-01"},
+    {"title": "比亚迪Q1营收1502亿(-11.82%)/净利40.85亿(-55.38%),东方证券维持买入目标价125.28元", "source": "东方证券/新浪财经", "date": "2026-06-01"},
+    {"title": "台积电计划2026下半年对先进制程提价15%,联电拟2027年全面调价", "source": "开源证券/界面新闻", "date": "2026-06-01"}
+  ]
+}
