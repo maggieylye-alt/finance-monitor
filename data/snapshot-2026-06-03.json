@@ -1,0 +1,634 @@
+{
+  "date": "2026-06-03",
+  "data_date": "2026-06-02",
+  "data_note": "A股场内为6/2收盘价; 基金净值为T-1(6/2或6/1), QDII为T-2(6/1); 黄金Au9999为6/3凌晨报价",
+  "indices": {
+    "上证指数": {
+      "price": 4075.1,
+      "chg_pct": 0.43
+    },
+    "深证成指": {
+      "price": 15591.13,
+      "chg_pct": 1.63
+    },
+    "创业板指": {
+      "price": 4055.87,
+      "chg_pct": 2.66
+    }
+  },
+  "au9999": 978.0,
+  "au9999_prev": 987.0,
+  "comex_gold": 4506.7,
+  "comex_gold_prev": 4519.9,
+  "total_value": 563123.12,
+  "total_day_pnl": 3716.56,
+  "total_pnl": -36775.5,
+  "annualized_pct": 4.28,
+  "target_15pct_progress": 28.5,
+  "year_start_value": 540000,
+  "sectors": {
+    "ai": {
+      "label": "AI/半导体",
+      "color": "#3b82f6",
+      "items": [
+        {
+          "code": "159995",
+          "name": "芯片ETF",
+          "price": 2.396,
+          "prev_close": 2.357,
+          "chg_pct": 1.65,
+          "shares": 4400,
+          "cost": 1.694,
+          "market_value": 10542.4,
+          "cost_value": 7453.6,
+          "pnl": 3088.8,
+          "pnl_pct": 41.44,
+          "day_pnl": 171.6,
+          "type": "ashare"
+        },
+        {
+          "code": "588000",
+          "name": "科创50ETF",
+          "price": 1.781,
+          "prev_close": 1.754,
+          "chg_pct": 1.54,
+          "shares": 3100,
+          "cost": 1.48,
+          "market_value": 5521.1,
+          "cost_value": 4588.0,
+          "pnl": 933.1,
+          "pnl_pct": 20.34,
+          "day_pnl": 83.7,
+          "type": "ashare"
+        },
+        {
+          "code": "012860",
+          "name": "国泰半导体材料设备联接A",
+          "nav": 3.0875,
+          "nav_date": "2026-06-01",
+          "chg_pct": 0.23,
+          "market_value": 15000,
+          "day_pnl": 34.5,
+          "type": "fund"
+        },
+        {
+          "code": "011609",
+          "name": "华夏科创板50联接A",
+          "nav": 1.2919,
+          "nav_date": "2026-06-02",
+          "chg_pct": 1.54,
+          "market_value": 12000,
+          "day_pnl": 184.8,
+          "type": "fund"
+        },
+        {
+          "code": "022365",
+          "name": "永赢光模块联接A",
+          "nav": 5.9116,
+          "nav_date": "2026-06-02",
+          "chg_pct": 3.03,
+          "market_value": 20000,
+          "day_pnl": 606.0,
+          "type": "fund"
+        },
+        {
+          "code": "008888",
+          "name": "华夏科技创新A",
+          "nav": 2.0352,
+          "nav_date": "2026-06-02",
+          "chg_pct": 1.63,
+          "market_value": 8000,
+          "day_pnl": 130.4,
+          "type": "fund"
+        },
+        {
+          "code": "018124",
+          "name": "景顺长城芯片产业联接A",
+          "nav": 2.3264,
+          "nav_date": "2026-06-02",
+          "chg_pct": 0.33,
+          "market_value": 8000,
+          "day_pnl": 26.4,
+          "type": "fund"
+        },
+        {
+          "code": "011213",
+          "name": "华夏半导体材料设备联接A",
+          "nav": 0.9897,
+          "nav_date": "2026-06-02",
+          "chg_pct": 2.06,
+          "market_value": 8000,
+          "day_pnl": 164.8,
+          "type": "fund"
+        }
+      ]
+    },
+    "overseas": {
+      "label": "海外QDII",
+      "color": "#06b6d4",
+      "items": [
+        {
+          "code": "014424",
+          "name": "华夏纳斯达克100联接A",
+          "nav": 0.8042,
+          "nav_date": "2026-06-02",
+          "chg_pct": -1.28,
+          "market_value": 10000,
+          "day_pnl": -128.0,
+          "type": "fund"
+        },
+        {
+          "code": "539001",
+          "name": "建信纳斯达克100A",
+          "nav": 3.5698,
+          "nav_date": "2026-06-01",
+          "chg_pct": 0.51,
+          "market_value": 12000,
+          "day_pnl": 61.2,
+          "type": "fund"
+        },
+        {
+          "code": "000369",
+          "name": "长信纳斯达克100A",
+          "nav": 2.348,
+          "nav_date": "2026-06-01",
+          "chg_pct": -1.59,
+          "market_value": 8000,
+          "day_pnl": -127.2,
+          "type": "fund"
+        },
+        {
+          "code": "160213",
+          "name": "国泰纳斯达克100A",
+          "nav": 4.646,
+          "nav_date": "2026-06-01",
+          "chg_pct": 0.54,
+          "market_value": 10000,
+          "day_pnl": 54.0,
+          "type": "fund"
+        },
+        {
+          "code": "018043",
+          "name": "华安纳斯达克100联接A",
+          "nav": 2.1125,
+          "nav_date": "2026-06-01",
+          "chg_pct": 0.54,
+          "market_value": 8000,
+          "day_pnl": 43.2,
+          "type": "fund"
+        },
+        {
+          "code": "050025",
+          "name": "博时标普500联接A",
+          "nav": 5.5693,
+          "nav_date": "2026-06-01",
+          "chg_pct": 0.25,
+          "market_value": 10000,
+          "day_pnl": 25.0,
+          "type": "fund"
+        },
+        {
+          "code": "241001",
+          "name": "华宝标普油气上游A",
+          "nav": 1.638,
+          "nav_date": "2026-06-01",
+          "chg_pct": -4.15,
+          "market_value": 6000,
+          "day_pnl": -249.0,
+          "type": "fund"
+        }
+      ]
+    },
+    "nev": {
+      "label": "新能源车",
+      "color": "#10b981",
+      "items": [
+        {
+          "code": "002594",
+          "name": "比亚迪",
+          "price": 96.76,
+          "prev_close": 93.65,
+          "chg_pct": 3.32,
+          "shares": 200,
+          "cost": 99.261,
+          "market_value": 19352.0,
+          "cost_value": 19852.2,
+          "pnl": -500.2,
+          "pnl_pct": -2.52,
+          "day_pnl": 622.0,
+          "type": "ashare"
+        },
+        {
+          "code": "003834",
+          "name": "华夏能源革新A",
+          "nav": 3.576,
+          "nav_date": "2026-06-02",
+          "chg_pct": 0.03,
+          "market_value": 15000,
+          "day_pnl": 4.5,
+          "type": "fund"
+        },
+        {
+          "code": "001528",
+          "name": "华夏新能源汽车联接A",
+          "nav": 3.443,
+          "nav_date": "2026-06-02",
+          "chg_pct": 0.23,
+          "market_value": 10000,
+          "day_pnl": 23.0,
+          "type": "fund"
+        },
+        {
+          "code": "161028",
+          "name": "富国新能源汽车指数A",
+          "nav": 1.22,
+          "nav_date": "2026-06-02",
+          "chg_pct": 0.49,
+          "market_value": 8000,
+          "day_pnl": 39.2,
+          "type": "fund"
+        },
+        {
+          "code": "002168",
+          "name": "嘉实新能源新材料A",
+          "nav": 3.335,
+          "nav_date": "2026-06-02",
+          "chg_pct": -0.24,
+          "market_value": 6000,
+          "day_pnl": -14.4,
+          "type": "fund"
+        },
+        {
+          "code": "011082",
+          "name": "申万菱信新能源汽车A",
+          "nav": 0.9634,
+          "nav_date": "2026-06-02",
+          "chg_pct": -1.2,
+          "market_value": 5000,
+          "day_pnl": -60.0,
+          "type": "fund"
+        },
+        {
+          "code": "003984",
+          "name": "申万菱信智能驱动A",
+          "nav": 2.9121,
+          "nav_date": "2026-06-02",
+          "chg_pct": -0.28,
+          "market_value": 5000,
+          "day_pnl": -14.0,
+          "type": "fund"
+        }
+      ]
+    },
+    "gold": {
+      "label": "黄金商品",
+      "color": "#f59e0b",
+      "items": [
+        {
+          "code": "518880",
+          "name": "黄金ETF",
+          "price": 9.41,
+          "prev_close": 9.344,
+          "chg_pct": 0.71,
+          "shares": 1100,
+          "cost": 9.095,
+          "market_value": 10351.0,
+          "cost_value": 10004.5,
+          "pnl": 346.5,
+          "pnl_pct": 3.46,
+          "day_pnl": 72.6,
+          "type": "ashare"
+        },
+        {
+          "code": "601899",
+          "name": "紫金矿业",
+          "price": 31.58,
+          "prev_close": 30.19,
+          "chg_pct": 4.6,
+          "shares": 400,
+          "cost": 33.379,
+          "market_value": 12632.0,
+          "cost_value": 13351.6,
+          "pnl": -719.6,
+          "pnl_pct": -5.39,
+          "day_pnl": 556.0,
+          "type": "ashare"
+        },
+        {
+          "code": "501018",
+          "name": "南方原油LOF",
+          "price": 1.982,
+          "prev_close": 1.965,
+          "chg_pct": 0.87,
+          "shares": 0,
+          "cost": 0,
+          "market_value": 0,
+          "cost_value": 0,
+          "pnl": 0,
+          "pnl_pct": 0,
+          "day_pnl": 0,
+          "type": "ashare"
+        },
+        {
+          "code": "161226",
+          "name": "白银LOF",
+          "price": 2.0592,
+          "prev_close": 2.0708,
+          "chg_pct": -0.56,
+          "shares": 794,
+          "cost": 4.829,
+          "market_value": 1635.0,
+          "cost_value": 3834.23,
+          "pnl": -2199.23,
+          "pnl_pct": -57.36,
+          "day_pnl": -9.21,
+          "type": "ashare"
+        },
+        {
+          "code": "GOLD_SAVE",
+          "name": "黄金积存金(民生+浙商)",
+          "price": 978.0,
+          "prev_close": 987.0,
+          "chg_pct": -0.91,
+          "shares": 1,
+          "cost": 1086.55,
+          "market_value": 206935.02,
+          "cost_value": 229902.99,
+          "pnl": -22967.97,
+          "pnl_pct": -9.99,
+          "day_pnl": -1.93,
+          "type": "gold_savings"
+        },
+        {
+          "code": "160221",
+          "name": "国投瑞银白银期货A",
+          "nav": 2.4071,
+          "nav_date": "2026-06-02",
+          "chg_pct": 3.15,
+          "market_value": 5000,
+          "day_pnl": 157.5,
+          "type": "fund"
+        }
+      ]
+    },
+    "hk": {
+      "label": "港股+宽基",
+      "color": "#8b5cf6",
+      "items": [
+        {
+          "code": "513050",
+          "name": "中概互联ETF",
+          "price": 1.183,
+          "prev_close": 1.118,
+          "chg_pct": 5.81,
+          "shares": 5600,
+          "cost": 1.572,
+          "market_value": 6624.8,
+          "cost_value": 8803.2,
+          "pnl": -2178.4,
+          "pnl_pct": -24.75,
+          "day_pnl": 364.0,
+          "type": "ashare"
+        },
+        {
+          "code": "513580",
+          "name": "恒生科技ETF",
+          "price": 0.65,
+          "prev_close": 0.626,
+          "chg_pct": 3.84,
+          "shares": 32500,
+          "cost": 0.773,
+          "market_value": 21125.0,
+          "cost_value": 25122.5,
+          "pnl": -3997.5,
+          "pnl_pct": -15.91,
+          "day_pnl": 780.0,
+          "type": "ashare"
+        },
+        {
+          "code": "510300",
+          "name": "沪深300ETF",
+          "price": 4.936,
+          "prev_close": 4.868,
+          "chg_pct": 1.4,
+          "shares": 300,
+          "cost": 3.722,
+          "market_value": 1480.8,
+          "cost_value": 1116.6,
+          "pnl": 364.2,
+          "pnl_pct": 32.62,
+          "day_pnl": 20.4,
+          "type": "ashare"
+        },
+        {
+          "code": "110020",
+          "name": "易方达沪深300非银ETF联接A",
+          "nav": 1.979,
+          "nav_date": "2026-06-02",
+          "chg_pct": 1.38,
+          "market_value": 8000,
+          "day_pnl": 110.4,
+          "type": "fund"
+        }
+      ]
+    },
+    "cycle": {
+      "label": "周期/平衡",
+      "color": "#64748b",
+      "items": [
+        {
+          "code": "601600",
+          "name": "中国铝业",
+          "price": 11.81,
+          "prev_close": 11.29,
+          "chg_pct": 4.61,
+          "shares": 400,
+          "cost": 15.023,
+          "market_value": 4724.0,
+          "cost_value": 6009.2,
+          "pnl": -1285.2,
+          "pnl_pct": -21.39,
+          "day_pnl": 208.0,
+          "type": "ashare"
+        },
+        {
+          "code": "601985",
+          "name": "中国核电",
+          "price": 9.28,
+          "prev_close": 9.18,
+          "chg_pct": 1.09,
+          "shares": 500,
+          "cost": 8.55,
+          "market_value": 4640.0,
+          "cost_value": 4275.0,
+          "pnl": 365.0,
+          "pnl_pct": 8.54,
+          "day_pnl": 50.0,
+          "type": "ashare"
+        },
+        {
+          "code": "163417",
+          "name": "汇添富环境治理指数A",
+          "nav": 2.2064,
+          "nav_date": "2026-06-02",
+          "chg_pct": 1.57,
+          "market_value": 5000,
+          "day_pnl": 78.5,
+          "type": "fund"
+        }
+      ]
+    },
+    "game": {
+      "label": "游戏/纳指场内",
+      "color": "#ec4899",
+      "items": [
+        {
+          "code": "516010",
+          "name": "游戏ETF",
+          "price": 1.126,
+          "prev_close": 1.159,
+          "chg_pct": -2.85,
+          "shares": 18000,
+          "cost": 1.642,
+          "market_value": 20268.0,
+          "cost_value": 29556.0,
+          "pnl": -9288.0,
+          "pnl_pct": -31.43,
+          "day_pnl": -594.0,
+          "type": "ashare"
+        },
+        {
+          "code": "159941",
+          "name": "纳指ETF",
+          "price": 1.764,
+          "prev_close": 1.694,
+          "chg_pct": 4.13,
+          "shares": 3000,
+          "cost": 1.343,
+          "market_value": 5292.0,
+          "cost_value": 4029.0,
+          "pnl": 1263.0,
+          "pnl_pct": 31.35,
+          "day_pnl": 210.0,
+          "type": "ashare"
+        },
+        {
+          "code": "012414",
+          "name": "国泰动漫游戏联接A",
+          "nav": 0.5714,
+          "nav_date": "2026-06-02",
+          "chg_pct": -1.5,
+          "market_value": 8000,
+          "day_pnl": -120.0,
+          "type": "fund"
+        }
+      ]
+    },
+    "bond": {
+      "label": "债券固收",
+      "color": "#14b8a6",
+      "items": [
+        {
+          "code": "004069",
+          "name": "天弘中证金融债A",
+          "nav": 1.1198,
+          "nav_date": "2026-06-02",
+          "chg_pct": 0.13,
+          "market_value": 12000,
+          "day_pnl": 15.6,
+          "type": "fund"
+        },
+        {
+          "code": "000961",
+          "name": "中加纯债一年A",
+          "nav": 1.7403,
+          "nav_date": "2026-06-02",
+          "chg_pct": 1.37,
+          "market_value": 10000,
+          "day_pnl": 137.0,
+          "type": "fund"
+        }
+      ]
+    }
+  },
+  "sector_summaries": {
+    "ai": {
+      "label": "AI/半导体",
+      "color": "#3b82f6",
+      "value": 87063.5,
+      "day_pnl": 1402.2,
+      "pnl": 4021.9,
+      "count": 8
+    },
+    "overseas": {
+      "label": "海外QDII",
+      "color": "#06b6d4",
+      "value": 64000,
+      "day_pnl": -320.8,
+      "pnl": 0,
+      "count": 7
+    },
+    "nev": {
+      "label": "新能源车",
+      "color": "#10b981",
+      "value": 68352.0,
+      "day_pnl": 600.3,
+      "pnl": -500.2,
+      "count": 7
+    },
+    "gold": {
+      "label": "黄金商品",
+      "color": "#f59e0b",
+      "value": 236553.02,
+      "day_pnl": 774.96,
+      "pnl": -25540.3,
+      "count": 6
+    },
+    "hk": {
+      "label": "港股+宽基",
+      "color": "#8b5cf6",
+      "value": 37230.6,
+      "day_pnl": 1274.8,
+      "pnl": -5811.7,
+      "count": 4
+    },
+    "cycle": {
+      "label": "周期/平衡",
+      "color": "#64748b",
+      "value": 14364.0,
+      "day_pnl": 336.5,
+      "pnl": -920.2,
+      "count": 3
+    },
+    "game": {
+      "label": "游戏/纳指场内",
+      "color": "#ec4899",
+      "value": 33560.0,
+      "day_pnl": -504.0,
+      "pnl": -8025.0,
+      "count": 3
+    },
+    "bond": {
+      "label": "债券固收",
+      "color": "#14b8a6",
+      "value": 22000,
+      "day_pnl": 152.6,
+      "pnl": 0,
+      "count": 2
+    }
+  },
+  "gold_savings": {
+    "minsheng": {
+      "grams": 160.14,
+      "cost_per_gram": 1074.0,
+      "value": 156616.92,
+      "pnl": -15373.44
+    },
+    "zheshang": {
+      "grams": 51.45,
+      "cost_per_gram": 1125.61,
+      "value": 50318.1,
+      "pnl": -7594.53
+    }
+  }
+}
