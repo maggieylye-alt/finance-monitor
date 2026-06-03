@@ -1,0 +1,372 @@
+{
+  "date": "2026-06-03",
+  "time": "14:30",
+  "data_source": "westock-data + NeoData + WebSearch",
+  "holdings": [
+    {
+      "code": "sz002594",
+      "name": "比亚迪",
+      "price": 94.62,
+      "prev_close": 96.76,
+      "chg_pct": -2.21,
+      "shares": 200,
+      "cost": 99.261,
+      "mkt_val": 18924.0,
+      "cost_val": 19852.2,
+      "pnl": -928.2,
+      "pnl_pct": -4.68,
+      "day_pnl": -428.0,
+      "sector": "nev"
+    },
+    {
+      "code": "sh513050",
+      "name": "中概互联ETF",
+      "price": 1.157,
+      "prev_close": 1.183,
+      "chg_pct": -2.2,
+      "shares": 5600,
+      "cost": 1.572,
+      "mkt_val": 6479.2,
+      "cost_val": 8803.2,
+      "pnl": -2324.0,
+      "pnl_pct": -26.4,
+      "day_pnl": -145.6,
+      "sector": "hk"
+    },
+    {
+      "code": "sz513580",
+      "name": "恒生科技ETF",
+      "price": 0.649,
+      "prev_close": 0.651,
+      "chg_pct": -0.31,
+      "shares": 32500,
+      "cost": 0.773,
+      "mkt_val": 21092.5,
+      "cost_val": 25122.5,
+      "pnl": -4030.0,
+      "pnl_pct": -16.04,
+      "day_pnl": -65.0,
+      "sector": "hk"
+    },
+    {
+      "code": "sz159941",
+      "name": "纳指ETF",
+      "price": 1.698,
+      "prev_close": 1.735,
+      "chg_pct": -2.13,
+      "shares": 3000,
+      "cost": 1.343,
+      "mkt_val": 5094.0,
+      "cost_val": 4029.0,
+      "pnl": 1065.0,
+      "pnl_pct": 26.43,
+      "day_pnl": -111.0,
+      "sector": "game"
+    },
+    {
+      "code": "sz159995",
+      "name": "芯片ETF",
+      "price": 2.458,
+      "prev_close": 2.396,
+      "chg_pct": 2.59,
+      "shares": 4400,
+      "cost": 1.694,
+      "mkt_val": 10815.2,
+      "cost_val": 7453.6,
+      "pnl": 3361.6,
+      "pnl_pct": 45.1,
+      "day_pnl": 272.8,
+      "sector": "ai"
+    },
+    {
+      "code": "sz161226",
+      "name": "白银LOF",
+      "price": 2.181,
+      "prev_close": 2.246,
+      "chg_pct": -2.89,
+      "shares": 794,
+      "cost": 4.829,
+      "mkt_val": 1731.71,
+      "cost_val": 3834.23,
+      "pnl": -2102.52,
+      "pnl_pct": -54.83,
+      "day_pnl": -51.62,
+      "sector": "gold"
+    },
+    {
+      "code": "sh510300",
+      "name": "沪深300ETF",
+      "price": 4.937,
+      "prev_close": 4.936,
+      "chg_pct": 0.02,
+      "shares": 300,
+      "cost": 3.722,
+      "mkt_val": 1481.1,
+      "cost_val": 1116.6,
+      "pnl": 364.5,
+      "pnl_pct": 32.65,
+      "day_pnl": 0.3,
+      "sector": "hk"
+    },
+    {
+      "code": "sz516010",
+      "name": "游戏ETF",
+      "price": 1.126,
+      "prev_close": 1.159,
+      "chg_pct": -2.85,
+      "shares": 18000,
+      "cost": 1.642,
+      "mkt_val": 20268.0,
+      "cost_val": 29556.0,
+      "pnl": -9288.0,
+      "pnl_pct": -31.41,
+      "day_pnl": -594.0,
+      "sector": "game"
+    },
+    {
+      "code": "sh518880",
+      "name": "黄金ETF",
+      "price": 9.278,
+      "prev_close": 9.41,
+      "chg_pct": -1.4,
+      "shares": 1100,
+      "cost": 9.095,
+      "mkt_val": 10205.8,
+      "cost_val": 10004.5,
+      "pnl": 201.3,
+      "pnl_pct": 2.01,
+      "day_pnl": -145.2,
+      "sector": "gold"
+    },
+    {
+      "code": "sh588000",
+      "name": "科创50ETF",
+      "price": 1.803,
+      "prev_close": 1.781,
+      "chg_pct": 1.24,
+      "shares": 3100,
+      "cost": 1.48,
+      "mkt_val": 5589.3,
+      "cost_val": 4588.0,
+      "pnl": 1001.3,
+      "pnl_pct": 21.82,
+      "day_pnl": 68.2,
+      "sector": "ai"
+    },
+    {
+      "code": "sh601600",
+      "name": "中国铝业",
+      "price": 11.86,
+      "prev_close": 11.81,
+      "chg_pct": 0.42,
+      "shares": 400,
+      "cost": 15.023,
+      "mkt_val": 4744.0,
+      "cost_val": 6009.2,
+      "pnl": -1265.2,
+      "pnl_pct": -21.06,
+      "day_pnl": 20.0,
+      "sector": "cycle"
+    },
+    {
+      "code": "sh601899",
+      "name": "紫金矿业",
+      "price": 31.1,
+      "prev_close": 31.58,
+      "chg_pct": -1.52,
+      "shares": 400,
+      "cost": 33.379,
+      "mkt_val": 12440.0,
+      "cost_val": 13351.6,
+      "pnl": -911.6,
+      "pnl_pct": -6.83,
+      "day_pnl": -192.0,
+      "sector": "gold"
+    },
+    {
+      "code": "sh601985",
+      "name": "中国核电",
+      "price": 9.25,
+      "prev_close": 9.28,
+      "chg_pct": -0.32,
+      "shares": 500,
+      "cost": 8.55,
+      "mkt_val": 4625.0,
+      "cost_val": 4275.0,
+      "pnl": 350.0,
+      "pnl_pct": 8.19,
+      "day_pnl": -15.0,
+      "sector": "cycle"
+    }
+  ],
+  "indices": {
+    "沪深300": {
+      "price": 4916.33,
+      "chg_pct": 0.04
+    },
+    "上证50": {
+      "price": 2913.47,
+      "chg_pct": -0.23
+    },
+    "创业板指": {
+      "price": 4090.28,
+      "chg_pct": 0.85
+    },
+    "科创50": {
+      "price": 1709.71,
+      "chg_pct": 1.13
+    },
+    "恒生科技": {
+      "price": 5052.07,
+      "chg_pct": -2.83
+    }
+  },
+  "au9999": {
+    "price": 973.26,
+    "prev_close": 987.0,
+    "chg_pct": -1.44
+  },
+  "comex_gold": {
+    "price": 4489.3,
+    "prev_close": 4519.9,
+    "chg_pct": -0.68
+  },
+  "comex_silver": {
+    "price": 74.71,
+    "prev_close": 75.556,
+    "chg_pct": -1.12
+  },
+  "total_a_share_value": 123489.81,
+  "total_a_share_pnl": -14505.82,
+  "total_a_share_day_pnl": -1386.12,
+  "gold_savings": {
+    "grams": 211.59,
+    "price_per_gram": 973.26,
+    "total_value": 205932.08,
+    "total_cost": 229902.99,
+    "pnl": -23970.91,
+    "pnl_pct": -10.43,
+    "day_chg_pct": -1.39
+  },
+  "trigger_lines": {
+    "gold_reduce_1086": {
+      "price": 973.26,
+      "status": "未触发(远低于1086)",
+      "distance": -10.37
+    },
+    "gold_reduce_1140": {
+      "price": 973.26,
+      "status": "未触发",
+      "distance": -14.62
+    },
+    "gold_reduce_1200": {
+      "price": 973.26,
+      "status": "未触发",
+      "distance": -18.79
+    },
+    "gold_buy_980": {
+      "price": 973.26,
+      "status": "已触发! Au9999跌破980",
+      "distance": -0.69
+    },
+    "gold_buy_940": {
+      "price": 973.26,
+      "status": "未触发",
+      "distance": 3.54
+    },
+    "chip_profit_50pct": {
+      "price": 2.458,
+      "target": 2.54,
+      "status": "未触发(距+50%线差3.3%)",
+      "pnl_pct": 45.1
+    },
+    "chip_buy_210": {
+      "price": 2.458,
+      "status": "未触发",
+      "distance": 14.57
+    },
+    "chip_buy_195": {
+      "price": 2.458,
+      "status": "未触发",
+      "distance": 20.59
+    },
+    "chip_buy_180": {
+      "price": 2.458,
+      "status": "未触发",
+      "distance": 26.65
+    }
+  },
+  "key_news": [
+    {
+      "time": "06/02",
+      "title": "Computex 2026: 英伟达Spectrum-X硅光技术全面量产",
+      "source": "证券时报",
+      "impact": "利好半导体/CPO"
+    },
+    {
+      "time": "06/03",
+      "title": "国务院明确算力网为国家核心基建，十五五投资7万亿",
+      "source": "东方财富",
+      "impact": "利好AI算力/光通信"
+    },
+    {
+      "time": "06/03",
+      "title": "五部门发布新能源汽车下乡配套细则",
+      "source": "东方财富",
+      "impact": "利好新能源车"
+    },
+    {
+      "time": "06/03",
+      "title": "联发科下一代芯片仅用英特尔EMIB-T先进封装",
+      "source": "证券时报",
+      "impact": "利好先进封装"
+    },
+    {
+      "time": "06/03",
+      "title": "SK海力士计划五年内晶圆产能翻番",
+      "source": "腾讯新闻",
+      "impact": "利好存储芯片"
+    },
+    {
+      "time": "06/03",
+      "title": "黄金跌破980，Au9999 ¥973.26",
+      "source": "NeoData",
+      "impact": "触发980补仓线"
+    },
+    {
+      "time": "06/03",
+      "title": "港股大跌，恒生科技-2.83%",
+      "source": "westock-data",
+      "impact": "利空港股持仓"
+    }
+  ],
+  "actions": [
+    {
+      "code": "sh518880",
+      "name": "黄金ETF",
+      "action": "加仓",
+      "tag": "buy",
+      "reason": "Au9999 ¥973.26已跌破980补仓线，条件⑤触发",
+      "detail": "加仓200份×9.278≈¥1,856",
+      "edge": "基本面未变+跌破980+距940仅3.5%"
+    },
+    {
+      "code": "sz161226",
+      "name": "白银LOF",
+      "action": "减仓",
+      "tag": "reduce",
+      "reason": "基本面弱+动量弱+浮亏-54.83%",
+      "detail": "减仓200份×2.181≈¥436",
+      "edge": "COMEX白银-1.12%+5日-5%+20日-20%"
+    },
+    {
+      "code": "sz159995",
+      "name": "芯片ETF",
+      "action": "持有监控",
+      "tag": "hold",
+      "reason": "浮盈+45.10%距+50%止盈线2.54差4.9%",
+      "detail": "盘中高2.55已触及2.54附近，需密切监控",
+      "edge": "基本面强(Computex+7万亿算力)+但盘中冲高回落"
+    }
+  ]
+}
