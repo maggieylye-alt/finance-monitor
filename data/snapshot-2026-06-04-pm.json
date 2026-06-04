@@ -1,0 +1,55 @@
+{
+  "date": "2026-06-04",
+  "time": "14:30",
+  "type": "pm_snapshot",
+  "indices": {
+    "hs300": {"price": 4906.11, "chg_pct": -0.66},
+    "cyb": {"price": 4086.10, "chg_pct": -0.89},
+    "szcz": {"price": 15664.12, "chg_pct": -0.26},
+    "hsi": {"price": 25229.93, "chg_pct": -1.57}
+  },
+  "gold": {
+    "au9999": 971.0,
+    "comex": 4434.25,
+    "au9999_chg": -1.0,
+    "comex_chg": -1.34
+  },
+  "silver": {
+    "spot": 73.50,
+    "ag_td": 17783,
+    "spot_chg": -2.0
+  },
+  "holdings": [
+    {"code": "sz002594", "name": "比亚迪", "price": 93.20, "chg_pct": -1.71, "cost": 99.261, "shares": 200, "pnl_pct": -6.10},
+    {"code": "sh510300", "name": "沪深300ETF", "price": 4.926, "chg_pct": -0.79, "cost": 3.722, "shares": 300, "pnl_pct": 32.35},
+    {"code": "sz159995", "name": "芯片ETF", "price": 2.483, "chg_pct": 3.63, "cost": 1.694, "shares": 4400, "pnl_pct": 46.58},
+    {"code": "sz159941", "name": "纳指ETF", "price": 1.707, "chg_pct": -1.61, "cost": 1.343, "shares": 3000, "pnl_pct": 27.10},
+    {"code": "sz513050", "name": "中概互联ETF", "price": 1.131, "chg_pct": -1.86, "cost": 1.572, "shares": 5600, "pnl_pct": -28.05},
+    {"code": "sz513580", "name": "恒生科技ETF", "price": 0.735, "chg_pct": -2.0, "cost": 0.773, "shares": 32500, "pnl_pct": -4.92},
+    {"code": "sz516010", "name": "游戏ETF", "price": 1.10, "chg_pct": -1.79, "cost": 1.642, "shares": 18000, "pnl_pct": -33.01},
+    {"code": "sz588000", "name": "科创50ETF", "price": 1.83, "chg_pct": 0.27, "cost": 1.480, "shares": 3100, "pnl_pct": 23.65},
+    {"code": "sh518880", "name": "黄金ETF", "price": 9.281, "chg_pct": -1.37, "cost": 9.095, "shares": 1100, "pnl_pct": 2.05},
+    {"code": "sz161226", "name": "白银LOF", "price": 2.154, "chg_pct": -1.51, "cost": 4.829, "shares": 794, "pnl_pct": -55.39},
+    {"code": "sh601600", "name": "中国铝业", "price": 10.90, "chg_pct": -9.24, "cost": 15.023, "shares": 400, "pnl_pct": -27.44},
+    {"code": "sh601899", "name": "紫金矿业", "price": 30.32, "chg_pct": -3.04, "cost": 33.379, "shares": 400, "pnl_pct": -9.16},
+    {"code": "sh601985", "name": "中国核电", "price": 9.25, "chg_pct": -0.11, "cost": 8.550, "shares": 500, "pnl_pct": 8.19}
+  ],
+  "fund_flows": {
+    "sz002594": {"main_net": -807956028, "jumbo_net": -739079355},
+    "sz159995": {"main_net": 31078527, "jumbo_net": 35220800},
+    "sz159941": {"main_net": -203862512, "jumbo_net": -180082051},
+    "sh518880": {"main_net": 177527375, "jumbo_net": 166679378},
+    "sz161226": {"main_net": -16018096, "jumbo_net": -3114393},
+    "sh601600": {"main_net": -960277904, "jumbo_net": -881250108},
+    "sh601899": {"main_net": -1127059512, "jumbo_net": -979958723},
+    "sh601985": {"main_net": 90687710, "jumbo_net": 81790445},
+    "sh510300": {"main_net": -271390298, "jumbo_net": 206410136}
+  },
+  "key_news": [
+    {"title": "美联储加息预期升温 有色金属全线暴跌", "source": "中国基金报/网易", "time": "2026-06-04"},
+    {"title": "半导体板块连涨三天 硅片涨价+全球市场破1.5万亿", "source": "证券时报/界面新闻", "time": "2026-06-04"},
+    {"title": "中国铝业逼近跌停 有色板块重挫", "source": "每经/搜狐", "time": "2026-06-04"},
+    {"title": "比亚迪与中国石化签署战略合作协议", "source": "盖世汽车", "time": "2026-06-03"},
+    {"title": "COMEX黄金跌破4430 白银跌超2%", "source": "金投网/腾讯新闻", "time": "2026-06-04"}
+  ]
+}
