@@ -1,0 +1,58 @@
+{
+  "date": "2026-06-05",
+  "time": "14:30",
+  "type": "pm_snapshot",
+  "indices": {
+    "hs300": {"price": 4809.51, "chg_pct": -1.94},
+    "cyb": {"price": 3950.40, "chg_pct": -3.39},
+    "szcz": {"price": 15289.73, "chg_pct": -2.37},
+    "hsi": {"price": 25003.71, "chg_pct": -0.99}
+  },
+  "gold": {
+    "au9999": 969.80,
+    "comex": 4437.78,
+    "au9999_chg": -0.48,
+    "comex_chg": -0.39
+  },
+  "silver": {
+    "spot": 72.10,
+    "comex_silver": 72.31,
+    "spot_chg": -2.39
+  },
+  "holdings": [
+    {"code": "sz002594", "name": "比亚迪", "price": 92.66, "chg_pct": -0.83, "cost": 99.261, "shares": 200, "pnl_pct": -6.65},
+    {"code": "sh510300", "name": "沪深300ETF", "price": 4.826, "chg_pct": -2.03, "cost": 3.722, "shares": 300, "pnl_pct": 29.61},
+    {"code": "sz159995", "name": "芯片ETF", "price": 2.530, "chg_pct": 1.89, "cost": 1.694, "shares": 4400, "pnl_pct": 49.35},
+    {"code": "sz159941", "name": "纳指ETF", "price": 1.653, "chg_pct": -1.20, "cost": 1.343, "shares": 3000, "pnl_pct": 23.08},
+    {"code": "sz513050", "name": "中概互联ETF", "price": 1.149, "chg_pct": -0.35, "cost": 1.572, "shares": 5600, "pnl_pct": -26.84},
+    {"code": "sz513580", "name": "恒生科技ETF", "price": 0.625, "chg_pct": -1.60, "cost": 0.773, "shares": 32500, "pnl_pct": -19.14},
+    {"code": "sz516010", "name": "游戏ETF", "price": 1.146, "chg_pct": 1.72, "cost": 1.642, "shares": 18000, "pnl_pct": -30.21},
+    {"code": "sz588000", "name": "科创50ETF", "price": 1.712, "chg_pct": -2.78, "cost": 1.480, "shares": 3100, "pnl_pct": 15.68},
+    {"code": "sh518880", "name": "黄金ETF", "price": 9.243, "chg_pct": -0.51, "cost": 9.095, "shares": 1100, "pnl_pct": 1.63},
+    {"code": "sz161226", "name": "白银LOF", "price": 2.106, "chg_pct": -2.23, "cost": 4.829, "shares": 794, "pnl_pct": -56.38},
+    {"code": "sh601600", "name": "中国铝业", "price": 10.66, "chg_pct": -2.20, "cost": 15.023, "shares": 400, "pnl_pct": -29.04},
+    {"code": "sh601899", "name": "紫金矿业", "price": 30.34, "chg_pct": -2.97, "cost": 33.379, "shares": 400, "pnl_pct": -9.12},
+    {"code": "sh601985", "name": "中国核电", "price": 8.98, "chg_pct": -2.92, "cost": 8.550, "shares": 500, "pnl_pct": 5.03}
+  ],
+  "fund_flows": {
+    "sh601899": {"main_net": -1547388483, "jumbo_net": -1462789238},
+    "sh601600": {"main_net": -269432340, "jumbo_net": -205465354},
+    "sh601985": {"main_net": -222685555, "jumbo_net": -193846105}
+  },
+  "key_news": [
+    {"title": "博通AI芯片指引不及预期 全球半导体暴跌 韩国触发熔断", "source": "证券时报/东方财富/智通财经", "time": "2026-06-05"},
+    {"title": "A股三大指数集体低开 半导体回调 大消费反弹", "source": "中国商报/证券时报", "time": "2026-06-05"},
+    {"title": "黄金跌破980 Au9999最低966.50 白银大跌-2.39%", "source": "金投网/金价查询网", "time": "2026-06-05"},
+    {"title": "商务部反对美滥用出口管制 冲击全球半导体供应链", "source": "证券时报", "time": "2026-06-05"},
+    {"title": "游戏ETF资金5日净流入超5200万 版号+AI游戏双利好", "source": "东方财富", "time": "2026-06-05"},
+    {"title": "道指创历史新高 资金轮动至金融消费 半导体遭抛售", "source": "网易/华尔街见闻", "time": "2026-06-05"},
+    {"title": "紫金矿业13笔大宗交易@31.30折价 主力净流出-15.47亿", "source": "westock-data asfund", "time": "2026-06-05"}
+  ],
+  "actions": [
+    {"code": "sz159995", "name": "芯片ETF", "action": "止盈", "amount": "卖出1500份", "reason": "条件③:盘中高2.547触及+50%止盈线2.54,PE(lyr)77.9高位", "cash": 3795},
+    {"code": "sh518880", "name": "黄金ETF", "action": "加仓", "amount": "买入200份", "reason": "条件⑤:Au9999¥969.80跌破980补仓线,基本面未变", "cash": -1849},
+    {"code": "sh601899", "name": "紫金矿业", "action": "减仓", "amount": "卖出2手(200股)", "reason": "条件①:金铜双杀+主力-15.47亿+大宗折价+动量弱", "cash": 6068},
+    {"code": "sz161226", "name": "白银LOF", "action": "减仓", "amount": "卖出200份", "reason": "条件①:COMEX白银-2.39%+浮亏-56.38%深水区+动量极弱", "cash": 421}
+  ],
+  "net_cash": 8435
+}
